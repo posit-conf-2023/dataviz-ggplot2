@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Engaging and Beautiful Data Visualizations with ggplot2
 ================
 
 ### posit::conf 2023
