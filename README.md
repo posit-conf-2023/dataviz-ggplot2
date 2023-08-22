@@ -3,7 +3,7 @@ Engaging and Beautiful Data Visualizations with ggplot2
 
 ### posit::conf 2023
 
-by INSTRUCTOR_NAME
+by Cédric Scherer
 
 -----
 
@@ -30,11 +30,19 @@ here.
 
 ## Overview
 
-ADD ABSTRACT
+### Description
 
-**This workshop is for you if you...*
+Creating effective and easily accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential skill for everyone working in a data-related field. Luckily, by leveraging the functionality of ggplot2, the most famous package for data visualization with R, and related extension packages one can create highly customized data visualization without the need for post-processing.
 
-ADD THREE POINTS
+This workshop provides everything one needs to know to create and customize numerous chart types with ggplot2. Participants will learn the most important steps and helpful tips to create visually appealing and informative graphics with a code-only approach. The power of ggplot2 and related extension packages will be illustrated with advanced real–life examples that help to understand useful coding tricks and the process of creating engaging and effective visualizations. The workshop will particularly focus on more advanced tasks with ggplot2 such as styling labels and titles, customizing themes and visual aesthetics, and using less-common chart types.
+
+### Audience
+
+This course is for you if you:
+
+* already know how to create basic graphics with the ggplot2 package,
+* aim to improve the design of your ggplot outputs, and
+* want to learn how to create more complex charts which feature multiple layers, annotations, text styling, custom themes, and more.
 
 ## Prework
 
@@ -71,7 +79,7 @@ RSTUDIO.CLOUD ACCOUNT, ETC.
 
 ## Instructor
 
-ADD INSTRUCTOR BIO
+[Cédric Scherer](https://cedricscherer.com) is a data visualization designer, consultant, and instructor helping clients and workshop participants to create engaging and effective graphics. As a graduated ecologist, he has acquired extensive hypothesis–driven research experience and problem–solving expertise in data wrangling, statistical analysis, and model development. As an independent data visualization designer, Cédric later combined his expertise in analyzing large data sets with his passion for design, colors, and typefaces. Cédric has designed graphics across all disciplines, purposes, and styles applying a code–first approach, and regularly talks about data visualization design and ggplot2 techniques. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
 
 -----
 
