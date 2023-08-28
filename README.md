@@ -3,7 +3,7 @@ Engaging and Beautiful Data Visualizations with ggplot2
 
 ### posit::conf 2023
 
-by Cédric Scherer
+by Cédric Scherer[<img src="https://raw.githubusercontent.com/rstudio-conf-2023/dataviz-ggplot2/main/images/logo.png" align="right" width="150">](https://posit-conf-2023.github.io/dataviz-ggplot2/)
 
 -----
 
