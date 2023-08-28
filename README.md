@@ -59,7 +59,7 @@ Download the most recent version of R (cloud.r-project.org, at least version 4.2
 You can install all required R packages at once by running the following code in the R command line:
 
 ```
-pkgs <- c("ggplot2", "dplyr", "tibble", "tidyr", "readr", "forcats", "stringr", "lubridate", "here", "scales", "ragg", "systemfonts", "racartocolor", "scico", "prismatic", "patchwork", "ggtext", "ggforce", "ggrepel")
+pkgs <- c("ggplot2", "dplyr", "tibble", "tidyr", "readr", "forcats", "stringr", "lubridate", "here", "scales", "ragg", "systemfonts", "rcartocolor", "scico", "prismatic", "patchwork", "ggtext", "ggforce", "ggrepel")
 unavailable <- setdiff(pkgs, rownames(installed.packages()))
 install.packages(unavailable)
 ```
@@ -86,11 +86,11 @@ We will make use of custom fonts during the course. If you want to follow all co
 * Asap: (fonts.google.com/specimen/Asap)[https://fonts.google.com/specimen/Asap]
 * Hepta Slab: (fonts.google.com/specimen/Hepta+Slab)[https://fonts.google.com/specimen/Hepta+Slab]
 
-You can download all typefaces as a single zip file here.
+You can download all typefaces as a single zip file [here]().
 
 ### For Mac OS Users
 
-If you want to save your visualization to PDF, please make sure that XQuartz (xquartz.org) is installed which is needed to use the cairo pdf device. 
+If you want to save your visualization to PDF, please make sure that [XQuartz](https://xquartz.org) is installed which is needed to use the cairo pdf device. 
 
 ### Course Communication
 
