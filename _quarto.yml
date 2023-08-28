@@ -10,7 +10,7 @@ website:
   page-navigation: true
   title: ""
   description: "Homepage for posit::conf(2023) workshop"
-  site-url: "https://posit-conf-2023.github.io/ggplot2-dataviz/"
+  site-url: "https://posit-conf-2023.github.io/dataviz-ggplot2/"
   
   repo-url: https://github.com/posit-conf-2023/dataviz-ggplot2
   repo-actions: [edit, issue]
