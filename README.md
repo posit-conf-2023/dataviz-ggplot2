@@ -7,20 +7,6 @@ by Cédric Scherer
 
 -----
 
-INSTRUCTIONS FOR INSTRUCTORS: Please insert information about your
-workshop below. Then, add workshop content in the materials folder and
-link to each session’s materials from the schedule below. You are
-welcomed to add more rows to the schedule. We just ask that you take
-breaks at the specified times. Once you are done adding information, you
-can remove these instructions from the README.
-
-Alternatively, you can completely redo the organization of this repo 
-as a Quarto website or some other format you prefer to host your workshop
-materials. The only requirement is that your workshop materials are hosted 
-here.
-
------
-
 :spiral_calendar: &ensp;September 18, 2023  
 :alarm_clock:     &ensp;09:00 - 17:00  
 :hotel:           &ensp;ROOM TBD  
@@ -42,40 +28,70 @@ This course is for you if you:
 
 * already know how to create basic graphics with the ggplot2 package,
 * aim to improve the design of your ggplot outputs, and
-* want to learn how to create more complex charts which feature multiple layers, annotations, text styling, custom themes, and more.
+* want to learn how to create more complex charts that feature multiple layers, annotations, text styling, custom themes, and more.
 
-## Prework
-
-ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.
 
 ## Schedule
 
-### Day 1
+| Time          | Activity                 |
+| :------------ | :----------------------- |
+| 09:00 - 10:30 | Fundamentals & Workflows |
+| 10:30 - 11:00 | *Coffee break*           |
+| 11:00 - 12:30 | Working with Text        |
+| 12:30 - 13:30 | *Lunch break*            |
+| 13:30 - 15:00 | Working with Themes      |
+| 15:00 - 15:30 | *Coffee break*           |
+| 15:30 - 17:00 | Working with Colors      |
 
-| Time          | Activity         |
-| :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
-| 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
-| 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
-| 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
 
-### Day 2
+## Prework
 
-| Time          | Activity         |
-| :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
-| 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
-| 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
-| 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+As this workshop focuses on (more) advanced topics, a solid understanding of the fundamentals of ggplot2 and also data preparation in R is helpful. The concepts of how to initialize a ggplot, map variables to aesthetics, and how aesthetics relate to scales should be familiar to you. If you want to refresh your knowledge, I suggest going through the first two chapters of the ggplot2 book by Hadley Wickham et al. ([introduction](ggplot2-book.org/introduction) and [getting started](ggplot2-book.org/getting-started)). The “R for Data Science” book also offers a good [overview of ggplot2](r4ds.hadley.nz/data-visualize) as well as [on data wrangling with the tidyverse](r4ds.hadley.nz/data-transform).
+
+You will need to bring your own laptop to the workshop with a recent version of R (4.3.1 or newer) and RStudio (2023.06.1 or newer) as well as a bunch of R packages and a few typefaces installed.
+
+### Install R and Rstudio: 
+
+Download the most recent version of R (cloud.r-project.org, at least version 4.2) and Rstudio (rstudio.com/products/rstudio/download, at least version 2023.06.1) and follow the installation steps.
+
+### Install R libraries: 
+
+You can install all required R packages at once by running the following code in the R command line:
+
+```
+pkgs <- c("ggplot2", "dplyr", "tibble", "tidyr", "readr", "forcats", "stringr", "lubridate", "here", "scales", "ragg", "systemfonts", "racartocolor", "scico", "prismatic", "patchwork", "ggtext", "ggforce", "ggrepel")
+unavailable <- setdiff(pkgs, rownames(installed.packages()))
+install.packages(unavailable)
+```
+
+To run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.
+
+A few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:
+
+```
+pkgs_opt <- c("viridis", "RColorBrewer", "MetBrewer", "ggthemes", "ggsci", "camcorder", "colorspace", "remotes")
+unavailable <- setdiff(pkgs_opt, rownames(installed.packages()))
+install.packages(unavailable)
+remotes::install_github("clauswilke/colorblindr")
+```
+
+If, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.
+
+### Install typefaces:
+
+We will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:
+
+* Spline Sans: (fonts.google.com/specimen/Spline+Sans)[https://fonts.google.com/specimen/Spline+Sans]
+* Spline Sans Mono: (fonts.google.com/specimen/Spline+Sans+Mono)[https://fonts.google.com/specimen/Spline+Sans+Mono]
+* Asap: (fonts.google.com/specimen/Asap)[https://fonts.google.com/specimen/Asap]
+* Hepta Slab: (fonts.google.com/specimen/Hepta+Slab)[https://fonts.google.com/specimen/Hepta+Slab]
+
+You can download all typefaces as a single zip file here.
+
+### For Mac OS users: 
+
+If you want to save your visualization to PDF, please make sure that XQuartz (xquartz.org) is installed which is needed to use the cairo pdf device. 
+
 
 ## Instructor
 
