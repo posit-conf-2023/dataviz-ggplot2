@@ -4,3 +4,6 @@
 .Ruserdata
 
 /.quarto/
+/_freeze/
+/site/
+*/.DS_Store
