@@ -2,90 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/index.html</loc>
-    <lastmod>2023-08-28T20:15:25.086Z</lastmod>
+    <lastmod>2023-08-28T20:27:57.065Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/license.html</loc>
-    <lastmod>2023-08-28T20:15:25.257Z</lastmod>
+    <lastmod>2023-08-28T20:27:57.251Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/00-welcome.html</loc>
-    <lastmod>2023-08-28T20:15:26.114Z</lastmod>
+    <lastmod>2023-08-28T20:27:58.070Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/01-fundamentals.html</loc>
-    <lastmod>2023-08-28T20:15:27.774Z</lastmod>
+    <lastmod>2023-08-28T20:27:59.316Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/02-text.html</loc>
-    <lastmod>2023-08-28T20:15:28.997Z</lastmod>
+    <lastmod>2023-08-28T20:28:00.404Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/03-colors.html</loc>
-    <lastmod>2023-08-28T20:15:33.690Z</lastmod>
+    <lastmod>2023-08-28T20:28:05.070Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/04-theming.html</loc>
-    <lastmod>2023-08-28T20:15:43.343Z</lastmod>
+    <lastmod>2023-08-28T20:28:14.449Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/solutions/01-fundamentals-solution.html</loc>
-    <lastmod>2023-08-28T20:15:44.907Z</lastmod>
+    <lastmod>2023-08-28T20:28:16.022Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/solutions/02-text-solution.html</loc>
-    <lastmod>2023-08-28T20:15:45.242Z</lastmod>
+    <lastmod>2023-08-28T20:28:16.351Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/solutions/03-colors-solution.html</loc>
-    <lastmod>2023-08-28T20:15:45.572Z</lastmod>
+    <lastmod>2023-08-28T20:28:16.712Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/materials/solutions/04-theming-solution.html</loc>
-    <lastmod>2023-08-28T20:15:45.919Z</lastmod>
+    <lastmod>2023-08-28T20:28:17.094Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s01-fundamentals.html</loc>
-    <lastmod>2023-08-28T20:15:46.201Z</lastmod>
+    <lastmod>2023-08-28T20:28:17.431Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s02-break.html</loc>
-    <lastmod>2023-08-28T20:15:46.376Z</lastmod>
+    <lastmod>2023-08-28T20:28:17.645Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s03-text.html</loc>
-    <lastmod>2023-08-28T20:15:46.564Z</lastmod>
+    <lastmod>2023-08-28T20:28:17.877Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s04-lunch.html</loc>
-    <lastmod>2023-08-28T20:15:46.742Z</lastmod>
+    <lastmod>2023-08-28T20:28:18.077Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s05-colors.html</loc>
-    <lastmod>2023-08-28T20:15:46.935Z</lastmod>
+    <lastmod>2023-08-28T20:28:18.280Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s06-break.html</loc>
-    <lastmod>2023-08-28T20:15:47.139Z</lastmod>
+    <lastmod>2023-08-28T20:28:18.477Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/modules/s07-theming.html</loc>
-    <lastmod>2023-08-28T20:15:47.340Z</lastmod>
+    <lastmod>2023-08-28T20:28:18.675Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/prework.html</loc>
-    <lastmod>2023-08-28T20:15:47.571Z</lastmod>
+    <lastmod>2023-08-28T20:28:18.965Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/resources.html</loc>
-    <lastmod>2023-08-28T20:15:47.736Z</lastmod>
+    <lastmod>2023-08-28T20:28:19.165Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/schedule.html</loc>
-    <lastmod>2023-08-28T20:15:48.016Z</lastmod>
+    <lastmod>2023-08-28T20:28:19.481Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2023.github.io/ggplot2-dataviz/team.html</loc>
-    <lastmod>2023-08-28T20:15:48.176Z</lastmod>
+    <lastmod>2023-08-28T20:28:19.692Z</lastmod>
   </url>
 </urlset>
