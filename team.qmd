@@ -1,0 +1,5 @@
+---
+title: "Teaching Team"
+---
+
+![](images/team-page.png){max-width="150%}

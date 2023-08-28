@@ -1,113 +1,111 @@
-Engaging and Beautiful Data Visualizations with ggplot2
-================
+# Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R
 
-### posit::conf 2023
+### An rstudio::conf(2022) Workshop by Cédric Scherer[<img src="https://raw.githubusercontent.com/rstudio-conf-2022/ggplot2-graphic-design/main/images/logo.png" align="right" width="150">](https://rstudio-conf-2022.github.io/ggplot2-graphic-design/)
 
-by Cédric Scherer[<img src="https://raw.githubusercontent.com/rstudio-conf-2023/dataviz-ggplot2/main/images/logo.png" align="right" width="150">](https://posit-conf-2023.github.io/dataviz-ggplot2/)
+------------------------------------------------------------------------
 
------
+:spiral_calendar: July 25 and 26, 2022  
+:alarm_clock: 09:00 - 17:00  
+:hotel: National Harbor 4/5  
+:writing_hand: [rstd.io/conf](http://rstd.io/conf)
 
-:spiral_calendar: &ensp;September 18, 2023  
-:alarm_clock:     &ensp;09:00 - 17:00  
-:hotel:           &ensp;ROOM TBD  
-:writing_hand:    &ensp;[pos.it/conf](http://pos.it/conf)
+------------------------------------------------------------------------
 
------
+# Course Overview
 
-## Overview
+Creating engaging and accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential tool in a data scientist's toolbox. After completing the course, participants will have a solid understanding of data visualization principles and the functionality of the ggplot2 graphics library and helpful extension libraries to create highly customized graphics without the need for post-processing.
 
-### Description
+We will discuss the main concepts of the grammar of graphics and use hands-on examples to explore ggplot2's utility to create multi-layered, more complex graphs. The workshop covers a short overview of the basics of ggplot2 and quickly focuses on the most important steps and helpful tips to create visually appealing and complex graphics both in theory and practice. The power of ggplot2 will be illustrated with advanced real--life examples that help to understand data visualization principles and useful coding tricks.
 
-Creating effective and easily accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential skill for everyone working in a data-related field. Luckily, by leveraging the functionality of ggplot2, the most famous package for data visualization with R, and related extension packages one can create highly customized data visualization without the need for post-processing.
+The course covers complex code examples that are suited for more experienced ggplot2 users but designed to be informative for participants with minimal prior experience in ggplot2 and data visualization. As part of the training, attendees can download the course material from the course webpage for future reference.
 
-This workshop provides everything one needs to know to create and customize numerous chart types with ggplot2. Participants will learn the most important steps and helpful tips to create visually appealing and informative graphics with a code-only approach. The power of ggplot2 and related extension packages will be illustrated with advanced real–life examples that help to understand useful coding tricks and the process of creating engaging and effective visualizations. The workshop will particularly focus on more advanced tasks with ggplot2 such as styling labels and titles, customizing themes and visual aesthetics, and using less-common chart types.
+## Learning objectives
 
-### Audience
+-   Understanding the general concepts of ggplot2.
+-   Learning the many options of customizing a ggplot.
+-   Gaining the major steps need to create engaging graphics.
+-   Being able to generate complex plots without the need of post-processing.
 
-This course is for you if you:
+## Is this course for me?
 
-* already know how to create basic graphics with the ggplot2 package,
-* aim to improve the design of your ggplot outputs, and
-* want to learn how to create more complex charts that feature multiple layers, annotations, text styling, custom themes, and more.
+This course will be appropriate for you if you answer yes to these questions:
 
+-   Do you aim to build graphics in a fully reproducible way without the need to manually adjust details afterwards?
 
-## Schedule
+-   Do you enjoy using the {ggplot2} package but are interested in doing more with it?
 
-| Time          | Activity                 |
-| :------------ | :----------------------- |
-| 09:00 - 10:30 | Fundamentals & Workflows |
-| 10:30 - 11:00 | *Coffee break*           |
-| 11:00 - 12:30 | Working with Text        |
-| 12:30 - 13:30 | *Lunch break*            |
-| 13:30 - 15:00 | Working with Themes      |
-| 15:00 - 15:30 | *Coffee break*           |
-| 15:30 - 17:00 | Working with Colors      |
+-   Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?
 
 
-## Prework
+# Instructor
 
-As this workshop focuses on (more) advanced topics, a solid understanding of the fundamentals of ggplot2 and also data preparation in R is helpful. The concepts of how to initialize a ggplot, map variables to aesthetics, and how aesthetics relate to scales should be familiar to you. If you want to refresh your knowledge, I suggest going through the first two chapters of the ggplot2 book by Hadley Wickham et al. ([introduction](ggplot2-book.org/introduction) and [getting started](ggplot2-book.org/getting-started)). The “R for Data Science” book also offers a good [overview of ggplot2](r4ds.hadley.nz/data-visualize) as well as [on data wrangling with the tidyverse](r4ds.hadley.nz/data-transform).
+[**Dr. Cédric Scherer**](http://cedricscherer.com/) (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programming language, and ggplot2. Due to regular participation in social data challenges such as [#TidyTuesday](https://github.com/rfordatascience/tidytuesday), he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
 
-You will need to bring your own laptop to the workshop with a recent version of R (4.3.1 or newer) and RStudio (2023.06.1 or newer) as well as a bunch of R packages and a few typefaces installed.
-
-### Install R and Rstudio: 
-
-Download the most recent version of R (cloud.r-project.org, at least version 4.2) and Rstudio (rstudio.com/products/rstudio/download, at least version 2023.06.1) and follow the installation steps.
-
-### Install R Libraries
-
-You can install all required R packages at once by running the following code in the R command line:
-
-```
-pkgs <- c("ggplot2", "dplyr", "tibble", "tidyr", "readr", "forcats", "stringr", "lubridate", "here", "scales", "ragg", "systemfonts", "rcartocolor", "scico", "prismatic", "patchwork", "ggtext", "ggforce", "ggrepel")
-unavailable <- setdiff(pkgs, rownames(installed.packages()))
-install.packages(unavailable)
-```
-
-To run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.
-
-A few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:
-
-```
-pkgs_opt <- c("viridis", "RColorBrewer", "MetBrewer", "ggthemes", "ggsci", "camcorder", "colorspace", "remotes")
-unavailable <- setdiff(pkgs_opt, rownames(installed.packages()))
-install.packages(unavailable)
-remotes::install_github("clauswilke/colorblindr")
-```
-
-If, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.
-
-### Install Typefaces
-
-We will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:
-
-* Asap: [fonts.google.com/specimen/Asap](https://fonts.google.com/specimen/Asap)
-* Spline Sans: [fonts.google.com/specimen/Spline+Sans](https://fonts.google.com/specimen/Spline+Sans)
-* Spline Sans Mono: [fonts.google.com/specimen/Spline+Sans+Mono](https://fonts.google.com/specimen/Spline+Sans+Mono)
-* Hepta Slab: [fonts.google.com/specimen/Hepta+Slab](https://fonts.google.com/specimen/Hepta+Slab)
-
-You can download all typefaces as a single zip file [here]().
-
-### For Mac OS Users
-
-If you want to save your visualization to PDF, please make sure that [XQuartz](https://xquartz.org) is installed which is needed to use the cairo pdf device. 
-
-### Course Communication
-
-We will be using Discord as our main communication method during the workshop. To make the process go smoothly:
-* Please sign up for an account at [discord.com](https://discord.com) if you don’t already have one.
-* Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
-In your “About Me”, put the name of your workshop(s).
-
-Closer to the start of the conference, you will be invited to join the posit::conf Discord server. Once you’ve accepted the invite, we will add you to the channel(s) for the workshop. 
+<a href="https://www.cedricscherer.com"><img border="0" alt="Blog" src="https://assets.dryicons.com/uploads/icon/svg/4926/home.svg" width="35" height="35"></a>&ensp;
+<a href="mailto:info@data-vizard.com"><img border="0" alt="Email" src="https://assets.dryicons.com/uploads/icon/svg/8009/02dc3a5c-6504-4347-85fb-3f510cfecc45.svg" width="35" height="35"></a>&ensp;
+<a href="https://twitter.com/CedScherer"><img border="0" alt="Twitter" src="https://assets.dryicons.com/uploads/icon/svg/8385/c23f7ffc-ca8d-4246-8978-ce9f6d5bcc99.svg" width="35" height="35"></a>&ensp;
+<a href="https://www.instagram.com/cedscherer/"><img border="0" alt="Instagram" src="https://assets.dryicons.com/uploads/icon/svg/8330/62263227-bb78-4b42-a9a9-e222e0cc7b97.svg" width="35" height="35"></a>&ensp;
+<a href="https://www.behance.net/cedscherer"><img border="0" alt="Behance" src="https://assets.dryicons.com/uploads/icon/svg/8264/04073ce3-5b98-4f32-88d3-82b2ef828066.svg" width="35" height="35"></a>&ensp;
+<a href="https://www.linkedin.com/in/cedricpscherer/"><img border="0" alt="LinkedIn" src="https://assets.dryicons.com/uploads/icon/svg/8337/a347cd89-1662-4421-be90-58e5e8004eae.svg" width="35" height="35"></a>&ensp;&emsp;
+<a href="https://www.buymeacoffee.com/z3tt" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" alt="Buy Me A Coffee" style="height: 35px !important;width: 122px !important;" ></a>
 
 
-## Instructor
+# Prework
 
-[Dr Cédric Scherer](https://cedricscherer.com) is a data visualization designer, consultant, and instructor helping clients and workshop participants to create engaging and effective graphics. As a graduated ecologist, he has acquired extensive hypothesis–driven research experience and problem–solving expertise in data wrangling, statistical analysis, and model development. As an independent data visualization designer, Cédric later combined his expertise in analyzing large data sets with his passion for design, colors, and typefaces. Cédric has designed graphics across all disciplines, purposes, and styles applying a code–first approach, and regularly talks about data visualization design and ggplot2 techniques. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
+The workshop will also cover the basic logic of ggplot2 and its components. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the "First Steps" chapter of the ggplot2 book by Hadley Wickham et al.: [ggplot2-book.org/getting-started.html](https://ggplot2-book.org/getting-started.html)
 
------
+The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.
 
-![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is
-licensed under a [Creative Commons Attribution 4.0 International
-License](https://creativecommons.org/licenses/by/4.0/).
+If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
+
+*For Mac OS users:*  
+Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
+
+### Required Packages
+
+-   **tidyverse packages and friends**
+    -   ggplot2, readr, tibble, dplyr, tidyr, forcats, stringr, lubridate, here, systemfonts, scales
+-   **extension packages**
+    -   ggrepel, ggforce, ggtext, ggdist, ggbeeswarm, gghalves, ggblur, patchwork
+-   **color packages**
+    -   viridis, RColorBrewer, rcartocolor, scico, ggsci, ggthemes, nord, MetBrewer, colorspace, colorblindr
+-   **util packages**
+    -   magick, grid, grDevices
+-   **data packages**
+    -   palmerpenguins, rnaturalearth
+-   **rspatial packages**
+    -   sf, rmapshaper
+
+#### Run this code to install the packages if needed:
+
+    packages <- c(
+      "ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr",
+      "lubridate", "here", "systemfonts", "magick", "scales", "grid",
+      "grDevices", "colorspace", "viridis", "RColorBrewer", "rcartocolor",
+      "scico", "ggsci", "ggthemes", "nord", "MetBrewer", "ggrepel",
+      "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork", 
+      "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"
+    )
+
+    install.packages(setdiff(packages, rownames(installed.packages())))  
+
+    ## install {colorblindr} and requirements
+    remotes::install_github("wilkelab/cowplot")
+    remotes::install_github("clauswilke/colorblindr")
+
+## Required Typefaces
+
+We will make use of custom fonts. A lot.  
+If you want to follow all contents locally, make sure the following typefaces are installed:
+
+-   Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](www.fonts.google.com/specimen/Roboto+Condensed)
+-   Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](www.fontshare.com/fonts/cabinet-grotesk)
+-   Tabular: [fontshare.com/fonts/tabular](www.fontshare.com/fonts/tabular)
+-   Boska: [fontshare.com/fonts/boska](www.fontshare.com/fonts/boska)
+-   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
+
+You can download all typefaces as a single zip file [here](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/ggplot2-course-fonts.zip).
+
+------------------------------------------------------------------------
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).<br>![](https://i.creativecommons.org/l/by/4.0/88x31.png)

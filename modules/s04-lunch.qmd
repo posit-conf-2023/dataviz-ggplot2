@@ -1,0 +1,11 @@
+---
+title: "Lunch Break"
+subtitle: "<span class='code' style='color:#b3b3b3;'>12:30-13:30</span>"
+date: "2023-09-18"
+image: "images/lunch-break.png"
+image-alt: "Plate and utensils."
+---
+
+::: callout-warning
+Please avoid questions during the lunch break to give us a chance to have a recover and reflect.
+:::

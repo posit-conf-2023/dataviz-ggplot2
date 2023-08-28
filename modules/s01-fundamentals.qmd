@@ -1,0 +1,40 @@
+---
+title: "Fundamentals & Workflows"
+subtitle: "<span class='code'>09:00-10:30</span>"
+date: "2023-09-18"
+image: "images/01-fundamentals.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/01-fundamentals.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/01-fundamentals.html' target="_blank">View slides in full screen</a>&ensp;|&ensp;<a href='../materials/scripts/01-fundamentals.R' target="_blank">Run the code yourself</a>
+
+# Outline
+
+-   <a href='../materials/00-welcome.html' target="_blank">Welcome</a>
+-   The {ggplot2} Package
+-   The {ggplot2} Showcase
+-   A Walk-Through Example
+-   Saving Plots
+-   Exercises
+
+# Exercises
+
+::: question
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per season.
+    -  Visualize bike counts per weather type and period as *bar chart*.
+-   **Polish the charts and export them in a format of your choice.**
+-   **Discuss / investigate with your neighbor:**
+    -  What are the differences between `geom_line()` and `geom_path()`?
+    -  Why can you use `geom_smooth()` and `stat_smooth()` interchangeably?
+    -  What are the three ways to *remove a legend* from a ggplot?
+    -  Which is your favorite theme? 
+    -  What is your favorite ggplot2 extension package?
+:::
+
+**&rarr;&ensp;<a href='../materials/solutions/01-fundamentals-solution.html' target="_blank">Solution</a>**

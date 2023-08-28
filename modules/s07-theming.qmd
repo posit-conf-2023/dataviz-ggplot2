@@ -1,0 +1,31 @@
+---
+title: "Data Communication"
+subtitle: "<span class='code'>15:30-17:00</span>"
+date: "2023-09-18"
+image: "images/04-theming.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/04-theming.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/04-theming.html' target="_blank">View slides in full screen</a>&ensp;|&ensp;<a href='../materials/scripts/04-theming.R' target="_blank">Run the code yourself</a>
+
+# Outline
+
+-   
+
+# Recap
+
+::: recap
+-   
+:::
+
+# Exercises
+
+::: question
+-   
+:::
+
+**&rarr;&ensp;<a href='../materials/solutions/04-theming-solution.html' target="_blank">Solution</a>**

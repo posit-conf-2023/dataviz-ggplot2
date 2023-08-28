@@ -1,0 +1,10 @@
+---
+title: "Coffee Break"
+subtitle: "<span class='code' style='color:#b3b3b3;'>15:00-15:30</span>"
+date: "2023-09-18"
+image: "images/coffee-break.png"
+image-alt: "A coffee cup."
+---
+
+Please avoid questions during the breaks to give us a chance to recover and reflect.
+If you have urgent questions, please contact any of the TAs.

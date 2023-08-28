@@ -1,0 +1,229 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+author: "<a href='https://www.cedricscherer.com' style='color:#28a87d;font-weight:600;'>Cédric Scherer</a>&ensp;//&ensp;posit::conf&ensp;//&ensp;September 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: img/logo.png
+    footer: '**[Cédric Scherer](https://cedricscherer.com)** // posit::conf(2023)'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+# Welcome 👋
+
+
+##  {background-image="img/intro/hello-blank.png" background-position="center" background-size="62%"}
+
+
+##  {background-image="img/intro/hello-team.png" background-position="center" background-size="62%"}
+
+
+##  {background-image="img/intro/team-hex-grid.png" background-position="center" background-size="105%"}
+
+
+##  {background-image="img/intro/hello-cedric.png" background-position="center" background-size="62%"}
+
+
+##  {background-image="img/intro/avatars-logo.png" background-position="center" background-size="80%"}
+
+
+##  {background-image="img/intro/projects-science.png" background-position="center" background-size="82%" background-color="#ABABAB"}
+
+::: footer
+:::
+
+
+##  {background-image="img/intro/projects-clients.png" background-position="center" background-size="77%" background-color="#ABABAB"}
+
+::: footer
+:::
+
+
+##  {background-image="img/intro/projects-personal.png" background-position="center" background-size="85%" background-color="#ABABAB"}
+
+::: footer
+:::
+
+
+##  {background-image="img/intro/blog.png" background-position="center" background-size="56%"}
+
+::: footer
+:::
+
+
+##  {background-image="img/intro/blog-tutorial.png" background-position="center" background-size="56%"}
+
+::: footer
+:::
+
+
+--------------------------------------------------------------------------------
+
+![[cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)](img/intro/ggplot-tutorial-overview.png){fig-align="center" fig-alt="Overview of some exemplary plots included in my ggplot2 tutorial."}
+
+
+##  {background-image="img/intro/blog-evol.png" background-position="center" background-size="56%"}
+
+::: footer
+:::
+
+
+--------------------------------------------------------------------------------
+
+![[cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot](https://www.cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot)](img/intro/evol-ggplot-1.gif){fig-align="center" fig-alt="Animated evolution of a jitter-pop plot showing student-teacher ratios per continent. The animation shows iteration through different geometries, theme adjustments, combinations of layers, and additional annotations such as text labels with arrows and an inset tile grid map with colors by region mathing those of the main graphic."}
+
+
+##  {background-image="img/intro/blog-rstudioconf.png" background-position="center" background-size="56%"}
+
+::: footer
+:::
+
+
+##  {background-image="img/intro/hello-thomas.png" background-position="center" background-size="62%"}
+
+
+##  {background-image="img/intro/thomas_artwork.png" background-position="center" background-size="70%"}
+
+::: footer
+:::
+
+
+##  {background-image="img/intro/hello-jasmin.png" background-position="center" background-size="62%"}
+
+
+##  {background-image="img/intro/hello-course.png" background-position="center" background-size="62%"}
+
+
+--------------------------------------------------------------------------------
+
+## Conversation Starters
+
+-   What's your name?
+-   Where do you feel home?
+-   When did you use R for the first time?
+-   What's your favorite animal / plant / color / typeface?
+-   Where did you spend your summer?
+-   Whom would you like to meet during the posit::conf?
+-   Which R package are you looking forward to try?
+-   What are things you want to learn about ggplot2?
+
+
+## UPDATE Announcements
+
+<br>
+
+#### WiFi
+-   Username: 
+-   Password: <br><br>
+
+#### Course Materials
+-   Webpage: [posit-conf-2023.github.io/dataviz-ggplot2](https://www.posit-conf-2023.github.io/dataviz-ggplot2)
+-   Rstudio Cloud: [posit.cloud/spaces/397253](https://posit.cloud/spaces/397253/content/all?sort=name_asc)
+
+
+## {.center}
+
+<div style='text-align:center;'>
+<a href="" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit-conf-2023.github.io/<br>dataviz-ggplot2</a>
+</div>
+
+
+## UPDATE Announcements
+
+::: incremental
+-   gender neutral bathrooms by the National Harbor rooms
+-   meditation room is located at National Harbor 9, open 8am-5pm, Monday-Thursday 
+  -   there is also has a dedicated room behind the reception
+-   lactation room is located at Potomac Dressing Room, open 8am-5pm, Monday-Thursday.
+-   participants with red lanyards wish to be not photographed, please note everyone's lanyard colors before taking a photo
+-   the Code of Conduct and COVID policies can be found at [rstudio.com/conference/2022/2022-conf-code-of-conduct](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct),<br>please review them carefully
+:::
+
+
+## Communication Strategy
+
+<br>
+
+::: incremental
+-   <b style='color:#28a87d;'>Green sticky note </b>--- I am done with the exercise<br><br>
+-   <b style='color:#b82ca1;'>Pink sticky note </b>--- I need help or support<br><br>
+-   You can ask questions / comment at any time during the course.
+-   Please avoid questions during the breaks to give us a chance to recover and reflect.
+-   Team up with your neighbors for exercises --- and lunch!
+-   We will collect feedback twice during the day (more later).
+:::
+
+
+# Preparation
+
+## Required Packages
+
+```{r}
+#| label: packages-install-tidyverse
+#| eval: false
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("readr")
+install.packages("forcats")
+install.packages("stringr")
+install.packages("lubridate")
+```
+
+::: fragment
+```{r}
+#| label: packages-install-other
+#| eval: false
+install.packages("here")
+install.packages("scales")
+install.packages("ragg")
+install.packages("systemfonts")
+install.packages("rcartocolor")
+install.packages("scico")
+install.packages("prismatic")
+install.packages("ggtext")
+install.packages("ggforce")
+install.packages("ggrepel")
+```
+:::
+
+
+## Optional Packages
+
+```{r}
+#| label: packages-install-optional
+#| eval: false
+install.packages("viridis")
+install.packages("RColorBrewer")
+install.packages("MetBrewer")
+install.packages("ggthemes")
+install.packages("ggsci")
+install.packages("camcorder")
+install.packages("colorspace")
+remotes::install_github("clauswilke/colorblindr")
+```
+
+
+# Let's get started!

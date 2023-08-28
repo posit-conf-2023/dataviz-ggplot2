@@ -1,0 +1,25 @@
+---
+title: "Schedule"
+listing:
+  - id: schedule
+    contents:
+      - modules/s*.qmd
+    type: table
+    fields: [image, subtitle, title]
+    field-display-names:
+      subtitle: "Time"
+      title: "Module"
+    table-hover: true
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [5,20,50,25]
+editor: source
+---
+
+Monday, September 18, 2023
+
+::: {#schedule}
+:::
+

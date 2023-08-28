@@ -1,0 +1,65 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,700;0,7..72,800;1,7..72,400;1,7..72,500;1,7..72,700;1,7..72,800&family=Spline+Sans+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&family=Spline+Sans:wght@400;500;700&display=swap&family=Asap:ital,wght@0,400;0,600;0,800;0,900;1,400;1,600;1,800;1,900&display=swap');
+  
+$font-family-sans-serif: 'Asap SemiCondensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+$font-family-serif: 'Literata', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;
+$presentation-heading-color: #28A87D;
+$presentation-heading-font-weight: 800;
+$link-color: #28a87d;
+$link-color-dark: #79dfbd;
+$link-color-visited: #28A87D;
+$link-color-hover: #28A87D;
+$presentation-selection-background-color: #C2D8D0;
+$presentation-title-slide-text-align: "left";
+$presentation-block-margin: .0375rem;
+
+/*-- scss:rules --*/
+
+h1 {
+  font-family: 'Literata', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;;
+  font-weight: 800;
+  font-style: italic;
+}
+
+h2, h3, span, body, .navbar-title {
+  font-family: 'Asap SemiCondensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+  font-feature-settings: "ss01" 1;
+}
+
+h2  {
+  font-weight: 600;
+}
+
+.navbar-title {
+  font-weight: 800;
+}
+
+code, .code {
+  font-family: 'Spline Sans Mono', 'Consolas', monospace;
+}
+
+.question {
+  border-left: 3px solid #28a87d;
+  padding: 0.5rem 0.5rem 0.2rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  background: #d9f6ec;
+}
+
+.recap {
+  border-left: 3px solid #663399;
+  padding: 0.5rem 0.5rem 0.2rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #e6d9f2;
+}
+
+.navbar {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.navbar-logo {
+  max-height: 60px;
+}

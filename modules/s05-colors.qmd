@@ -1,0 +1,31 @@
+---
+title: "Working with Colors"
+subtitle: "<span class='code'>13:30-15:00</span>"
+date: "2023-09-18"
+image: "images/03-colors.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/03-colors.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/03-colors.html' target="_blank">View slides in full screen</a>&ensp;|&ensp;<a href='../materials/scripts/03-colors.R' target="_blank">Run the code yourself</a>
+
+# Outline
+
+-   
+
+# Recap
+
+::: recap
+-   
+:::
+
+## Exercise
+
+::: question
+-   
+:::
+
+**&rarr;&ensp;<a href='../materials/solutions/03-colors-solution.html' target="_blank">Solution</a>**

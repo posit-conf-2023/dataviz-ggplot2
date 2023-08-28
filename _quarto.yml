@@ -1,0 +1,81 @@
+project:
+  type: website
+  resources:
+    - "images/twitter-card.png"
+  render:
+    - "*.qmd"
+    - "!materials/exercises"
+
+website:
+  page-navigation: true
+  title: ""
+  description: "Homepage for posit::conf(2023) workshop"
+  site-url: "https://posit-conf-2023.github.io/ggplot2-dataviz/"
+  
+  repo-url: https://github.com/posit-conf-2023/dataviz-ggplot2
+  repo-actions: [edit, issue]
+
+  open-graph: true
+  twitter-card:
+    creator: "@CedScherer"
+    image: "/images/twitter-card.png"
+
+  favicon: "/images/favicon.png"
+
+  page-footer:
+    left: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    right: "&copy; Copyright 2023"
+    background: "#D4EEE5"
+
+  navbar:
+    background: "#D4EEE5"
+    logo: "images/logo.png"
+    pinned: true
+    align: center
+    right:
+      - icon: download
+        text: Downloads
+        menu: 
+          - text: All Course Materials
+            href: ggplot2-course-material.zip
+          - text: Data Sets
+            href: ggplot2-course-data.zip
+          - text: Font Files
+            href: ggplot2-course-fonts.zip
+      - icon: file-certificate
+        href: license.qmd
+      - icon: github
+        href: https://github.com/posit-conf-2023/dataviz-ggplot2
+        text: GitHub
+      - icon: cloud-fill
+        href: https://posit.cloud/spaces/397253
+        text: Posit Cloud
+    left:
+      - text: Information
+        menu: 
+          - text: Prework
+            href: prework.qmd
+          - text: Schedule
+            href: schedule.qmd
+          - text: Teaching Team
+            href: team.qmd
+      - text: Sessions
+        menu: 
+          - text: Fundamentals & Workflows
+            href: modules/s01-fundamentals.qmd
+          - text: Working with Text
+            href: modules/s03-text.qmd
+          - text: Working with Colors
+            href: modules/s05-colors.qmd
+          - text: Working with Theming
+            href: modules/s07-theming.qmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    mainfont: "Asap SemiCondensed"
+

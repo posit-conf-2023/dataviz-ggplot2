@@ -1,0 +1,48 @@
+---
+title: "<i style='font-family:Literata;font-size:2.75rem;font-weight:800;line-height:.9;'>Engaging and Beautiful Data Visualizations with ggplot2</i>"
+---
+
+![](images/logo.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Course Hex Logo" width="185"}
+
+A posit::conf(2023) Workshop by Cédric Scherer
+
+------------------------------------------------------------------------
+
+<span class='code'>📆 &ensp;September 18, 2023</span>\
+<span class='code'>⏰ &ensp;09:00–17:00</span>\
+<span class='code'>🏨 &ensp;TBA</span>\
+<span class='code'>✍️ &ensp;[posit.co/conf](http://pos.it/conf)</span>
+
+------------------------------------------------------------------------
+
+# Course Overview
+
+Creating effective and easily accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential skill for everyone working in a data-related field. Luckily, by leveraging the functionality of ggplot2, the most famous package for data visualization with R, and related extension packages one can create highly customized data visualization without the need for post-processing.
+
+This workshop provides everything one needs to know to create and customize numerous chart types with ggplot2. Participants will learn the most important steps and helpful tips to create visually appealing and informative graphics with a code-only approach. The power of ggplot2 and related extension packages will be illustrated with advanced real–life examples that help to understand useful coding tricks and the process of creating engaging and effective visualizations. The workshop will particularly focus on more advanced tasks with ggplot2 such as styling labels and titles, customizing themes and visual aesthetics, and using less-common chart types.
+
+## Is this course for me?
+
+This course will be appropriate for you if you:
+
+* already know how to create basic graphics with the ggplot2 package,
+* aim to improve the design of your ggplot outputs, and
+* want to learn how to create more complex charts that feature multiple layers, annotations, text styling, custom themes, and more.
+
+![](images/cedric.png){style="float:right;padding: 0 0 5px 10px;" fig-alt="Headshot of the course instructor Cédric Scherer" width="165"}
+
+
+# Instructor
+
+[**Dr Cédric Scherer**](http://cedricscherer.com/) (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programming language, and ggplot2. Due to regular participation in social data challenges such as [#TidyTuesday](https://github.com/rfordatascience/tidytuesday), he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
+
+<div align="center">
+<a href="https://www.cedricscherer.com"><img border="0" alt="Blog" src="https://assets.dryicons.com/uploads/icon/svg/4926/home.svg" width="35" height="35"></a>&ensp;
+<a href="mailto:info@cedricscherer.com"><img border="0" alt="Email" src="https://assets.dryicons.com/uploads/icon/svg/8009/02dc3a5c-6504-4347-85fb-3f510cfecc45.svg" width="35" height="35"></a>&ensp;
+<a href="https://twitter.com/CedScherer"><img border="0" alt="Twitter" src="https://assets.dryicons.com/uploads/icon/svg/8385/c23f7ffc-ca8d-4246-8978-ce9f6d5bcc99.svg" width="35" height="35"></a>&ensp; 
+<a href="https://www.instagram.com/cedscherer/"><img border="0" alt="Instagram" src="https://assets.dryicons.com/uploads/icon/svg/8330/62263227-bb78-4b42-a9a9-e222e0cc7b97.svg" width="35" height="35"></a>&ensp;
+<a href="https://www.behance.net/cedscherer"><img border="0" alt="Behance" src="https://assets.dryicons.com/uploads/icon/svg/8264/04073ce3-5b98-4f32-88d3-82b2ef828066.svg" width="35" height="35"></a>&ensp;
+<a href="https://www.linkedin.com/in/cedricpscherer/"><img border="0" alt="LinkedIn" src="https://assets.dryicons.com/uploads/icon/svg/8337/a347cd89-1662-4421-be90-58e5e8004eae.svg" width="35" height="35"></a>&ensp;&emsp;
+<a href="https://www.buymeacoffee.com/z3tt" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" alt="Buy Me A Coffee" style="height: 35px !important;width: 122px !important;" ></a>
+</div>
+

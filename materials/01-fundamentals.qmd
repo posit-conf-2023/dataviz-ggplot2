@@ -1,0 +1,1283 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "<span style='font-size:2em;'>Fundamentals & Workflows</span>"
+author: "<a href='https://www.cedricscherer.com' style='color:#28a87d;font-weight:600;'>Cédric Scherer</a>&ensp;//&ensp;posit::conf&ensp;//&ensp;September 2023"
+format:
+  revealjs:
+    theme: slides.scss
+    logo: img/logo.png
+    footer: '[Cédric Scherer](https://cedricscherer.com) // posit::conf(2023)'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 10.1
+  fig-height: 6.3
+  fig-align: center
+---
+
+```{r}
+#| label: theme-set-basic
+#| include: false
+#| purl: false
+library(ggplot2)
+theme_set(theme_grey(base_size = 15))
+```
+
+##
+
+::: footer
+[{ggplot2} package description](https://ggplot2.tidyverse.org/)
+:::
+
+![](img/intro/ggplot2.png){fig-align="center" fig-alt="The ggplot2 hex logo."}
+
+<br>
+
+<b style='font-size:30pt;'><code>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson 2005).</b>
+
+::: fragment
+[You provide the data, tell <code>{ggplot2}</code> how to]{style="font-size:24pt;"} [map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
+:::
+
+## Advantages of {ggplot2}
+
+::: incremental
+-   consistent underlying "grammar of graphics" (Wilkinson 2005)\
+-   very flexible, layered plot specification\
+-   theme system for polishing plot appearance\
+-   lots of additional functionality thanks to extensions\
+-   active and helpful community
+:::
+
+
+## The Components of a ggplot
+
+<br>
+<table style='width:100%;font-size:16pt;'>
+  <tr>
+    <th>Component</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>*The raw data that you want to visualize.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>*The mapping between variables and visual properties*</td>
+  <tr>
+    <td><b style='color:#67676;'>Geometries</b></td>
+    <td><code>geom_*()</code></td>
+    <td>*The geometric shapes representing the data.*</td>
+  </tr>
+</table>
+
+--------------------------------------------------------------------------------
+
+![ggplot2 examples featured on [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/)](img/fundamentals/basic-ggplots.png){fig-align="center" fig-alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use only data, aesthetics, and layers with the defaults of ggplot2."}
+
+
+## The Components of a ggplot
+
+
+<br>
+<table style='width:100%;font-size:16pt;'>
+  <tr>
+    <th>Component</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>*The raw data that you want to visualize.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>*The mapping between variables and visual properties.*</td>
+  <tr>
+    <td><b style='color:#67676;'>Geometries</b></td>
+    <td><code>geom_*()</code></td>
+    <td>*The geometric shapes representing the data.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Statistics</b></td>
+    <td><code>stat_*()</code></td>
+    <td>*The statistical transformations applied to the data.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Scales</b></td>
+    <td><code>scale_*()</code></td>
+    <td>*The representation of mapped aesthetic attributes.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Coordinate System</b></td>
+    <td><code>coord_*()</code></td>
+    <td>*The transformation to map data coordinates into the plot plane.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Facets</b></td>
+    <td><code>facet_*()</code></td>
+    <td>*The arrangement of the data into a grid of small multiples.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Visual Themes</b></td>
+    <td><code>theme() | theme_*()</code></td>
+    <td>*The overall visual defaults of non-data elements of the graphic.*</td>
+  </tr>
+</table>
+
+--------------------------------------------------------------------------------
+
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/fundamentals/ah-ggplot2-exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
+
+--------------------------------------------------------------------------------
+
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/fundamentals/ah-ggplot2-masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
+
+
+# The {ggplot2} Showcase
+
+--------------------------------------------------------------------------------
+
+<br>
+
+![Collection of Graphics from the [BBC R Cookbook](https://bbc.github.io/rcookbook/)](img/showcase/bbc-gallery.png){fig-align="center" fig-alt="A multi-plot panel of various data visualizations created by the BBC teams."}
+
+--------------------------------------------------------------------------------
+
+<br>
+
+![Collection of Graphics from the [BBC R Cookbook](https://bbc.github.io/rcookbook/)](img/showcase/bbc-gallery-quote.png){fig-align="center" fig-alt="A multi-plot panel of various data visualizations created by the BBC teams."}
+
+--------------------------------------------------------------------------------
+
+![["Bill Dimensions of Brush-Tailed Penguins"](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2020_31)](img/showcase/palmer-penguins.png){fig-align="center" fig-size="80%" fig-alt="Distribution of coffee bean ratings by the Coffee Quality Institute for countries with 25 or more reviews (up to 2018). Distributions are shown as dot plots and multiple interval stripes."}
+
+--------------------------------------------------------------------------------
+
+![["Netflix Content Explosion"](https://twitter.com/tanya_shapiro/status/1610419176333627393) by Tanya Shapiro](img/showcase/netflix-originals-tanya-shapiro.jpeg){fig-align="center" fig-size="50%" fig-alt="rea graph of number of Netflix original series over time, annotated with images and labels."}
+
+--------------------------------------------------------------------------------
+
+![My reinterpreted [The Economist graphic](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](img/showcase/speech-speed.png){fig-align="center" fig-alt="The raincloud chart showing the distributions of normalized speech rates (dark pink) and information rates (dark lime green) across language families."}
+
+--------------------------------------------------------------------------------
+
+![["Not My Cup of Coffee"](https://www.behance.net/gallery/100638417/Not-My-Cup-of-Coffee)](img/showcase/coffee-ratings.png){fig-align="center" fig-alt="The raincloud chart showing the distributions of normalized speech rates (dark pink) and information rates (dark lime green) across language families."}
+
+--------------------------------------------------------------------------------
+
+![["Food Carbon Footprint Index 2018"](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2020_08)](img/showcase/20200307_TT_2020_08_CarbonFoodprint_alt.png){fig-align="center" fig-alt="Two circular hierarchical bar plots showing the carbon footprint 2018 for food consumption and CO2 per continent and country."}
+
+--------------------------------------------------------------------------------
+
+![["Popular Programming Languages in CRAN Packages"](https://twitter.com/spren9er/status/1195826547724374018) by Torsten Sprenger](img/showcase/cran-packages-torsten-sprenger.png){fig-align="center" fig-alt="A circular tree showing the programing languages used in CRAN packages, with nodes being grouped by languages and package names, sized by number of lines."}
+
+--------------------------------------------------------------------------------
+
+![["Appearance of X-Men Characters"](https://www.behance.net/gallery/100640345/Appearance-of-Popular-X-Men-Characters](img/showcase/xmen-comics.png){fig-align="center" fig-size="50%" fig-alt='Streamgraphs showing the appearance of the most common X-Men characters (Wovlerine, Magneto, Nightcrawler, Storm & Gambit) during the so-called "Claremont Run". Chris Claremont is a famous American comic book writer who was in charge of the "Uncanny X-Men" comic book series from 1975–1991. During that time he developed complex literary themes and strong female characters into superhero comics, and turning the X-Men into one of Marvel's most popular series.'}
+
+--------------------------------------------------------------------------------
+
+![["Artists in the US"](https://twitter.com/leeolney3/status/1574656040599265280) by Lee Olney](img/showcase/artists-usa-lee-olney.png){fig-align="center" fig-alt="A facet of barcodes showing location quotients from artists in the US by type and race."}
+
+--------------------------------------------------------------------------------
+
+<br>
+
+![My Contribution to the [SWDchallenge "Small Multiples"](https://www.storytellingwithdata.com/blog/2020/1/6/swdchallenge-small-multiples)](img/showcase/SWD_2020_01_SmallMultiples_grey.png){fig-align="center" fig-alt="A facet of shots and goals of the Bundesliga football clubs in the season 2019/20."}
+
+--------------------------------------------------------------------------------
+
+![["European Energy Generation"](github.com/jack-davison/tidytuesday) by Jack Davison](img/showcase/jack_davison.png){fig-align="center" fig-alt="A gridded map of Europe showing horizontal stacked bars of energy production per country over time (each bar represents share among one year from 2016 to 2018)."}
+
+--------------------------------------------------------------------------------
+
+![[Moon Charts as a Tile Grid Map](https://github.com/z3tt/grid-btw-wahlkreise-constituencies) showing the 2nd Vote Results from the German Election 2021](img/showcase/btw21_tile_grid_moon_second_de.png){fig-align="center" fig-alt="A grid map using moon charts for all 297 electoral districts which show the share of the wnning party in second votesc during the German election in 2021."}
+
+--------------------------------------------------------------------------------
+
+![Our Winning Contribution to the [BES MoveMap Contest](https://besmovesig.wordpress.com/2021/02/25/mapping-movements-the-art-and-the-science-we-have-the-winners/)](img/showcase/20210131_BES_CheetahMap_rcarto.png){fig-align="center" fig-alt="A spatial map of cheetah movement and their hotspot behaviour in Namibia."}
+
+--------------------------------------------------------------------------------
+
+![[Bivariate Choropleth x Hillshade Map](timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf) by Timo Gossenbacher](img/showcase/swiss_map.png){fig-align="center" fig-alt="A spatial map of income and inequality shown with a bivariate color palette; alpine regions have a hillshading effect."}
+
+--------------------------------------------------------------------------------
+
+![Pixel Art by [Georgios Karamanis](https://karaman.is/)](img/showcase/bob-ross-pixel-art-georgios.png){fig-align="center" fig-alt="A set of small multiples using pixelated encodings of certain elements in Bob Ross' paintings."}
+
+--------------------------------------------------------------------------------
+
+![Generative Art by [Thomas Lin Pedersen](https://www.data-imaginist.com/art)](img/showcase/genart.png){fig-align="center" fig-alt="Two artworks by Thomas Pedersen, completely generated in R with ggplot2 (and pure magic)."}
+
+
+# A Walk-Through Example
+
+
+## The Data Set
+
+<b style='font-size:2.3rem;'>Bike sharing counts in London, UK, powered by [TfL Open Data](https://tfl.gov.uk/modes/cycling/santander-cycles)</b>
+
+::: incremental
+-   covers the years 2015 and 2016
+-   incl. weather data acquired from [freemeteo.com](https://freemeteo.com)
+-   prepared by Hristo Mavrodiev for [Kaggle](https://www.kaggle.com/hmavrodiev/london-bike-sharing-dataset)
+-   further modification by myself
+:::
+
+
+## The Data Set
+
+```{r}
+#| label: import-data
+#| cache: false
+library(readr)
+library(ggplot2)
+
+bikes <-
+  read_csv(
+    here::here("data", "london-bikes.csv"),
+    col_types = "Dcfffilllddddc"
+  )
+```
+
+
+## The Data Set
+
+```{r}
+#| label: view-data
+#| class-output: hscroll
+bikes
+```
+
+
+
+## The Data Set
+
+```{r}
+#| label: data-table
+#| echo: false
+#| purl: false
+tibble::tibble(
+    Variable = names(bikes),
+    Description = c(
+      "Date encoded as `YYYY-MM-DD`", "`day` (6:00am–5:59pm) or `night` (6:00pm–5:59am)", "`2015` or `2016`", "`1` (January) to `12` (December)", "`0` (spring), `1` (summer), `2` (autumn), or `3` (winter)", "Sum of reported bikes rented", "`TRUE` being Monday to Friday and no bank holiday", "`TRUE` being Saturday or Sunday", "`TRUE` being a bank holiday in the UK", "Average air temperature (°C)", "Average feels like temperature (°C)", "Average air humidity (%)", "Average wind speed (km/h)", "Most common weather type"
+    ),
+    Class = c(
+      "date", "character", "factor", "factor", "factor", "integer", "logical", "logical", "logical", "double", "double", "double", "double", "character"
+    )
+  ) |>
+  kableExtra::kbl(
+    booktabs = TRUE, longtable = TRUE
+  ) |>
+  kableExtra::kable_styling(
+    font_size = 20
+  ) |>
+  kableExtra::kable_minimal(
+    "hover", full_width = TRUE, position = "left", html_font = "Spline Sans Mono"
+  )
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-full
+#| echo: false
+#| cache: false
+#| purl: false
+# create named color vector
+colors <- c(
+  `0` = "#1EC98D",
+  `1` = "#F7B01B",
+  `2` = "#A26E7C",
+  `3` = "#6681FE"
+)
+
+# scatter plot of plot bikes$count versus bikes$temp_feel
+ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  # add points
+  geom_point(
+    # color mapping only applied to points
+    aes(color = season), 
+    # setting larger points with 50% opacity
+    alpha = .5, size = 1.5
+  ) + 
+  # add a smoothing
+  stat_smooth(  # also: geom_smooth()
+    # use linear fitting + draw black smoothing lines
+    method = "lm", color = "black"
+  ) +
+  # small multiples
+  facet_grid(
+    day_night ~ year,  # also: vars(day_night), vars(year)
+    # free y axis range
+    scales = "free_y", 
+    # scale heights proportionally 
+    space = "free_y"
+  ) +
+  # x axis
+  scale_x_continuous(
+    # add °C symbol
+    labels = function(x) paste0(x, "°C"), 
+    # use 5°C spacing
+    breaks = -1:6*5  # also: seq(-5, 30, by = 5)
+  ) +
+  # y axis
+  scale_y_continuous(
+    # add a thousand separator
+    labels = scales::label_comma(), 
+    # use consistent spacing across rows
+    breaks = 0:5*10000
+  ) +
+  # colors
+  scale_color_manual(
+    # use a custom color palette
+    values = colors,
+    # and overwrite legend keys
+    labels = c("Winter", "Spring", "Summer", "Autumn"),
+    # adjust symbol size in legend size
+    guide = guide_legend(override.aes = list(size = 4))
+  ) +
+  labs(
+    # overwrite axis and legend titles
+    x = "Average feels-like temperature", y = NULL, color = NULL,
+    # add plot title and caption
+    title = "Trends of Reported Bike Rents versus Feels-Like Temperature in London",
+    caption = "Data: TfL (Transport for London), Jan 2015–Dec 2016"
+  ) +
+  # add theme with a custom font + larger element sizes
+  theme_light(
+    base_size = 15, base_family = "Spline Sans"
+  ) +
+  # theme adjustments
+  theme(
+    plot.title.position = "plot", # left-align title 
+    plot.caption.position = "plot", # right-align caption
+    legend.position = "top", # place legend above plot
+    plot.title = element_text(face = "bold", size = rel(1.4)), # larger, bold title
+    axis.text = element_text(family = "Spline Sans Mono"), # monospaced font for axes
+    axis.title.x = element_text( # left-aligned, grey x axis label
+      hjust = 0, color = "grey20", margin = margin(t = 12)
+    ),
+    legend.text = element_text(size = rel(1)), # larger legend labels
+    strip.text = element_text(face = "bold", size = rel(1.15)), # larger, bold facet labels
+    panel.grid.major.x = element_blank(), # no vertical major lines
+    panel.grid.minor = element_blank(), # no minor grid lines
+    panel.spacing.x = unit(20, "pt"), # increase white space between panels
+    panel.spacing.y = unit(10, "pt"), # increase white space between panels
+    plot.margin = margin(rep(15, 4)) # adjust white space around plot
+  )
+```
+
+
+## A Default ggplot
+
+```{r}
+#| label: walkthrough-0
+#| eval: false
+# scatter plot of plot bikes$count versus bikes$temp_feel
+ggplot(data = bikes) +              # initial call + data
+  aes(x = temp_feel, y = count) +   # aesthetics
+  geom_point()                      # geometric layer
+```
+
+
+## A Default ggplot
+
+```{r}
+#| label: walkthrough-1
+#| eval: false
+#| purl: false
+# scatter plot of plot bikes$count versus bikes$temp_feel
+ggplot(bikes, aes(x = temp_feel, y = count)) +
+  geom_point()
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-1
+#| echo: false
+#| purl: false
+```
+
+
+## Combine Layers
+
+```{r}
+#| label: walkthrough-2
+#| eval: false
+#| purl: false
+#| code-line-numbers: "3,4"
+ggplot(bikes, aes(x = temp_feel, y = count)) +
+  geom_point() + 
+  # add a GAM smoothing
+  stat_smooth() # also: geom_smooth()
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-2
+#| echo: false
+#| purl: false
+```
+
+
+## Mapping Aesthetics
+
+```{r}
+#| label: walkthrough-3
+#| eval: false
+#| purl: false
+#| code-line-numbers: "1"
+ggplot(bikes, aes(x = temp_feel, y = count, color = day_night)) + 
+  geom_point() + 
+  stat_smooth()
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-3
+#| echo: false
+#| purl: false
+```
+
+
+##  Mapping Aesthetics
+
+```{r}
+#| label: walkthrough-4
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,3|4,5"
+ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  # color mapping only applied to points
+  geom_point(aes(color = day_night)) + 
+  # invisible grouping to create two trend lines
+  stat_smooth(aes(group = day_night))
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-4
+#| echo: false
+#| purl: false
+```
+
+
+## Setting Properties
+
+```{r}
+#| label: walkthrough-5
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,4,5|7,9,10"
+ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  geom_point(
+    aes(color = day_night), 
+    # setting larger points with 50% opacity
+    alpha = .5, size = 1.5
+  ) + 
+  stat_smooth(
+    aes(group = day_night), 
+    # use linear fitting + draw black smoothing lines
+    method = "lm", color = "black"
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-5
+#| echo: false
+#| purl: false
+```
+
+
+## Split into Facets
+
+```{r}
+#| label: walkthrough-6
+#| eval: false
+#| purl: false
+#| code-line-numbers: "9,10|10|6,7,8"
+ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  geom_point(
+    aes(color = day_night), 
+    alpha = .5, size = 1.5
+  ) + 
+  stat_smooth(
+    method = "lm", color = "black"
+  ) +
+  # small multiples
+  facet_wrap(facets = vars(day_night)) # also: ~ day_night
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-6
+#| echo: false
+#| purl: false
+```
+
+
+## Split into Facets
+
+```{r}
+#| label: walkthrough-7
+#| eval: false
+#| purl: false
+#| code-line-numbers: "9,10,11,12|3"
+ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  geom_point(
+    aes(color = season), 
+    alpha = .5, size = 1.5
+  ) + 
+  stat_smooth(
+    method = "lm", color = "black"
+  ) +
+  # small multiples
+  facet_grid(
+    rows = vars(day_night), cols = vars(year) # also: day_night ~ year
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-7
+#| echo: false
+#| purl: false
+```
+
+
+## Free Facets Axes
+
+```{r}
+#| label: walkthrough-8
+#| eval: false
+#| purl: false
+#| code-line-numbers: "11,12|13,14"
+ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  geom_point(
+    aes(color = season), 
+    alpha = .5, size = 1.5
+  ) + 
+  stat_smooth(
+    method = "lm", color = "black"
+  ) +
+  facet_grid(
+    day_night ~ year, 
+    # free y axis range
+    scales = "free_y", 
+    # scale heights proportionally
+    space = "free_y"
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-8
+#| echo: false
+#| purl: false
+```
+
+
+## Store ggplot
+
+```{r}
+#| label: walkthrough-store-object
+#| purl: false
+#| cache: false
+#| code-line-numbers: "1"
+g1 <- 
+  ggplot(bikes, aes(x = temp_feel, y = count)) + 
+  geom_point(
+    aes(color = season), 
+    alpha = .5, size = 1.5
+  ) + 
+  stat_smooth(
+    method = "lm", color = "black"
+  ) +
+  facet_grid(
+    day_night ~ year, 
+    scales = "free_y", 
+    space = "free_y"
+  )
+```
+
+
+## Change the Axis Scaling
+
+```{r}
+#| label: walkthrough-9a
+#| eval: false
+#| purl: false
+#| code-line-numbers: "1|2,3,8|4,5|6,7"
+g1 +
+  # x axis
+  scale_x_continuous(
+    # add °C symbol
+    labels = function(x) paste0(x, "°C"), 
+    # use 5°C spacing
+    breaks = -1:6*5  # also: seq(-5, 30, by = 5)
+  )
+```
+
+
+## Change the Axis Scaling
+
+```{r}
+#| label: walkthrough-9-code
+#| cache: false
+#| purl: false
+#| code-line-numbers: "9,10,16|12,13|14,15|1"
+g2 <- g1 +
+  # x axis
+  scale_x_continuous(
+    # add °C symbol
+    labels = function(x) paste0(x, "°C"), 
+    # use 5°C spacing
+    breaks = -1:6*5  # also: seq(-5, 30, by = 5)
+  ) +
+  # y axis
+  scale_y_continuous(
+    # add a thousand separator
+    labels = scales::label_comma(), 
+    # use consistent spacing across rows
+    breaks = 0:5*10000
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-9
+#| echo: false
+#| purl: false
+g2
+```
+
+
+## Use a Custom Color Palette
+
+```{r}
+#| label: walkthrough-10a
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,3,4,5"
+g2 +
+  # use a custom color palette for season colors
+  scale_color_manual(
+    values = c("#6681FE", "#1EC98D", "#F7B01B", "#A26E7C")
+  )
+```
+
+
+## Use a Custom Color Palette
+
+```{r}
+#| label: walkthrough-10
+#| eval: false
+#| cache: false
+#| purl: false
+#| code-line-numbers: "1,2,3,4,5,6,7|10,11,12"
+# use a named vector for explicit matching
+colors <- c(
+  `0` = "#1EC98D",
+  `1` = "#F7B01B",
+  `2` = "#A26E7C",
+  `3` = "#6681FE"
+)
+
+g2 +
+  scale_color_manual(
+    values = colors
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-10
+#| echo: false
+#| purl: false
+```
+
+
+## Adjust Labels and Titles
+
+```{r}
+#| label: walkthrough-11
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,5"
+g2 +
+  # overwrite legend keys
+  scale_color_manual(
+    values = colors,
+    labels = c("Winter", "Spring", "Summer", "Autumn")
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-11
+#| echo: false
+#| purl: false
+```
+
+
+## Adjust Labels and Titles
+
+```{r}
+#| label: walkthrough-12-code
+#| cache: false
+#| purl: false
+#| code-line-numbers: "6,12|7,8|9,10,11"
+g3 <- g2 +
+  scale_color_manual(
+    values = colors,
+    labels = c("Winter", "Spring", "Summer", "Autumn")
+  ) +
+  labs(
+    # overwrite axis and legend titles
+    x = "Average feels-like temperature", y = NULL, color = NULL,
+    # add plot title and caption
+    title = "Trends of Reported Bike Rents versus Feels-Like Temperature in London",
+    caption = "Data: TfL (Transport for London), Jan 2015–Dec 2016"
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-12
+#| echo: false
+#| purl: false
+g3
+```
+
+
+## Apply a Complete Theme
+
+```{r}
+#| label: walkthrough-13
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,3,4,5"
+g3 +
+  # add theme with a custom font + larger element sizes
+  theme_light(
+    base_size = 15, base_family = "Spline Sans"
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-13
+#| echo: false
+#| purl: false
+```
+
+
+## Apply a Complete Theme
+
+```{r}
+#| label: walkthrough-14-code
+#| cache: false
+#| purl: false
+#| code-line-numbers: "3,4,20|5,6,7|8,9,10,11,12,13,14|15,16|17,18|19"
+g4 <- g3 +
+  theme_light(base_size = 15, base_family = "Spline Sans") +
+  # theme adjustments
+  theme(
+    plot.title.position = "plot", # left-align title 
+    plot.caption.position = "plot", # right-align caption
+    legend.position = "top", # place legend above plot
+    plot.title = element_text(face = "bold", size = rel(1.4)), # larger, bold title
+    axis.text = element_text(family = "Spline Sans Mono"), # monospaced font for axes
+    axis.title.x = element_text( # left-aligned, grey x axis label
+      hjust = 0, color = "grey20", margin = margin(t = 12)
+    ),
+    legend.text = element_text(size = rel(1)), # larger legend labels
+    strip.text = element_text(face = "bold", size = rel(1.15)), # larger, bold facet labels
+    panel.grid.major.x = element_blank(), # no vertical major lines
+    panel.grid.minor = element_blank(), # no minor grid lines
+    panel.spacing.x = unit(20, "pt"), # increase white space between panels
+    panel.spacing.y = unit(10, "pt"), # increase white space between panels
+    plot.margin = margin(rep(15, 4)) # adjust white space around plot
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-14
+#| echo: false
+#| purl: false
+g4
+```
+
+
+## Adjust Legend
+
+```{r}
+#| label: walkthrough-15
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,3,4,5|4"
+g4 +
+  # adjust symbol size in legend
+  guides(
+    color = guide_legend(override.aes = list(size = 4))
+  )
+```
+
+
+## Adjust Legend
+
+```{r}
+#| label: walkthrough-15b
+#| eval: false
+#| purl: false
+#| code-line-numbers: "2,5,6,7|5,6"
+g4 +
+  scale_color_manual(
+    values = colors,
+    labels = c("Winter", "Spring", "Summer", "Autumn"),
+    # adjust symbol size in legend size
+    guide = guide_legend(override.aes = list(size = 4))
+  )
+```
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-15
+#| echo: false
+#| purl: false
+```
+
+
+--------------------------------------------------------------------------------
+
+## Full Code
+
+```{r}
+#| label: walkthrough-full
+#| eval: false
+```
+
+
+# Saving Plots
+
+
+## Save the Graphic
+
+<br>
+
+```{r}
+#| label: ggplot-save
+#| eval: false
+ggsave(filename = "my_plot.png", plot = g)
+```
+
+::: fragment
+```{r}
+#| label: ggplot-save-implicit
+#| eval: false
+ggsave("my_plot.png")
+```
+:::
+
+<br>
+
+::: fragment
+```{r}
+#| label: ggplot-save-aspect
+#| eval: false
+ggsave("my_plot.png", width = 6, height = 5, dpi = 600)
+```
+:::
+
+
+## Plot Resolution
+
+```{r}
+#| label: resolution-dpi-save
+#| include: false
+#| purl: false
+g_res <- 
+  ggplot(bikes, aes(x = temp, y = count, color = day_night)) +
+  geom_point(alpha = .3, size = 2) +
+  scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
+  theme_minimal(base_size = 18, base_family = "Asap SemiCondensed") +
+  theme(panel.grid.minor = element_blank(),
+        plot.title = element_text(family = "Spline Sans Mono", size = rel(.95), face = "bold", hjust = .5),
+        plot.subtitle = element_text(size = rel(1.1), hjust = .5, margin = margin(b = 20)),
+        plot.title.position = "plot")
+
+ggsave(here::here("materials", "plots", "example-plot.svg"), 
+       width = 6, height = 5, bg = "white")
+
+g_res + labs(title = "width = 5, height = 6, dpi = 100", subtitle = "500 px × 600 px  |  ~ 75 KB")
+ggsave(here::here("materials", "plots", "resolution-dpi-100.png"), 
+       width = 5, height = 6, dpi = 100, bg = "white")
+
+g_res + labs(title = "width = 5, height = 6, dpi = 600", subtitle = "2500 px × 3000 px  |  ~ 910 KB")
+ggsave(here::here("materials", "plots", "resolution-dpi-600.png"), 
+       width = 5, height = 6, dpi = 500, bg = "white")
+```
+
+::: {layout-ncol="2"}
+![](plots/resolution-dpi-100.png)
+
+![](plots/resolution-dpi-600.png)
+:::
+
+
+## Plot Resolution
+
+::: {layout-ncol="2"}
+![](img/fundamentals/resolution-dpi-100-zoom.png)
+
+![](img/fundamentals/resolution-dpi-600-zoom.png)
+:::
+
+
+## Save the Graphic
+
+<br>
+
+```{r}
+#| label: ggplot-save
+#| eval: false
+#| purl: false
+```
+
+```{r}
+#| label: ggplot-save-implicit
+#| eval: false
+#| purl: false
+```
+
+<br>
+
+```{r}
+#| label: ggplot-save-aspect
+#| eval: false
+#| purl: false
+```
+
+::: fragment
+```{r}
+#| label: ggplot-save-unit
+#| eval: false
+ggsave("my_plot.png", width = 6*2.54, height = 5*2.54, unit = "cm", dpi = 600)
+```
+:::
+
+<br>
+
+::: fragment
+```{r}
+#| label: ggplot-save-raster-agg
+#| eval: false
+ggsave("my_plot.png", device = agg_png)
+```
+:::
+
+::: fragment
+```{r}
+#| label: ggplot-save-cairo
+#| eval: false
+ggsave("my_plot.pdf", device = cairo_pdf)
+```
+:::
+
+
+--------------------------------------------------------------------------------
+
+<br>
+
+![Modified from canva.com](img/fundamentals/vector-raster-canva.png){fig-alt="A comparison of vector and raster graphics." fig-width="150%"}
+
+
+
+## The {ragg} Package
+
+<span class='simple-highlight-grn' style='font-size:2.1rem;'>provides drop-in replacements for the default raster graphic devices</span>
+
+::: incremental
+
+* faster
+* direct access to all system fonts
+* advanced text rendering
+  * including support for right-to-left text, emojis, and font fallback
+* high quality anti-aliasing
+* high quality rotated text
+* supports 16-bit output
+* system independent rendering
+
+:::
+
+
+## The {ragg} Package
+
+<br>
+
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-left-and-right.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of right-to-left text (and mixing left-to-right and right-to-left text)."}
+
+
+## The {ragg} Package
+
+<br>
+
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-ligatures.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of font ligatures."}
+
+
+## The {ragg} Package
+
+<br>
+
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-emojis.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of emojis."}
+
+
+## The {ragg} Package
+
+<br>
+
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-fallback.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering missing glyphs, partly making use of fallback fonts."}
+
+
+## The {ragg} Package
+
+::: incremental
+* use {ragg} when saving ggplots by passing agg device function: `ggsave(device = agg_png))` ([used by default if installed](https://github.com/tidyverse/ggplot2/pull/4388))
+* use {ragg} in the *Rstudio Plots* pane be setting the backend to AGG: ![](img/fundamentals/ragg-rstudio.png){fig-alt="How to set the AGG device as the default in RStudio via Global Options > > General > Graphics > Backend."}
+* use {ragg} when knitting Rmarkdown files by setting `dev="ragg_png"` in the code chunk options.
+
+:::
+
+
+## Save the Graphic
+
+<br>
+
+```{r}
+#| label: ggplot-save
+#| eval: false
+#| purl: false
+```
+
+```{r}
+#| label: ggplot-save-implicit
+#| eval: false
+#| purl: false
+```
+
+<br>
+
+```{r}
+#| label: ggplot-save-aspect
+#| eval: false
+#| purl: false
+```
+
+```{r}
+#| label: ggplot-save-unit
+#| eval: false
+#| purl: false
+```
+<br>
+
+```{r}
+#| label: ggplot-save-raster-agg
+#| eval: false
+#| purl: false
+```
+
+```{r}
+#| label: ggplot-save-cairo
+#| eval: false
+#| purl: false
+```
+
+::: fragment
+```{r}
+#| label: ggplot-save-svg
+#| eval: false
+ggsave("my_plot.svg")
+```
+:::
+
+
+--------------------------------------------------------------------------------
+
+![](img/fundamentals/figma-svg.png){fig-align="center"}
+
+
+## How to Work with Aspect Ratios
+
+::: incremental
+-   don't rely on the Rstudio viewer pane!
+-   once you have a *"it's getting close"* prototype, settle on a plot size<br><br>
+-   **Approach 1:** save the file and inspect it—go back to your IDE—repeat
+    -   tedious and time-consuming...<br><br>
+-   **Approach 2:** use a qmd or rmd with inline output and chunk settings
+    -   set `fig-width` / `fig.width` and `fig-height` / `fig.height`<br>per chunk or globally<br><br>
+:::
+
+
+## Setting Plot Sizes in Quarto and Rmarkdown
+
+![](img/fundamentals/plot-size-chunk-yaml.png){fig-alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig-width and fig-height as YAML-styled options using the hashpipe. Unfortunately, these are not respected when the chunk output is printed inline." fig-width="60%"}
+
+
+## Setting Plot Sizes in Quarto and Rmarkdown
+
+![](img/fundamentals/plot-size-chunk-inline.png){fig-alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig.width and fig.height set as inline chunk options." fig-width="60%"}
+
+
+## How to Work with Aspect Ratios
+
+-   don't rely on the Rstudio viewer pane!
+-   once you have a *"it's getting close"* prototype, settle on a plot size<br><br>
+-   **Approach 1:** save the file and inspect it—go back to your IDE—repeat
+    -   tedious and time-consuming...<br><br>
+-   **Approach 2:** use a qmd or rmd with inline output and chunk settings
+    -   set `fig-width` / `fig.width` and `fig-height` / `fig.height`<br>per chunk or globally<br><br>
+-   **Approach 3:** use our [{camcorder} package](https://github.com/thebioengineer/camcorder)
+    -   saves output from all `ggplot()` calls and displays it in the viewer pane
+
+
+## Setting Plot Sizes via {camcorder}
+
+<br>
+
+![](img/fundamentals/plot-size-camcorder-a.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
+
+
+## Setting Plot Sizes via {camcorder}
+
+<br>
+
+![](img/fundamentals/plot-size-camcorder-b.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
+
+
+## Setting Plot Sizes via {camcorder}
+
+```{r}
+#| label: camcorder-record
+#| eval: false
+#| purl: false
+#| code-line-numbers: "1,2,3,4,5,6,7|9,10,11,12,13,15"
+camcorder::gg_record(
+  dir = here::here("temp"),  # path for plot files
+  device = "png",            # device to use
+  width = 10,                # figure width
+  height = 5,                # figure height
+  dpi = 600                  # plot resolution
+)
+
+g <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +
+  geom_point(alpha = .3, size = 2) +
+  scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
+  theme_minimal(base_size = 18, base_family = "Asap SemiCondensed") +
+  theme(panel.grid.minor = element_blank())
+
+g
+```
+
+
+## Setting Plot Sizes via {camcorder}
+
+```{r}
+#| label: camcorder-resize
+#| eval: false
+#| code-line-numbers: "17,19"
+camcorder::gg_record(
+  dir = here::here("temp"),  # path for plot files
+  device = "png",            # device to use
+  width = 10,                # figure width
+  height = 5,                # figure height
+  dpi = 600                  # plot resolution
+)
+
+g <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +
+  geom_point(alpha = .3, size = 2) +
+  scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
+  theme_minimal(base_size = 18, base_family = "Asap SemiCondensed") +
+  theme(panel.grid.minor = element_blank())
+
+g
+
+camcorder::gg_resize_film(width = 20) # update figure width
+
+g
+```
+
+
+
+## Your Turn
+
+::: question
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per season.
+    -  Visualize bike counts per weather type and period as *bar chart*.
+-   **Polish the charts and export them in a format of your choice.**
+:::
+
+
+## Your Turn
+
+::: question
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per season.
+    -  Visualize bike counts per weather type and period as *bar chart*.
+-   **Polish the charts and export them in a format of your choice.**
+-   **Discuss / investigate with your neighbor:**
+    -  What are the differences between `geom_line()` and `geom_path()`?
+    -  Why can you use `geom_smooth()` and `stat_smooth()` interchangeably?
+    -  What are the three ways to *remove a legend* from a ggplot?
+    -  Which is your favorite theme? 
+    -  What is your favorite ggplot2 extension package?
+:::
+
+##  {background-image="img/exercise-what-now.png" background-position="center" background-size="75%"}

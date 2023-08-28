@@ -1,0 +1,33 @@
+---
+title: "Working with Text"
+subtitle: "<span class='code'>11:00-12:30</span>"
+date: "2023-09-18"
+image: "images/02-text.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/02-text.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+<a href='../materials/02-text.html' target="_blank">View slides in full screen</a>&ensp;|&ensp;<a href='../materials/scripts/02-text.R' target="_blank">Run the code yourself</a>
+
+# Outline
+
+-   
+
+# Recap
+
+::: recap
+-   
+:::
+
+# Exercises
+
+## Exercise 1
+
+::: question
+-   
+:::
+
+**&rarr;&ensp;<a href='../materials/solutions/02-text-solution.html' target="_blank">Solution</a>**
