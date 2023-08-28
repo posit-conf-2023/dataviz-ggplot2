@@ -54,7 +54,7 @@ You will need to bring your own laptop to the workshop with a recent version of 
 
 Download the most recent version of R (cloud.r-project.org, at least version 4.2) and Rstudio (rstudio.com/products/rstudio/download, at least version 2023.06.1) and follow the installation steps.
 
-### Install R libraries: 
+### Install R Libraries
 
 You can install all required R packages at once by running the following code in the R command line:
 
@@ -77,7 +77,7 @@ remotes::install_github("clauswilke/colorblindr")
 
 If, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.
 
-### Install typefaces:
+### Install Typefaces
 
 We will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:
 
@@ -88,9 +88,18 @@ We will make use of custom fonts during the course. If you want to follow all co
 
 You can download all typefaces as a single zip file here.
 
-### For Mac OS users: 
+### For Mac OS Users
 
 If you want to save your visualization to PDF, please make sure that XQuartz (xquartz.org) is installed which is needed to use the cairo pdf device. 
+
+### Course Communication
+
+We will be using Discord as our main communication method during the workshop. To make the process go smoothly:
+* Please sign up for an account at [discord.com](https://discord.com) if you don’t already have one.
+* Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
+In your “About Me”, put the name of your workshop(s).
+
+Closer to the start of the conference, you will be invited to join the posit::conf Discord server. Once you’ve accepted the invite, we will add you to the channel(s) for the workshop. 
 
 
 ## Instructor
