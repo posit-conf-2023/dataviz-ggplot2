@@ -81,10 +81,10 @@ If, for some reason, you cannot install these packages or the latest versions of
 
 We will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:
 
-* Spline Sans: (fonts.google.com/specimen/Spline+Sans)[https://fonts.google.com/specimen/Spline+Sans]
-* Spline Sans Mono: (fonts.google.com/specimen/Spline+Sans+Mono)[https://fonts.google.com/specimen/Spline+Sans+Mono]
-* Asap: (fonts.google.com/specimen/Asap)[https://fonts.google.com/specimen/Asap]
-* Hepta Slab: (fonts.google.com/specimen/Hepta+Slab)[https://fonts.google.com/specimen/Hepta+Slab]
+* Spline Sans: [fonts.google.com/specimen/Spline+Sans](https://fonts.google.com/specimen/Spline+Sans)
+* Spline Sans Mono: [fonts.google.com/specimen/Spline+Sans+Mono](https://fonts.google.com/specimen/Spline+Sans+Mono)
+* Asap: [fonts.google.com/specimen/Asap](https://fonts.google.com/specimen/Asap)
+* Hepta Slab: [fonts.google.com/specimen/Hepta+Slab](https://fonts.google.com/specimen/Hepta+Slab)
 
 You can download all typefaces as a single zip file [here]().
 
