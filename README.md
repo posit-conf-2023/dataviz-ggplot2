@@ -1,15 +1,16 @@
-# Engaging and Beautiful Data Visualizations with ggplot2
+# [Engaging and Beautiful Data Visualizations with ggplot2](https://posit-conf-2023.github.io/dataviz-ggplot2/)
 
 ### posit::conf 2023
 
-by Cédric Scherer[<img src="https://raw.githubusercontent.com/rstudio-conf-2023/dataviz-ggplot2/main/images/logo.png" align="right" width="150">](https://posit-conf-2023.github.io/dataviz-ggplot2/)
+by Cédric Scherer[<img src="https://raw.githubusercontent.com/posit-conf-2023/dataviz-ggplot2/main/images/logo.png" align="right" width="150">](https://posit-conf-2023.github.io/dataviz-ggplot2/)
 
 -----
 
 :spiral_calendar: &ensp;September 18, 2023  
 :alarm_clock:     &ensp;09:00 - 17:00  
 :hotel:           &ensp;ROOM TBD  
-:writing_hand:    &ensp;[pos.it/conf](http://pos.it/conf)
+:writing_hand:    &ensp;[pos.it/conf](http://pos.it/conf)   
+:link:            &ensp;[posit-conf-2023.github.io/dataviz-ggplot2](https://posit-conf-2023.github.io/dataviz-ggplot2/)
 
 -----
 
