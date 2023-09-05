@@ -12,6 +12,7 @@ tbl-colwidths: [5,20,75]
 
 <a href='../materials/01-fundamentals.html' target="_blank">View slides in full screen</a>&ensp;|&ensp;<a href='../materials/scripts/01-fundamentals.R' target="_blank">Run the code yourself</a>
 
+
 # Outline
 
 -   <a href='../materials/00-welcome.html' target="_blank">Welcome</a>
@@ -19,16 +20,33 @@ tbl-colwidths: [5,20,75]
 -   The {ggplot2} Showcase
 -   A Walk-Through Example
 -   Saving Plots
+-   Programming with {ggplot2}
+-   Combine Plots
+-   Exciting Extension Packages
 -   Exercises
+
+
+# Recap
+
+::: recap
+-   use **categorical** palettes for **qualitative** data
+    -  e.g. `scale_*_manual()` or `scale_*_brewer()`
+-   use **sequential or diverging** palettes for **quantitative** data
+    -  e.g. `scale_*_gradient()`, `scale_*_gradient2()` or `scale_*_viridis_c`
+-   various packages provide palettes incl. `scale_*` components
+    - e.g. `{rcartocolors}`, `{scico}`, `{ggsci}`, `{ggthemes}`, `{nord}`
+-   those and even more packages return palettes as vectors
+    - modify and supply them to `scale_*_manual()` and `scale_*_gradientn()`
+-   use **`after_scale`** to modify and recycle color scales 
+-   evaluate palette quality with **`{colorspace}`** and simulaze CVD with **`{colorblindr}`**
+:::
+
 
 # Exercises
 
+## Exercise 1
+
 ::: question
--   **Explore the TfL bike share data visually:**
-    -  Create a *time series* of counts per day and night.
-    -  Draw *box and whisker plots* of average temperatures per season.
-    -  Visualize bike counts per weather type and period as *bar chart*.
--   **Polish the charts and export them in a format of your choice.**
 -   **Discuss / investigate with your neighbor:**
     -  What are the differences between `geom_line()` and `geom_path()`?
     -  Why can you use `geom_smooth()` and `stat_smooth()` interchangeably?
@@ -37,4 +55,16 @@ tbl-colwidths: [5,20,75]
     -  What is your favorite ggplot2 extension package?
 :::
 
-**&rarr;&ensp;<a href='../materials/solutions/01-fundamentals-solution.html' target="_blank">Solution</a>**
+## Exercise 2
+
+::: question
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per month.
+    -  Visualize bike counts per weather type and period as *bar chart*. 
+-   **Combine the three plots with {patchwork}.**
+-   **Export the final graphic in a format of your choice.**
+:::
+
+<br>
+<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamental-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/01-fundamentals-solution.html' target="_blank">Solution</a>

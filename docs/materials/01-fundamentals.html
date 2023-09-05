@@ -393,7 +393,7 @@
 <meta property="og:description" content="Fundamentals &amp; Workflows">
 <meta name="twitter:title" content="Engaging and Beautiful Data Visualizations with ggplot2">
 <meta name="twitter:description" content="Fundamentals &amp; Workflows">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -414,6 +414,11 @@
 </div>
 </div>
 </div>
+
+</section>
+<section>
+<section id="ggplot2" class="title-slide slide level1 center">
+<h1>{ggplot2}</h1>
 
 </section>
 <section id="section" class="slide level2">
@@ -498,7 +503,7 @@ Explanation
 <section class="slide level2">
 
 
-<img data-src="img/fundamentals/basic-ggplots.png" alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use only data, aesthetics, and layers with the defaults of ggplot2." class="r-stretch quarto-figure-center"><p class="caption">ggplot2 examples featured on <a href="https://ggplot2.tidyverse.org/">ggplot2.tidyverse.org</a></p></section>
+<img data-src="img/basic-ggplots.png" alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use only data, aesthetics, and layers with the defaults of ggplot2." class="r-stretch quarto-figure-center"><p class="caption">ggplot2 examples featured on <a href="https://ggplot2.tidyverse.org/">ggplot2.tidyverse.org</a></p></section>
 <section id="the-components-of-a-ggplot-1" class="slide level2">
 <h2>The Components of a ggplot</h2>
 <br>
@@ -608,11 +613,11 @@ Explanation
 <section class="slide level2">
 
 
-<img data-src="img/fundamentals/ah-ggplot2-exploratory.png" alt="Allison Horsts monster illustration of explorative plotting with ggplot2." class="r-stretch quarto-figure-center"><p class="caption">Illustration by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p></section>
+<img data-src="img/ah-ggplot2-exploratory.png" alt="Allison Horsts monster illustration of explorative plotting with ggplot2." class="r-stretch quarto-figure-center"><p class="caption">Illustration by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p></section>
 <section class="slide level2">
 
 
-<img data-src="img/fundamentals/ah-ggplot2-masterpiece.png" alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)" class="r-stretch quarto-figure-center"><p class="caption">Illustration by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p></section>
+<img data-src="img/ah-ggplot2-masterpiece.png" alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)" class="r-stretch quarto-figure-center"><p class="caption">Illustration by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p></section></section>
 <section>
 <section id="the-ggplot2-showcase" class="title-slide slide level1 center">
 <h1>The {ggplot2} Showcase</h1>
@@ -654,8 +659,8 @@ Explanation
 <img data-src="img/showcase/cran-packages-torsten-sprenger.png" alt="A circular tree showing the programing languages used in CRAN packages, with nodes being grouped by languages and package names, sized by number of lines." class="r-stretch quarto-figure-center"><p class="caption"><a href="https://twitter.com/spren9er/status/1195826547724374018">“Popular Programming Languages in CRAN Packages”</a> by Torsten Sprenger</p></section>
 <section class="slide level2">
 
-<p><img data-src="img/showcase/xmen-comics.png" alt="[“Appearance of X-Men Characters”](https://www.behance.net/gallery/100640345/Appearance-of-Popular-X-Men-Characters">{fig-align=“center” fig-size=“50%” fig-alt=‘Streamgraphs showing the appearance of the most common X-Men characters (Wovlerine, Magneto, Nightcrawler, Storm &amp; Gambit) during the so-called “Claremont Run”. Chris Claremont is a famous American comic book writer who was in charge of the “Uncanny X-Men” comic book series from 1975–1991. During that time he developed complex literary themes and strong female characters into superhero comics, and turning the X-Men into one of Marvel’s most popular series.’}</p>
-</section>
+
+<img data-src="img/showcase/xmen-comics.png" alt="Streamgraphs showing the appearance of the most common X-Men characters (Wovlerine, Magneto, Nightcrawler, Storm &amp; Gambit) during the so-called Claremont Run. Chris Claremont is a famous American comic book writer who was in charge of the Uncanny X-Men comic book series from 1975–1991. During that time he developed complex literary themes and strong female characters into superhero comics, and turning the X-Men into one of Marvel's most popular series." class="r-stretch quarto-figure-center"><p class="caption"><a href="https://www.behance.net/gallery/100640345/Appearance-of-Popular-X-Men-Characters">“Appearance of X-Men Characters”</a></p></section>
 <section class="slide level2">
 
 
@@ -1011,10 +1016,14 @@ Explanation
 <span id="cb14-8"><a href="#cb14-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section class="slide level2">
+
+
+<img data-src="01-fundamentals_files/figure-revealjs/walkthrough-9a-1.png" width="2020" class="r-stretch"></section>
 <section id="change-the-axis-scaling-1" class="slide level2">
 <h2>Change the Axis Scaling</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="9,10,16|12,13|14,15|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>g2 <span class="ot">&lt;-</span> g1 <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="9,10,15|11,12|13,14|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>g2 <span class="ot">&lt;-</span> g1 <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="co"># x axis</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">scale_x_continuous</span>(</span>
 <span id="cb15-4"><a href="#cb15-4"></a>    <span class="co"># add °C symbol</span></span>
@@ -1034,10 +1043,10 @@ Explanation
 <section class="slide level2">
 
 
-<img data-src="01-fundamentals_files/figure-revealjs/walkthrough-9-1.png" width="2020" class="r-stretch"></section>
+<img data-src="01-fundamentals_files/figure-revealjs/walkthrough-9b-1.png" width="2020" class="r-stretch"></section>
 <section id="use-a-custom-color-palette" class="slide level2">
 <h2>Use a Custom Color Palette</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-10a_99b89c25209208cfd74eed2e4843929d">
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-10a_a2b62e2d5909c2c1666aa1d893b05151">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2,3,4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>g2 <span class="sc">+</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="co"># use a custom color palette for season colors</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">scale_color_manual</span>(</span>
@@ -1068,13 +1077,21 @@ Explanation
 <img data-src="01-fundamentals_files/figure-revealjs/walkthrough-10-1.png" width="2020" class="r-stretch"></section>
 <section id="adjust-labels-and-titles" class="slide level2">
 <h2>Adjust Labels and Titles</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-11_7f467c40602ac72b1d816e1e4d89b906">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>g2 <span class="sc">+</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="co"># overwrite legend keys</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb18-4"><a href="#cb18-4"></a>    <span class="at">values =</span> colors,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Winter"</span>, <span class="st">"Spring"</span>, <span class="st">"Summer"</span>, <span class="st">"Autumn"</span>)</span>
-<span id="cb18-6"><a href="#cb18-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-11_2d7e0b13bceb12c6758e86b13d745705">
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="11,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># use a named vector for explicit matching</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="st">`</span><span class="at">0</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"#1EC98D"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"#F7B01B"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"#A26E7C"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"#6681FE"</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>)</span>
+<span id="cb18-8"><a href="#cb18-8"></a></span>
+<span id="cb18-9"><a href="#cb18-9"></a>g2 <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb18-11"><a href="#cb18-11"></a>    <span class="at">values =</span> colors,</span>
+<span id="cb18-12"><a href="#cb18-12"></a>    <span class="co"># overwrite legend keys</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Winter"</span>, <span class="st">"Spring"</span>, <span class="st">"Summer"</span>, <span class="st">"Autumn"</span>)</span>
+<span id="cb18-14"><a href="#cb18-14"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -1147,7 +1164,7 @@ Explanation
 <img data-src="01-fundamentals_files/figure-revealjs/walkthrough-14-1.png" width="2020" class="r-stretch"></section>
 <section id="adjust-legend" class="slide level2">
 <h2>Adjust Legend</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-15_c114d2ac59993775c838dd597c26d30f">
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-15_d3d277f36ff972c767f850750799d004">
 <div class="sourceCode cell-code" id="cb22" data-code-line-numbers="2,3,4,5|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>g4 <span class="sc">+</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>  <span class="co"># adjust symbol size in legend</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">guides</span>(</span>
@@ -1157,7 +1174,7 @@ Explanation
 </section>
 <section id="adjust-legend-1" class="slide level2">
 <h2>Adjust Legend</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-15b_055f919635a55059c89f96b0a87cd25e">
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-15b_6458e18188c6b9f6ebd8138a1213bb5f">
 <div class="sourceCode cell-code" id="cb23" data-code-line-numbers="2,5,6,7|5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>g4 <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">scale_color_manual</span>(</span>
 <span id="cb23-3"><a href="#cb23-3"></a>    <span class="at">values =</span> colors,</span>
@@ -1173,7 +1190,7 @@ Explanation
 <img data-src="01-fundamentals_files/figure-revealjs/walkthrough-15-1.png" width="2020" class="r-stretch"></section>
 <section id="full-code" class="slide level2">
 <h2>Full Code</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-full_2f086da2da84647a8f126bb955bc5110">
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/walkthrough-full_8c95ed35a394e76e96f956adb5272781">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># create named color vector</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
 <span id="cb24-3"><a href="#cb24-3"></a>  <span class="st">`</span><span class="at">0</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"#1EC98D"</span>,</span>
@@ -1222,7 +1239,7 @@ Explanation
 <span id="cb24-46"><a href="#cb24-46"></a>  <span class="fu">scale_color_manual</span>(</span>
 <span id="cb24-47"><a href="#cb24-47"></a>    <span class="co"># use a custom color palette</span></span>
 <span id="cb24-48"><a href="#cb24-48"></a>    <span class="at">values =</span> colors,</span>
-<span id="cb24-49"><a href="#cb24-49"></a>    <span class="co"># and overwrite legend keys</span></span>
+<span id="cb24-49"><a href="#cb24-49"></a>    <span class="co"># overwrite legend keys</span></span>
 <span id="cb24-50"><a href="#cb24-50"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Winter"</span>, <span class="st">"Spring"</span>, <span class="st">"Summer"</span>, <span class="st">"Autumn"</span>),</span>
 <span id="cb24-51"><a href="#cb24-51"></a>    <span class="co"># adjust symbol size in legend size</span></span>
 <span id="cb24-52"><a href="#cb24-52"></a>    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">4</span>))</span>
@@ -1299,10 +1316,10 @@ Explanation
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="img/fundamentals/resolution-dpi-100-zoom.png"></p>
+<p><img data-src="img/resolution-dpi-100-zoom.png"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="img/fundamentals/resolution-dpi-600-zoom.png"></p>
+<p><img data-src="img/resolution-dpi-600-zoom.png"></p>
 </div>
 </div>
 </div>
@@ -1341,7 +1358,7 @@ Explanation
 
 <p><br></p>
 
-<img data-src="img/fundamentals/vector-raster-canva.png" alt="A comparison of vector and raster graphics." class="r-stretch quarto-figure-center"><p class="caption">Modified from canva.com</p></section>
+<img data-src="img/vector-raster-canva.png" alt="A comparison of vector and raster graphics." class="r-stretch quarto-figure-center"><p class="caption">Modified from canva.com</p></section>
 <section id="the-ragg-package" class="slide level2">
 <h2>The {ragg} Package</h2>
 <p><span class="simple-highlight-grn" style="font-size:2.1rem;">provides drop-in replacements for the default raster graphic devices</span></p>
@@ -1364,28 +1381,28 @@ Explanation
 <h2>The {ragg} Package</h2>
 <p><br></p>
 
-<img data-src="img/fundamentals/ragg-left-and-right.png" alt="A comparison of different graphic devices in R comparing the rendering of right-to-left text (and mixing left-to-right and right-to-left text)." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
+<img data-src="img/ragg-left-and-right.png" alt="A comparison of different graphic devices in R comparing the rendering of right-to-left text (and mixing left-to-right and right-to-left text)." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
 <section id="the-ragg-package-2" class="slide level2">
 <h2>The {ragg} Package</h2>
 <p><br></p>
 
-<img data-src="img/fundamentals/ragg-ligatures.png" alt="A comparison of different graphic devices in R comparing the rendering of font ligatures." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
+<img data-src="img/ragg-ligatures.png" alt="A comparison of different graphic devices in R comparing the rendering of font ligatures." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
 <section id="the-ragg-package-3" class="slide level2">
 <h2>The {ragg} Package</h2>
 <p><br></p>
 
-<img data-src="img/fundamentals/ragg-emojis.png" alt="A comparison of different graphic devices in R comparing the rendering of emojis." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
+<img data-src="img/ragg-emojis.png" alt="A comparison of different graphic devices in R comparing the rendering of emojis." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
 <section id="the-ragg-package-4" class="slide level2">
 <h2>The {ragg} Package</h2>
 <p><br></p>
 
-<img data-src="img/fundamentals/ragg-fallback.png" alt="A comparison of different graphic devices in R comparing the rendering missing glyphs, partly making use of fallback fonts." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
+<img data-src="img/ragg-fallback.png" alt="A comparison of different graphic devices in R comparing the rendering missing glyphs, partly making use of fallback fonts." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://www.tidyverse.org/blog/2021/02/modern-text-features/">tidyverse.org/blog/2021/02/modern-text-features</a></p></section>
 <section id="the-ragg-package-5" class="slide level2">
 <h2>The {ragg} Package</h2>
 <div>
 <ul>
 <li class="fragment">use {ragg} when saving ggplots by passing agg device function: <code>ggsave(device = agg_png))</code> (<a href="https://github.com/tidyverse/ggplot2/pull/4388">used by default if installed</a>)</li>
-<li class="fragment">use {ragg} in the <em>Rstudio Plots</em> pane be setting the backend to AGG: <img data-src="img/fundamentals/ragg-rstudio.png" alt="How to set the AGG device as the default in RStudio via Global Options > > General > Graphics > Backend."></li>
+<li class="fragment">use {ragg} in the <em>Rstudio Plots</em> pane be setting the backend to AGG: <img data-src="img/ragg-rstudio.png" alt="How to set the AGG device as the default in RStudio via Global Options > > General > Graphics > Backend."></li>
 <li class="fragment">use {ragg} when knitting Rmarkdown files by setting <code>dev="ragg_png"</code> in the code chunk options.</li>
 </ul>
 </div>
@@ -1422,7 +1439,7 @@ Explanation
 <section class="slide level2">
 
 
-<img data-src="img/fundamentals/figma-svg.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="img/figma-svg.png" class="r-stretch quarto-figure-center"></section>
 <section id="how-to-work-with-aspect-ratios" class="slide level2">
 <h2>How to Work with Aspect Ratios</h2>
 <div>
@@ -1443,11 +1460,11 @@ Explanation
 <section id="setting-plot-sizes-in-quarto-and-rmarkdown" class="slide level2">
 <h2>Setting Plot Sizes in Quarto and Rmarkdown</h2>
 
-<img data-src="img/fundamentals/plot-size-chunk-yaml.png" alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig-width and fig-height as YAML-styled options using the hashpipe. Unfortunately, these are not respected when the chunk output is printed inline." class="r-stretch quarto-figure-center"></section>
+<img data-src="img/plot-size-chunk-yaml.png" alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig-width and fig-height as YAML-styled options using the hashpipe. Unfortunately, these are not respected when the chunk output is printed inline." class="r-stretch quarto-figure-center"></section>
 <section id="setting-plot-sizes-in-quarto-and-rmarkdown-1" class="slide level2">
 <h2>Setting Plot Sizes in Quarto and Rmarkdown</h2>
 
-<img data-src="img/fundamentals/plot-size-chunk-inline.png" alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig.width and fig.height set as inline chunk options." class="r-stretch quarto-figure-center"></section>
+<img data-src="img/plot-size-chunk-inline.png" alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig.width and fig.height set as inline chunk options." class="r-stretch quarto-figure-center"></section>
 <section id="how-to-work-with-aspect-ratios-1" class="slide level2">
 <h2>How to Work with Aspect Ratios</h2>
 <ul>
@@ -1471,15 +1488,15 @@ Explanation
 <h2>Setting Plot Sizes via {camcorder}</h2>
 <p><br></p>
 
-<img data-src="img/fundamentals/plot-size-camcorder-a.png" alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." class="r-stretch quarto-figure-center"></section>
+<img data-src="img/plot-size-camcorder-a.png" alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." class="r-stretch quarto-figure-center"></section>
 <section id="setting-plot-sizes-via-camcorder-1" class="slide level2">
 <h2>Setting Plot Sizes via {camcorder}</h2>
 <p><br></p>
 
-<img data-src="img/fundamentals/plot-size-camcorder-b.png" alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." class="r-stretch quarto-figure-center"></section>
+<img data-src="img/plot-size-camcorder-b.png" alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." class="r-stretch quarto-figure-center"></section>
 <section id="setting-plot-sizes-via-camcorder-2" class="slide level2">
 <h2>Setting Plot Sizes via {camcorder}</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/camcorder-record_df95edd5cddcb033bcda41e83b15f3e6">
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/camcorder-record_00dad4ac42afbc08553cc5c510c3d7ea">
 <div class="sourceCode cell-code" id="cb41" data-code-line-numbers="1,2,3,4,5,6,7|9,10,11,12,13,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>camcorder<span class="sc">::</span><span class="fu">gg_record</span>(</span>
 <span id="cb41-2"><a href="#cb41-2"></a>  <span class="at">dir =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"temp"</span>),  <span class="co"># path for plot files</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a>  <span class="at">device =</span> <span class="st">"png"</span>,            <span class="co"># device to use</span></span>
@@ -1491,7 +1508,7 @@ Explanation
 <span id="cb41-9"><a href="#cb41-9"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, <span class="at">color =</span> day_night)) <span class="sc">+</span></span>
 <span id="cb41-10"><a href="#cb41-10"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb41-11"><a href="#cb41-11"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="at">day =</span> <span class="st">"#FFA200"</span>, <span class="at">night =</span> <span class="st">"#757BC7"</span>)) <span class="sc">+</span></span>
-<span id="cb41-12"><a href="#cb41-12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">+</span></span>
+<span id="cb41-12"><a href="#cb41-12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">+</span></span>
 <span id="cb41-13"><a href="#cb41-13"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
 <span id="cb41-14"><a href="#cb41-14"></a></span>
 <span id="cb41-15"><a href="#cb41-15"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1499,7 +1516,7 @@ Explanation
 </section>
 <section id="setting-plot-sizes-via-camcorder-3" class="slide level2">
 <h2>Setting Plot Sizes via {camcorder}</h2>
-<div class="cell" data-hash="01-fundamentals_cache/revealjs/camcorder-resize_3e2c62873ade8a315938cde601ef5be1">
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/camcorder-resize_8c9dabd1c4d2661597733e6d716f0424">
 <div class="sourceCode cell-code" id="cb42" data-code-line-numbers="17,19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>camcorder<span class="sc">::</span><span class="fu">gg_record</span>(</span>
 <span id="cb42-2"><a href="#cb42-2"></a>  <span class="at">dir =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"temp"</span>),  <span class="co"># path for plot files</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a>  <span class="at">device =</span> <span class="st">"png"</span>,            <span class="co"># device to use</span></span>
@@ -1511,7 +1528,7 @@ Explanation
 <span id="cb42-9"><a href="#cb42-9"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, <span class="at">color =</span> day_night)) <span class="sc">+</span></span>
 <span id="cb42-10"><a href="#cb42-10"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb42-11"><a href="#cb42-11"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="at">day =</span> <span class="st">"#FFA200"</span>, <span class="at">night =</span> <span class="st">"#757BC7"</span>)) <span class="sc">+</span></span>
-<span id="cb42-12"><a href="#cb42-12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">+</span></span>
+<span id="cb42-12"><a href="#cb42-12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">+</span></span>
 <span id="cb42-13"><a href="#cb42-13"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
 <span id="cb42-14"><a href="#cb42-14"></a></span>
 <span id="cb42-15"><a href="#cb42-15"></a>g</span>
@@ -1521,39 +1538,475 @@ Explanation
 <span id="cb42-19"><a href="#cb42-19"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="your-turn" class="slide level2">
-<h2>Your Turn</h2>
-<div class="question">
-<ul>
-<li><strong>Explore the TfL bike share data visually:</strong>
-<ul>
-<li>Create a <em>time series</em> of counts per day and night.</li>
-<li>Draw <em>box and whisker plots</em> of average temperatures per season.</li>
-<li>Visualize bike counts per weather type and period as <em>bar chart</em>.</li>
-</ul></li>
-<li><strong>Polish the charts and export them in a format of your choice.</strong></li>
-</ul>
+<section id="like-a-pro-set-theme-globally" class="slide level2">
+<h2>Like a Pro: Set Theme Globally</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>))</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">theme_update</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="programming-with-ggplot2" class="title-slide slide level1 center">
+<h1>Programming <br>with ggplot2</h1>
+
+</section>
+<section id="conditional-components" class="slide level2">
+<h2>Conditional Components</h2>
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/conditional-components_caef70472f777a01248d33a3f284f406">
+<div class="sourceCode cell-code" id="cb44" data-code-line-numbers="1|3,4,5|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>smooth <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> humidity)) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  { <span class="cf">if</span>(smooth) <span class="fu">geom_smooth</span>(<span class="at">color =</span> <span class="st">"red"</span>) } <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="your-turn-1" class="slide level2">
-<h2>Your Turn</h2>
+<section id="conditional-components-1" class="slide level2">
+<h2>Conditional Components</h2>
+<div class="cell" data-layout-align="center" data-hash="01-fundamentals_cache/revealjs/conditional-components-1_af3590b704ded767678e130b9bed0532">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>smooth <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> humidity)) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>  { <span class="cf">if</span>(smooth) <span class="fu">geom_smooth</span>(<span class="at">color =</span> <span class="st">"red"</span>) } <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/conditional-components-1-1.png" width="1600" class="r-stretch quarto-figure-center"></section>
+<section id="conditional-components-2" class="slide level2">
+<h2>Conditional Components</h2>
+<div class="cell" data-layout-align="center" data-hash="01-fundamentals_cache/revealjs/conditional-components-2_f29ca7457d58aeba72af8364052998e2">
+<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>smooth <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> humidity)) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>  { <span class="cf">if</span>(smooth) <span class="fu">geom_smooth</span>(<span class="at">color =</span> <span class="st">"red"</span>) } <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/conditional-components-2-1.png" width="1600" class="r-stretch quarto-figure-center"></section>
+<section id="wrapper-functions-for-plots" class="slide level2">
+<h2>Wrapper Functions for Plots</h2>
+<div class="cell" data-hash="01-fundamentals_cache/revealjs/conditional-components-function_bbcbb08aec8f13e9bfdf6dcd42f130a4">
+<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="1,5|2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>draw_scatter <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">smooth =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> humidity)) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>    { <span class="cf">if</span>(smooth) <span class="fu">geom_smooth</span>(<span class="at">color =</span> <span class="st">"red"</span>) } <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>)</span>
+<span id="cb47-5"><a href="#cb47-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="wrapper-functions-for-plots-1" class="slide level2">
+<h2>Wrapper Functions for Plots</h2>
+<div class="cell columns column-output-location" data-hash="01-fundamentals_cache/revealjs/conditional-components-function-plot-default_b88942c23d103843491ed566b4ee8391">
+<div class="column">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">draw_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/conditional-components-function-plot-default-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="wrapper-functions-for-plots-2" class="slide level2">
+<h2>Wrapper Functions for Plots</h2>
+<div class="cell columns column-output-location" data-hash="01-fundamentals_cache/revealjs/conditional-components-function-plot-false_9e465abdd77a1628e20f9b9194f5c781">
+<div class="column">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">draw_scatter</span>(<span class="at">smooth =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/conditional-components-function-plot-false-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="components-as-functions" class="slide level2">
+<h2>Components as Functions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="1,2,7|3,6|4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>geom_scatterfit <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">pointsize =</span> <span class="dv">1</span>, <span class="at">pointalpha =</span> <span class="dv">1</span>, </span>
+<span id="cb50-2"><a href="#cb50-2"></a>                            <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linecolor =</span> <span class="st">"red"</span>, ...) {</span>
+<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">list</span>(</span>
+<span id="cb50-4"><a href="#cb50-4"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> pointsize, <span class="at">alpha =</span> pointalpha, ...),</span>
+<span id="cb50-5"><a href="#cb50-5"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> method, <span class="at">color =</span> linecolor, ...)</span>
+<span id="cb50-6"><a href="#cb50-6"></a>  )</span>
+<span id="cb50-7"><a href="#cb50-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="components-as-functions-1" class="slide level2">
+<h2>Components as Functions</h2>
+<div class="cell columns column-output-location" data-hash="01-fundamentals_cache/revealjs/function-components-defaults_b82bb4e1013de3757c454e7f445193ef">
+<div class="column">
+<div class="sourceCode cell-code" id="cb51" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">ggplot</span>(bikes,</span>
+<span id="cb51-2"><a href="#cb51-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> humidity, <span class="at">y =</span> count)) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">geom_scatterfit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-components-defaults-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="components-as-functions-2" class="slide level2">
+<h2>Components as Functions</h2>
+<div class="cell columns column-output-location" data-hash="01-fundamentals_cache/revealjs/function-components-args_448e12a2543c9566d1ee79e2ba7225a1">
+<div class="column">
+<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">ggplot</span>(bikes,</span>
+<span id="cb52-2"><a href="#cb52-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> humidity, <span class="at">y =</span> count)) <span class="sc">+</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">geom_scatterfit</span>(</span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="at">color =</span> <span class="st">"#28A87D"</span>, </span>
+<span id="cb52-5"><a href="#cb52-5"></a>    <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-components-args-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="components-as-functions-3" class="slide level2">
+<h2>Components as Functions</h2>
+<div class="cell columns column-output-location" data-hash="01-fundamentals_cache/revealjs/function-components-custom_0855f87dcad4c1979956d8c4ba0fb5cc">
+<div class="column">
+<div class="sourceCode cell-code" id="cb53" data-code-line-numbers="1,2|4,5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">ggplot</span>(diamonds, </span>
+<span id="cb53-2"><a href="#cb53-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">geom_scatterfit</span>(</span>
+<span id="cb53-4"><a href="#cb53-4"></a>    <span class="at">pointsize =</span> .<span class="dv">5</span>, </span>
+<span id="cb53-5"><a href="#cb53-5"></a>    <span class="at">pointalpha =</span> .<span class="dv">1</span>,</span>
+<span id="cb53-6"><a href="#cb53-6"></a>    <span class="at">method =</span> <span class="st">"gam"</span>,</span>
+<span id="cb53-7"><a href="#cb53-7"></a>    <span class="at">linecolor =</span> <span class="st">"#EFAC00"</span></span>
+<span id="cb53-8"><a href="#cb53-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-components-custom-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="components-as-functions-4" class="slide level2">
+<h2>Components as Functions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54" data-code-line-numbers="1,14|2,13|3,4,5,6,7|8,9,10,11,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>scales_log <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">sides =</span> <span class="st">"xy"</span>) {</span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">list</span>(</span>
+<span id="cb54-3"><a href="#cb54-3"></a>    <span class="cf">if</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(sides, <span class="st">"x"</span>)) {</span>
+<span id="cb54-4"><a href="#cb54-4"></a>      <span class="fu">scale_x_log10</span>(</span>
+<span id="cb54-5"><a href="#cb54-5"></a>        <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)), <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_log</span>()</span>
+<span id="cb54-6"><a href="#cb54-6"></a>      )</span>
+<span id="cb54-7"><a href="#cb54-7"></a>    },</span>
+<span id="cb54-8"><a href="#cb54-8"></a>    <span class="cf">if</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(sides, <span class="st">"y"</span>)) {</span>
+<span id="cb54-9"><a href="#cb54-9"></a>      <span class="fu">scale_y_log10</span>(</span>
+<span id="cb54-10"><a href="#cb54-10"></a>        <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)), <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_log</span>()</span>
+<span id="cb54-11"><a href="#cb54-11"></a>      )</span>
+<span id="cb54-12"><a href="#cb54-12"></a>    }</span>
+<span id="cb54-13"><a href="#cb54-13"></a>  )</span>
+<span id="cb54-14"><a href="#cb54-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="components-as-functions-5" class="slide level2">
+<h2>Components as Functions</h2>
+<div class="cell columns column-output-location" data-hash="01-fundamentals_cache/revealjs/function-components-scales-custom_5b6321eab679a1975d13c047c2a99c10">
+<div class="column">
+<div class="sourceCode cell-code" id="cb55" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">ggplot</span>(diamonds, </span>
+<span id="cb55-2"><a href="#cb55-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">geom_scatterfit</span>(</span>
+<span id="cb55-4"><a href="#cb55-4"></a>    <span class="at">pointsize =</span> .<span class="dv">5</span>, </span>
+<span id="cb55-5"><a href="#cb55-5"></a>    <span class="at">pointalpha =</span> .<span class="dv">1</span>,</span>
+<span id="cb55-6"><a href="#cb55-6"></a>    <span class="at">method =</span> <span class="st">"gam"</span>,</span>
+<span id="cb55-7"><a href="#cb55-7"></a>    <span class="at">linecolor =</span> <span class="st">"#EFAC00"</span></span>
+<span id="cb55-8"><a href="#cb55-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb55-9"><a href="#cb55-9"></a>  <span class="fu">scales_log</span>(<span class="at">sides =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-components-scales-custom-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="iterative-graphics" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56" data-code-line-numbers="1,11|2,3,4|5,6,7,8,9|1,4,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>trends_monthly <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">grp =</span> <span class="st">"January"</span>) {</span>
+<span id="cb56-2"><a href="#cb56-2"></a>  bikes <span class="sc">|&gt;</span> </span>
+<span id="cb56-3"><a href="#cb56-3"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb56-4"><a href="#cb56-4"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(month <span class="sc">%in%</span> grp) <span class="sc">|&gt;</span> </span>
+<span id="cb56-5"><a href="#cb56-5"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, <span class="at">color =</span> day_night)) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb56-7"><a href="#cb56-7"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFA200"</span>, <span class="st">"#757bc7"</span>)) <span class="sc">+</span></span>
+<span id="cb56-9"><a href="#cb56-9"></a>    <span class="fu">labs</span>(<span class="at">title =</span> grp, <span class="at">x =</span> <span class="st">"Temperature"</span>, <span class="at">y =</span> <span class="st">"Bike shares"</span>, <span class="at">color =</span> <span class="cn">NULL</span>)</span>
+<span id="cb56-10"><a href="#cb56-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="iterative-graphics-1" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">trends_monthly</span>(<span class="st">"July"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-iterate-monthly-july-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="iterative-graphics-2" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58" data-code-line-numbers="8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>trends_monthly <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">grp =</span> <span class="st">"January"</span>) {</span>
+<span id="cb58-2"><a href="#cb58-2"></a>  bikes <span class="sc">|&gt;</span> </span>
+<span id="cb58-3"><a href="#cb58-3"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb58-4"><a href="#cb58-4"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(month <span class="sc">%in%</span> grp) <span class="sc">|&gt;</span> </span>
+<span id="cb58-5"><a href="#cb58-5"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, <span class="at">color =</span> day_night)) <span class="sc">+</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb58-7"><a href="#cb58-7"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb58-8"><a href="#cb58-8"></a>    <span class="co"># keep axis ranges consistent</span></span>
+<span id="cb58-9"><a href="#cb58-9"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">range</span>(bikes<span class="sc">$</span>temp)) <span class="sc">+</span></span>
+<span id="cb58-10"><a href="#cb58-10"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">range</span>(bikes<span class="sc">$</span>count)) <span class="sc">+</span></span>
+<span id="cb58-11"><a href="#cb58-11"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFA200"</span>, <span class="st">"#757bc7"</span>)) <span class="sc">+</span></span>
+<span id="cb58-12"><a href="#cb58-12"></a>    <span class="fu">labs</span>(<span class="at">title =</span> grp, <span class="at">x =</span> <span class="st">"Temperature"</span>, <span class="at">y =</span> <span class="st">"Bike shares"</span>, <span class="at">color =</span> <span class="cn">NULL</span>)</span>
+<span id="cb58-13"><a href="#cb58-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="iterative-graphics-3" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">trends_monthly</span>(<span class="st">"July"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-iterate-monthly-ranges-july-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="iterative-graphics-4" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>plots <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(month.name[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>], trends_monthly) <span class="do">## also: ~ trends_monthly(.x)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="iterative-graphics-5" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb61" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>plots <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(month.name[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>], trends_monthly) <span class="do">## also: ~ trends_monthly(.x)</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>plots[[<span class="dv">9</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/function-iterate-monthly-ranges-purrr-single-1.png" width="1600" class="r-stretch quarto-figure-center"></section>
+<section id="iterative-graphics-6" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>plots <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(month.name[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>], trends_monthly) <span class="do">## also: ~ trends_monthly(.x)</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>patchwork<span class="sc">::</span><span class="fu">wrap_plots</span>(plots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/function-iterate-monthly-ranges-wrap-1.png" width="3600" class="r-stretch quarto-figure-center"></section>
+<section id="iterative-graphics-7" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63" data-code-line-numbers="1,11|2|3,4|5,6,7|8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>plot_density <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var, <span class="at">grp =</span> <span class="st">""</span>) {</span>
+<span id="cb63-2"><a href="#cb63-2"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">!!</span><span class="fu">sym</span>(var))) <span class="sc">+</span></span>
+<span id="cb63-3"><a href="#cb63-3"></a>    <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="sc">!!</span><span class="fu">sym</span>(grp)), <span class="at">position =</span> <span class="st">"identity"</span>,</span>
+<span id="cb63-4"><a href="#cb63-4"></a>                 <span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb63-5"><a href="#cb63-5"></a>    <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb63-6"><a href="#cb63-6"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>()) <span class="sc">+</span></span>
+<span id="cb63-7"><a href="#cb63-7"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>, <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb63-8"><a href="#cb63-8"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb63-9"><a href="#cb63-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="iterative-graphics-8" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">plot_density</span>(</span>
+<span id="cb64-2"><a href="#cb64-2"></a>  bikes, <span class="st">"count"</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="01-fundamentals_files/figure-revealjs/function-density-plot-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="iterative-graphics-9" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb65" data-code-line-numbers="1,2,3,4|2|3|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>plots <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(</span>
+<span id="cb65-2"><a href="#cb65-2"></a>  <span class="fu">c</span>(<span class="st">"count"</span>, <span class="st">"temp"</span>, <span class="st">"humidity"</span>, <span class="st">"wind_speed"</span>), </span>
+<span id="cb65-3"><a href="#cb65-3"></a>  <span class="sc">~</span> <span class="fu">plot_density</span>(<span class="at">data =</span> bikes, <span class="at">var =</span> .x, <span class="at">grp =</span> <span class="st">"day_night"</span>)</span>
+<span id="cb65-4"><a href="#cb65-4"></a>)</span>
+<span id="cb65-5"><a href="#cb65-5"></a>patchwork<span class="sc">::</span><span class="fu">wrap_plots</span>(plots, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/function-density-plot-grp-1.png" width="2800" class="r-stretch quarto-figure-center"></section>
+<section id="iterative-graphics-10" class="slide level2">
+<h2>Iterative Graphics</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb66" data-code-line-numbers="2|3|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>plots <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(</span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">names</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(midwest, <span class="fu">where</span>(is.numeric))),</span>
+<span id="cb66-3"><a href="#cb66-3"></a>  <span class="sc">~</span><span class="fu">plot_density</span>(<span class="at">data =</span> midwest, <span class="at">var =</span> .x)</span>
+<span id="cb66-4"><a href="#cb66-4"></a>)</span>
+<span id="cb66-5"><a href="#cb66-5"></a>patchwork<span class="sc">::</span><span class="fu">wrap_plots</span>(plots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/function-density-plot-midwest-1.png" width="4000" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="combine-plots" class="title-slide slide level1 center">
+<h1>Combine Plots</h1>
+
+</section>
+<section id="combine-plots-with-patchwork" class="slide level2">
+<h2>Combine Plots with {patchwork}</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67" data-code-line-numbers="1|3|5|7∂"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb67-2"><a href="#cb67-2"></a></span>
+<span id="cb67-3"><a href="#cb67-3"></a>p1 <span class="ot">&lt;-</span> <span class="fu">plot_density</span>(<span class="at">data =</span> bikes, <span class="at">var =</span> <span class="st">"count"</span>, <span class="at">grp =</span> <span class="st">"day_night"</span>)</span>
+<span id="cb67-4"><a href="#cb67-4"></a></span>
+<span id="cb67-5"><a href="#cb67-5"></a>p2 <span class="ot">&lt;-</span> <span class="fu">plot_density</span>(<span class="at">data =</span> bikes, <span class="at">var =</span> <span class="st">"humidity"</span>, <span class="at">grp =</span> <span class="st">"day_night"</span>)</span>
+<span id="cb67-6"><a href="#cb67-6"></a></span>
+<span id="cb67-7"><a href="#cb67-7"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> humidity, <span class="at">y =</span> count)) <span class="sc">+</span> <span class="fu">geom_scatterfit</span>(<span class="at">pointalpha =</span> .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="combine-plots-with-patchwork-1" class="slide level2">
+<h2>Combine Plots with {patchwork}</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/patchwork-example-1-1.png" width="2400" class="r-stretch quarto-figure-center"></section>
+<section id="combine-plots-with-patchwork-2" class="slide level2">
+<h2>Combine Plots with {patchwork}</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/patchwork-example-2-1.png" width="2400" class="r-stretch quarto-figure-center"></section>
+<section id="combine-plots-with-patchwork-3" class="slide level2">
+<h2>Combine Plots with {patchwork}</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">guides =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/patchwork-example-3-1.png" width="2400" class="r-stretch quarto-figure-center"></section>
+<section id="combine-plots-with-patchwork-4" class="slide level2">
+<h2>Combine Plots with {patchwork}</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">guides =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a>  <span class="fu">plot_annotation</span>(<span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="st">"top"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/patchwork-example-4-1.png" width="2400" class="r-stretch quarto-figure-center"></section>
+<section id="combine-plots-with-patchwork-5" class="slide level2">
+<h2>Combine Plots with {patchwork}</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">guides =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
+<span id="cb72-2"><a href="#cb72-2"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"A"</span>, <span class="at">tag_suffix =</span> <span class="st">"."</span>, <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="st">"top"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="01-fundamentals_files/figure-revealjs/patchwork-example-5-1.png" width="2400" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="exciting-extension-packages" class="title-slide slide level1 center">
+<h1>Exciting Extension Packages</h1>
+
+</section>
+<section id="layers" class="slide level2">
+<h2>Layers</h2>
+<ul>
+<li><a href="https://hafen.github.io/geofacet/"><strong><code>{geofacet}</code></strong></a> — tile grid maps</li>
+<li><a href="https://github.com/hrbrmstr/ggalt"><strong><code>{ggalluvial}</code></strong></a> — alluvial plots</li>
+<li><a href="https://github.com/hrbrmstr/ggalt"><strong><code>{ggalt}</code></strong></a> — dumbbell, horizon, and lollipop charts, splines, …</li>
+<li><a href="https://github.com/hrbrmstr/ggalt"><strong><code>{ggbeeswarm}</code></strong></a> — beeswarm plots and variants</li>
+<li><a href="https://nsgrantham.github.io/ggbraid/"><strong><code>{ggbraid}</code></strong></a> — ribbons for alternating groups</li>
+<li><a href="https://github.com/davidsjoberg/ggbump"><strong><code>{ggbump}</code></strong></a> — parallel sets, pie charts, geometries, splines, voronoi, …</li>
+<li><a href="https://jamesotto852.github.io/ggdensity/"><strong><code>{ggdensity}</code></strong></a> — improved density plots</li>
+<li><a href="https://github.com/davidsjoberg/ggbump"><strong><code>{ggdist}</code></strong></a> — uncertainty visualizations</li>
+<li><a href="https://ggforce.data-imaginist.com/"><strong><code>{ggforce}</code></strong></a> — several interesting layers (and more)</li>
+<li><a href="https://github.com/coolbutuseless/ggpattern"><strong><code>{ggpattern}</code></strong></a> — pattern fills for layers</li>
+</ul>
+</section>
+<section id="layers-continued" class="slide level2">
+<h2>Layers (continued)</h2>
+<ul>
+<li><a href="https://github.com/LKremer/ggpointdensity"><strong><code>{ggpointdensity}</code></strong></a> — density gradients for scatter plots</li>
+<li><a href="https://github.com/thomasp85/ggraph"><strong><code>{ggraph}</code></strong></a> — networks, graphs &amp; trees</li>
+<li><a href="https://github.com/clauswilke/ggridges"><strong><code>{ggridges}</code></strong></a> — ridgeline plots</li>
+<li><a href="https://github.com/davidsjoberg/ggsankey"><strong><code>{ggsankey}</code></strong></a> — sankey diagrams</li>
+<li><a href="https://const-ae.github.io/ggsignif/"><strong><code>{ggsignif}</code></strong></a> — significance levels</li>
+<li><a href="https://github.com/xiangpin/ggstar"><strong><code>{ggstar}</code></strong></a> — more point shapes</li>
+<li><a href="https://github.com/davidsjoberg/ggstream"><strong><code>{ggstream}</code></strong></a> — stream graphs</li>
+<li><a href="https://github.com/const-ae/ggupset"><strong><code>{ggupset}</code></strong></a> — upset graphs</li>
+<li><a href="https://wilkox.org/treemapify/"><strong><code>{treemapify}</code></strong></a> — treemaps</li>
+</ul>
+</section>
+<section id="utilities" class="slide level2">
+<h2>Utilities</h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html"><strong><code>{cowplot}</code></strong></a> — combine ggplots</li>
+<li><a href="https://github.com/MattCowgill/ggannotate"><strong><code>{ggannotate}</code></strong></a> — point-n-click annotations</li>
+<li><a href="https://mjskay.github.io/ggblend/"><strong><code>{ggblend}</code></strong></a> — blend, compose, adjust layers</li>
+<li><a href="https://wilkox.org/ggfittext/"><strong><code>{ggfittext}</code></strong></a> — scale text according to space</li>
+<li><a href="https://ggfx.data-imaginist.com/"><strong><code>{ggfx}</code></strong></a> — shaders and filters for layers</li>
+<li><a href="https://teunbrand.github.io/ggh4x/"><strong><code>{ggh4x}</code></strong></a> — facets, positions, and more</li>
+<li><a href="https://github.com/thomasp85/patchwork#patchwork"><strong><code>{ggtext}</code></strong></a> — text rendering for theme elements + text layers</li>
+<li><a href="https://github.com/stefanedwards/lemon"><strong><code>{lemon}</code></strong></a> — axis lines (and a few layers)</li>
+<li><a href="https://github.com/thomasp85/patchwork#patchwork"><strong><code>{patchwork}</code></strong></a> — combine ggplots</li>
+<li><a href="https://scales.r-lib.org/"><strong><code>{scales}</code></strong></a> — control scales</li>
+</ul>
+</section>
+<section id="themes" class="slide level2">
+<h2>Themes</h2>
+<ul>
+<li><a href="https://github.com/nsgrantham/ggdark"><strong><code>{ggdark}</code></strong></a></li>
+<li><a href="https://github.com/jrnold/ggthemes"><strong><code>{ggsci}</code></strong></a></li>
+<li><a href="https://github.com/ricardo-bion/ggtech"><strong><code>{ggtech}</code></strong></a></li>
+<li><a href="https://github.com/jrnold/ggthemes"><strong><code>{ggthemes}</code></strong></a></li>
+<li><a href="https://github.com/Mikata-Project/ggthemr"><strong><code>{ggthemr}</code></strong></a></li>
+<li><a href="https://github.com/hrbrmstr/hrbrthemes"><strong><code>{hrbrthemes}</code></strong></a></li>
+<li><a href="https://ryo-n7.github.io/tvthemes/"><strong><code>{tvthemes}</code></strong></a></li>
+</ul>
+</section>
+<section id="interactive-charts" class="slide level2">
+<h2>Interactive Charts</h2>
+<ul>
+<li><a href="https://davidgohel.github.io/ggiraph/"><strong><code>{ggiraph}</code></strong></a></li>
+<li><a href="https://plotly.com/r/"><strong><code>{plotly}</code></strong></a></li>
+<li><a href="https://echarts4r.john-coene.com/"><strong><code>{echarts4r}</code></strong></a>*</li>
+<li><a href="https://jkunst.com/highcharter/"><strong><code>{highcharter}</code></strong></a>*</li>
+<li><a href="https://github.com/JohnCoene/charter"><strong><code>{charter}</code></strong></a>*</li>
+<li><a href="https://hrbrmstr.github.io/streamgraph/"><strong><code>{streamgraph}</code></strong></a>*</li>
+<li><a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html"><strong><code>{tmap}</code></strong></a>*</li>
+<li><a href="https://rstudio.github.io/leaflet/"><strong><code>{leaflet}</code></strong></a>*</li>
+<li><a href="https://globe4r.john-coene.com/"><strong><code>{globe4r}</code></strong></a>*</li>
+<li><a href="https://grapher.network/"><strong><code>{grapher}</code></strong></a>*</li>
+</ul>
+<p><span style="font-size:.9em;">* not using <code>ggplot2</code></span></p>
+</section></section>
+<section>
+<section id="exercises" class="title-slide slide level1 center">
+<h1>Exercises</h1>
+
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise 1</h2>
 <div class="question">
 <ul>
-<li><strong>Explore the TfL bike share data visually:</strong>
-<ul>
-<li>Create a <em>time series</em> of counts per day and night.</li>
-<li>Draw <em>box and whisker plots</em> of average temperatures per season.</li>
-<li>Visualize bike counts per weather type and period as <em>bar chart</em>.</li>
-</ul></li>
-<li><strong>Polish the charts and export them in a format of your choice.</strong></li>
 <li><strong>Discuss / investigate with your neighbor:</strong>
 <ul>
 <li>What are the differences between <code>geom_line()</code> and <code>geom_path()</code>?</li>
 <li>Why can you use <code>geom_smooth()</code> and <code>stat_smooth()</code> interchangeably?</li>
 <li>What are the three ways to <em>remove a legend</em> from a ggplot?</li>
-<li>Which is your favorite theme?</li>
-<li>What is your favorite ggplot2 extension package?</li>
 </ul></li>
+</ul>
+</div>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise 2</h2>
+<div class="question">
+<ul>
+<li><strong>Explore the TfL bike share data visually:</strong>
+<ul>
+<li>Create a <em>time series</em> of counts per day and night.</li>
+<li>Draw <em>box and whisker plots</em> of average temperatures per month.</li>
+<li>Visualize bike counts per weather type and period as <em>bar chart</em>.</li>
+</ul></li>
+<li><strong>Combine the three plots with {patchwork}.</strong></li>
+<li><strong>Export the final graphic in a format of your choice.</strong></li>
 </ul>
 </div>
 </section>

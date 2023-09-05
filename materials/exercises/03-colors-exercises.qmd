@@ -1,0 +1,119 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "Working with Colors: Exercises"
+author: "Your Name"
+date: last-modified
+format: 
+  html:
+    toc: true
+execute:
+  message: false
+  warning: false
+  fig-width: 7.5
+  fig-height: 4.7
+editor: source
+---
+
+```{r}
+#| label: preparation
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+## data
+bikes <-
+  read_csv(
+    here::here("data", "london-bikes.csv"),
+    col_types = "Dcfffilllddddc"
+  )
+```
+
+
+# Exercise 1
+
+-   **Add colors to our bar chart from the last exercise:**
+   -   Encode the bars and direct labels by color for "fair weather" (clear, scattered clouds, broken clouds) and "grey weather" (rain, cloudy, snow)
+   -   Use the same colors to encode the respective text bits in the title ("Fair weather preferred") and subtitle ("rainy, cloudy, or snowy days").
+
+
+## Previous Bar Chart
+
+```{r}
+#| label: bars-weather-2015
+bikes |> 
+  filter(year == "2015") |> 
+  mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> 
+  ggplot(aes(x = count, y = weather_type)) +
+  stat_summary(
+    geom = "bar", fun = sum, 
+    color = "grey20", fill = "beige", width = .7
+  ) +
+  stat_summary(
+    geom = "text", fun = sum,
+    aes(
+      label = after_stat(paste0("  ", sprintf("%2.2f", x / 10^6), "M  ")),
+      hjust = after_stat(x) > .5*10^6
+    ),
+    family = "Asap SemiCondensed"
+  ) +
+  scale_x_continuous(
+    expand = c(0, 0), name = "**Reported bike shares**, in millions", 
+    breaks = 0:4*10^6, labels = c("0", paste0(1:4, "M"))
+  ) +
+  scale_y_discrete(labels = stringr::str_to_sentence, name = NULL) +
+  coord_cartesian(clip = "off") +
+  labs(
+    title = "Fair weather preferred—even in London",
+    subtitle = "Less than 10% of TfL bikes shares have been reported on rainy, cloudy, or snowy days in 2015.",
+    caption = "**Data:** Transport for London / freemeteo.com"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Asap SemiCondensed") +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title.x = ggtext::element_markdown(hjust = 0, face = "italic"),
+    axis.text.y = element_text(color = "black", size = rel(1.2)),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(b = 20)),
+    plot.title.position = "plot",
+    plot.caption = ggtext::element_markdown(color = "grey40")
+  )
+```
+
+
+
+# Exercise 2
+
+-   **Create a plot of your choice with a sequential (non-default) color palette.**
+    -   Inspect the HCL spectrum. Adjust the palette if needed.
+    -   Test the palette with regard to colorblindness. Adjust the palette if needed.
+    -   Save and share the graphic.
+
+
+## Visualization
+
+```{r}
+#| label: plot-colors
+
+```
+
+## Evaluate HCL Spectrum
+
+```{r}
+#| label: hcl-spectrum
+
+```
+
+## Emulate CVD
+
+```{r}
+#| label: hcl-spectrum
+
+```
+
+## Save Graphic
+
+```{r}
+#| label: export-plot
+
+```

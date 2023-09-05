@@ -12,22 +12,100 @@ tbl-colwidths: [5,20,75]
 
 <a href='../materials/02-text.html' target="_blank">View slides in full screen</a>&ensp;|&ensp;<a href='../materials/scripts/02-text.R' target="_blank">Run the code yourself</a>
 
+
 # Outline
 
--   
+-   Labels + theme()
+-   Labels + scale_*()
+-   Styling Labels with {ggtext}
+-   Facet Labellers
+-   Handling Long Labels
+-   Annotations
+-   Exercises
+
 
 # Recap
 
 ::: recap
--   
+-   style labels such as title, axis and legend texts with **`theme()`**
+-   format data-related labels with the **`labels`** argument of `scale_*()`
+-   adjust strip text with the **`facet_*(labeller)`** functionality
+-   add data-related annotations with **`geom_text|label()`**
+-   ... and data-unrelated annotations with **`annotate()`**
+-   **`{ggtext}`** allows to render labels with markdown and basic html
+-   `{ggtext}` also allows to add **dynamic linebreaks** and images
+-   **`{ggrepel}`** ensures clever placement of annotations
+-   **`ggforce::geom_mark_*()`** provide a set of advanced annotations
 :::
+
 
 # Exercises
 
 ## Exercise 1
 
 ::: question
--   
+-  **Take a look at the following visualization.**
+   -  For each group of text labels, note how one would add and modify them.
+   -  Discuss how to automate the placement of the labels in- and outside of the bars.
+
+```{r}
+#| label: text-exercise-1-plot
+#| echo: false
+#| fig-width: 7.5
+#| fig-height: 4.7
+library(ggplot2)
+
+bikes <- readr::read_csv(here::here("data", "london-bikes.csv"), col_types = "Dcfffilllddddc")
+
+bikes |> 
+  dplyr::filter(!is.na(weather_type), year == "2015") |> 
+  dplyr::mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> 
+  ggplot(aes(x = count, y = weather_type)) +
+  stat_summary(
+    fun = sum, geom = "bar",
+    color = "grey20", fill = "beige", width = .7
+  ) +
+  stat_summary(
+    fun = sum, geom = "text", 
+    aes(
+      label = after_stat(paste0("  ", sprintf("%2.2f", x / 10^6), "M  ")),
+      hjust = after_stat(x) > .5*10^6
+    ),
+    family = "Asap SemiCondensed"
+  ) +
+  scale_x_continuous(
+    expand = c(0, 0), name = "**Reported bike shares**, in millions",
+    breaks = 0:4*10^6, labels = c("0", paste0(1:4, "M"))
+  ) +
+  scale_y_discrete(labels = stringr::str_to_sentence, name = NULL) +
+  coord_cartesian(clip = "off") +
+  labs(
+    title = "Fair weather preferred—even in London",
+    subtitle = "Less than 10% of TfL bikes shares have been reported on rainy, cloudy, or snowy days in 2015.",
+    caption = "**Data:** Transport for London / freemeteo.com"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Asap SemiCondensed") +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title.x = ggtext::element_markdown(hjust = 0, face = "italic"),
+    axis.text.y = element_text(color = "black", size = rel(1.2)),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(b = 20)),
+    plot.title.position = "plot",
+    plot.caption = ggtext::element_markdown(color = "grey40")
+  )
+```
+:::
+   
+## Exercise 2
+
+::: question
+-  **Create a function that plots the famous Gapminder chart, highlighting one of the continents.**
+   -  Extend the code in `02-text-exercises.qmd` to annotate a continent your choice of with {ggforce}.
+   -  Turn the code into a function with the utility to annotate any continent.
+   -  Optional: Create a second function to highlight a country.
 :::
 
-**&rarr;&ensp;<a href='../materials/solutions/02-text-solution.html' target="_blank">Solution</a>**
+<br>
+<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/02-text-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/02-text-solution.html' target="_blank">Solution</a>

@@ -64,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:description" content="">
 <meta name="twitter:title" content="Prework">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -139,16 +139,24 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-downloads">    
         <li>
-    <a class="dropdown-item" href="./ggplot2-course-material.zip" rel="" target="">
+    <a class="dropdown-item" href="./positconf-2023-ggplot2-materials.zip" rel="" target="">
  <span class="dropdown-text">All Course Materials</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ggplot2-course-data.zip" rel="" target="">
+    <a class="dropdown-item" href="./positconf-2023-ggplot2-data.zip" rel="" target="">
  <span class="dropdown-text">Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ggplot2-course-fonts.zip" rel="" target="">
+    <a class="dropdown-item" href="./positconf-2023-ggplot2-fonts.zip" rel="" target="">
  <span class="dropdown-text">Font Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./positconf-2023-ggplot2-scripts.zip" rel="" target="">
+ <span class="dropdown-text">Scripts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./positconf-2023-ggplot2-exercises.zip" rel="" target="">
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
@@ -213,41 +221,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>As this workshop focuses on (more) advanced topics, a solid understanding of the fundamentals of ggplot2 and also data preparation in R is helpful. The concepts of how to initialize a ggplot, map variables to aesthetics, and how aesthetics relate to scales should be familiar to you. If you want to refresh your knowledge, I suggest going through the first two chapters of the ggplot2 book by Hadley Wickham et al.&nbsp;(<a href="ggplot2-book.org/introduction">introduction</a> and <a href="ggplot2-book.org/getting-started">getting started</a>). The “R for Data Science” book also offers a good <a href="r4ds.hadley.nz/data-visualize">overview of ggplot2</a> as well as <a href="r4ds.hadley.nz/data-transform">on data wrangling with the tidyverse</a>.</p>
+<p>As this workshop focuses on (more) advanced topics, a solid understanding of the fundamentals of ggplot2 and also data preparation in R is helpful. The concepts of how to initialize a ggplot, map variables to aesthetics, and how aesthetics relate to scales should be familiar to you. If you want to refresh your knowledge, I suggest going through the first two chapters of the ggplot2 book by Hadley Wickham et al.&nbsp;(<a href="https://ggplot2-book.org/introduction" target="_blank">introduction</a> and <a href="https://ggplot2-book.org/getting-started" target="_blank">getting started</a>). The “R for Data Science” book also offers a good <a href="https://r4ds.hadley.nz/data-visualize" target="_blank">overview of ggplot2</a> as well as <a href="https://r4ds.hadley.nz/data-transform" target="_blank">on data wrangling with the tidyverse</a>.</p>
 <p>You will need to bring your own laptop to the workshop with a recent version of R (4.3.1 or newer) and RStudio (2023.06.1 or newer) as well as a bunch of R packages and a few typefaces installed.</p>
 <section id="technical-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="technical-requirements">Technical Requirements</h2>
 <section id="install-r-and-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="install-r-and-rstudio">Install R and Rstudio</h3>
-<p>Download the most recent version of R (cloud.r-project.org, at least version 4.2) and Rstudio (rstudio.com/products/rstudio/download, at least version 2023.06.1) and follow the installation steps.</p>
+<p>Download the most recent version of <a href="https://cloud.r-project.org>cloud.r-project.org" target="_blank">R</a> (at least version 4.2) and <a href="https://rstudio.com/products/rstudio/download" target="_blank">Rstudio</a> (at least version 2023.06.1) and follow the installation steps.</p>
 </section>
 <section id="install-r-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="install-r-libraries">Install R Libraries</h3>
 <p>You can install all required R packages at once by running the following code in the R command line:</p>
 <pre><code>pkgs &lt;- c("ggplot2", "dplyr", "tibble", "tidyr", "readr", "forcats", 
-          "stringr", "lubridate", "here", "scales", "ragg", 
-          "systemfonts", "rcartocolor", "scico", "prismatic", 
-          "patchwork", "ggtext", "ggforce", "ggrepel")
-install.packages(setdiff(pkgs, rownames(installed.packages())))</code></pre>
-<p>To run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.</p>
-<p>A few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:</p>
-<pre><code>pkgs_opt &lt;- c("viridis", "RColorBrewer", "MetBrewer", "ggthemes", 
-              "ggsci", "camcorder", "colorspace", "remotes")
-install.packages(setdiff(pkgs_opt, rownames(installed.packages())))
+          "stringr", "lubridate", "purrr", "here", "scales", "ragg", 
+          "systemfonts", "rcartocolor", "scico", "prismatic", "patchwork", 
+          "ggtext", "ggforce", "ggrepel", "colorspace", "gapminder", "remotes")
+install.packages(setdiff(pkgs, rownames(installed.packages())))
 
 remotes::install_github("clauswilke/colorblindr")</code></pre>
+<p>To run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.</p>
+<p>A few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:</p>
+<pre><code>pkgs_opt &lt;- c("camcorder", "viridis", "RColorBrewer", "MetBrewer", 
+              "ggthemes", "ggsci", "hrbrthemes", "tvthemes", "ggannotate")
+install.packages(setdiff(pkgs_opt, rownames(installed.packages())))</code></pre>
 <p>If, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.</p>
 </section>
 <section id="install-typefaces" class="level3">
 <h3 class="anchored" data-anchor-id="install-typefaces">Install Typefaces</h3>
 <p>We will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:</p>
 <ul>
-<li>Asap: <a href="https://fonts.google.com/specimen/Asap">fonts.google.com/specimen/Asap</a></li>
-<li>Spline Sans: <a href="https://fonts.google.com/specimen/Spline+Sans">fonts.google.com/specimen/Spline+Sans</a></li>
-<li>Spline Sans Mono: <a href="https://fonts.google.com/specimen/Spline+Sans+Mono">fonts.google.com/specimen/Spline+Sans+Mono</a></li>
-<li>Hepta Slab: <a href="https://fonts.google.com/specimen/Hepta+Slab">fonts.google.com/specimen/Hepta+Slab</a></li>
+<li>Asap: <a href="https://fonts.google.com/specimen/Asap" target="_blank">fonts.google.com/specimen/Asap</a></li>
+<li>Spline Sans: <a href="https://fonts.google.com/specimen/Spline+Sans" target="_blank">fonts.google.com/specimen/Spline+Sans</a></li>
+<li>Spline Sans Mono: <a href="https://fonts.google.com/specimen/Spline+Sans+Mono" target="_blank">fonts.google.com/specimen/Spline+Sans+Mono</a></li>
+<li>Hepta Slab: <a href="https://fonts.google.com/specimen/Hepta+Slab" target="_blank">fonts.google.com/specimen/Hepta+Slab</a></li>
 </ul>
-<p>You can download all typefaces as a single zip file here.</p>
+<p>You can download all typefaces as a single zip file <a href="https://cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip" target="_blank">here</a>.</p>
 </section>
 <section id="for-mac-os-users" class="level3">
 <h3 class="anchored" data-anchor-id="for-mac-os-users">For Mac OS Users</h3>
@@ -256,7 +264,12 @@ remotes::install_github("clauswilke/colorblindr")</code></pre>
 </section>
 <section id="course-communication" class="level2">
 <h2 class="anchored" data-anchor-id="course-communication">Course Communication</h2>
-<p>We will be using Discord as our main communication method during the workshop. To make the process go smoothly: * Please sign up for an account at <a href="https://discord.com">discord.com</a> if you don’t already have one. * Make sure your <a href="https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C">display name</a> is the one you used to register for the conference. In your “About Me”, put the name of your workshop(s).</p>
+<p>We will be using Discord as our main communication method during the workshop. To make the process go smoothly:</p>
+<ul>
+<li>Please sign up for an account at <a href="https://discord.com" target="_blank">discord.com</a> if you don’t already have one.</li>
+<li>Make sure your <a href="https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C" target="_blank">display name</a> is the one you used to register for the conference.</li>
+<li>In your “About Me”, put the name of your workshop(s).</li>
+</ul>
 <p>Closer to the start of the conference, you will be invited to join the posit::conf Discord server. Once you’ve accepted the invite, we will add you to the channel for the workshop.</p>
 
 

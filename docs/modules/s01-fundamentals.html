@@ -63,12 +63,12 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Fundamentals &amp; Workflows">
 <meta property="og:description" content="09:00-10:30">
-<meta property="og:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz/modules/images/01-fundamentals.png">
+<meta property="og:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2/modules/images/01-fundamentals.png">
 <meta property="og:image:height" content="1688">
 <meta property="og:image:width" content="2189">
 <meta name="twitter:title" content="Fundamentals &amp; Workflows">
 <meta name="twitter:description" content="09:00-10:30">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -143,16 +143,24 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-downloads">    
         <li>
-    <a class="dropdown-item" href="../ggplot2-course-material.zip" rel="" target="">
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-materials.zip" rel="" target="">
  <span class="dropdown-text">All Course Materials</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../ggplot2-course-data.zip" rel="" target="">
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-data.zip" rel="" target="">
  <span class="dropdown-text">Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../ggplot2-course-fonts.zip" rel="" target="">
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-fonts.zip" rel="" target="">
  <span class="dropdown-text">Font Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-scripts.zip" rel="" target="">
+ <span class="dropdown-text">Scripts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-exercises.zip" rel="" target="">
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
@@ -187,7 +195,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/edit/main/modules/s01-fundamentals.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -228,20 +241,43 @@ ul.task-list li input[type="checkbox"] {
 <li>The {ggplot2} Showcase</li>
 <li>A Walk-Through Example</li>
 <li>Saving Plots</li>
+<li>Programming with {ggplot2}</li>
+<li>Combine Plots</li>
+<li>Exciting Extension Packages</li>
 <li>Exercises</li>
 </ul>
 </section>
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<div class="recap">
+<ul>
+<li>use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
+<ul>
+<li>e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
+</ul></li>
+<li>use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
+<ul>
+<li>e.g.&nbsp;<code>scale_*_gradient()</code>, <code>scale_*_gradient2()</code> or <code>scale_*_viridis_c</code></li>
+</ul></li>
+<li>various packages provide palettes incl.&nbsp;<code>scale_*</code> components
+<ul>
+<li>e.g.&nbsp;<code>{rcartocolors}</code>, <code>{scico}</code>, <code>{ggsci}</code>, <code>{ggthemes}</code>, <code>{nord}</code></li>
+</ul></li>
+<li>those and even more packages return palettes as vectors
+<ul>
+<li>modify and supply them to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
+</ul></li>
+<li>use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
+<li>evaluate palette quality with <strong><code>{colorspace}</code></strong> and simulaze CVD with <strong><code>{colorblindr}</code></strong></li>
+</ul>
+</div>
+</section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <div class="question">
 <ul>
-<li><strong>Explore the TfL bike share data visually:</strong>
-<ul>
-<li>Create a <em>time series</em> of counts per day and night.</li>
-<li>Draw <em>box and whisker plots</em> of average temperatures per season.</li>
-<li>Visualize bike counts per weather type and period as <em>bar chart</em>.</li>
-</ul></li>
-<li><strong>Polish the charts and export them in a format of your choice.</strong></li>
 <li><strong>Discuss / investigate with your neighbor:</strong>
 <ul>
 <li>What are the differences between <code>geom_line()</code> and <code>geom_path()</code>?</li>
@@ -252,9 +288,25 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </div>
-<p><strong>→ <a href="../materials/solutions/01-fundamentals-solution.html" target="_blank">Solution</a></strong></p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<div class="question">
+<ul>
+<li><strong>Explore the TfL bike share data visually:</strong>
+<ul>
+<li>Create a <em>time series</em> of counts per day and night.</li>
+<li>Draw <em>box and whisker plots</em> of average temperatures per month.</li>
+<li>Visualize bike counts per weather type and period as <em>bar chart</em>.</li>
+</ul></li>
+<li><strong>Combine the three plots with {patchwork}.</strong></li>
+<li><strong>Export the final graphic in a format of your choice.</strong></li>
+</ul>
+</div>
+<p><br> <a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamental-exercises.qmd" target="_blank">Exercise Template</a> | <a href="../materials/solutions/01-fundamentals-solution.html" target="_blank">Solution</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

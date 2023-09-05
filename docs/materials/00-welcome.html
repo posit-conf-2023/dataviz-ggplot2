@@ -390,7 +390,7 @@
 <meta property="og:description" content="Welcome!">
 <meta name="twitter:title" content="Engaging and Beautiful Data Visualizations with ggplot2">
 <meta name="twitter:description" content="Welcome!">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -565,16 +565,17 @@
 </section>
 <section id="required-packages" class="slide level2">
 <h2>Required Packages</h2>
-<div class="cell" data-hash="00-welcome_cache/revealjs/packages-install-tidyverse_b4b2105e63aeadc6359086a522fc1e85">
+<div class="cell" data-hash="00-welcome_cache/revealjs/packages-install-tidyverse_88585319b84dbef92a58fccba66b637e">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="fu">install.packages</span>(<span class="st">"forcats"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">install.packages</span>(<span class="st">"purrr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="00-welcome_cache/revealjs/packages-install-other_1982ec82eed44c81aa5f5c81e3d7b0cd">
+<div class="cell" data-hash="00-welcome_cache/revealjs/packages-install-other_057c75c7a29cffb13735c8f36543a25c">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">install.packages</span>(<span class="st">"scales"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">install.packages</span>(<span class="st">"ragg"</span>)</span>
@@ -582,23 +583,47 @@
 <span id="cb2-5"><a href="#cb2-5"></a><span class="fu">install.packages</span>(<span class="st">"rcartocolor"</span>)</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="fu">install.packages</span>(<span class="st">"scico"</span>)</span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="fu">install.packages</span>(<span class="st">"prismatic"</span>)</span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">install.packages</span>(<span class="st">"ggtext"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">install.packages</span>(<span class="st">"ggforce"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="fu">install.packages</span>(<span class="st">"ggrepel"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">install.packages</span>(<span class="st">"patchwork"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">install.packages</span>(<span class="st">"ggtext"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="fu">install.packages</span>(<span class="st">"ggforce"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">install.packages</span>(<span class="st">"ggrepel"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="fu">install.packages</span>(<span class="st">"colorspace"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="fu">install.packages</span>(<span class="st">"gapminder"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"clauswilke/colorblindr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="optional-packages" class="slide level2">
 <h2>Optional Packages</h2>
-<div class="cell" data-hash="00-welcome_cache/revealjs/packages-install-optional_62cb2ce07e42a6512b6fe75df8f72b82">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"viridis"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">install.packages</span>(<span class="st">"RColorBrewer"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">install.packages</span>(<span class="st">"MetBrewer"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">install.packages</span>(<span class="st">"ggthemes"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">install.packages</span>(<span class="st">"ggsci"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">install.packages</span>(<span class="st">"camcorder"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">install.packages</span>(<span class="st">"colorspace"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"clauswilke/colorblindr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="00-welcome_cache/revealjs/packages-install-optional_d034086e7224b6ae76cb898c220e8e9a">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"camcorder"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">install.packages</span>(<span class="st">"viridis"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">install.packages</span>(<span class="st">"RColorBrewer"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">install.packages</span>(<span class="st">"MetBrewer"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">install.packages</span>(<span class="st">"ggthemes"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">install.packages</span>(<span class="st">"ggsci"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">install.packages</span>(<span class="st">"hrbrthemes"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">install.packages</span>(<span class="st">"tvthemes"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="fu">install.packages</span>(<span class="st">"ggannotate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="required-typefaces" class="slide level2">
+<h2>Required Typefaces</h2>
+<p>Download and install the following typefaces:</p>
+<ul>
+<li>Asap: <a href="https://fonts.google.com/specimen/Asap">fonts.google.com/specimen/Asap</a></li>
+<li>Spline Sans: <a href="https://fonts.google.com/specimen/Spline+Sans">fonts.google.com/specimen/Spline+Sans</a></li>
+<li>Spline Sans Mono: <a href="https://fonts.google.com/specimen/Spline+Sans+Mono">fonts.google.com/specimen/Spline+Sans+Mono</a></li>
+<li>Hepta Slab: <a href="https://fonts.google.com/specimen/Hepta+Slab">fonts.google.com/specimen/Hepta+Slab</a></li>
+</ul>
+<div class="fragment">
+<p>All files are also available via<br><a href="https://cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip">cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip</a></p>
+</div>
+<div class="fragment">
+<p>→ Install the font files.</p>
+</div>
+<div class="fragment">
+<p>→ Restart Rstudio.</p>
 </div>
 </section></section>
 <section id="lets-get-started" class="title-slide slide level1 center">

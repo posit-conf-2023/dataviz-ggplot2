@@ -37,10 +37,15 @@ execute:
 ```{r}
 #| label: theme-set-basic
 #| include: false
+#| cache: false
 #| purl: false
 library(ggplot2)
 theme_set(theme_grey(base_size = 15))
 ```
+
+
+# {ggplot2}
+
 
 ##
 
@@ -96,7 +101,7 @@ theme_set(theme_grey(base_size = 15))
 
 --------------------------------------------------------------------------------
 
-![ggplot2 examples featured on [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/)](img/fundamentals/basic-ggplots.png){fig-align="center" fig-alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use only data, aesthetics, and layers with the defaults of ggplot2."}
+![ggplot2 examples featured on [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/)](img/basic-ggplots.png){fig-align="center" fig-alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use only data, aesthetics, and layers with the defaults of ggplot2."}
 
 
 ## The Components of a ggplot
@@ -152,11 +157,11 @@ theme_set(theme_grey(base_size = 15))
 
 --------------------------------------------------------------------------------
 
-![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/fundamentals/ah-ggplot2-exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/ah-ggplot2-exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
 
 --------------------------------------------------------------------------------
 
-![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/fundamentals/ah-ggplot2-masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/ah-ggplot2-masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
 
 
 # The {ggplot2} Showcase
@@ -199,7 +204,7 @@ theme_set(theme_grey(base_size = 15))
 
 --------------------------------------------------------------------------------
 
-![["Appearance of X-Men Characters"](https://www.behance.net/gallery/100640345/Appearance-of-Popular-X-Men-Characters](img/showcase/xmen-comics.png){fig-align="center" fig-size="50%" fig-alt='Streamgraphs showing the appearance of the most common X-Men characters (Wovlerine, Magneto, Nightcrawler, Storm & Gambit) during the so-called "Claremont Run". Chris Claremont is a famous American comic book writer who was in charge of the "Uncanny X-Men" comic book series from 1975–1991. During that time he developed complex literary themes and strong female characters into superhero comics, and turning the X-Men into one of Marvel's most popular series.'}
+![["Appearance of X-Men Characters"](https://www.behance.net/gallery/100640345/Appearance-of-Popular-X-Men-Characters)](img/showcase/xmen-comics.png){fig-align="center" fig-size="45%" fig-alt="Streamgraphs showing the appearance of the most common X-Men characters (Wovlerine, Magneto, Nightcrawler, Storm & Gambit) during the so-called Claremont Run. Chris Claremont is a famous American comic book writer who was in charge of the Uncanny X-Men comic book series from 1975–1991. During that time he developed complex literary themes and strong female characters into superhero comics, and turning the X-Men into one of Marvel's most popular series."}
 
 --------------------------------------------------------------------------------
 
@@ -359,7 +364,7 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
   scale_color_manual(
     # use a custom color palette
     values = colors,
-    # and overwrite legend keys
+    # overwrite legend keys
     labels = c("Winter", "Spring", "Summer", "Autumn"),
     # adjust symbol size in legend size
     guide = guide_legend(override.aes = list(size = 4))
@@ -424,7 +429,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-1
 #| echo: false
-#| purl: false
 ```
 
 
@@ -446,7 +450,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-2
 #| echo: false
-#| purl: false
 ```
 
 
@@ -467,7 +470,6 @@ ggplot(bikes, aes(x = temp_feel, y = count, color = day_night)) +
 ```{r}
 #| label: walkthrough-3
 #| echo: false
-#| purl: false
 ```
 
 
@@ -490,7 +492,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-4
 #| echo: false
-#| purl: false
 ```
 
 
@@ -519,7 +520,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-5
 #| echo: false
-#| purl: false
 ```
 
 
@@ -547,7 +547,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-6
 #| echo: false
-#| purl: false
 ```
 
 
@@ -577,7 +576,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-7
 #| echo: false
-#| purl: false
 ```
 
 
@@ -610,7 +608,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 ```{r}
 #| label: walkthrough-8
 #| echo: false
-#| purl: false
 ```
 
 
@@ -618,7 +615,6 @@ ggplot(bikes, aes(x = temp_feel, y = count)) +
 
 ```{r}
 #| label: walkthrough-store-object
-#| purl: false
 #| cache: false
 #| code-line-numbers: "1"
 g1 <- 
@@ -655,14 +651,21 @@ g1 +
   )
 ```
 
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: walkthrough-9a
+#| echo: false
+#| purl: false
+```
+
 
 ## Change the Axis Scaling
 
 ```{r}
-#| label: walkthrough-9-code
+#| label: walkthrough-9b-code
 #| cache: false
-#| purl: false
-#| code-line-numbers: "9,10,16|12,13|14,15|1"
+#| code-line-numbers: "9,10,15|11,12|13,14|1"
 g2 <- g1 +
   # x axis
   scale_x_continuous(
@@ -683,9 +686,8 @@ g2 <- g1 +
 --------------------------------------------------------------------------------
 
 ```{r}
-#| label: walkthrough-9
+#| label: walkthrough-9b
 #| echo: false
-#| purl: false
 g2
 ```
 
@@ -695,7 +697,6 @@ g2
 ```{r}
 #| label: walkthrough-10a
 #| eval: false
-#| purl: false
 #| code-line-numbers: "2,3,4,5"
 g2 +
   # use a custom color palette for season colors
@@ -732,7 +733,6 @@ g2 +
 ```{r}
 #| label: walkthrough-10
 #| echo: false
-#| purl: false
 ```
 
 
@@ -742,11 +742,19 @@ g2 +
 #| label: walkthrough-11
 #| eval: false
 #| purl: false
-#| code-line-numbers: "2,5"
+#| code-line-numbers: "11,12"
+# use a named vector for explicit matching
+colors <- c(
+  `0` = "#1EC98D",
+  `1` = "#F7B01B",
+  `2` = "#A26E7C",
+  `3` = "#6681FE"
+)
+
 g2 +
-  # overwrite legend keys
   scale_color_manual(
     values = colors,
+    # overwrite legend keys
     labels = c("Winter", "Spring", "Summer", "Autumn")
   )
 ```
@@ -756,7 +764,6 @@ g2 +
 ```{r}
 #| label: walkthrough-11
 #| echo: false
-#| purl: false
 ```
 
 
@@ -765,7 +772,6 @@ g2 +
 ```{r}
 #| label: walkthrough-12-code
 #| cache: false
-#| purl: false
 #| code-line-numbers: "6,12|7,8|9,10,11"
 g3 <- g2 +
   scale_color_manual(
@@ -786,7 +792,6 @@ g3 <- g2 +
 ```{r}
 #| label: walkthrough-12
 #| echo: false
-#| purl: false
 g3
 ```
 
@@ -810,7 +815,6 @@ g3 +
 ```{r}
 #| label: walkthrough-13
 #| echo: false
-#| purl: false
 ```
 
 
@@ -819,7 +823,6 @@ g3 +
 ```{r}
 #| label: walkthrough-14-code
 #| cache: false
-#| purl: false
 #| code-line-numbers: "3,4,20|5,6,7|8,9,10,11,12,13,14|15,16|17,18|19"
 g4 <- g3 +
   theme_light(base_size = 15, base_family = "Spline Sans") +
@@ -848,7 +851,6 @@ g4 <- g3 +
 ```{r}
 #| label: walkthrough-14
 #| echo: false
-#| purl: false
 g4
 ```
 
@@ -858,7 +860,6 @@ g4
 ```{r}
 #| label: walkthrough-15
 #| eval: false
-#| purl: false
 #| code-line-numbers: "2,3,4,5|4"
 g4 +
   # adjust symbol size in legend
@@ -873,7 +874,6 @@ g4 +
 ```{r}
 #| label: walkthrough-15b
 #| eval: false
-#| purl: false
 #| code-line-numbers: "2,5,6,7|5,6"
 g4 +
   scale_color_manual(
@@ -900,6 +900,7 @@ g4 +
 ```{r}
 #| label: walkthrough-full
 #| eval: false
+#| purl: false
 ```
 
 
@@ -945,7 +946,7 @@ g_res <-
   ggplot(bikes, aes(x = temp, y = count, color = day_night)) +
   geom_point(alpha = .3, size = 2) +
   scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
-  theme_minimal(base_size = 18, base_family = "Asap SemiCondensed") +
+  theme_minimal(base_size =                         18, base_family = "Asap SemiCondensed") +
   theme(panel.grid.minor = element_blank(),
         plot.title = element_text(family = "Spline Sans Mono", size = rel(.95), face = "bold", hjust = .5),
         plot.subtitle = element_text(size = rel(1.1), hjust = .5, margin = margin(b = 20)),
@@ -973,9 +974,9 @@ ggsave(here::here("materials", "plots", "resolution-dpi-600.png"),
 ## Plot Resolution
 
 ::: {layout-ncol="2"}
-![](img/fundamentals/resolution-dpi-100-zoom.png)
+![](img/resolution-dpi-100-zoom.png)
 
-![](img/fundamentals/resolution-dpi-600-zoom.png)
+![](img/resolution-dpi-600-zoom.png)
 :::
 
 
@@ -1034,7 +1035,7 @@ ggsave("my_plot.pdf", device = cairo_pdf)
 
 <br>
 
-![Modified from canva.com](img/fundamentals/vector-raster-canva.png){fig-alt="A comparison of vector and raster graphics." fig-width="150%"}
+![Modified from canva.com](img/vector-raster-canva.png){fig-alt="A comparison of vector and raster graphics." fig-width="150%"}
 
 
 
@@ -1060,35 +1061,35 @@ ggsave("my_plot.pdf", device = cairo_pdf)
 
 <br>
 
-![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-left-and-right.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of right-to-left text (and mixing left-to-right and right-to-left text)."}
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/ragg-left-and-right.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of right-to-left text (and mixing left-to-right and right-to-left text)."}
 
 
 ## The {ragg} Package
 
 <br>
 
-![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-ligatures.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of font ligatures."}
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/ragg-ligatures.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of font ligatures."}
 
 
 ## The {ragg} Package
 
 <br>
 
-![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-emojis.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of emojis."}
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/ragg-emojis.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering of emojis."}
 
 
 ## The {ragg} Package
 
 <br>
 
-![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/fundamentals/ragg-fallback.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering missing glyphs, partly making use of fallback fonts."}
+![Source: [tidyverse.org/blog/2021/02/modern-text-features](https://www.tidyverse.org/blog/2021/02/modern-text-features/)](img/ragg-fallback.png){fig-align="center" fig-alt="A comparison of different graphic devices in R comparing the rendering missing glyphs, partly making use of fallback fonts."}
 
 
 ## The {ragg} Package
 
 ::: incremental
 * use {ragg} when saving ggplots by passing agg device function: `ggsave(device = agg_png))` ([used by default if installed](https://github.com/tidyverse/ggplot2/pull/4388))
-* use {ragg} in the *Rstudio Plots* pane be setting the backend to AGG: ![](img/fundamentals/ragg-rstudio.png){fig-alt="How to set the AGG device as the default in RStudio via Global Options > > General > Graphics > Backend."}
+* use {ragg} in the *Rstudio Plots* pane be setting the backend to AGG: ![](img/ragg-rstudio.png){fig-alt="How to set the AGG device as the default in RStudio via Global Options > > General > Graphics > Backend."}
 * use {ragg} when knitting Rmarkdown files by setting `dev="ragg_png"` in the code chunk options.
 
 :::
@@ -1148,7 +1149,7 @@ ggsave("my_plot.svg")
 
 --------------------------------------------------------------------------------
 
-![](img/fundamentals/figma-svg.png){fig-align="center"}
+![](img/figma-svg.png){fig-align="center"}
 
 
 ## How to Work with Aspect Ratios
@@ -1165,12 +1166,12 @@ ggsave("my_plot.svg")
 
 ## Setting Plot Sizes in Quarto and Rmarkdown
 
-![](img/fundamentals/plot-size-chunk-yaml.png){fig-alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig-width and fig-height as YAML-styled options using the hashpipe. Unfortunately, these are not respected when the chunk output is printed inline." fig-width="60%"}
+![](img/plot-size-chunk-yaml.png){fig-alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig-width and fig-height as YAML-styled options using the hashpipe. Unfortunately, these are not respected when the chunk output is printed inline." fig-width="60%"}
 
 
 ## Setting Plot Sizes in Quarto and Rmarkdown
 
-![](img/fundamentals/plot-size-chunk-inline.png){fig-alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig.width and fig.height set as inline chunk options." fig-width="60%"}
+![](img/plot-size-chunk-inline.png){fig-alt="A screenshot of an exemplary Qmd file with two chunks with different settings of fig.width and fig.height set as inline chunk options." fig-width="60%"}
 
 
 ## How to Work with Aspect Ratios
@@ -1189,14 +1190,14 @@ ggsave("my_plot.svg")
 
 <br>
 
-![](img/fundamentals/plot-size-camcorder-a.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
+![](img/plot-size-camcorder-a.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
 
 
 ## Setting Plot Sizes via {camcorder}
 
 <br>
 
-![](img/fundamentals/plot-size-camcorder-b.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
+![](img/plot-size-camcorder-b.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
 
 
 ## Setting Plot Sizes via {camcorder}
@@ -1217,7 +1218,7 @@ camcorder::gg_record(
 g <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +
   geom_point(alpha = .3, size = 2) +
   scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
-  theme_minimal(base_size = 18, base_family = "Asap SemiCondensed") +
+  theme_minimal(base_size = 14, base_family = "Asap SemiCondensed") +
   theme(panel.grid.minor = element_blank())
 
 g
@@ -1241,7 +1242,7 @@ camcorder::gg_record(
 g <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +
   geom_point(alpha = .3, size = 2) +
   scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
-  theme_minimal(base_size = 18, base_family = "Asap SemiCondensed") +
+  theme_minimal(base_size = 14, base_family = "Asap SemiCondensed") +
   theme(panel.grid.minor = element_blank())
 
 g
@@ -1252,32 +1253,552 @@ g
 ```
 
 
+## Like a Pro: Set Theme Globally
 
-## Your Turn
+```{r}
+#| label: set-theme
+#| cache: false
+theme_set(theme_minimal(base_size = 14, base_family = "Asap SemiCondensed"))
+theme_update(panel.grid.minor = element_blank())
+```
+
+
+# Programming <br>with ggplot2
+
+
+## Conditional Components
+
+```{r}
+#| label: conditional-components
+#| eval: false
+#| purl: false
+#| code-line-numbers: "1|3,4,5|4"
+smooth <- TRUE
+
+ggplot(bikes, aes(x = temp, y = humidity)) +
+  { if(smooth) geom_smooth(color = "red") } +
+  geom_point(alpha = .5)
+```
+
+
+## Conditional Components
+
+```{r}
+#| label: conditional-components-1
+#| fig-width: 8
+#| fig-height: 5
+#| fig-align: center
+smooth <- TRUE
+
+ggplot(bikes, aes(x = temp, y = humidity)) +
+  { if(smooth) geom_smooth(color = "red") } +
+  geom_point(alpha = .5)
+```
+
+
+## Conditional Components
+
+```{r}
+#| label: conditional-components-2
+#| fig-width: 8
+#| fig-height: 5
+#| fig-align: center
+#| code-line-numbers: "1"
+smooth <- FALSE
+
+ggplot(bikes, aes(x = temp, y = humidity)) +
+  { if(smooth) geom_smooth(color = "red") } +
+  geom_point(alpha = .5)
+```
+
+
+## Wrapper Functions for Plots
+
+```{r}
+#| label: conditional-components-function
+#| code-line-numbers: "1,5|2,3,4"
+draw_scatter <- function(smooth = TRUE) {
+  ggplot(bikes, aes(x = temp, y = humidity)) +
+    { if(smooth) geom_smooth(color = "red") } +
+    geom_point(alpha = .5)
+}
+```
+
+
+## Wrapper Functions for Plots
+
+```{r}
+#| label: conditional-components-function-plot-default
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+draw_scatter()
+```
+
+
+## Wrapper Functions for Plots
+
+```{r}
+#| label: conditional-components-function-plot-false
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+draw_scatter(smooth = FALSE)
+```
+
+
+## Components as Functions
+
+```{r}
+#| label: function-components
+#| cache: false
+#| code-line-numbers: "1,2,7|3,6|4,5"
+geom_scatterfit <- function(pointsize = 1, pointalpha = 1, 
+                            method = "lm", linecolor = "red", ...) {
+  list(
+    geom_point(size = pointsize, alpha = pointalpha, ...),
+    geom_smooth(method = method, color = linecolor, ...)
+  )
+}
+```
+
+
+## Components as Functions
+
+```{r}
+#| label: function-components-defaults
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "3"
+ggplot(bikes,
+       aes(x = humidity, y = count)) +
+  geom_scatterfit()
+```
+
+
+## Components as Functions
+
+```{r}
+#| label: function-components-args
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4,5"
+ggplot(bikes,
+       aes(x = humidity, y = count)) +
+  geom_scatterfit(
+    color = "#28A87D", 
+    size = 3
+  )
+```
+
+
+## Components as Functions
+
+```{r}
+#| label: function-components-custom
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "1,2|4,5,6,7"
+ggplot(diamonds, 
+       aes(x = carat, y = price)) +
+  geom_scatterfit(
+    pointsize = .5, 
+    pointalpha = .1,
+    method = "gam",
+    linecolor = "#EFAC00"
+  )
+```
+
+
+## Components as Functions
+
+```{r}
+#| label: function-components-scales
+#| cache: false
+#| code-line-numbers: "1,14|2,13|3,4,5,6,7|8,9,10,11,12"
+scales_log <- function(sides = "xy") {
+  list(
+    if(stringr::str_detect(sides, "x")) {
+      scale_x_log10(
+        breaks = c(10^(1:100)), labels = scales::label_log()
+      )
+    },
+    if(stringr::str_detect(sides, "y")) {
+      scale_y_log10(
+        breaks = c(10^(1:100)), labels = scales::label_log()
+      )
+    }
+  )
+}
+```
+
+
+## Components as Functions
+
+```{r}
+#| label: function-components-scales-custom
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "9"
+ggplot(diamonds, 
+       aes(x = carat, y = price)) +
+  geom_scatterfit(
+    pointsize = .5, 
+    pointalpha = .1,
+    method = "gam",
+    linecolor = "#EFAC00"
+  ) +
+  scales_log(sides = "y")
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly
+#| cache: false
+#| code-line-numbers: "1,11|2,3,4|5,6,7,8,9|1,4,9"
+trends_monthly <- function(grp = "January") {
+  bikes |> 
+    dplyr::mutate(month = lubridate::month(date, label = TRUE, abbr = FALSE)) |> 
+    dplyr::filter(month %in% grp) |> 
+    ggplot(aes(x = temp, y = count, color = day_night)) +
+    geom_point(alpha = .2, show.legend = FALSE) +
+    geom_smooth(se = FALSE) +
+    scale_color_manual(values = c("#FFA200", "#757bc7")) +
+    labs(title = grp, x = "Temperature", y = "Bike shares", color = NULL)
+}
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly-july
+#| cache: false
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+trends_monthly("July")
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly-ranges
+#| cache: false
+#| code-line-numbers: "8,9,10"
+trends_monthly <- function(grp = "January") {
+  bikes |> 
+    dplyr::mutate(month = lubridate::month(date, label = TRUE, abbr = FALSE)) |> 
+    dplyr::filter(month %in% grp) |> 
+    ggplot(aes(x = temp, y = count, color = day_night)) +
+    geom_point(alpha = .2, show.legend = FALSE) +
+    geom_smooth(se = FALSE) +
+    # keep axis ranges consistent
+    scale_x_continuous(limits = range(bikes$temp)) +
+    scale_y_continuous(limits = range(bikes$count)) +
+    scale_color_manual(values = c("#FFA200", "#757bc7")) +
+    labs(title = grp, x = "Temperature", y = "Bike shares", color = NULL)
+}
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly-ranges-july
+#| cache: false
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+trends_monthly("July")
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly-ranges-purrr
+#| cache: false
+#| eval: false
+#| purl: false
+plots <- purrr::map(month.name[1:12], trends_monthly) ## also: ~ trends_monthly(.x)
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly-ranges-purrr-single
+#| cache: false
+#| fig-width: 8
+#| fig-height: 5
+#| fig-align: center
+#| code-line-numbers: "2"
+plots <- purrr::map(month.name[1:12], trends_monthly) ## also: ~ trends_monthly(.x)
+plots[[9]]
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-iterate-monthly-ranges-wrap
+#| cache: false
+#| fig-width: 18
+#| fig-height: 8.5
+#| fig-align: center
+#| code-line-numbers: "2"
+plots <- purrr::map(month.name[1:12], trends_monthly) ## also: ~ trends_monthly(.x)
+patchwork::wrap_plots(plots)
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-density
+#| cache: false
+#| code-line-numbers: "1,11|2|3,4|5,6,7|8,9,10"
+plot_density <- function(data, var, grp = "") {
+  ggplot(data, aes(x = !!sym(var))) +
+    geom_density(aes(fill = !!sym(grp)), position = "identity",
+                 color = "grey30", alpha = .3) +
+    coord_cartesian(expand = FALSE, clip = "off") +
+    scale_y_continuous(labels = scales::label_number()) +
+    scale_fill_brewer(palette = "Dark2", name = NULL) +
+    theme(legend.position = "top")
+}
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-density-plot
+#| cache: false
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+plot_density(
+  bikes, "count"
+)
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-density-plot-grp
+#| cache: false
+#| fig-width: 14
+#| fig-height: 6.5
+#| fig-align: center
+#| code-line-numbers: "1,2,3,4|2|3|5"
+plots <- purrr::map(
+  c("count", "temp", "humidity", "wind_speed"), 
+  ~ plot_density(data = bikes, var = .x, grp = "day_night")
+)
+patchwork::wrap_plots(plots, nrow = 1)
+```
+
+
+## Iterative Graphics
+
+```{r}
+#| label: function-density-plot-midwest
+#| cache: false
+#| fig-width: 20
+#| fig-height: 9
+#| fig-align: center
+#| code-line-numbers: "2|3|5"
+plots <- purrr::map(
+  names(dplyr::select(midwest, where(is.numeric))),
+  ~plot_density(data = midwest, var = .x)
+)
+patchwork::wrap_plots(plots)
+```
+
+
+# Combine Plots
+
+
+## Combine Plots with {patchwork}
+
+```{r}
+#| label: prep-patchwork
+#| cache: false
+#| code-line-numbers: "1|3|5|7∂"
+library(patchwork)
+
+p1 <- plot_density(data = bikes, var = "count", grp = "day_night")
+
+p2 <- plot_density(data = bikes, var = "humidity", grp = "day_night")
+
+p3 <- ggplot(bikes, aes(x = humidity, y = count)) + geom_scatterfit(pointalpha = .3)
+```
+
+
+## Combine Plots with {patchwork}
+
+```{r}
+#| label: patchwork-example-1
+#| cache: false
+#| fig-width: 12
+#| fig-height: 6.8
+#| fig-align: center
+(p1 + p2) / p3
+```
+
+
+## Combine Plots with {patchwork}
+
+```{r}
+#| label: patchwork-example-2
+#| cache: false
+#| fig-width: 12
+#| fig-height: 6.8
+#| fig-align: center
+(p1 + p2) / p3 + plot_layout(heights = c(1, 2))
+```
+
+
+## Combine Plots with {patchwork}
+
+```{r}
+#| label: patchwork-example-3
+#| cache: false
+#| fig-width: 12
+#| fig-height: 6.8
+#| fig-align: center
+(p1 + p2) / p3 + plot_layout(heights = c(1, 2), guides = "collect")
+```
+
+
+## Combine Plots with {patchwork}
+
+```{r}
+#| label: patchwork-example-4
+#| cache: false
+#| fig-width: 12
+#| fig-height: 6.8
+#| fig-align: center
+(p1 + p2) / p3 + plot_layout(heights = c(1, 2), guides = "collect") +
+  plot_annotation(theme = theme(legend.justification = "top"))
+```
+
+
+## Combine Plots with {patchwork}
+
+```{r}
+#| label: patchwork-example-5
+#| cache: false
+#| fig-width: 12
+#| fig-height: 6.8
+#| fig-align: center
+(p1 + p2) / p3 + plot_layout(heights = c(1, 2), guides = "collect") +
+  plot_annotation(tag_levels = "A", tag_suffix = ".", theme = theme(legend.justification = "top"))
+```
+
+
+# Exciting Extension Packages
+
+
+## Layers
+
++ [**`{geofacet}`**](https://hafen.github.io/geofacet/) — tile grid maps
++ [**`{ggalluvial}`**](https://github.com/hrbrmstr/ggalt) — alluvial plots
++ [**`{ggalt}`**](https://github.com/hrbrmstr/ggalt) — dumbbell, horizon, and lollipop charts, splines, ...
++ [**`{ggbeeswarm}`**](https://github.com/hrbrmstr/ggalt) — beeswarm plots and variants
++ [**`{ggbraid}`**](https://nsgrantham.github.io/ggbraid/) — ribbons for alternating groups
++ [**`{ggbump}`**](https://github.com/davidsjoberg/ggbump) — parallel sets, pie charts, geometries, splines, voronoi, ...
++ [**`{ggdensity}`**](https://jamesotto852.github.io/ggdensity/) — improved density plots
++ [**`{ggdist}`**](https://github.com/davidsjoberg/ggbump) — uncertainty visualizations
++ [**`{ggforce}`**](https://ggforce.data-imaginist.com/) — several interesting layers (and more)
++ [**`{ggpattern}`**](https://github.com/coolbutuseless/ggpattern) — pattern fills for layers
+
+
+## Layers (continued)
+
++ [**`{ggpointdensity}`**](https://github.com/LKremer/ggpointdensity) — density gradients for scatter plots
++ [**`{ggraph}`**](https://github.com/thomasp85/ggraph) — networks, graphs & trees
++ [**`{ggridges}`**](https://github.com/clauswilke/ggridges) — ridgeline plots
++ [**`{ggsankey}`**](https://github.com/davidsjoberg/ggsankey) — sankey diagrams
++ [**`{ggsignif}`**](https://const-ae.github.io/ggsignif/) — significance levels
++ [**`{ggstar}`**](https://github.com/xiangpin/ggstar) — more point shapes
++ [**`{ggstream}`**](https://github.com/davidsjoberg/ggstream) — stream graphs
++ [**`{ggupset}`**](https://github.com/const-ae/ggupset) — upset graphs
++ [**`{treemapify}`**](https://wilkox.org/treemapify/) — treemaps
+
+
+## Utilities
+
++ [**`{cowplot}`**](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) — combine ggplots
++ [**`{ggannotate}`**](https://github.com/MattCowgill/ggannotate) — point-n-click annotations
++ [**`{ggblend}`**](https://mjskay.github.io/ggblend/) — blend, compose, adjust layers
++ [**`{ggfittext}`**](https://wilkox.org/ggfittext/) — scale text according to space
++ [**`{ggfx}`**](https://ggfx.data-imaginist.com/) — shaders and filters for layers
++ [**`{ggh4x}`**](https://teunbrand.github.io/ggh4x/) — facets, positions, and more
++ [**`{ggtext}`**](https://github.com/thomasp85/patchwork#patchwork) — text rendering for theme elements + text layers
++ [**`{lemon}`**](https://github.com/stefanedwards/lemon) — axis lines (and a few layers)
++ [**`{patchwork}`**](https://github.com/thomasp85/patchwork#patchwork) — combine ggplots
++ [**`{scales}`**](https://scales.r-lib.org/) — control scales 
+
+
+## Themes
+
++ [**`{ggdark}`**](https://github.com/nsgrantham/ggdark)
++ [**`{ggsci}`**](https://github.com/jrnold/ggthemes)
++ [**`{ggtech}`**](https://github.com/ricardo-bion/ggtech)
++ [**`{ggthemes}`**](https://github.com/jrnold/ggthemes)
++ [**`{ggthemr}`**](https://github.com/Mikata-Project/ggthemr)
++ [**`{hrbrthemes}`**](https://github.com/hrbrmstr/hrbrthemes)
++ [**`{tvthemes}`**](https://ryo-n7.github.io/tvthemes/)
+
+
+## Interactive Charts
+
++ [**`{ggiraph}`**](https://davidgohel.github.io/ggiraph/)
++ [**`{plotly}`**](https://plotly.com/r/)
++ [**`{echarts4r}`**](https://echarts4r.john-coene.com/)*
++ [**`{highcharter}`**](https://jkunst.com/highcharter/)*
++ [**`{charter}`**](https://github.com/JohnCoene/charter)*
++ [**`{streamgraph}`**](https://hrbrmstr.github.io/streamgraph/)*
++ [**`{tmap}`**](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)*
++ [**`{leaflet}`**](https://rstudio.github.io/leaflet/)*
++ [**`{globe4r}`**](https://globe4r.john-coene.com/)*
++ [**`{grapher}`**](https://grapher.network/)*
+
+<span style='font-size:.9em;'>* not using <code>ggplot2</code>
+
+# Exercises
+
+
+## Exercise 1
 
 ::: question
--   **Explore the TfL bike share data visually:**
-    -  Create a *time series* of counts per day and night.
-    -  Draw *box and whisker plots* of average temperatures per season.
-    -  Visualize bike counts per weather type and period as *bar chart*.
--   **Polish the charts and export them in a format of your choice.**
-:::
-
-
-## Your Turn
-
-::: question
--   **Explore the TfL bike share data visually:**
-    -  Create a *time series* of counts per day and night.
-    -  Draw *box and whisker plots* of average temperatures per season.
-    -  Visualize bike counts per weather type and period as *bar chart*.
--   **Polish the charts and export them in a format of your choice.**
 -   **Discuss / investigate with your neighbor:**
     -  What are the differences between `geom_line()` and `geom_path()`?
     -  Why can you use `geom_smooth()` and `stat_smooth()` interchangeably?
     -  What are the three ways to *remove a legend* from a ggplot?
-    -  Which is your favorite theme? 
-    -  What is your favorite ggplot2 extension package?
+:::
+
+
+## Exercise 2
+
+::: question
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per month.
+    -  Visualize bike counts per weather type and period as *bar chart*. 
+-   **Combine the three plots with {patchwork}.**
+-   **Export the final graphic in a format of your choice.**
 :::
 
 ##  {background-image="img/exercise-what-now.png" background-position="center" background-size="75%"}

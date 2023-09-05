@@ -63,12 +63,12 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Working with Text">
 <meta property="og:description" content="11:00-12:30">
-<meta property="og:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz/modules/images/02-text.png">
+<meta property="og:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2/modules/images/02-text.png">
 <meta property="og:image:height" content="1688">
 <meta property="og:image:width" content="2189">
 <meta name="twitter:title" content="Working with Text">
 <meta name="twitter:description" content="11:00-12:30">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -143,16 +143,24 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-downloads">    
         <li>
-    <a class="dropdown-item" href="../ggplot2-course-material.zip" rel="" target="">
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-materials.zip" rel="" target="">
  <span class="dropdown-text">All Course Materials</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../ggplot2-course-data.zip" rel="" target="">
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-data.zip" rel="" target="">
  <span class="dropdown-text">Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../ggplot2-course-fonts.zip" rel="" target="">
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-fonts.zip" rel="" target="">
  <span class="dropdown-text">Font Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-scripts.zip" rel="" target="">
+ <span class="dropdown-text">Scripts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../positconf-2023-ggplot2-exercises.zip" rel="" target="">
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
@@ -191,6 +199,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/edit/main/modules/s03-text.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -227,14 +236,28 @@ ul.task-list li input[type="checkbox"] {
 <section id="outline" class="level1">
 <h1>Outline</h1>
 <ul>
-<li></li>
+<li>Labels + theme()</li>
+<li>Labels + scale_*()</li>
+<li>Styling Labels with {ggtext}</li>
+<li>Facet Labellers</li>
+<li>Handling Long Labels</li>
+<li>Annotations</li>
+<li>Exercises</li>
 </ul>
 </section>
 <section id="recap" class="level1">
 <h1>Recap</h1>
 <div class="recap">
 <ul>
-<li></li>
+<li>style labels such as title, axis and legend texts with <strong><code>theme()</code></strong></li>
+<li>format data-related labels with the <strong><code>labels</code></strong> argument of <code>scale_*()</code></li>
+<li>adjust strip text with the <strong><code>facet_*(labeller)</code></strong> functionality</li>
+<li>add data-related annotations with <strong><code>geom_text|label()</code></strong></li>
+<li>… and data-unrelated annotations with <strong><code>annotate()</code></strong></li>
+<li><strong><code>{ggtext}</code></strong> allows to render labels with markdown and basic html</li>
+<li><code>{ggtext}</code> also allows to add <strong>dynamic linebreaks</strong> and images</li>
+<li><strong><code>{ggrepel}</code></strong> ensures clever placement of annotations</li>
+<li><strong><code>ggforce::geom_mark_*()</code></strong> provide a set of advanced annotations</li>
 </ul>
 </div>
 </section>
@@ -244,10 +267,32 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <div class="question">
 <ul>
-<li></li>
+<li><strong>Take a look at the following visualization.</strong>
+<ul>
+<li>For each group of text labels, note how one would add and modify them.</li>
+<li>Discuss how to automate the placement of the labels in- and outside of the bars.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="s03-text_files/figure-html/text-exercise-1-plot-1.png" class="img-fluid" width="720"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<div class="question">
+<ul>
+<li><strong>Create a function that plots the famous Gapminder chart, highlighting one of the continents.</strong>
+<ul>
+<li>Extend the code in <code>02-text-exercises.qmd</code> to annotate a continent your choice of with {ggforce}.</li>
+<li>Turn the code into a function with the utility to annotate any continent.</li>
+<li>Optional: Create a second function to highlight a country.</li>
+</ul></li>
 </ul>
 </div>
-<p><strong>→ <a href="../materials/solutions/02-text-solution.html" target="_blank">Solution</a></strong></p>
+<p><br> <a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/02-text-exercises.qmd" target="_blank">Exercise Template</a> | <a href="../materials/solutions/02-text-solution.html" target="_blank">Solution</a></p>
 
 
 </section>

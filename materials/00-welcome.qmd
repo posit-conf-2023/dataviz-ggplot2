@@ -191,6 +191,7 @@ install.packages("readr")
 install.packages("forcats")
 install.packages("stringr")
 install.packages("lubridate")
+install.packages("purrr")
 ```
 
 ::: fragment
@@ -204,9 +205,13 @@ install.packages("systemfonts")
 install.packages("rcartocolor")
 install.packages("scico")
 install.packages("prismatic")
+install.packages("patchwork")
 install.packages("ggtext")
 install.packages("ggforce")
 install.packages("ggrepel")
+install.packages("colorspace")
+install.packages("gapminder")
+remotes::install_github("clauswilke/colorblindr")
 ```
 :::
 
@@ -216,15 +221,39 @@ install.packages("ggrepel")
 ```{r}
 #| label: packages-install-optional
 #| eval: false
+install.packages("camcorder")
 install.packages("viridis")
 install.packages("RColorBrewer")
 install.packages("MetBrewer")
 install.packages("ggthemes")
 install.packages("ggsci")
-install.packages("camcorder")
-install.packages("colorspace")
-remotes::install_github("clauswilke/colorblindr")
+install.packages("hrbrthemes")
+install.packages("tvthemes")
+install.packages("ggannotate")
 ```
+
+
+## Required Typefaces
+
+Download and install the following typefaces:
+
+* Asap: [fonts.google.com/specimen/Asap](https://fonts.google.com/specimen/Asap)
+* Spline Sans: [fonts.google.com/specimen/Spline+Sans](https://fonts.google.com/specimen/Spline+Sans)
+* Spline Sans Mono: [fonts.google.com/specimen/Spline+Sans+Mono](https://fonts.google.com/specimen/Spline+Sans+Mono)
+* Hepta Slab: [fonts.google.com/specimen/Hepta+Slab](https://fonts.google.com/specimen/Hepta+Slab)
+
+. . . 
+
+
+All files are also available via<br>[cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip](https://cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip)
+
+. . . 
+
+&rarr; Install the font files. 
+
+. . . 
+ 
+&rarr; Restart Rstudio.
 
 
 # Let's get started!

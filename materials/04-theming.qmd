@@ -56,7 +56,7 @@ library(ggplot2)
 
 bikes <-
   read_csv(
-    here::here("data", "london-bikes.csv"),
+    here::here("data", "london-bikes-custom.csv"),
     col_types = "Dcfffilllddddc"
   )
 ```
@@ -112,7 +112,6 @@ bikes |>
 
 ```{r}
 #| label: plot-polished-code
-#| purl: false
 #| cache: false
 #| code-line-numbers: "8|9,10,11,12|13|14,15,16,17,18"
 g <- bikes |>
@@ -145,6 +144,9 @@ g <- bikes |>
 #| fig-align: center
 g
 ```
+
+
+# Complete Themes
 
 
 ## Complete Themes
@@ -208,6 +210,68 @@ g + theme_void()
 ```
 :::
 :::
+
+
+## Complete Themes via Extension Packages
+
+::: {layout-ncol="2"}
+```{r}
+#| label: complete-themes-ggthemes-stata
+#| fig-width: 5.5
+#| fig-height: 6
+g + ggthemes::theme_stata()
+```
+
+::: fragment
+```{r}
+#| label: complete-themes-ggthemes-gdocs
+#| fig-width: 5.5
+#| fig-height: 6
+g + ggthemes::theme_gdocs()
+```
+:::
+:::
+
+
+## Complete Themes via Extension Packages
+
+::: {layout-ncol="2"}
+```{r}
+#| label: complete-themes-hrbrthemes-ipsum-roboto
+#| fig-width: 5.5
+#| fig-height: 6
+g + hrbrthemes::theme_ipsum_rc()
+```
+
+::: fragment
+```{r}
+#| label: complete-themes-tvthemes-simpsons
+#| fig-width: 5.5
+#| fig-height: 6
+g + tvthemes::theme_simpsons()
+```
+:::
+:::
+
+
+## Modify Theme Elements
+
+```{r}
+#| label: modify-elements
+#| output-location: column
+#| code-line-numbers: "2|3,7|4,5,6"
+g + 
+  hrbrthemes::theme_ipsum_rc() +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(color ="#28A87D"),
+    plot.title.position = "plot"
+  )
+```
+
+
+
+# Non-Default Typefaces
 
 
 ## The {systemfonts} Package
@@ -321,6 +385,7 @@ g +
 ```{r}
 #| label: systemfonts-font-variants-compare-1
 #| echo: false
+#| purl: false
 #| fig-width: 5.5
 #| fig-height: 6.5
 g + 
@@ -334,6 +399,7 @@ g +
 ```{r}
 #| label: systemfonts-font-variants-compare-2
 #| echo: false
+#| purl: false
 #| fig-width: 5.5
 #| fig-height: 6.5
 g + 
@@ -413,7 +479,7 @@ ggplot() +
 :::
 
 
-## Like a Pro: Set Theme Globally
+## Like a Pro: Set Themes Globally
 
 ```{r}
 #| label: theme-light-set-global
@@ -430,13 +496,16 @@ theme_update(
 ```
 
 
-## Like a Pro: Set Theme Globally
+## Like a Pro: Set Themes Globally
 
 ```{r}
 #| label: base-plot-gm-bubbles-after-themeset
 #| output-location: column
 g
 ```
+
+
+# Custom Themes
 
 
 ## Complete Themes: What's Inside?
@@ -1002,7 +1071,7 @@ theme_asap_grid <- function(base_size = 13, base_family = "Asap SemiCondensed", 
       panel.grid.major = element_blank(),
       axis.ticks = element_line(color = "grey20"),
       axis.ticks.length = unit(base_size/2, "pt"),
-      ## fill in other theme adjustments here
+      # fill in other theme adjustments here
     )
   
   if (stringr::str_detect(grid, "x|X")) {
@@ -1082,7 +1151,19 @@ g +
 <code style='color:red;font-size:16pt;'>Error in theme_asap_grid(grid = "all") :<br>grid must be a character: "none" or any combination of "X", "Y", "x" and "y".</code>
 
 
-## Your Turn
+## <b style='color:#663399;'>Recap</b>
+
+::: recap
+::: incremental
+-   
+:::
+:::
+
+
+# Exercise
+
+
+## Exercise
 
 ::: question
 -   **Create a corporate or funny custom theme.**
@@ -1093,7 +1174,7 @@ g +
 :::
 
 
-## Your Turn
+## Exercise 1
 
 ::: question
 -   **Create a corporate or funny custom theme.**
@@ -1102,8 +1183,9 @@ g +
     -   Optional: Try working with font variants.
     -   Optional: Add other helpful arguments to your `theme_*` function.
 -   **Showcase your theme using some example graphics.**
-    -   Save them to disk and share them with the group.
-    -   If you have added some additional arguments, feel free to share them as well.
+    -   Save the plots to disk and share them with the group.
+    -   Did you add some additional arguments?<br>Feel free to share your thoughts on "why" and "how".
 :::
+
 
 ##  {background-image="img/exercise-what-now.png" background-position="center" background-size="75%"}

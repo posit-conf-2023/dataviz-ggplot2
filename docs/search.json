@@ -60,14 +60,21 @@
     "href": "materials/00-welcome.html#required-packages",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Required Packages",
-    "text": "Required Packages\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"dplyr\")\ninstall.packages(\"readr\")\ninstall.packages(\"forcats\")\ninstall.packages(\"stringr\")\ninstall.packages(\"lubridate\")\n\n\n\ninstall.packages(\"here\")\ninstall.packages(\"scales\")\ninstall.packages(\"ragg\")\ninstall.packages(\"systemfonts\")\ninstall.packages(\"rcartocolor\")\ninstall.packages(\"scico\")\ninstall.packages(\"prismatic\")\ninstall.packages(\"ggtext\")\ninstall.packages(\"ggforce\")\ninstall.packages(\"ggrepel\")"
+    "text": "Required Packages\n\ninstall.packages(\"ggplot2\")\ninstall.packages(\"dplyr\")\ninstall.packages(\"readr\")\ninstall.packages(\"forcats\")\ninstall.packages(\"stringr\")\ninstall.packages(\"lubridate\")\ninstall.packages(\"purrr\")\n\n\n\ninstall.packages(\"here\")\ninstall.packages(\"scales\")\ninstall.packages(\"ragg\")\ninstall.packages(\"systemfonts\")\ninstall.packages(\"rcartocolor\")\ninstall.packages(\"scico\")\ninstall.packages(\"prismatic\")\ninstall.packages(\"patchwork\")\ninstall.packages(\"ggtext\")\ninstall.packages(\"ggforce\")\ninstall.packages(\"ggrepel\")\ninstall.packages(\"colorspace\")\ninstall.packages(\"gapminder\")\nremotes::install_github(\"clauswilke/colorblindr\")"
   },
   {
     "objectID": "materials/00-welcome.html#optional-packages",
     "href": "materials/00-welcome.html#optional-packages",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Optional Packages",
-    "text": "Optional Packages\n\ninstall.packages(\"viridis\")\ninstall.packages(\"RColorBrewer\")\ninstall.packages(\"MetBrewer\")\ninstall.packages(\"ggthemes\")\ninstall.packages(\"ggsci\")\ninstall.packages(\"camcorder\")\ninstall.packages(\"colorspace\")\nremotes::install_github(\"clauswilke/colorblindr\")"
+    "text": "Optional Packages\n\ninstall.packages(\"camcorder\")\ninstall.packages(\"viridis\")\ninstall.packages(\"RColorBrewer\")\ninstall.packages(\"MetBrewer\")\ninstall.packages(\"ggthemes\")\ninstall.packages(\"ggsci\")\ninstall.packages(\"hrbrthemes\")\ninstall.packages(\"tvthemes\")\ninstall.packages(\"ggannotate\")"
+  },
+  {
+    "objectID": "materials/00-welcome.html#required-typefaces",
+    "href": "materials/00-welcome.html#required-typefaces",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Required Typefaces",
+    "text": "Required Typefaces\nDownload and install the following typefaces:\n\nAsap: fonts.google.com/specimen/Asap\nSpline Sans: fonts.google.com/specimen/Spline+Sans\nSpline Sans Mono: fonts.google.com/specimen/Spline+Sans+Mono\nHepta Slab: fonts.google.com/specimen/Hepta+Slab\n\n\nAll files are also available viacedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip\n\n\n→ Install the font files.\n\n\n→ Restart Rstudio."
   },
   {
     "objectID": "materials/01-fundamentals.html#section",
@@ -228,7 +235,7 @@
     "href": "materials/01-fundamentals.html#adjust-labels-and-titles",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Adjust Labels and Titles",
-    "text": "Adjust Labels and Titles\n\ng2 +\n  # overwrite legend keys\n  scale_color_manual(\n    values = colors,\n    labels = c(\"Winter\", \"Spring\", \"Summer\", \"Autumn\")\n  )"
+    "text": "Adjust Labels and Titles\n\n# use a named vector for explicit matching\ncolors <- c(\n  `0` = \"#1EC98D\",\n  `1` = \"#F7B01B\",\n  `2` = \"#A26E7C\",\n  `3` = \"#6681FE\"\n)\n\ng2 +\n  scale_color_manual(\n    values = colors,\n    # overwrite legend keys\n    labels = c(\"Winter\", \"Spring\", \"Summer\", \"Autumn\")\n  )"
   },
   {
     "objectID": "materials/01-fundamentals.html#adjust-labels-and-titles-1",
@@ -270,7 +277,7 @@
     "href": "materials/01-fundamentals.html#full-code",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Full Code",
-    "text": "Full Code\n\n# create named color vector\ncolors <- c(\n  `0` = \"#1EC98D\",\n  `1` = \"#F7B01B\",\n  `2` = \"#A26E7C\",\n  `3` = \"#6681FE\"\n)\n\n# scatter plot of plot bikes$count versus bikes$temp_feel\nggplot(bikes, aes(x = temp_feel, y = count)) + \n  # add points\n  geom_point(\n    # color mapping only applied to points\n    aes(color = season), \n    # setting larger points with 50% opacity\n    alpha = .5, size = 1.5\n  ) + \n  # add a smoothing\n  stat_smooth(  # also: geom_smooth()\n    # use linear fitting + draw black smoothing lines\n    method = \"lm\", color = \"black\"\n  ) +\n  # small multiples\n  facet_grid(\n    day_night ~ year,  # also: vars(day_night), vars(year)\n    # free y axis range\n    scales = \"free_y\", \n    # scale heights proportionally \n    space = \"free_y\"\n  ) +\n  # x axis\n  scale_x_continuous(\n    # add °C symbol\n    labels = function(x) paste0(x, \"°C\"), \n    # use 5°C spacing\n    breaks = -1:6*5  # also: seq(-5, 30, by = 5)\n  ) +\n  # y axis\n  scale_y_continuous(\n    # add a thousand separator\n    labels = scales::label_comma(), \n    # use consistent spacing across rows\n    breaks = 0:5*10000\n  ) +\n  # colors\n  scale_color_manual(\n    # use a custom color palette\n    values = colors,\n    # and overwrite legend keys\n    labels = c(\"Winter\", \"Spring\", \"Summer\", \"Autumn\"),\n    # adjust symbol size in legend size\n    guide = guide_legend(override.aes = list(size = 4))\n  ) +\n  labs(\n    # overwrite axis and legend titles\n    x = \"Average feels-like temperature\", y = NULL, color = NULL,\n    # add plot title and caption\n    title = \"Trends of Reported Bike Rents versus Feels-Like Temperature in London\",\n    caption = \"Data: TfL (Transport for London), Jan 2015–Dec 2016\"\n  ) +\n  # add theme with a custom font + larger element sizes\n  theme_light(\n    base_size = 15, base_family = \"Spline Sans\"\n  ) +\n  # theme adjustments\n  theme(\n    plot.title.position = \"plot\", # left-align title \n    plot.caption.position = \"plot\", # right-align caption\n    legend.position = \"top\", # place legend above plot\n    plot.title = element_text(face = \"bold\", size = rel(1.4)), # larger, bold title\n    axis.text = element_text(family = \"Spline Sans Mono\"), # monospaced font for axes\n    axis.title.x = element_text( # left-aligned, grey x axis label\n      hjust = 0, color = \"grey20\", margin = margin(t = 12)\n    ),\n    legend.text = element_text(size = rel(1)), # larger legend labels\n    strip.text = element_text(face = \"bold\", size = rel(1.15)), # larger, bold facet labels\n    panel.grid.major.x = element_blank(), # no vertical major lines\n    panel.grid.minor = element_blank(), # no minor grid lines\n    panel.spacing.x = unit(20, \"pt\"), # increase white space between panels\n    panel.spacing.y = unit(10, \"pt\"), # increase white space between panels\n    plot.margin = margin(rep(15, 4)) # adjust white space around plot\n  )"
+    "text": "Full Code\n\n# create named color vector\ncolors <- c(\n  `0` = \"#1EC98D\",\n  `1` = \"#F7B01B\",\n  `2` = \"#A26E7C\",\n  `3` = \"#6681FE\"\n)\n\n# scatter plot of plot bikes$count versus bikes$temp_feel\nggplot(bikes, aes(x = temp_feel, y = count)) + \n  # add points\n  geom_point(\n    # color mapping only applied to points\n    aes(color = season), \n    # setting larger points with 50% opacity\n    alpha = .5, size = 1.5\n  ) + \n  # add a smoothing\n  stat_smooth(  # also: geom_smooth()\n    # use linear fitting + draw black smoothing lines\n    method = \"lm\", color = \"black\"\n  ) +\n  # small multiples\n  facet_grid(\n    day_night ~ year,  # also: vars(day_night), vars(year)\n    # free y axis range\n    scales = \"free_y\", \n    # scale heights proportionally \n    space = \"free_y\"\n  ) +\n  # x axis\n  scale_x_continuous(\n    # add °C symbol\n    labels = function(x) paste0(x, \"°C\"), \n    # use 5°C spacing\n    breaks = -1:6*5  # also: seq(-5, 30, by = 5)\n  ) +\n  # y axis\n  scale_y_continuous(\n    # add a thousand separator\n    labels = scales::label_comma(), \n    # use consistent spacing across rows\n    breaks = 0:5*10000\n  ) +\n  # colors\n  scale_color_manual(\n    # use a custom color palette\n    values = colors,\n    # overwrite legend keys\n    labels = c(\"Winter\", \"Spring\", \"Summer\", \"Autumn\"),\n    # adjust symbol size in legend size\n    guide = guide_legend(override.aes = list(size = 4))\n  ) +\n  labs(\n    # overwrite axis and legend titles\n    x = \"Average feels-like temperature\", y = NULL, color = NULL,\n    # add plot title and caption\n    title = \"Trends of Reported Bike Rents versus Feels-Like Temperature in London\",\n    caption = \"Data: TfL (Transport for London), Jan 2015–Dec 2016\"\n  ) +\n  # add theme with a custom font + larger element sizes\n  theme_light(\n    base_size = 15, base_family = \"Spline Sans\"\n  ) +\n  # theme adjustments\n  theme(\n    plot.title.position = \"plot\", # left-align title \n    plot.caption.position = \"plot\", # right-align caption\n    legend.position = \"top\", # place legend above plot\n    plot.title = element_text(face = \"bold\", size = rel(1.4)), # larger, bold title\n    axis.text = element_text(family = \"Spline Sans Mono\"), # monospaced font for axes\n    axis.title.x = element_text( # left-aligned, grey x axis label\n      hjust = 0, color = \"grey20\", margin = margin(t = 12)\n    ),\n    legend.text = element_text(size = rel(1)), # larger legend labels\n    strip.text = element_text(face = \"bold\", size = rel(1.15)), # larger, bold facet labels\n    panel.grid.major.x = element_blank(), # no vertical major lines\n    panel.grid.minor = element_blank(), # no minor grid lines\n    panel.spacing.x = unit(20, \"pt\"), # increase white space between panels\n    panel.spacing.y = unit(10, \"pt\"), # increase white space between panels\n    plot.margin = margin(rep(15, 4)) # adjust white space around plot\n  )"
   },
   {
     "objectID": "materials/01-fundamentals.html#save-the-graphic",
@@ -396,28 +403,273 @@
     "href": "materials/01-fundamentals.html#setting-plot-sizes-via-camcorder-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Setting Plot Sizes via {camcorder}",
-    "text": "Setting Plot Sizes via {camcorder}\n\ncamcorder::gg_record(\n  dir = here::here(\"temp\"),  # path for plot files\n  device = \"png\",            # device to use\n  width = 10,                # figure width\n  height = 5,                # figure height\n  dpi = 600                  # plot resolution\n)\n\ng <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +\n  geom_point(alpha = .3, size = 2) +\n  scale_color_manual(values = c(day = \"#FFA200\", night = \"#757BC7\")) +\n  theme_minimal(base_size = 18, base_family = \"Asap SemiCondensed\") +\n  theme(panel.grid.minor = element_blank())\n\ng"
+    "text": "Setting Plot Sizes via {camcorder}\n\ncamcorder::gg_record(\n  dir = here::here(\"temp\"),  # path for plot files\n  device = \"png\",            # device to use\n  width = 10,                # figure width\n  height = 5,                # figure height\n  dpi = 600                  # plot resolution\n)\n\ng <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +\n  geom_point(alpha = .3, size = 2) +\n  scale_color_manual(values = c(day = \"#FFA200\", night = \"#757BC7\")) +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(panel.grid.minor = element_blank())\n\ng"
   },
   {
     "objectID": "materials/01-fundamentals.html#setting-plot-sizes-via-camcorder-3",
     "href": "materials/01-fundamentals.html#setting-plot-sizes-via-camcorder-3",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Setting Plot Sizes via {camcorder}",
-    "text": "Setting Plot Sizes via {camcorder}\n\ncamcorder::gg_record(\n  dir = here::here(\"temp\"),  # path for plot files\n  device = \"png\",            # device to use\n  width = 10,                # figure width\n  height = 5,                # figure height\n  dpi = 600                  # plot resolution\n)\n\ng <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +\n  geom_point(alpha = .3, size = 2) +\n  scale_color_manual(values = c(day = \"#FFA200\", night = \"#757BC7\")) +\n  theme_minimal(base_size = 18, base_family = \"Asap SemiCondensed\") +\n  theme(panel.grid.minor = element_blank())\n\ng\n\ncamcorder::gg_resize_film(width = 20) # update figure width\n\ng"
+    "text": "Setting Plot Sizes via {camcorder}\n\ncamcorder::gg_record(\n  dir = here::here(\"temp\"),  # path for plot files\n  device = \"png\",            # device to use\n  width = 10,                # figure width\n  height = 5,                # figure height\n  dpi = 600                  # plot resolution\n)\n\ng <- ggplot(bikes, aes(x = temp, y = count, color = day_night)) +\n  geom_point(alpha = .3, size = 2) +\n  scale_color_manual(values = c(day = \"#FFA200\", night = \"#757BC7\")) +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(panel.grid.minor = element_blank())\n\ng\n\ncamcorder::gg_resize_film(width = 20) # update figure width\n\ng"
   },
   {
-    "objectID": "materials/01-fundamentals.html#your-turn",
-    "href": "materials/01-fundamentals.html#your-turn",
+    "objectID": "materials/01-fundamentals.html#like-a-pro-set-theme-globally",
+    "href": "materials/01-fundamentals.html#like-a-pro-set-theme-globally",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Your Turn",
-    "text": "Your Turn\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per season.\nVisualize bike counts per weather type and period as bar chart.\n\nPolish the charts and export them in a format of your choice."
+    "section": "Like a Pro: Set Theme Globally",
+    "text": "Like a Pro: Set Theme Globally\n\ntheme_set(theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\"))\ntheme_update(panel.grid.minor = element_blank())"
   },
   {
-    "objectID": "materials/01-fundamentals.html#your-turn-1",
-    "href": "materials/01-fundamentals.html#your-turn-1",
+    "objectID": "materials/01-fundamentals.html#conditional-components",
+    "href": "materials/01-fundamentals.html#conditional-components",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Your Turn",
-    "text": "Your Turn\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per season.\nVisualize bike counts per weather type and period as bar chart.\n\nPolish the charts and export them in a format of your choice.\nDiscuss / investigate with your neighbor:\n\nWhat are the differences between geom_line() and geom_path()?\nWhy can you use geom_smooth() and stat_smooth() interchangeably?\nWhat are the three ways to remove a legend from a ggplot?\nWhich is your favorite theme?\nWhat is your favorite ggplot2 extension package?"
+    "section": "Conditional Components",
+    "text": "Conditional Components\n\nsmooth <- TRUE\n\nggplot(bikes, aes(x = temp, y = humidity)) +\n  { if(smooth) geom_smooth(color = \"red\") } +\n  geom_point(alpha = .5)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#conditional-components-1",
+    "href": "materials/01-fundamentals.html#conditional-components-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Conditional Components",
+    "text": "Conditional Components\n\nsmooth <- TRUE\n\nggplot(bikes, aes(x = temp, y = humidity)) +\n  { if(smooth) geom_smooth(color = \"red\") } +\n  geom_point(alpha = .5)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#conditional-components-2",
+    "href": "materials/01-fundamentals.html#conditional-components-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Conditional Components",
+    "text": "Conditional Components\n\nsmooth <- FALSE\n\nggplot(bikes, aes(x = temp, y = humidity)) +\n  { if(smooth) geom_smooth(color = \"red\") } +\n  geom_point(alpha = .5)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#wrapper-functions-for-plots",
+    "href": "materials/01-fundamentals.html#wrapper-functions-for-plots",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Wrapper Functions for Plots",
+    "text": "Wrapper Functions for Plots\n\ndraw_scatter <- function(smooth = TRUE) {\n  ggplot(bikes, aes(x = temp, y = humidity)) +\n    { if(smooth) geom_smooth(color = \"red\") } +\n    geom_point(alpha = .5)\n}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#wrapper-functions-for-plots-1",
+    "href": "materials/01-fundamentals.html#wrapper-functions-for-plots-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Wrapper Functions for Plots",
+    "text": "Wrapper Functions for Plots\n\n\ndraw_scatter()"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#wrapper-functions-for-plots-2",
+    "href": "materials/01-fundamentals.html#wrapper-functions-for-plots-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Wrapper Functions for Plots",
+    "text": "Wrapper Functions for Plots\n\n\ndraw_scatter(smooth = FALSE)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#components-as-functions",
+    "href": "materials/01-fundamentals.html#components-as-functions",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Components as Functions",
+    "text": "Components as Functions\n\ngeom_scatterfit <- function(pointsize = 1, pointalpha = 1, \n                            method = \"lm\", linecolor = \"red\", ...) {\n  list(\n    geom_point(size = pointsize, alpha = pointalpha, ...),\n    geom_smooth(method = method, color = linecolor, ...)\n  )\n}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#components-as-functions-1",
+    "href": "materials/01-fundamentals.html#components-as-functions-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Components as Functions",
+    "text": "Components as Functions\n\n\nggplot(bikes,\n       aes(x = humidity, y = count)) +\n  geom_scatterfit()"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#components-as-functions-2",
+    "href": "materials/01-fundamentals.html#components-as-functions-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Components as Functions",
+    "text": "Components as Functions\n\n\nggplot(bikes,\n       aes(x = humidity, y = count)) +\n  geom_scatterfit(\n    color = \"#28A87D\", \n    size = 3\n  )"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#components-as-functions-3",
+    "href": "materials/01-fundamentals.html#components-as-functions-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Components as Functions",
+    "text": "Components as Functions\n\n\nggplot(diamonds, \n       aes(x = carat, y = price)) +\n  geom_scatterfit(\n    pointsize = .5, \n    pointalpha = .1,\n    method = \"gam\",\n    linecolor = \"#EFAC00\"\n  )"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#components-as-functions-4",
+    "href": "materials/01-fundamentals.html#components-as-functions-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Components as Functions",
+    "text": "Components as Functions\n\nscales_log <- function(sides = \"xy\") {\n  list(\n    if(stringr::str_detect(sides, \"x\")) {\n      scale_x_log10(\n        breaks = c(10^(1:100)), labels = scales::label_log()\n      )\n    },\n    if(stringr::str_detect(sides, \"y\")) {\n      scale_y_log10(\n        breaks = c(10^(1:100)), labels = scales::label_log()\n      )\n    }\n  )\n}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#components-as-functions-5",
+    "href": "materials/01-fundamentals.html#components-as-functions-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Components as Functions",
+    "text": "Components as Functions\n\n\nggplot(diamonds, \n       aes(x = carat, y = price)) +\n  geom_scatterfit(\n    pointsize = .5, \n    pointalpha = .1,\n    method = \"gam\",\n    linecolor = \"#EFAC00\"\n  ) +\n  scales_log(sides = \"y\")"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics",
+    "href": "materials/01-fundamentals.html#iterative-graphics",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\ntrends_monthly <- function(grp = \"January\") {\n  bikes |> \n    dplyr::mutate(month = lubridate::month(date, label = TRUE, abbr = FALSE)) |> \n    dplyr::filter(month %in% grp) |> \n    ggplot(aes(x = temp, y = count, color = day_night)) +\n    geom_point(alpha = .2, show.legend = FALSE) +\n    geom_smooth(se = FALSE) +\n    scale_color_manual(values = c(\"#FFA200\", \"#757bc7\")) +\n    labs(title = grp, x = \"Temperature\", y = \"Bike shares\", color = NULL)\n}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-1",
+    "href": "materials/01-fundamentals.html#iterative-graphics-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\n\ntrends_monthly(\"July\")"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-2",
+    "href": "materials/01-fundamentals.html#iterative-graphics-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\ntrends_monthly <- function(grp = \"January\") {\n  bikes |> \n    dplyr::mutate(month = lubridate::month(date, label = TRUE, abbr = FALSE)) |> \n    dplyr::filter(month %in% grp) |> \n    ggplot(aes(x = temp, y = count, color = day_night)) +\n    geom_point(alpha = .2, show.legend = FALSE) +\n    geom_smooth(se = FALSE) +\n    # keep axis ranges consistent\n    scale_x_continuous(limits = range(bikes$temp)) +\n    scale_y_continuous(limits = range(bikes$count)) +\n    scale_color_manual(values = c(\"#FFA200\", \"#757bc7\")) +\n    labs(title = grp, x = \"Temperature\", y = \"Bike shares\", color = NULL)\n}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-3",
+    "href": "materials/01-fundamentals.html#iterative-graphics-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\n\ntrends_monthly(\"July\")"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-4",
+    "href": "materials/01-fundamentals.html#iterative-graphics-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\nplots <- purrr::map(month.name[1:12], trends_monthly) ## also: ~ trends_monthly(.x)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-5",
+    "href": "materials/01-fundamentals.html#iterative-graphics-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\nplots <- purrr::map(month.name[1:12], trends_monthly) ## also: ~ trends_monthly(.x)\nplots[[9]]"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-6",
+    "href": "materials/01-fundamentals.html#iterative-graphics-6",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\nplots <- purrr::map(month.name[1:12], trends_monthly) ## also: ~ trends_monthly(.x)\npatchwork::wrap_plots(plots)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-7",
+    "href": "materials/01-fundamentals.html#iterative-graphics-7",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\nplot_density <- function(data, var, grp = \"\") {\n  ggplot(data, aes(x = !!sym(var))) +\n    geom_density(aes(fill = !!sym(grp)), position = \"identity\",\n                 color = \"grey30\", alpha = .3) +\n    coord_cartesian(expand = FALSE, clip = \"off\") +\n    scale_y_continuous(labels = scales::label_number()) +\n    scale_fill_brewer(palette = \"Dark2\", name = NULL) +\n    theme(legend.position = \"top\")\n}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-8",
+    "href": "materials/01-fundamentals.html#iterative-graphics-8",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\n\nplot_density(\n  bikes, \"count\"\n)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-9",
+    "href": "materials/01-fundamentals.html#iterative-graphics-9",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\nplots <- purrr::map(\n  c(\"count\", \"temp\", \"humidity\", \"wind_speed\"), \n  ~ plot_density(data = bikes, var = .x, grp = \"day_night\")\n)\npatchwork::wrap_plots(plots, nrow = 1)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#iterative-graphics-10",
+    "href": "materials/01-fundamentals.html#iterative-graphics-10",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Iterative Graphics",
+    "text": "Iterative Graphics\n\nplots <- purrr::map(\n  names(dplyr::select(midwest, where(is.numeric))),\n  ~plot_density(data = midwest, var = .x)\n)\npatchwork::wrap_plots(plots)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#combine-plots-with-patchwork",
+    "href": "materials/01-fundamentals.html#combine-plots-with-patchwork",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots with {patchwork}",
+    "text": "Combine Plots with {patchwork}\n\nlibrary(patchwork)\n\np1 <- plot_density(data = bikes, var = \"count\", grp = \"day_night\")\n\np2 <- plot_density(data = bikes, var = \"humidity\", grp = \"day_night\")\n\np3 <- ggplot(bikes, aes(x = humidity, y = count)) + geom_scatterfit(pointalpha = .3)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#combine-plots-with-patchwork-1",
+    "href": "materials/01-fundamentals.html#combine-plots-with-patchwork-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots with {patchwork}",
+    "text": "Combine Plots with {patchwork}\n\n(p1 + p2) / p3"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#combine-plots-with-patchwork-2",
+    "href": "materials/01-fundamentals.html#combine-plots-with-patchwork-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots with {patchwork}",
+    "text": "Combine Plots with {patchwork}\n\n(p1 + p2) / p3 + plot_layout(heights = c(1, 2))"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#combine-plots-with-patchwork-3",
+    "href": "materials/01-fundamentals.html#combine-plots-with-patchwork-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots with {patchwork}",
+    "text": "Combine Plots with {patchwork}\n\n(p1 + p2) / p3 + plot_layout(heights = c(1, 2), guides = \"collect\")"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#combine-plots-with-patchwork-4",
+    "href": "materials/01-fundamentals.html#combine-plots-with-patchwork-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots with {patchwork}",
+    "text": "Combine Plots with {patchwork}\n\n(p1 + p2) / p3 + plot_layout(heights = c(1, 2), guides = \"collect\") +\n  plot_annotation(theme = theme(legend.justification = \"top\"))"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#combine-plots-with-patchwork-5",
+    "href": "materials/01-fundamentals.html#combine-plots-with-patchwork-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots with {patchwork}",
+    "text": "Combine Plots with {patchwork}\n\n(p1 + p2) / p3 + plot_layout(heights = c(1, 2), guides = \"collect\") +\n  plot_annotation(tag_levels = \"A\", tag_suffix = \".\", theme = theme(legend.justification = \"top\"))"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#layers",
+    "href": "materials/01-fundamentals.html#layers",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\n{geofacet} — tile grid maps\n{ggalluvial} — alluvial plots\n{ggalt} — dumbbell, horizon, and lollipop charts, splines, …\n{ggbeeswarm} — beeswarm plots and variants\n{ggbraid} — ribbons for alternating groups\n{ggbump} — parallel sets, pie charts, geometries, splines, voronoi, …\n{ggdensity} — improved density plots\n{ggdist} — uncertainty visualizations\n{ggforce} — several interesting layers (and more)\n{ggpattern} — pattern fills for layers"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#layers-continued",
+    "href": "materials/01-fundamentals.html#layers-continued",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Layers (continued)",
+    "text": "Layers (continued)\n\n{ggpointdensity} — density gradients for scatter plots\n{ggraph} — networks, graphs & trees\n{ggridges} — ridgeline plots\n{ggsankey} — sankey diagrams\n{ggsignif} — significance levels\n{ggstar} — more point shapes\n{ggstream} — stream graphs\n{ggupset} — upset graphs\n{treemapify} — treemaps"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#utilities",
+    "href": "materials/01-fundamentals.html#utilities",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Utilities",
+    "text": "Utilities\n\n{cowplot} — combine ggplots\n{ggannotate} — point-n-click annotations\n{ggblend} — blend, compose, adjust layers\n{ggfittext} — scale text according to space\n{ggfx} — shaders and filters for layers\n{ggh4x} — facets, positions, and more\n{ggtext} — text rendering for theme elements + text layers\n{lemon} — axis lines (and a few layers)\n{patchwork} — combine ggplots\n{scales} — control scales"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#themes",
+    "href": "materials/01-fundamentals.html#themes",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Themes",
+    "text": "Themes\n\n{ggdark}\n{ggsci}\n{ggtech}\n{ggthemes}\n{ggthemr}\n{hrbrthemes}\n{tvthemes}"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#interactive-charts",
+    "href": "materials/01-fundamentals.html#interactive-charts",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Interactive Charts",
+    "text": "Interactive Charts\n\n{ggiraph}\n{plotly}\n{echarts4r}*\n{highcharter}*\n{charter}*\n{streamgraph}*\n{tmap}*\n{leaflet}*\n{globe4r}*\n{grapher}*\n\n* not using ggplot2"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#exercise-1",
+    "href": "materials/01-fundamentals.html#exercise-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nDiscuss / investigate with your neighbor:\n\nWhat are the differences between geom_line() and geom_path()?\nWhy can you use geom_smooth() and stat_smooth() interchangeably?\nWhat are the three ways to remove a legend from a ggplot?"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#exercise-2",
+    "href": "materials/01-fundamentals.html#exercise-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per month.\nVisualize bike counts per weather type and period as bar chart.\n\nCombine the three plots with {patchwork}.\nExport the final graphic in a format of your choice."
   },
   {
     "objectID": "materials/01-fundamentals.html#section-1",
@@ -431,14 +683,525 @@
     "href": "materials/02-text.html#setup",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\ntheme_set(theme_light(base_size = 14, base_family = \"Asap SemiCondensed\"))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.title = element_text(face = \"bold\"),\n  #legend.position = \"top\",\n  plot.title.position = \"plot\"\n)"
+    "text": "Setup\n\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(stringr)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\ntheme_set(theme_light(base_size = 14, base_family = \"Asap SemiCondensed\"))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\"\n)"
   },
   {
-    "objectID": "materials/02-text.html#update-your-turn",
-    "href": "materials/02-text.html#update-your-turn",
+    "objectID": "materials/02-text.html#working-with-labels",
+    "href": "materials/02-text.html#working-with-labels",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "UPDATE Your Turn",
-    "text": "UPDATE Your Turn\n\n\nLorem ipsum.\n\nDolor est."
+    "section": "Working with Labels",
+    "text": "Working with Labels\n\n\ng <- ggplot(\n    bikes,\n    aes(x = temp, y = count,\n        color = season)\n  ) +\n  geom_point(\n    alpha = .5\n  ) +\n  labs(\n    x = \"Temperature (°C)\",\n    y = \"Reported bike shares\",\n    title = \"TfL bike sharing trends\",\n    subtitle = \"Reported bike rents versus air temperature in London\",\n    caption = \"Data: TfL\",\n    color = \"Season:\",\n    tag = \"1.\"\n  )\n\ng"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme",
+    "href": "materials/02-text.html#customize-labels-via-theme",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\"\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme-1",
+    "href": "materials/02-text.html#customize-labels-via-theme-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\",\n  axis.text = element_text(\n    color = \"#28a87d\"\n  )\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme-2",
+    "href": "materials/02-text.html#customize-labels-via-theme-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\",\n  axis.text = element_text(\n    color = \"#28a87d\",\n    family = \"Spline Sans Mono\",\n    face = \"italic\",\n    lineheight = 1.3, # no effect here\n    angle = 45,\n    hjust = 1,\n    vjust = 0,\n    margin = margin(10, 0, 20, 0)\n  )\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme-3",
+    "href": "materials/02-text.html#customize-labels-via-theme-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\",\n  axis.text = element_text(\n    color = \"#28a87d\",\n    family = \"Spline Sans Mono\",\n    face = \"italic\",\n    lineheight = 1.3, # no effect here\n    angle = 45,\n    hjust = 1, # no effect here\n    vjust = 0, # no effect here\n    margin = margin(10, 0, 20, 0) # no effect here\n  )\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme-4",
+    "href": "materials/02-text.html#customize-labels-via-theme-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\",\n  axis.text = element_text(\n    color = \"#28a87d\",\n    family = \"Spline Sans Mono\",\n    face = \"italic\",\n    lineheight = 1.3, # no effect here\n    angle = 45,\n    hjust = 1, # no effect here\n    vjust = 0, # no effect here\n    margin = margin(10, 0, 20, 0) # no effect here\n  ),\n  axis.text.x = element_text(\n    hjust = 1,\n    vjust = 0,\n    margin = margin(10, 0, 20, 0) # trbl\n  )\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme-5",
+    "href": "materials/02-text.html#customize-labels-via-theme-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\",\n  axis.text = element_text(\n    color = \"#28a87d\",\n    family = \"Spline Sans Mono\",\n    face = \"italic\",\n    lineheight = 1.3, # no effect here\n    angle = 45,\n    hjust = 1, # no effect here\n    vjust = 0, # no effect here\n    margin = margin(10, 0, 20, 0) # no effect here\n  ),\n  plot.tag = element_text(\n    margin = margin(0, 12, -8, 0) # trbl\n  )\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#customize-labels-via-theme-6",
+    "href": "materials/02-text.html#customize-labels-via-theme-6",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Customize Labels via theme()",
+    "text": "Customize Labels via theme()\n\n\ng + theme(\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\",\n  axis.text = element_text(\n    color = \"#28a87d\",\n    family = \"Spline Sans Mono\",\n    face = \"italic\",\n    hjust = 1,\n    vjust = 0,\n    angle = 45,\n    lineheight = 1.3, # no effect here\n    margin = margin(10, 0, 20, 0), # no effect here\n    debug = TRUE\n  ),\n  plot.tag = element_text(\n    margin = margin(0, 12, -8, 0), # trbl\n    debug = TRUE\n  )\n)"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_",
+    "href": "materials/02-text.html#format-labels-via-scale_",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng <- g + labs(tag = NULL, title = NULL, \n              subtitle = NULL)\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-1",
+    "href": "materials/02-text.html#format-labels-via-scale_-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format()\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-2",
+    "href": "materials/02-text.html#format-labels-via-scale_-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format(\n      suffix = \" bikes\"\n    ),\n    name = NULL\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-3",
+    "href": "materials/02-text.html#format-labels-via-scale_-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format(\n      scale = .001\n    ),\n    name = \"Reported bike shares in thousands\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-4",
+    "href": "materials/02-text.html#format-labels-via-scale_-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = function(y) y / 1000,\n    name = \"Reported bike shares in thousands\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-5",
+    "href": "materials/02-text.html#format-labels-via-scale_-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_x_continuous(\n    labels = function(y) paste0(y, \"°C\"),\n    name = \"Temperature\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-6",
+    "href": "materials/02-text.html#format-labels-via-scale_-6",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_color_discrete(\n    name = NULL,\n    labels = str_to_title\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#style-labels-of-dual-axis-plots",
+    "href": "materials/02-text.html#style-labels-of-dual-axis-plots",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Style Labels of Dual Axis Plots",
+    "text": "Style Labels of Dual Axis Plots\n\nsec <- \n  bikes |> \n  group_by(\n    month = lubridate::month(date, label = TRUE)\n  ) |> \n  summarize(n = sum(count), temp = mean(temp)) |> \n  ggplot(aes(x = month)) +\n  geom_col(aes(y = n), fill = \"grey70\") +\n  geom_point(aes(y = temp * 10^5), color = \"firebrick\") +\n  geom_line(aes(y = temp * 10^5, group = 1), color = \"firebrick\")"
+  },
+  {
+    "objectID": "materials/02-text.html#style-labels-of-dual-axis-plots-1",
+    "href": "materials/02-text.html#style-labels-of-dual-axis-plots-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Style Labels of Dual Axis Plots",
+    "text": "Style Labels of Dual Axis Plots\n\nsec +\n  scale_y_continuous(\n    labels = scales::label_comma(scale = 1/10^6, suffix = \"M\"),\n    name = \"Rented bikes\",\n    sec.axis = sec_axis(\n      trans = ~ . / 10^5,\n      name = \"Average daily temperature\",\n      labels = scales::label_comma(suffix = \"°C\")\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#style-labels-of-dual-axis-plots-2",
+    "href": "materials/02-text.html#style-labels-of-dual-axis-plots-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Style Labels of Dual Axis Plots",
+    "text": "Style Labels of Dual Axis Plots\n\nsec +\n  scale_y_continuous(\n    labels = scales::label_comma(scale = 1/10^6, suffix = \"M\"),\n    name = \"Rented bikes\",\n    sec.axis = sec_axis(\n      trans = ~ . / 30000,\n      name = \"Average daily temperature\",\n      labels = scales::label_comma(suffix = \"°C\")\n    )\n  ) +\n  theme(\n    axis.title.y.left = element_text(color = \"grey60\", face = \"bold\"),\n    axis.title.y.right = element_text(color = \"firebrick\", face = \"bold\",\n                                      margin = margin(l = 10, r = 0))\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-1",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\n\ng +\n  ggtitle(\"**TfL bike sharing trends by _season_**\")"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-2",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\n\ng +\n  ggtitle(\"**TfL bike sharing trends by _season_**\") +\n  theme(\n    plot.title = ggtext::element_markdown()\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-3",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\n\ng +\n  ggtitle(\"<b style='font-family:Times;font-size:25pt'>TfL</b> bike sharing trends by <i style='color:#28A87D;'>season</i>\") +\n  theme(\n    plot.title = ggtext::element_markdown()\n  )\n\n\n\n\n\n\n<b style='font-family:Times;font-size:25pt;'>TfL</b> bike sharing trends by <i style='color:#28A87;'>season</i>"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-4",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\n\ng +\n  ggtext::geom_richtext(\n    aes(x = 18, y = 48500,\n        label = \"What happened on these<br>two <b style='color:#F7B01B;'>summer days</b>?\"),\n    stat = \"unique\"\n  ) +\n  scale_color_manual(\n    values = c(\"#6681FE\", \"#1EC98D\", \"#F7B01B\", \"#A26E7C\")\n  )\n\n\n\n\n\n\nWhat happened on these<br>two <b style='color:#F7B01B;'>summer days</b>?"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-5",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\n\ng +\n  ggtext::geom_richtext(\n    aes(x = 18, y = 48500,\n        label = \"What happened on these<br>two <b style='color:#F7B01B;'>summer days</b>?\"),\n    stat = \"unique\", \n    color = \"grey20\",\n    family = \"Asap SemiCondensed\",\n    fill = NA, \n    label.color = NA\n  ) +\n  scale_color_manual(\n    values = c(\"#6681FE\", \"#1EC98D\", \"#F7B01B\", \"#A26E7C\")\n  )\n\n\n\n\n\n\nWhat happened on these<br>two <b style='color:#F7B01B;'>summer days</b>?"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-6",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-6",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nfriends <- readr::read_csv(\n  here::here(\"data\", \"friends-mentions-partners.csv\")\n)\n\nfriends\n\n# A tibble: 725 × 6\n      id season episode key               partners          mentions\n   <dbl>  <dbl>   <dbl> <chr>             <chr>                <dbl>\n 1     1      1       1 Ross & Rachel     Ross & Rachel            4\n 2     1      1       1 Rachel & Joey     Rachel & Joey            1\n 3     2      1       2 Ross & Rachel     Ross & Rachel            1\n 4     2      1       2 Ross              Ross & Carol             2\n 5     2      1       2 Rachel & Joey     Rachel & Joey            1\n 6     2      1       2 Rachel            Rachel & Barry           3\n 7     2      1       2 Monica & Chandler Monica & Chandler        1\n 8     5      1       5 Ross & Rachel     Ross & Rachel            3\n 9     5      1       5 Ross              Ross & Carol             1\n10     5      1       5 Chandler          Chandler & Janice        2\n# ℹ 715 more rows"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-7",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-7",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nmatch_colors <-\n  tibble(\n    key = c(\"Chandler\", \"Joey\", \"Monica\", \"Monica & Chandler\", \n            \"Phoebe\", \"Rachel\", \"Rachel & Joey\", \"Ross\", \"Ross & Rachel\"),\n    color = c(\"#48508c\", \"#55331d\", \"#a64d64\", \"#774f78\", \n              \"#5b7233\", \"#ba2a22\", \"#882f20\", \"#f6ab18\", \"#d86b1d\")\n  )\n\nmatch_colors\n\n# A tibble: 9 × 2\n  key               color  \n  <chr>             <chr>  \n1 Chandler          #48508c\n2 Joey              #55331d\n3 Monica            #a64d64\n4 Monica & Chandler #774f78\n5 Phoebe            #5b7233\n6 Rachel            #ba2a22\n7 Rachel & Joey     #882f20\n8 Ross              #f6ab18\n9 Ross & Rachel     #d86b1d"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-8",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-8",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nfriends |> \n  mutate(key = if_else(\n    !partners %in% c(\"Ross & Rachel\", \"Rachel & Joey\", \"Monica & Chandler\"),\n    word(partners, 1), partners\n  )) |> \n  left_join(\n    match_colors\n  )\n\n# A tibble: 725 × 7\n      id season episode key               partners          mentions color  \n   <dbl>  <dbl>   <dbl> <chr>             <chr>                <dbl> <chr>  \n 1     1      1       1 Ross & Rachel     Ross & Rachel            4 #d86b1d\n 2     1      1       1 Rachel & Joey     Rachel & Joey            1 #882f20\n 3     2      1       2 Ross & Rachel     Ross & Rachel            1 #d86b1d\n 4     2      1       2 Ross              Ross & Carol             2 #f6ab18\n 5     2      1       2 Rachel & Joey     Rachel & Joey            1 #882f20\n 6     2      1       2 Rachel            Rachel & Barry           3 #ba2a22\n 7     2      1       2 Monica & Chandler Monica & Chandler        1 #774f78\n 8     5      1       5 Ross & Rachel     Ross & Rachel            3 #d86b1d\n 9     5      1       5 Ross              Ross & Carol             1 #f6ab18\n10     5      1       5 Chandler          Chandler & Janice        2 #48508c\n# ℹ 715 more rows"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-9",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-9",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nfriends_render <- friends |> \n  mutate(key = if_else(\n    !partners %in% c(\"Ross & Rachel\", \"Rachel & Joey\", \"Monica & Chandler\"),\n    word(partners, 1), partners\n  )) |> \n  left_join(\n    match_colors\n  ) |> \n  mutate(\n    partners = if_else(\n      key %in% c(\"Ross & Rachel\", \"Rachel & Joey\", \"Monica & Chandler\"),\n      paste0(\"<b style='color:\", color, \"'>\", partners, \"</b>\"),\n      str_replace(partners, key, paste0(\"<b style='color:\", color, \"'>\", key, \"</b>\"))\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-10",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-10",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nfriends_render |> select(key, color, partners) |> unique()\n\n# A tibble: 25 × 3\n   key               color   partners                                      \n   <chr>             <chr>   <glue>                                        \n 1 Ross & Rachel     #d86b1d <b style='color:#d86b1d'>Ross & Rachel</b>    \n 2 Rachel & Joey     #882f20 <b style='color:#882f20'>Rachel & Joey</b>    \n 3 Ross              #f6ab18 <b style='color:#f6ab18'>Ross</b> & Carol     \n 4 Rachel            #ba2a22 <b style='color:#ba2a22'>Rachel</b> & Barry   \n 5 Monica & Chandler #774f78 <b style='color:#774f78'>Monica & Chandler</b>\n 6 Chandler          #48508c <b style='color:#48508c'>Chandler</b> & Janice\n 7 Rachel            #ba2a22 <b style='color:#ba2a22'>Rachel</b> & Paolo   \n 8 Phoebe            #5b7233 <b style='color:#5b7233'>Phoebe</b> & David   \n 9 Rachel            #ba2a22 <b style='color:#ba2a22'>Rachel</b> & Tag     \n10 Ross              #f6ab18 <b style='color:#f6ab18'>Ross</b> & Julie     \n# ℹ 15 more rows"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-11",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-11",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nggplot(friends_render,\n       aes(x = id, y = partners)) + \n  theme(axis.text.y = ggtext::element_markdown(hjust = 0))"
+  },
+  {
+    "objectID": "materials/02-text.html#styling-labels-with-ggtext-12",
+    "href": "materials/02-text.html#styling-labels-with-ggtext-12",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Styling Labels with {ggtext}",
+    "text": "Styling Labels with {ggtext}\n\nggplot(friends_render,\n  aes(x = id, y = partners)) + \n  geom_point(aes(size = mentions, color = color), alpha = .3) +\n  scale_color_identity() +\n  scale_size_area(max_size = 5, guide = \"none\") +\n  coord_cartesian(expand = FALSE, clip = \"off\") +\n  labs(x = \"Episodes\", y = NULL) +\n  theme_minimal(base_family = \"Asap SemiCondensed\") +\n  theme(\n    axis.text.y = ggtext::element_markdown(hjust = 0),\n    axis.text.x = element_blank(),\n    panel.grid.major.x = element_blank(),\n    panel.grid.minor = element_blank()\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#facet-labellers-1",
+    "href": "materials/02-text.html#facet-labellers-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Facet Labellers",
+    "text": "Facet Labellers\n\n\ng +\n  facet_wrap(\n    ~ day_night,\n    labeller = label_both\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#facet-labellers-2",
+    "href": "materials/02-text.html#facet-labellers-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Facet Labellers",
+    "text": "Facet Labellers\n\n\ng +\n  facet_wrap(\n    ~ is_workday + day_night,\n    labeller = label_both\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#facet-labellers-3",
+    "href": "materials/02-text.html#facet-labellers-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Facet Labellers",
+    "text": "Facet Labellers\n\n\ng +\n  facet_wrap(\n    ~ is_workday + day_night,\n    labeller = labeller(\n      day_night = str_to_title\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#facet-labellers-4",
+    "href": "materials/02-text.html#facet-labellers-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Facet Labellers",
+    "text": "Facet Labellers\n\n\ncodes <- c(\n  `TRUE` = \"Workday\",\n  `FALSE` = \"Weekend or Holiday\"\n)\n\ng +\n  facet_wrap(\n    ~ is_workday + day_night,\n    labeller = labeller(\n      day_night = str_to_title,\n      is_workday = codes\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#facet-labellers-5",
+    "href": "materials/02-text.html#facet-labellers-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Facet Labellers",
+    "text": "Facet Labellers\n\n\ncodes <- c(\n  `TRUE` = \"Workday\",\n  `FALSE` = \"Weekend or Holiday\"\n)\n\ng +\n  facet_wrap(\n    ~ is_workday + day_night,\n    labeller = labeller(\n      .default = str_to_title,\n      is_workday = codes\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#facet-labeller",
+    "href": "materials/02-text.html#facet-labeller",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Facet Labeller",
+    "text": "Facet Labeller\n\n\ng +\n  facet_grid(\n    day_night ~ is_workday,\n    labeller = labeller(\n      day_night = str_to_title,\n      is_workday = codes\n    )\n  ) +\n  theme(\n    legend.position = \"top\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-labels-1",
+    "href": "materials/02-text.html#handling-long-labels-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Labels",
+    "text": "Handling Long Labels\n\n\nggplot(\n    filter(bikes, !is.na(weather_type)),\n    aes(x = weather_type,\n        y = count)\n  ) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-labels-with-stringr",
+    "href": "materials/02-text.html#handling-long-labels-with-stringr",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Labels with {stringr}",
+    "text": "Handling Long Labels with {stringr}\n\n\nggplot(\n    filter(bikes, !is.na(weather_type)),\n    aes(x = weather_type,\n        y = count)\n  ) +\n  geom_boxplot() +\n  scale_x_discrete(\n    guide = guide_axis(\n      n.dodge = 2\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-labels-with-stringr-1",
+    "href": "materials/02-text.html#handling-long-labels-with-stringr-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Labels with {stringr}",
+    "text": "Handling Long Labels with {stringr}\n\n\nggplot(\n    filter(bikes, !is.na(weather_type)),\n    aes(x = str_wrap(weather_type, 6),\n        y = count)\n  ) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-titles",
+    "href": "materials/02-text.html#handling-long-titles",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Titles",
+    "text": "Handling Long Titles\n\n\ng + \n  ggtitle(\"TfL bike sharing trends in 2015 and 2016 by season for day and night periods\") +\n  theme(\n    plot.title = element_text(size = 20),\n    plot.title.position = \"plot\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-titles-with",
+    "href": "materials/02-text.html#handling-long-titles-with",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Titles with ",
+    "text": "Handling Long Titles with \n\n\ng + \n  ggtitle(\"TfL bike sharing trends in 2015 and 2016\\nby season for day and night periods\") +\n  theme(\n    plot.title = element_text(size = 20),\n    plot.title.position = \"plot\"\n  )\n\n\n\n\n\n\nTfL bike sharing trends in 2015 and 2016\\nby season for day and night periods"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-titles-with-ggtext",
+    "href": "materials/02-text.html#handling-long-titles-with-ggtext",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Titles with {ggtext}",
+    "text": "Handling Long Titles with {ggtext}\n\n\ng +\n  ggtitle(\"TfL bike sharing trends in 2015 and 2016 by season for day and night periods\") +\n  theme(\n    plot.title =\n      ggtext::element_textbox_simple(size = 20),\n    plot.title.position = \"plot\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-titles-with-ggtext-1",
+    "href": "materials/02-text.html#handling-long-titles-with-ggtext-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Titles with {ggtext}",
+    "text": "Handling Long Titles with {ggtext}\n\n\ng +\n  ggtitle(\"TfL bike sharing trends in 2015 and 2016 by season for day and night periods\") +\n  theme(\n    plot.title = ggtext::element_textbox_simple(\n      margin = margin(t = 12, b = 12),\n      lineheight = .9\n    ),\n    plot.title.position = \"plot\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-titles-with-ggtext-2",
+    "href": "materials/02-text.html#handling-long-titles-with-ggtext-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Titles with {ggtext}",
+    "text": "Handling Long Titles with {ggtext}\n\n\ng +\n  ggtitle(\"TfL bike sharing trends in 2015 and 2016 by season for day and night periods\") +\n  theme(\n    plot.title = ggtext::element_textbox_simple(\n      margin = margin(t = 12, b = 12),\n      fill = \"grey90\",\n      lineheight = .9\n    ),\n    plot.title.position = \"plot\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#handling-long-titles-with-ggtext-3",
+    "href": "materials/02-text.html#handling-long-titles-with-ggtext-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Handling Long Titles with {ggtext}",
+    "text": "Handling Long Titles with {ggtext}\n\n\ng +\n  ggtitle(\"TfL bike sharing trends in 2015 and 2016 by season for day and night periods\") +\n  theme(\n    plot.title = ggtext::element_textbox_simple(\n      margin = margin(t = 12, b = 12),\n      padding = margin(rep(12, 4)),\n      fill = \"grey90\",\n      box.color = \"grey40\",\n      r = unit(9, \"pt\"),\n      halign = .5,\n      face = \"bold\",\n      lineheight = .9\n    ),\n    plot.title.position = \"plot\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-single-text-annotations",
+    "href": "materials/02-text.html#add-single-text-annotations",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Single Text Annotations",
+    "text": "Add Single Text Annotations\n\n\nga <- \n  ggplot(bikes, \n         aes(x = temp, y = count)) +\n  geom_point(\n    aes(color = count > 40000),\n    size = 2\n  ) +\n  scale_color_manual(\n    values = c(\"grey\", \"firebrick\"),\n    guide = \"none\"\n  )\n\nga"
+  },
+  {
+    "objectID": "materials/02-text.html#add-single-text-annotations-1",
+    "href": "materials/02-text.html#add-single-text-annotations-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Single Text Annotations",
+    "text": "Add Single Text Annotations\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 18,\n    y = 48000,\n    label = \"What happened here?\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#style-text-annotations",
+    "href": "materials/02-text.html#style-text-annotations",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Style Text Annotations",
+    "text": "Style Text Annotations\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 18,\n    y = 48000,\n    label = \"What happened here?\",\n    color = \"firebrick\",\n    size = 6,\n    family = \"Asap SemiCondensed\",\n    fontface = \"bold\",\n    lineheight =  .8\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-multiple-text-annotations",
+    "href": "materials/02-text.html#add-multiple-text-annotations",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Multiple Text Annotations",
+    "text": "Add Multiple Text Annotations\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = c(18, max(bikes$temp)),\n    y = c(48000, 1000),\n    label = c(\"What happened here?\", \"Powered by TfL\"),\n    color = c(\"firebrick\", \"black\"),\n    size = c(6, 3),\n    family = c(\"Asap SemiCondensed\", \"Hepta Slab\"),\n    fontface = c(\"bold\", \"plain\"),\n    hjust = c(.5, 1)\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#pointnclick-annotations",
+    "href": "materials/02-text.html#pointnclick-annotations",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "“Point’n’Click” Annotations",
+    "text": "“Point’n’Click” Annotations\n\nggannotate::ggannotate(g)"
+  },
+  {
+    "objectID": "materials/02-text.html#add-boxes",
+    "href": "materials/02-text.html#add-boxes",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Boxes",
+    "text": "Add Boxes\n\n\nga + \n  annotate(\n    geom = \"text\",\n    x = 19.5,\n    y = 42000,\n    label = \"What happened here?\",\n    family = \"Asap SemiCondensed\",\n    size = 6,\n    vjust = 1.3\n  ) +\n  annotate(\n    geom = \"rect\",\n    xmin = 17, \n    xmax = 22,\n    ymin = 42000, \n    ymax = 54000,\n    color = \"firebrick\", \n    fill = NA\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-lines",
+    "href": "materials/02-text.html#add-lines",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Lines",
+    "text": "Add Lines\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 10,\n    y = 38000,\n    label = \"The\\nhighest\\ncount\",\n    family = \"Asap SemiCondensed\",\n    size = 6,\n    lineheight =  .8\n  ) +\n  annotate(\n    geom = \"segment\",\n    x = 13, \n    xend = 18.2,\n    y = 38000, \n    yend = 51870\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-lines-1",
+    "href": "materials/02-text.html#add-lines-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Lines",
+    "text": "Add Lines\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 10,\n    y = 38000,\n    label = \"The\\nhighest\\ncount\",\n    family = \"Asap SemiCondensed\",\n    size = 6,\n    lineheight =  .8\n  ) +\n  annotate(\n    geom = \"curve\",\n    x = 13, \n    xend = 18.2,\n    y = 38000, \n    yend = 51870\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-arrows",
+    "href": "materials/02-text.html#add-arrows",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Arrows",
+    "text": "Add Arrows\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 10,\n    y = 38000,\n    label = \"The\\nhighest\\ncount\",\n    family = \"Asap SemiCondensed\",\n    size = 6,\n    lineheight =  .8\n  ) +\n  annotate(\n    geom = \"curve\",\n    x = 13, \n    xend = 18.2,\n    y = 38000, \n    yend = 51870,\n    curvature = .25,\n    arrow = arrow()\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-arrows-1",
+    "href": "materials/02-text.html#add-arrows-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Arrows",
+    "text": "Add Arrows\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 10,\n    y = 38000,\n    label = \"The\\nhighest\\ncount\",\n    family = \"Asap SemiCondensed\",\n    size = 6,\n    lineheight =  .8\n  ) +\n  annotate(\n    geom = \"curve\",\n    x = 13, \n    xend = 18.2,\n    y = 38000, \n    yend = 51870,\n    curvature = .25,\n    arrow = arrow(\n      length = unit(10, \"pt\"),\n      type = \"closed\",\n      ends = \"both\"\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#add-arrows-2",
+    "href": "materials/02-text.html#add-arrows-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Arrows",
+    "text": "Add Arrows\n\n\nga +\n  annotate(\n    geom = \"text\",\n    x = 10,\n    y = 38000,\n    label = \"The\\nhighest\\ncount\",\n    family = \"Asap SemiCondensed\",\n    size = 6,\n    lineheight =  .8\n  ) +\n  annotate(\n    geom = \"curve\",\n    x = 13, \n    xend = 18.2,\n    y = 38000, \n    yend = 51870,\n    curvature = .8,\n    angle = 130,\n    arrow = arrow(\n      length = unit(10, \"pt\"),\n      type = \"closed\"\n    )\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#highlight-hot-days",
+    "href": "materials/02-text.html#highlight-hot-days",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Highlight Hot Days",
+    "text": "Highlight Hot Days\n\n\ngh <- \n  ggplot(\n    data = filter(bikes, temp >= 27),\n    aes(x = date, y = temp)\n  ) +\n  geom_point(\n    data = bikes,\n    color = \"grey65\", alpha = .3\n  ) +\n  geom_point(size = 2.5)\n\ngh"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-geom_text",
+    "href": "materials/02-text.html#annotations-with-geom_text",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with geom_text()",
+    "text": "Annotations with geom_text()\n\n\ngh +\n  geom_text(\n    aes(label = format(date, \"%m/%d\")),\n    nudge_x = 10,\n    hjust = 0\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-geom_label",
+    "href": "materials/02-text.html#annotations-with-geom_label",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with geom_label()",
+    "text": "Annotations with geom_label()\n\n\ngh +\n  geom_label(\n    aes(label = format(date, \"%m/%d\")),\n    nudge_x = .3,\n    hjust = 0\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggrepel",
+    "href": "materials/02-text.html#annotations-with-ggrepel",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggrepel}",
+    "text": "Annotations with {ggrepel}\n\n\ngh +\n  ggrepel::geom_text_repel(\n    aes(label = format(date, \"%m/%d\"))\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggrepel-1",
+    "href": "materials/02-text.html#annotations-with-ggrepel-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggrepel}",
+    "text": "Annotations with {ggrepel}\n\n\ngh + \n  ggrepel::geom_text_repel(\n    aes(label = format(date, \"%m/%d\")),\n    family = \"Spline Sans Mono\",\n    size = 4.5,\n    fontface = \"bold\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggrepel-2",
+    "href": "materials/02-text.html#annotations-with-ggrepel-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggrepel}",
+    "text": "Annotations with {ggrepel}\n\n\ngh +\n  ggrepel::geom_text_repel(\n    aes(label = format(date, \"%m/%d\")),\n    family = \"Spline Sans Mono\",\n    # space between points + labels\n    box.padding = .8,\n    # always draw segments\n    min.segment.length = 0\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggrepel-3",
+    "href": "materials/02-text.html#annotations-with-ggrepel-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggrepel}",
+    "text": "Annotations with {ggrepel}\n\n\ngh +\n  ggrepel::geom_text_repel(\n    aes(label = format(date, \"%y/%m/%d\")),\n    family = \"Spline Sans Mono\",\n    # force to the right\n    xlim = c(NA, as.Date(\"2015-06-01\")), \n    hjust = 1\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggrepel-4",
+    "href": "materials/02-text.html#annotations-with-ggrepel-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggrepel}",
+    "text": "Annotations with {ggrepel}\n\n\ngh +\n  ggrepel::geom_text_repel(\n    aes(label = format(date, \"%y/%m/%d\")),\n    family = \"Spline Sans Mono\",\n    xlim = c(NA, as.Date(\"2015-06-01\")),\n    # style segment\n    segment.curvature = .01,\n    arrow = arrow(length = unit(.02, \"npc\"), type = \"closed\")\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggrepel-5",
+    "href": "materials/02-text.html#annotations-with-ggrepel-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggrepel}",
+    "text": "Annotations with {ggrepel}\n\n\ngh +\n  ggrepel::geom_text_repel(\n    aes(label = format(date, \"%y/%m/%d\")),\n    family = \"Spline Sans Mono\",\n    xlim = c(NA, as.Date(\"2015-06-01\")),\n    # style segment\n    segment.curvature = .001,\n    segment.inflect = TRUE\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggforce",
+    "href": "materials/02-text.html#annotations-with-ggforce",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggforce}",
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_rect(\n    aes(label = \"Outliers?\",\n        filter = count > 40000)\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggforce-1",
+    "href": "materials/02-text.html#annotations-with-ggforce-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggforce}",
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_rect(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    color = \"black\",\n    family = \"Asap SemiCondensed\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggforce-2",
+    "href": "materials/02-text.html#annotations-with-ggforce-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggforce}",
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_rect(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    description = \"What happened on\\nthese two days?\",\n    color = \"black\",\n    label.family = \"Asap SemiCondensed\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggforce-3",
+    "href": "materials/02-text.html#annotations-with-ggforce-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggforce}",
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_rect(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    description = \"What happened on\\nthese two days?\",\n    color = \"black\",\n    label.family = \"Asap SemiCondensed\",\n    expand = unit(8, \"pt\"),\n    radius = unit(12, \"pt\"),\n    con.cap = unit(0, \"pt\"),\n    label.buffer = unit(15, \"pt\"),\n    con.type = \"straight\",\n    label.fill = \"transparent\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggforce-4",
+    "href": "materials/02-text.html#annotations-with-ggforce-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggforce}",
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_circle(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    description = \"What happened on\\nthese two days?\",\n    color = \"black\",\n    label.family = \"Asap SemiCondensed\",\n    expand = unit(8, \"pt\"),\n    con.cap = unit(0, \"pt\"),\n    label.buffer = unit(15, \"pt\"),\n    con.type = \"straight\",\n    label.fill = \"transparent\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#annotations-with-ggforce-5",
+    "href": "materials/02-text.html#annotations-with-ggforce-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotations with {ggforce}",
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_hull(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    description = \"What happened on\\nthese two days?\",\n    color = \"black\",\n    label.family = \"Asap SemiCondensed\",\n    expand = unit(8, \"pt\"),\n    con.cap = unit(0, \"pt\"),\n    label.buffer = unit(15, \"pt\"),\n    con.type = \"straight\",\n    label.fill = \"transparent\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#recap",
+    "href": "materials/02-text.html#recap",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Recap",
+    "text": "Recap\n\n\n\nstyle labels such as title, axis and legend texts with theme()\nformat data-related labels with the labels argument of scale_*()\nadjust strip text with the facet_*(labeller) functionality\nadd data-related annotations with geom_text|label()\n… and data-unrelated annotations with annotate()\n{ggtext} allows to render labels with markdown and basic html\n{ggtext} also allows to add dynamic linebreaks and images\n{ggrepel} ensures clever placement of annotations\nggforce::geom_mark_*() provide a set of advanced annotations"
+  },
+  {
+    "objectID": "materials/02-text.html#exercise-1",
+    "href": "materials/02-text.html#exercise-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nTake a look at the following visualization.\n\nFor each group of text labels, note how one would add and modify them.\nDiscuss how to automate the placement of the labels in- and outside of the bars."
+  },
+  {
+    "objectID": "materials/02-text.html#exercise-2",
+    "href": "materials/02-text.html#exercise-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nCreate a function that plots the famous Gapminder chart, highlighting one of the continents.\n\nExtend the code in 02-text-exercises.qmd to annotate a continent your choice of with {ggforce}.\nTurn the code into a function with the utility to annotate any continent.\nOptional: Create a second function to highlight a country."
   },
   {
     "objectID": "materials/02-text.html#section",
@@ -452,7 +1215,7 @@
     "href": "materials/03-colors.html#setup",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\ntheme_set(theme_light(base_size = 14, base_family = \"Asap SemiCondensed\"))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.title = element_text(face = \"bold\"),\n  #legend.position = \"top\",\n  plot.title.position = \"plot\"\n)"
+    "text": "Setup\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\ntheme_set(theme_light(base_size = 14, base_family = \"Asap SemiCondensed\"))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\"\n)"
   },
   {
     "objectID": "materials/03-colors.html#default-color-palettes-categorical",
@@ -802,7 +1565,7 @@
     "href": "materials/03-colors.html#create-any-palette-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Create Any Palette",
-    "text": "Create Any Palette\n\npal_c <- \n  colorRampPalette(\n    c(\"#663399\", \"grey85\", \"#993334\")\n  )(5)\n\nplot(prismatic::color(pal_c))"
+    "text": "Create Any Palette\n\npal_c <- \n  colorRampPalette(\n    c(\"#663399\", \"grey85\", \"#993334\")\n  )(5)\n\nplot(color(pal_c))"
   },
   {
     "objectID": "materials/03-colors.html#create-any-palette-2",
@@ -991,21 +1754,21 @@
     "href": "materials/03-colors.html#recap",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Recap",
-    "text": "Recap\n\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_discrete() and scale_*_manual() for custom options\ne.g. scale_*_viridis_d and scale_*_brewer() for pre-defined options\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_gradient2() for custom options\ne.g. scale_*_viridis_c and scale_*_distiller() for pre-defined options\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales"
+    "text": "Recap\n\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_manual() or scale_*_brewer()\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient|gradient2() or scale_*_viridis_c\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales\nevaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)"
   },
   {
     "objectID": "materials/03-colors.html#exercise-1",
     "href": "materials/03-colors.html#exercise-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Exercise",
-    "text": "Exercise\n\n\nCreate a similar visualization as close as possible:"
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nAdd colors to our bar chart from the last exercise:"
   },
   {
-    "objectID": "materials/03-colors.html#update-your-turn",
-    "href": "materials/03-colors.html#update-your-turn",
+    "objectID": "materials/03-colors.html#exercise-2",
+    "href": "materials/03-colors.html#exercise-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "UPDATE Your Turn",
-    "text": "UPDATE Your Turn\n\n\nLorem ipsum.\n\nDolor est."
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nCreate a plot of your choice with a sequential (non-default) color palette.\n\nInspect the HCL spectrum. Adjust the palette if needed.\nTest the palette with regard to colorblindness. Adjust the palette if needed.\nSave and share the graphic."
   },
   {
     "objectID": "materials/03-colors.html#section-1",
@@ -1026,7 +1789,7 @@
     "href": "materials/04-theming.html#preparation-data",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Preparation: Data",
-    "text": "Preparation: Data\n\nlibrary(readr)\nlibrary(ggplot2)\n\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )"
+    "text": "Preparation: Data\n\nlibrary(readr)\nlibrary(ggplot2)\n\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes-custom.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )"
   },
   {
     "objectID": "materials/04-theming.html#preparation-plot",
@@ -1050,25 +1813,46 @@
     "text": "Preparation: Plot\n\ng <- bikes |>\n  dplyr::group_by(month = lubridate::month(date, label = TRUE), day_night, year) |> \n  dplyr::summarize(count = sum(count)) |> \n  ggplot(aes(x = month, y = count, color = day_night)) +\n  geom_line(aes(group = day_night)) +\n  geom_point(size = 2) +\n  facet_wrap(~year, ncol = 1, scales = \"free_x\") +\n  coord_cartesian(clip = \"off\") +\n  scale_y_continuous(\n    limits = c(0, 830000), expand = c(0, 0),\n    labels = scales::label_comma(scale = 1/10^3, suffix = \"K\")\n  ) +\n  scale_color_manual(values = c(day = \"#FFA200\", night = \"#757BC7\")) +\n  labs(\n    x = NULL, y = \"# rented bikes\", color = NULL,\n    title = \"TfL Bike Shares per Month and Year\",\n    caption = \"Data: TfL (Transport for London)\"\n  )"
   },
   {
-    "objectID": "materials/04-theming.html#complete-themes",
-    "href": "materials/04-theming.html#complete-themes",
-    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Complete Themes",
-    "text": "Complete Themes\n\n\n\ng + theme_light()\n\n\n\n\n\n\ng + theme_bw()"
-  },
-  {
     "objectID": "materials/04-theming.html#complete-themes-1",
     "href": "materials/04-theming.html#complete-themes-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Complete Themes",
-    "text": "Complete Themes\n\n\n\ng + theme_minimal()\n\n\n\n\n\n\ng + theme_classic()"
+    "text": "Complete Themes\n\n\n\ng + theme_light()\n\n\n\n\n\n\ng + theme_bw()"
   },
   {
     "objectID": "materials/04-theming.html#complete-themes-2",
     "href": "materials/04-theming.html#complete-themes-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Complete Themes",
+    "text": "Complete Themes\n\n\n\ng + theme_minimal()\n\n\n\n\n\n\ng + theme_classic()"
+  },
+  {
+    "objectID": "materials/04-theming.html#complete-themes-3",
+    "href": "materials/04-theming.html#complete-themes-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Complete Themes",
     "text": "Complete Themes\n\n\n\ng + theme_dark()\n\n\n\n\n\n\ng + theme_void()"
+  },
+  {
+    "objectID": "materials/04-theming.html#complete-themes-via-extension-packages",
+    "href": "materials/04-theming.html#complete-themes-via-extension-packages",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Complete Themes via Extension Packages",
+    "text": "Complete Themes via Extension Packages\n\n\n\ng + ggthemes::theme_stata()\n\n\n\n\n\n\ng + ggthemes::theme_gdocs()"
+  },
+  {
+    "objectID": "materials/04-theming.html#complete-themes-via-extension-packages-1",
+    "href": "materials/04-theming.html#complete-themes-via-extension-packages-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Complete Themes via Extension Packages",
+    "text": "Complete Themes via Extension Packages\n\n\n\ng + hrbrthemes::theme_ipsum_rc()\n\n\n\n\n\n\ng + tvthemes::theme_simpsons()"
+  },
+  {
+    "objectID": "materials/04-theming.html#modify-theme-elements",
+    "href": "materials/04-theming.html#modify-theme-elements",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Modify Theme Elements",
+    "text": "Modify Theme Elements\n\n\ng + \n  hrbrthemes::theme_ipsum_rc() +\n  theme(\n    panel.grid.minor = element_blank(),\n    plot.title = element_text(color =\"#28A87D\"),\n    plot.title.position = \"plot\"\n  )"
   },
   {
     "objectID": "materials/04-theming.html#the-systemfonts-package",
@@ -1082,7 +1866,7 @@
     "href": "materials/04-theming.html#use-non-default-typefaces",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Use Non-Default Typefaces",
-    "text": "Use Non-Default Typefaces\n\nsystem_fonts()\n\n# A tibble: 10,735 × 9\n   path                                                        index name                                       family       style weight width italic monospace\n   <chr>                                                       <int> <chr>                                      <chr>        <chr> <ord>  <ord> <lgl>  <lgl>    \n 1 /Users/cedric/Library/Fonts/MeshedDisplay-ExtBdSlant.otf        0 MeshedDisplay-ExtBdSlant                   Meshed Disp… Extr… ultra… norm… TRUE   FALSE    \n 2 /Users/cedric/Library/Fonts/LeagueSpartan-VF.ttf                5 LeagueSpartan-Extralight_Bold              League Spar… Bold  bold   norm… FALSE  FALSE    \n 3 /System/Library/Fonts/Supplemental/Sinhala Sangam MN.ttc        1 SinhalaSangamMN-Bold                       Sinhala San… Bold  bold   norm… FALSE  FALSE    \n 4 /Users/cedric/Library/Fonts/Gambarino-Regular.otf               0 Gambarino-Regular                          Gambarino    Regu… normal norm… FALSE  FALSE    \n 5 /Users/cedric/Library/Fonts/KolageGX.ttf                        8 Kolage_Black                               Kolage       Black heavy  norm… FALSE  FALSE    \n 6 /Users/cedric/Library/Fonts/Styro-Variable.ttf                  3 Styro-Variable-Black_Medium                Styro Varia… Medi… normal norm… FALSE  FALSE    \n 7 /Users/cedric/Library/Fonts/iosevka-curly-medium.ttc           14 Iosevka-Term-Curly-Medium-Extended-Oblique Iosevka Ter… Medi… medium norm… TRUE   TRUE     \n 8 /Users/cedric/Library/Fonts/Aleo-Bold.ttf                       0 Aleo-Bold                                  Aleo         Bold  bold   norm… FALSE  FALSE    \n 9 /Users/cedric/Library/Fonts/Henju-ExtraLight.otf                0 Henju-ExtraLight                           Henju        Extr… light  norm… FALSE  FALSE    \n10 /Users/cedric/Library/Fonts/MononokiNerdFont-BoldItalic.ttf     0 MononokiNF-BoldItalic                      Mononoki Ne… Bold… bold   norm… TRUE   TRUE     \n# ℹ 10,725 more rows"
+    "text": "Use Non-Default Typefaces\n\nsystem_fonts()\n\n# A tibble: 21,738 × 9\n   path                                                                                                   index name  family style weight width italic monospace\n   <chr>                                                                                                  <int> <chr> <chr>  <chr> <ord>  <ord> <lgl>  <lgl>    \n 1 /Users/cedric/Library/Fonts/FontBase/Fira Code-Regular.ttf                                                 0 Fira… Fira … Regu… normal norm… FALSE  TRUE     \n 2 /Users/cedric/Library/Fonts/FontBase/Tourney-200italic.ttf                                                 0 Tour… Tourn… Extr… normal norm… TRUE   FALSE    \n 3 /Users/cedric/Library/Fonts/FontBase/Iosevka-Term-Curly-Slab-Light.ttf                                     0 Iose… Iosev… Light normal norm… FALSE  TRUE     \n 4 /Users/cedric/Library/Fonts/Fraunces_144pt_Soft-BlackItalic.ttf                                            0 Frau… Fraun… Blac… heavy  norm… TRUE   FALSE    \n 5 /System/Library/AssetsV2/com_apple_MobileAsset_Font7/28f00a24ba19995bab7249993e6e35d11011074a.asset/A…     0 SIL-… Kai    Regu… normal norm… FALSE  FALSE    \n 6 /Users/cedric/Library/Fonts/Neutraface Text Bold Italic Alt.ttf                                            0 Neut… Neutr… Regu… bold   norm… TRUE   FALSE    \n 7 /Users/cedric/Library/Fonts/THE_SOCIAL.ttf                                                                 0 THES… THE S… Regu… normal norm… FALSE  FALSE    \n 8 /Users/cedric/Library/Fonts/FontBase/M PLUS 1-900.ttf                                                      0 MPLU… M PLU… Black heavy  norm… FALSE  FALSE    \n 9 /Users/cedric/Library/Fonts/FontBase/Parix-Hybrid111R.otf                                                  0 Pari… Parix  Hybr… normal norm… FALSE  FALSE    \n10 /Users/cedric/Library/Fonts/FontBase/InputMonoCondensed-Bold.ttf                                           0 Inpu… Input… Bold  bold   semi… FALSE  TRUE     \n# ℹ 21,728 more rows"
   },
   {
     "objectID": "materials/04-theming.html#use-non-default-typefaces-1",
@@ -1141,18 +1925,18 @@
     "text": "Use Font Features"
   },
   {
-    "objectID": "materials/04-theming.html#like-a-pro-set-theme-globally",
-    "href": "materials/04-theming.html#like-a-pro-set-theme-globally",
+    "objectID": "materials/04-theming.html#like-a-pro-set-themes-globally",
+    "href": "materials/04-theming.html#like-a-pro-set-themes-globally",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Like a Pro: Set Theme Globally",
-    "text": "Like a Pro: Set Theme Globally\n\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 13))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  strip.text = element_text(face = \"bold\", size = rel(1.1)),\n  plot.title = element_text(face = \"bold\", size = rel(1.3)),\n  plot.title.position = \"plot\",\n  plot.caption.position = \"plot\"\n)"
+    "section": "Like a Pro: Set Themes Globally",
+    "text": "Like a Pro: Set Themes Globally\n\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 13))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  strip.text = element_text(face = \"bold\", size = rel(1.1)),\n  plot.title = element_text(face = \"bold\", size = rel(1.3)),\n  plot.title.position = \"plot\",\n  plot.caption.position = \"plot\"\n)"
   },
   {
-    "objectID": "materials/04-theming.html#like-a-pro-set-theme-globally-1",
-    "href": "materials/04-theming.html#like-a-pro-set-theme-globally-1",
+    "objectID": "materials/04-theming.html#like-a-pro-set-themes-globally-1",
+    "href": "materials/04-theming.html#like-a-pro-set-themes-globally-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Like a Pro: Set Theme Globally",
-    "text": "Like a Pro: Set Theme Globally\n\n\ng"
+    "section": "Like a Pro: Set Themes Globally",
+    "text": "Like a Pro: Set Themes Globally\n\n\ng"
   },
   {
     "objectID": "materials/04-theming.html#complete-themes-whats-inside",
@@ -1320,7 +2104,7 @@
     "href": "materials/04-theming.html#add-checks-to-the-custom-theme",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Add Checks to the Custom Theme",
-    "text": "Add Checks to the Custom Theme\n\ntheme_asap_grid <- function(base_size = 13, base_family = \"Asap SemiCondensed\", grid = \"xy\", \n                            base_line_size = base_size/22, base_rect_size = base_size/22) {\n  \n  if(!stringr::str_detect(grid, \"none|x|X|y|Y\")) stop('grid must be a character: \"none\" or any combination of \"X\", \"Y\", \"x\" and \"y\".')\n  \n  out <- \n    theme_minimal(base_size = base_size, base_family = base_family, \n                  base_line_size = base_line_size, base_rect_size = base_rect_size) + \n    theme(\n      panel.grid.major = element_blank(),\n      axis.ticks = element_line(color = \"grey20\"),\n      axis.ticks.length = unit(base_size/2, \"pt\"),\n      ## fill in other theme adjustments here\n    )\n  \n  if (stringr::str_detect(grid, \"x|X\")) {\n    out <- out + theme(panel.grid.major.x = element_line(color = \"grey87\"),\n                       axis.ticks.x = element_blank(),\n                       axis.ticks.length.x = unit(base_size/6, \"pt\"))\n  }\n  if (stringr::str_detect(grid, \"y|Y\")) {\n    out <- out + theme(panel.grid.major.y = element_line(color = \"grey87\"),\n                       axis.ticks.y = element_blank(),\n                       axis.ticks.length.y = unit(base_size/4, \"pt\"))\n  }\n  \n  return(out)\n}"
+    "text": "Add Checks to the Custom Theme\n\ntheme_asap_grid <- function(base_size = 13, base_family = \"Asap SemiCondensed\", grid = \"xy\", \n                            base_line_size = base_size/22, base_rect_size = base_size/22) {\n  \n  if(!stringr::str_detect(grid, \"none|x|X|y|Y\")) stop('grid must be a character: \"none\" or any combination of \"X\", \"Y\", \"x\" and \"y\".')\n  \n  out <- \n    theme_minimal(base_size = base_size, base_family = base_family, \n                  base_line_size = base_line_size, base_rect_size = base_rect_size) + \n    theme(\n      panel.grid.major = element_blank(),\n      axis.ticks = element_line(color = \"grey20\"),\n      axis.ticks.length = unit(base_size/2, \"pt\"),\n      # fill in other theme adjustments here\n    )\n  \n  if (stringr::str_detect(grid, \"x|X\")) {\n    out <- out + theme(panel.grid.major.x = element_line(color = \"grey87\"),\n                       axis.ticks.x = element_blank(),\n                       axis.ticks.length.x = unit(base_size/6, \"pt\"))\n  }\n  if (stringr::str_detect(grid, \"y|Y\")) {\n    out <- out + theme(panel.grid.major.y = element_line(color = \"grey87\"),\n                       axis.ticks.y = element_blank(),\n                       axis.ticks.length.y = unit(base_size/4, \"pt\"))\n  }\n  \n  return(out)\n}"
   },
   {
     "objectID": "materials/04-theming.html#apply-the-custom-theme-7",
@@ -1330,18 +2114,25 @@
     "text": "Apply the Custom Theme\n\ng + \n  theme_asap_grid(\n    grid = \"all\"\n  )\n\nError in theme_asap_grid(grid = “all”) :grid must be a character: “none” or any combination of “X”, “Y”, “x” and “y”."
   },
   {
-    "objectID": "materials/04-theming.html#your-turn",
-    "href": "materials/04-theming.html#your-turn",
+    "objectID": "materials/04-theming.html#recap",
+    "href": "materials/04-theming.html#recap",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Your Turn",
-    "text": "Your Turn\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function."
+    "section": "Recap",
+    "text": "Recap"
   },
   {
-    "objectID": "materials/04-theming.html#your-turn-1",
-    "href": "materials/04-theming.html#your-turn-1",
+    "objectID": "materials/04-theming.html#exercise-1",
+    "href": "materials/04-theming.html#exercise-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Your Turn",
-    "text": "Your Turn\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple).\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave them to disk and share them with the group.\nIf you have added some additional arguments, feel free to share them as well."
+    "section": "Exercise",
+    "text": "Exercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function."
+  },
+  {
+    "objectID": "materials/04-theming.html#exercise-1-1",
+    "href": "materials/04-theming.html#exercise-1-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple).\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave the plots to disk and share them with the group.\nDid you add some additional arguments?Feel free to share your thoughts on “why” and “how”."
   },
   {
     "objectID": "materials/04-theming.html#section",
@@ -1351,151 +2142,606 @@
     "text": "Cédric Scherer // posit::conf(2023)"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#exercise-1-1",
-    "href": "materials/solutions/01-fundamentals-solution.html#exercise-1-1",
-    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Exercise 1",
-    "text": "Exercise 1\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per season.\nVisualize bike counts per weather type and period as bar chart.\n\nPolish the charts and export them in a format of your choice."
-  },
-  {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#preparation",
-    "href": "materials/solutions/01-fundamentals-solution.html#preparation",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#preparation",
+    "href": "materials/solutions/01-fundamentals-solutions.html#preparation",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Preparation",
-    "text": "Preparation\n\nlibrary(readr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )\n\n## plot style\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 18))\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.background = element_rect(fill = NA, color = NA)\n)"
+    "text": "Preparation\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )\n\n## plot style\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 18))\ntheme_update(\n  panel.grid.minor = element_blank()\n)"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#time-series",
-    "href": "materials/solutions/01-fundamentals-solution.html#time-series",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#exercise-1-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#exercise-1-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nDiscuss / investigate with your neighbor:\n\nWhat are the differences between geom_line() and geom_path()?\nWhy can you use geom_smooth() and stat_smooth() interchangeably?\nWhat are the three ways to remove a legend from a ggplot?"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_line-versus-geom_path",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_line-versus-geom_path",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_line() versus geom_path()",
+    "text": "geom_line() versus geom_path()\n\n?geom_line\n\n\nDescription\n\ngeom_path() connects the observations in the order in which they appear in the data. geom_line() connects them in order of the variable on the x axis."
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_line-versus-geom_path-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_line-versus-geom_path-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_line() versus geom_path()",
+    "text": "geom_line() versus geom_path()\n\nbikes_filtered <- \n  bikes |> \n  filter(year == 2015, month == 2, day_night == \"day\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_line-versus-geom_path-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_line-versus-geom_path-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_line() versus geom_path()",
+    "text": "geom_line() versus geom_path()\n\n\n\nggplot(bikes_filtered,\n       aes(x = humidity, y = temp)) +\n  geom_line() +\n  geom_point(aes(color = date), size = 4)\n\n\n\n\n\nggplot(bikes_filtered,\n       aes(x = humidity, y = temp)) +\n  geom_path() +\n  geom_point(aes(color = date), size = 4)"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_smooth-and-stat_smooth",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_smooth-and-stat_smooth",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_smooth() and stat_smooth()",
+    "text": "geom_smooth() and stat_smooth()\n\n?geom_smooth\n\n\nDescription\n\ngeom_smooth() and stat_smooth() are effectively aliases: they both use the same arguments. Use stat_smooth() if you want to display the results with a non-standard geom."
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#layer",
+    "href": "materials/solutions/01-fundamentals-solutions.html#layer",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "layer()",
+    "text": "layer()\n\n\nggplot() +\n  layer(\n    data = bikes, \n    mapping = aes(x = temp, y = count),\n    geom = \"point\", \n    stat = \"identity\", \n    position = \"identity\"\n  )"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#layer-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#layer-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "layer()",
+    "text": "layer()\n\n\nggplot(\n    data = bikes, \n    mapping = aes(x = temp, y = count),\n  ) +\n  layer(\n    geom = \"point\", \n    stat = \"identity\", \n    position = \"identity\"\n  )"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_smooth-and-stat_smooth-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_smooth-and-stat_smooth-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_smooth() and stat_smooth()",
+    "text": "geom_smooth() and stat_smooth()\n\n\n\ngeom_smooth(\n  stat = \"smooth\",\n  position = \"identity\"\n)\n\n\nstat_smooth(\n  geom = \"smooth\",\n  position = \"identity\"\n)"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_smooth-and-stat_smooth-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_smooth-and-stat_smooth-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_smooth() and stat_smooth()",
+    "text": "geom_smooth() and stat_smooth()\n\n\n\nggplot(bikes,\n       aes(x = temp, y = count)) +\n  geom_point(alpha = .1) +\n  geom_smooth()\n\n\n\n\n\nggplot(bikes,\n       aes(x = temp, y = count)) +\n  geom_point(alpha = .1) +\n  stat_smooth()"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#non-standard-geom",
+    "href": "materials/solutions/01-fundamentals-solutions.html#non-standard-geom",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "“Non-Standard Geom”",
+    "text": "“Non-Standard Geom”\n\nggplot(bikes, aes(x = temp, y = count)) +\n  geom_point(alpha = .1) +\n  stat_smooth(geom = \"pointrange\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#non-standard-geom-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#non-standard-geom-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "“Non-Standard Geom”",
+    "text": "“Non-Standard Geom”\n\nggplot(bikes, aes(x = temp, y = count)) +\n  geom_point(alpha = .1) +\n  stat_smooth(geom = \"col\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#non-standard-geom-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#non-standard-geom-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "“Non-Standard Geom”",
+    "text": "“Non-Standard Geom”\n\nggplot(bikes, aes(x = temp, y = count)) +\n  geom_point(alpha = .1) +\n  stat_smooth(geom = \"text\", aes(label = \"🤓\"), size = 4)"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_-versus-stat_",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_-versus-stat_",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_* versus stat_*",
+    "text": "geom_* versus stat_*\n\nggplot(bikes, aes(x = weather_type, fill = year)) + \n  geom_bar() # with `stat = \"count\", position = \"stack\"`"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#geom_-versus-stat_-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#geom_-versus-stat_-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "geom_* versus stat_*",
+    "text": "geom_* versus stat_*\n\nggplot(bikes, aes(x = weather_type, fill = year)) + \n  stat_count() # with `geom = \"bar\", position = \"stack\"`"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#remove-legends",
+    "href": "materials/solutions/01-fundamentals-solutions.html#remove-legends",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Remove Legends",
+    "text": "Remove Legends\n\nggplot(filter(bikes, year == \"2016\"), aes(x = date, y = count)) +\n  geom_line(aes(color = day_night, linetype = day_night)) +\n  geom_point(aes(fill = day_night), shape = 21)"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#remove-legends-layer",
+    "href": "materials/solutions/01-fundamentals-solutions.html#remove-legends-layer",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Remove Legends: Layer",
+    "text": "Remove Legends: Layer\n\nggplot(filter(bikes, year == \"2016\"), aes(x = date, y = count)) +\n  geom_line(aes(color = day_night, linetype = day_night), show.legend = FALSE) +\n  geom_point(aes(fill = day_night), shape = 21)"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#remove-legends-aesthetic",
+    "href": "materials/solutions/01-fundamentals-solutions.html#remove-legends-aesthetic",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Remove Legends: Aesthetic",
+    "text": "Remove Legends: Aesthetic\n\nggplot(filter(bikes, year == \"2016\"), aes(x = date, y = count)) +\n  geom_line(aes(color = day_night, linetype = day_night)) +\n  geom_point(aes(fill = day_night), shape = 21) +\n  scale_color_discrete(guide = \"none\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#remove-legends-aesthetic-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#remove-legends-aesthetic-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Remove Legends: Aesthetic",
+    "text": "Remove Legends: Aesthetic\n\nggplot(filter(bikes, year == \"2016\"), aes(x = date, y = count)) +\n  geom_line(aes(color = day_night, linetype = day_night)) +\n  geom_point(aes(fill = day_night), shape = 21) +\n  guides(color = \"none\", linetype = guide_none())"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#remove-legends-all",
+    "href": "materials/solutions/01-fundamentals-solutions.html#remove-legends-all",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Remove Legends: All",
+    "text": "Remove Legends: All\n\nggplot(filter(bikes, year == \"2016\"), aes(x = date, y = count)) +\n  geom_line(aes(color = day_night, linetype = day_night)) +\n  geom_point(aes(fill = day_night), shape = 21) +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#exercise-2-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#exercise-2-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per month.\nVisualize bike counts per weather type and period as bar chart.\n\nCombine the three plots with patchwork.\nExport the final graphic in a format of your choice."
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#time-series",
+    "href": "materials/solutions/01-fundamentals-solutions.html#time-series",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Time Series",
+    "text": "Time Series\n\nggplot(bikes, aes(x = date, y = count)) +\n  geom_line(aes(color = day_night))"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#time-series-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#time-series-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Time Series",
     "text": "Time Series"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#box-and-whisker-plots",
-    "href": "materials/solutions/01-fundamentals-solution.html#box-and-whisker-plots",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#time-series-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#time-series-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Time Series",
+    "text": "Time Series\n\ng1 <- \n  ggplot(bikes, aes(x = date, y = count)) +\n  geom_line(aes(color = day_night)) +\n  scale_x_date(date_breaks = \"4 months\", date_labels = \"%m/'%y\") +\n  scale_y_continuous(labels = scales::label_comma()) +\n  scale_color_manual(values = c(day = \"#FFA200\", night = \"#757BC7\")) +\n  labs(x = NULL, y = \"Rented bikes\", color = NULL)\n\ng1"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#time-series-3",
+    "href": "materials/solutions/01-fundamentals-solutions.html#time-series-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Time Series",
+    "text": "Time Series"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots",
+    "href": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Box and Whisker Plots",
+    "text": "Box and Whisker Plots\n\nggplot(bikes, aes(x = month, y = temp)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Box and Whisker Plots",
     "text": "Box and Whisker Plots"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Box and Whisker Plots",
+    "text": "Box and Whisker Plots\n\nggplot(bikes, aes(x = forcats::fct_reorder(month, -temp), y = temp)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-3",
+    "href": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Box and Whisker Plots",
+    "text": "Box and Whisker Plots"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-4",
+    "href": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-4",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Box and Whisker Plots",
+    "text": "Box and Whisker Plots\n\ng2 <- \n  ggplot(bikes, aes(x = lubridate::month(date, label = TRUE), y = temp)) +\n  geom_boxplot() +\n  scale_y_continuous(labels = scales::label_number(suffix = \"°C\")) +\n  labs(x = NULL, y = \"Temperature\")\n\ng2"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-5",
+    "href": "materials/solutions/01-fundamentals-solutions.html#box-and-whisker-plots-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Box and Whisker Plots",
+    "text": "Box and Whisker Plots"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  geom_col()"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-1",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-1",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  stat_summary(geom = \"col\")"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-2",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-2",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-3",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-3",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-4",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-4",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  stat_summary(geom = \"col\", fun = \"sum\", position = \"stack\")"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-3",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-3",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-5",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-5",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-6",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-6",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nbikes |>\n  group_by(weather_type, day_night) |>\n  summarize(count = sum(count)) |>\n  ggplot(aes(x = weather_type, y = count, fill = day_night)) + \n  geom_col()"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-4",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-4",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-7",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-7",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
-    "text": "Bar Chart\n\nggplot(bikes, aes(x = count, y = weather_type, fill = day_night)) + \n  stat_summary(geom = \"col\", fun = \"sum\", position = \"stack\")"
+    "text": "Bar Chart"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-5",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-5",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-8",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-8",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  stat_summary(geom = \"col\", fun = \"sum\", position = \"dodge\")"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-6",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-6",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-9",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-9",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-10",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-10",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  stat_summary(\n    geom = \"col\", fun = \"sum\", \n    width = .7,\n    position = position_dodge(\n      width = .8, preserve = \"single\"\n    )\n  )"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-7",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-7",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-11",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-11",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-12",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-12",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
     "text": "Bar Chart\n\nggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  stat_summary(\n    geom = \"col\", fun = \"sum\", \n    width = .7,\n    position = position_dodge2(\n      padding = .2, preserve = \"single\"\n    )\n  )"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#bar-chart-8",
-    "href": "materials/solutions/01-fundamentals-solution.html#bar-chart-8",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-13",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-13",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Bar Chart",
-    "text": "Bar Chart\n\nggplot(bikes, aes(x = stringr::str_wrap(weather_type, 10), \n                  y = count, fill = day_night)) +\n  stat_summary(\n    geom = \"col\", fun = \"sum\", \n    width = .7,\n    position = position_dodge2(padding = .2, preserve = \"single\")\n  ) +\n  scale_y_continuous(\n    labels = scales::label_comma(scale = 1/10^6, suffix = \"M\"),\n    expand = c(0, 0) \n  ) +\n  scale_fill_manual(\n    values = c(day = \"#FFA200\", night = \"#757bc7\")\n  ) +\n  labs(x = NULL, fill = \"Time of the day:\") +\n  theme(\n    panel.grid.major.x = element_blank(),\n    legend.position = \"top\",\n    legend.justification = \"left\"\n  )"
+    "text": "Bar Chart"
   },
   {
-    "objectID": "materials/solutions/01-fundamentals-solution.html#exercise-2-1",
-    "href": "materials/solutions/01-fundamentals-solution.html#exercise-2-1",
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-14",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-14",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart\n\ng3 <- ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + \n  stat_summary(\n    geom = \"col\", fun = \"sum\", \n    width = .7,\n    position = position_dodge2(\n      padding = .2, preserve = \"single\"\n    )\n  ) +\n  scale_y_continuous(labels = scales::label_comma(scale = 1/10^6, suffix = \"M\")) +\n  scale_fill_manual(\n    values = c(day = \"#FFA200\", night = \"#757bc7\")\n  ) +\n  labs(x = NULL, y = \"Rented bikes\", fill = NULL) +\n  theme(\n    panel.grid.major.x = element_blank()\n  )\n\ng3"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#bar-chart-15",
+    "href": "materials/solutions/01-fundamentals-solutions.html#bar-chart-15",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Bar Chart",
+    "text": "Bar Chart"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#combine-plots",
+    "href": "materials/solutions/01-fundamentals-solutions.html#combine-plots",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots",
+    "text": "Combine Plots\n\nlibrary(patchwork)\ng2 + (g1 / g3) + plot_layout(guides = \"collect\", widths = c(.7, 1))"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#combine-plots-1",
+    "href": "materials/solutions/01-fundamentals-solutions.html#combine-plots-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots",
+    "text": "Combine Plots\n\nlibrary(patchwork)\n(g2 + g1) / g3 + plot_layout(guides = \"collect\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#combine-plots-2",
+    "href": "materials/solutions/01-fundamentals-solutions.html#combine-plots-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Combine Plots",
+    "text": "Combine Plots\n\nlibrary(patchwork)\n(g2 + g1 + plot_layout(widths = c(.7, 1))) / g3 + plot_layout(guides = \"collect\")"
+  },
+  {
+    "objectID": "materials/solutions/01-fundamentals-solutions.html#save-multipanel-plot",
+    "href": "materials/solutions/01-fundamentals-solutions.html#save-multipanel-plot",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Save Multipanel Plot",
+    "text": "Save Multipanel Plot\n\nggsave(\"bikes-panel.png\", width = 14, height = 9, dpi = 600, bg = \"white\")"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#exercise-1-1",
+    "href": "materials/solutions/02-text-solutions.html#exercise-1-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nTake a look at the following visualization.\n\nFor each group of text labels, note how one would add and modify them.\nHow could one automate the placement of the labels in- and outside of the bars?\n\nCreate the visualization, as close as possible."
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#preparation",
+    "href": "materials/solutions/02-text-solutions.html#preparation",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Preparation",
+    "text": "Preparation\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )\n\n## plot style\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 14))"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#horizontal-bar-chart",
+    "href": "materials/solutions/02-text-solutions.html#horizontal-bar-chart",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Horizontal Bar Chart",
+    "text": "Horizontal Bar Chart\n\np <- \n  bikes |> \n  filter(!is.na(weather_type), year == \"2015\") |> \n  mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> \n  ggplot(aes(x = count, y = weather_type)) +\n  stat_summary(\n    geom = \"bar\", fun = sum,\n    color = \"grey20\", fill = \"beige\", width = .7\n  ) +\n  scale_x_continuous(expand = c(0, 0)) +\n  coord_cartesian(clip = \"off\") +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank()\n  )\n\np"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#add-count-annotations",
+    "href": "materials/solutions/02-text-solutions.html#add-count-annotations",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Count Annotations",
+    "text": "Add Count Annotations\n\np +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(label = after_stat(x)),\n    family = \"Asap SemiCondensed\"\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#add-count-annotations-1",
+    "href": "materials/solutions/02-text-solutions.html#add-count-annotations-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Count Annotations",
+    "text": "Add Count Annotations\n\np +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(label = after_stat(x),\n        hjust = after_stat(x) > .5*10^6),\n    family = \"Asap SemiCondensed\"\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#add-count-annotations-2",
+    "href": "materials/solutions/02-text-solutions.html#add-count-annotations-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Count Annotations",
+    "text": "Add Count Annotations\n\np +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n        hjust = after_stat(x) > .5*10^6),\n    family = \"Asap SemiCondensed\"\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#polish-axes",
+    "href": "materials/solutions/02-text-solutions.html#polish-axes",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Polish Axes",
+    "text": "Polish Axes\n\np +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n        hjust = after_stat(x) > .5*10^6),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    expand = c(0, 0), name = \"**Reported bike shares**, in millions\", \n    breaks = 0:4*10^6, labels = c(\"0\", paste0(1:4, \"M\"))\n  ) +\n  theme(\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\")\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#polish-axes-labels",
+    "href": "materials/solutions/02-text-solutions.html#polish-axes-labels",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Polish Axes Labels",
+    "text": "Polish Axes Labels\n\np +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n        hjust = after_stat(x) > .5*10^6),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    expand = c(0, 0), name = \"**Reported bike shares**, in millions\", \n    breaks = 0:4*10^6, labels = c(\"0\", paste0(1:4, \"M\"))\n  ) +\n  scale_y_discrete(\n    labels = stringr::str_to_sentence, name = NULL\n  ) +\n  theme(\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\"),\n    axis.text.y = element_text(color = \"black\", size = rel(1.2))\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#add-titles",
+    "href": "materials/solutions/02-text-solutions.html#add-titles",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Add Titles",
+    "text": "Add Titles\n\np +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n        hjust = after_stat(x) > .5*10^6),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    expand = c(0, 0), name = \"**Reported bike shares**, in millions\", \n    breaks = 0:4*10^6, labels = c(\"0\", paste0(1:4, \"M\"))\n  ) +\n  scale_y_discrete(\n    labels = stringr::str_to_sentence, name = NULL\n  ) +\n  labs(\n    title = \"Fair weather preferred—even in London\",\n    subtitle = \"Less than 10% of TfL bikes shares have been reported on rainy, cloudy, or snowy days in 2015.\",\n    caption = \"**Data:** Transport for London / freemeteo.com\"\n  ) +\n  theme(\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\"),\n    axis.text.y = element_text(color = \"black\", size = rel(1.2)),\n    plot.title.position = \"plot\",\n    plot.title = element_text(face = \"bold\"),\n    plot.subtitle = element_text(margin = margin(b = 20)),\n    plot.caption = ggtext::element_markdown(color = \"grey40\")\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#full-code",
+    "href": "materials/solutions/02-text-solutions.html#full-code",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Full Code",
+    "text": "Full Code\n\nbikes |> \n  filter(year == \"2015\") |> \n  mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> \n  ggplot(aes(x = count, y = weather_type)) +\n  stat_summary(\n    geom = \"bar\", fun = sum, \n    color = \"grey20\", fill = \"beige\", width = .7\n  ) +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(\n      label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n      hjust = after_stat(x) > .5*10^6\n    ),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    breaks = 0:4*10^6,\n    labels = c(\"0\", paste0(1:4, \"M\")),\n    expand = c(0, 0), \n    name = \"**Reported bike shares**, in millions\"\n  ) +\n  scale_y_discrete(labels = stringr::str_to_sentence, name = NULL) +\n  coord_cartesian(clip = \"off\") +\n  labs(\n    title = \"Fair weather preferred—even in London\",\n    subtitle = \"Less than 10% of TfL bikes shares have been reported on rainy, cloudy, or snowy days in 2015.\",\n    caption = \"**Data:** Transport for London / freemeteo.com\"\n  ) +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank(),\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\"),\n    axis.text.y = element_text(color = \"black\", size = rel(1.2)),\n    plot.title = element_text(face = \"bold\"),\n    plot.subtitle = element_text(margin = margin(b = 20)),\n    plot.title.position = \"plot\",\n    plot.caption = ggtext::element_markdown(color = \"grey40\")\n  )"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#exercise-2-1",
+    "href": "materials/solutions/02-text-solutions.html#exercise-2-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\n\nDiscuss / investigate with your neighbor:\n\nWhat are the differences between geom_line() and geom_path()?\nWhy can you use geom_smooth() and stat_smooth() interchangeably?\nWhat are the three ways to remove a legend from a ggplot?\nWhich is your favorite theme?\nWhat is your favorite ggplot2 extension package?\n\n\n\n\n\nCédric Scherer // posit::conf(2023)"
+    "text": "Exercise 2\n\nCreate a function that plots the famous Gapminder chart, highlighting one of the continents.\nExtend the code in 02-text-exercises.qmd to annotate a continent your choice of with {ggforce}.\nTurn the code into a function with the utility to annotate any continent.\nOptional: Create a second function to highlight a country. :::"
   },
   {
-    "objectID": "materials/solutions/02-text-solution.html#exercise-1-1",
-    "href": "materials/solutions/02-text-solution.html#exercise-1-1",
+    "objectID": "materials/solutions/02-text-solutions.html#gapminder-bubble-chart",
+    "href": "materials/solutions/02-text-solutions.html#gapminder-bubble-chart",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Gapminder Bubble Chart",
+    "text": "Gapminder Bubble Chart\n\n# install.packages(\"gapminder\")\n\nlibrary(gapminder)\nlibrary(dplyr)\nlibrary(ggplot2)\n\ngm2007 <- filter(gapminder, year == 2007)\n\nggplot(gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(\n    aes(size = pop), alpha = .5\n  ) +\n  scale_x_log10(\n    breaks = c(500, 2000, 8000, 32000),\n    labels = scales::label_dollar(accuracy = 1)\n  ) +\n  scale_size(\n    range = c(1, 12), name = \"Population:\", \n    breaks = c(10, 100, 1000)*1000000, \n    labels = scales::label_comma(scale = 1 / 10^6, suffix = \"M\")\n  ) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n  theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 15) +\n  theme(panel.grid.minor = element_blank())"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#annotate-continents",
+    "href": "materials/solutions/02-text-solutions.html#annotate-continents",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Annotate Continents",
+    "text": "Annotate Continents\n\nggplot(gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(\n    aes(size = pop), alpha = .5, color = \"grey60\"\n  ) +\n  geom_point( \n    data = filter(gm2007, continent == \"Americas\"),\n    aes(size = pop), shape = 1, stroke = .7\n  ) +\n  ggforce::geom_mark_hull(\n    aes(label = continent, filter = continent == \"Americas\"),\n    expand = unit(10, \"pt\"), con.cap = unit(1, \"mm\"),\n    label.family = \"Asap SemiCondensed\", label.fontsize = 15\n  ) +\n  scale_x_log10(\n    breaks = c(500, 2000, 8000, 32000),\n    labels = scales::label_dollar(accuracy = 1)\n  ) +\n  scale_size(\n    range = c(1, 12), name = \"Population:\",\n    breaks = c(10, 100, 1000)*1000000,\n    labels = scales::label_comma(scale = 1 / 10^6, suffix = \"M\")\n  ) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n  theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 15) +\n  theme(panel.grid.minor = element_blank())"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#function-to-highlight-a-continent",
+    "href": "materials/solutions/02-text-solutions.html#function-to-highlight-a-continent",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Function to Highlight a Continent",
+    "text": "Function to Highlight a Continent\n\ndraw_gp_continent <- function(grp) {\n  \n  ggplot(gm2007, aes(x = gdpPercap, y = lifeExp)) + \n    geom_point( \n      aes(size = pop), alpha = .5, color = \"grey60\"\n    ) +\n    geom_point( \n      data = filter(gm2007, continent == grp),\n      aes(size = pop), shape = 1, stroke = .7\n    ) +\n    ggforce::geom_mark_hull(\n      aes(label = continent, filter = continent == grp),\n      expand = unit(10, \"pt\"), con.cap = unit(1, \"mm\"),\n      label.family = \"Asap SemiCondensed\", label.fontsize = 15\n    ) +\n    scale_x_log10(\n      breaks = c(500, 2000, 8000, 32000),\n      labels = scales::label_dollar(accuracy = 1)\n    ) +\n    scale_size(\n      range = c(1, 12), name = \"Population:\", \n      breaks = c(10, 100, 1000)*1000000, \n      labels = scales::label_comma(scale = 1 / 10^6, suffix = \"M\")\n    ) +\n    labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n    theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 15) +\n    theme(panel.grid.minor = element_blank())\n  \n}"
+  },
+  {
+    "objectID": "materials/solutions/02-text-solutions.html#function-to-highlight-a-country",
+    "href": "materials/solutions/02-text-solutions.html#function-to-highlight-a-country",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Function to Highlight a Country",
+    "text": "Function to Highlight a Country\n\ndraw_gp_country <- function(grp) {\n  \n  ggplot(gm2007, aes(x = gdpPercap, y = lifeExp)) + \n    geom_point( \n      aes(size = pop), alpha = .5, color = \"grey60\"\n    ) +\n    ggforce::geom_mark_circle(\n      aes(label = country, filter = country == grp),\n      expand = unit(15, \"pt\"), con.cap = unit(0, \"mm\"),\n      # expand = unit(0, \"pt\"), con.cap = unit(0, \"mm\"),\n      label.family = \"Asap SemiCondensed\", label.fontsize = 15\n    ) +\n    geom_point( \n      data = filter(gm2007, country == grp),\n      aes(size = pop), color = \"#9C55E3\", show.legend = FALSE\n    ) +\n    scale_x_log10(\n      breaks = c(500, 2000, 8000, 32000),\n      labels = scales::label_dollar(accuracy = 1)\n    ) +\n    scale_size(\n      range = c(1, 12), name = \"Population:\", \n      breaks = c(10, 100, 1000)*1000000, \n      labels = scales::label_comma(scale = 1 / 10^6, suffix = \"M\")\n    ) +\n    labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n    theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 15) +\n    theme(panel.grid.minor = element_blank())\n  \n}"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#exercise-1-1",
+    "href": "materials/solutions/03-colors-solutions.html#exercise-1-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Exercise 1",
-    "text": "Exercise 1"
+    "text": "Exercise 1\n\n\nAdd colors to our bar chart from the last exercise:\nEncode the bars and direct labels by color for “fair weather” (clear, scattered clouds, broken clouds) and “grey weather” (rain, cloudy, snow)\nUse the same colors to encode the respective text bits in the title (“Fair weather preferred”) and subtitle (“rainy, cloudy, or snowy days”)."
   },
   {
-    "objectID": "materials/solutions/02-text-solution.html#preparation",
-    "href": "materials/solutions/02-text-solution.html#preparation",
+    "objectID": "materials/solutions/03-colors-solutions.html#preparation",
+    "href": "materials/solutions/03-colors-solutions.html#preparation",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Preparation",
-    "text": "Preparation\n\nlibrary(readr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )\n\n## plot style\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 18))\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.background = element_rect(fill = NA, color = NA)\n)\n\n\n\nCédric Scherer // posit::conf(2023)"
+    "text": "Preparation\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )"
   },
   {
-    "objectID": "materials/solutions/03-colors-solution.html#exercise-1-1",
-    "href": "materials/solutions/03-colors-solution.html#exercise-1-1",
+    "objectID": "materials/solutions/03-colors-solutions.html#previous-bar-chart",
+    "href": "materials/solutions/03-colors-solutions.html#previous-bar-chart",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Exercise 1",
-    "text": "Exercise 1"
+    "section": "Previous Bar Chart",
+    "text": "Previous Bar Chart\n\nbikes |> \n  filter(year == \"2015\") |> \n  mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> \n  ggplot(aes(x = count, y = weather_type)) +\n  stat_summary(\n    geom = \"bar\", fun = sum, \n    color = \"grey20\", fill = \"beige\", width = .7\n  ) +\n  stat_summary(\n    geom = \"text\", fun = sum,\n    aes(\n      label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n      hjust = after_stat(x) > .5*10^6\n    ),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    expand = c(0, 0), name = \"**Reported bike shares**, in millions\", \n    breaks = 0:4*10^6, labels = c(\"0\", paste0(1:4, \"M\"))\n  ) +\n  scale_y_discrete(labels = stringr::str_to_sentence, name = NULL) +\n  coord_cartesian(clip = \"off\") +\n  labs(\n    title = \"Fair weather preferred—even in London\",\n    subtitle = \"Less than 10% of TfL bikes shares have been reported on rainy, cloudy, or snowy days in 2015.\",\n    caption = \"**Data:** Transport for London / freemeteo.com\"\n  ) +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank(),\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\"),\n    axis.text.y = element_text(color = \"black\", size = rel(1.2)),\n    plot.title = element_text(face = \"bold\"),\n    plot.subtitle = element_text(margin = margin(b = 20)),\n    plot.title.position = \"plot\",\n    plot.caption = ggtext::element_markdown(color = \"grey40\")\n  )"
   },
   {
-    "objectID": "materials/solutions/03-colors-solution.html#preparation",
-    "href": "materials/solutions/03-colors-solution.html#preparation",
+    "objectID": "materials/solutions/03-colors-solutions.html#adjust-geom-colors",
+    "href": "materials/solutions/03-colors-solutions.html#adjust-geom-colors",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Adjust Geom Colors",
+    "text": "Adjust Geom Colors\n\nbikes |> \n  filter(year == \"2015\") |> \n  mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> \n  ggplot(aes(x = count, y = weather_type)) +\n  stat_summary(\n    fun = sum, geom = \"bar\", na.rm = TRUE,\n    aes(color = weather_type %in% c(\"rain\", \"cloudy\", \"snowfall\"),\n        fill = after_scale(prismatic::clr_lighten(color, .9))),\n    width = .7\n  ) +\n  stat_summary(\n    fun = sum, geom = \"text\", \n    aes(\n      label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n      color = weather_type %in% c(\"rain\", \"cloudy\", \"snowfall\"),\n      hjust = after_stat(x) > .5*10^6\n    ),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    expand = c(0, 0), name = \"**Reported bike shares**, in millions\", \n    breaks = 0:4*10^6, labels = c(\"0\", paste0(1:4, \"M\"))\n  ) +\n  scale_y_discrete(labels = stringr::str_to_sentence, name = NULL) +\n  scale_color_manual(values = c(\"#E2A30A\", \"#007CB1\"), guide = \"none\") +\n  coord_cartesian(clip = \"off\") +\n  labs(\n    title = \"Fair weather preferred—even in London\",\n    subtitle = \"Less than 10% of TfL bikes shares have been reported on rainy, cloudy, or snowy days in 2015.\",\n    caption = \"**Data:** Transport for London / freemeteo.com\"\n  ) +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank(),\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\"),\n    axis.text.y = element_text(color = \"black\", size = rel(1.2)),\n    plot.title = element_text(face = \"bold\"),\n    plot.subtitle = element_text(margin = margin(b = 20)),\n    plot.title.position = \"plot\",\n    plot.caption = ggtext::element_markdown(color = \"grey40\")\n  )"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#adjust-titles",
+    "href": "materials/solutions/03-colors-solutions.html#adjust-titles",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Adjust Titles",
+    "text": "Adjust Titles\n\nbikes |> \n  filter(!is.na(weather_type), year == \"2015\") |> \n  mutate(weather_type = forcats::fct_reorder(weather_type, count, .fun = sum)) |> \n  ggplot(aes(x = count, y = weather_type)) +\n  stat_summary(\n    fun = sum, geom = \"bar\", na.rm = TRUE,\n    aes(color = weather_type %in% c(\"rain\", \"cloudy\", \"snowfall\"),\n        fill = after_scale(prismatic::clr_lighten(color, .9))),\n    width = .7\n  ) +\n  stat_summary(\n    fun = sum, geom = \"text\", \n    aes(\n      label = after_stat(paste0(\"  \", sprintf(\"%2.2f\", x / 10^6), \"M  \")),\n      color = weather_type %in% c(\"rain\", \"cloudy\", \"snowfall\"),\n      hjust = after_stat(x) > .5*10^6\n    ),\n    family = \"Asap SemiCondensed\"\n  ) +\n  scale_x_continuous(\n    expand = c(0, 0), name = \"**Reported bike shares**, in millions\", \n    breaks = 0:4*10^6, labels = c(\"0\", paste0(1:4, \"M\"))\n  ) +\n  scale_y_discrete(labels = stringr::str_to_sentence, name = NULL) +\n  scale_color_manual(values = c(\"#E2A30A\", \"#007CB1\"), guide = \"none\") +\n  coord_cartesian(clip = \"off\") +\n  labs(\n    title = \"<span style='color:#E2A30A;'>Fair weather preferred</span>—even in London\",\n    subtitle = \"Less than 10% of TfL bikes shares have been reported on <span style='color:#007CB1;'>rainy, cloudy, or snowy days</span> in 2015.\",\n    caption = \"**Data:** Transport for London / freemeteo.com\"\n  ) +\n  theme_minimal(base_size = 14, base_family = \"Asap SemiCondensed\") +\n  theme(\n    panel.grid.major.y = element_blank(),\n    panel.grid.minor = element_blank(),\n    axis.title.x = ggtext::element_markdown(hjust = 0, face = \"italic\"),\n    axis.text.y = element_text(color = \"black\", size = rel(1.2)),\n    plot.title = ggtext::element_markdown(face = \"bold\"),\n    plot.subtitle = ggtext::element_markdown(margin = margin(b = 20)),\n    plot.title.position = \"plot\",\n    plot.caption = ggtext::element_markdown(color = \"grey40\")\n  )"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#exercise-2-1",
+    "href": "materials/solutions/03-colors-solutions.html#exercise-2-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nCreate a plot of your choice with a sequential (non-default) color palette.\n\nInspect the HCL spectrum. Adjust the palette if needed.\nTest the palette with regard to colorblindness. Adjust the palette if needed.\nSave and share the graphic."
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#heatmap",
+    "href": "materials/solutions/03-colors-solutions.html#heatmap",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Heatmap",
+    "text": "Heatmap\n\nggplot(filter(bikes, year == \"2016\"), \n       aes(x = lubridate::wday(date, label = TRUE), \n           y = forcats::fct_rev(lubridate::month(date, label = TRUE)),\n           z = count)) +\n  stat_summary_2d(geom = \"tile\", fun = mean) +\n  facet_wrap(~ day_night)"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#heatmap-1",
+    "href": "materials/solutions/03-colors-solutions.html#heatmap-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Heatmap",
+    "text": "Heatmap\n\np <- \n  ggplot(filter(bikes, year == \"2016\"), \n         aes(x = lubridate::wday(date, label = TRUE), \n             y = forcats::fct_rev(lubridate::month(date, label = TRUE)),\n             z = count)) +\n  stat_summary_2d(geom = \"tile\", fun = mean, color = \"white\", linewidth = .7) +\n  facet_wrap(~ day_night, labeller = labeller(day_night = stringr::str_to_title)) +\n  coord_cartesian(expand = FALSE, clip = \"off\") +\n  labs(x = NULL, y = NULL, fill = \"Average TfL bike shares:\") +\n  guides(fill = guide_colorbar(title.position = \"top\", title.hjust = .5)) +\n  theme_minimal(base_size = 15, base_family = \"Spline Sans\") +\n  theme(\n    axis.text.y = element_text(hjust = 0),\n    strip.text = element_text(face = \"bold\", hjust = 0, size = rel(1.1)),\n    panel.spacing = unit(1.7, \"lines\"),\n    legend.position = \"bottom\",\n    legend.key.width = unit(6, \"lines\"),\n    legend.key.height = unit(.6, \"lines\"),\n    legend.title = element_text(size = rel(.9)),\n    legend.box.margin = margin(t = -10)\n  )\n\np"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#heatmap-2",
+    "href": "materials/solutions/03-colors-solutions.html#heatmap-2",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Heatmap",
+    "text": "Heatmap\n\np <- p +\n  rcartocolor::scale_fill_carto_c(\n    palette = \"BluYl\",\n    breaks = 0:7*5000,\n    labels = scales::label_comma()\n  )\n\np"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#emulate-cvd",
+    "href": "materials/solutions/03-colors-solutions.html#emulate-cvd",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Emulate CVD",
+    "text": "Emulate CVD\n\ncolorblindr::cvd_grid(p)"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#evaluate-hcl-spectrum",
+    "href": "materials/solutions/03-colors-solutions.html#evaluate-hcl-spectrum",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Evaluate HCL Spectrum",
+    "text": "Evaluate HCL Spectrum\n\ncolorspace::specplot(\n  rcartocolor::carto_pal(\n    n = 100, name = \"BluYl\"\n  )\n)"
+  },
+  {
+    "objectID": "materials/solutions/03-colors-solutions.html#export-graphic",
+    "href": "materials/solutions/03-colors-solutions.html#export-graphic",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Export Graphic",
+    "text": "Export Graphic\n\nggsave(\"bikes-heatmap.png\", width = 7.5, height = 4.7, dpi = 600, bg = \"white\")\n\n\n\nThe final PNG graphic.\nCédric Scherer // posit::conf(2023)"
+  },
+  {
+    "objectID": "materials/solutions/04-theming-solutions.html#exercise-1",
+    "href": "materials/solutions/04-theming-solutions.html#exercise-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Exercise",
+    "text": "Exercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function."
+  },
+  {
+    "objectID": "materials/solutions/04-theming-solutions.html#preparation",
+    "href": "materials/solutions/04-theming-solutions.html#preparation",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Preparation",
-    "text": "Preparation\n\nlibrary(readr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )\n\n## plot style\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 18))\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.background = element_rect(fill = NA, color = NA)\n)\n\n\n\nCédric Scherer // posit::conf(2023)"
+    "text": "Preparation\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )"
   },
   {
-    "objectID": "materials/solutions/04-theming-solution.html#exercise-1-1",
-    "href": "materials/solutions/04-theming-solution.html#exercise-1-1",
+    "objectID": "materials/solutions/04-theming-solutions.html#custom-theme",
+    "href": "materials/solutions/04-theming-solutions.html#custom-theme",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Exercise 1",
-    "text": "Exercise 1"
+    "section": "Custom Theme",
+    "text": "Custom Theme\n\ntheme_bulls <- function(base_size = 18, base_family = \"College Block\", \n                        base_line_size = base_size/22, base_rect_size = base_size/22) {\n  \n  theme_bw(base_size = base_size, base_family = base_family, \n           base_line_size = base_line_size, base_rect_size = base_rect_size) + \n    theme( \n      plot.title = element_text(size = rel(2), color = \"white\", margin = margin(b = base_size/2)),\n      plot.subtitle = element_text(margin = margin(t = -base_size/4, b = base_size/2)),\n      plot.caption = element_text(color = \"black\", size = rel(.7), hjust = 0),\n      plot.title.position = \"plot\",\n      plot.caption.position = \"plot\",\n      axis.title = element_text(color = \"white\"),\n      axis.title.x = element_text(hjust = 1, margin = margin(t = base_size/2)),\n      axis.title.y = element_text(hjust = 1, margin = margin(r = base_size/2)),\n      axis.text = element_text(color = \"black\"),\n      axis.ticks = element_line(color = \"black\"),\n      panel.background = element_rect(fill = \"#dfbb85\", color = \"white\", linewidth = base_size/4), \n      panel.border = element_rect(fill = NA, color = \"black\", linewidth = base_size/10), \n      plot.background = element_rect(fill = \"#CE1141\", color = \"black\", linewidth = base_size/4), \n      legend.background = element_rect(fill = \"transparent\", color = \"black\"),\n      legend.justification = \"top\",\n      strip.text = element_text(size = rel(1.25), color = \"white\"),\n      panel.grid.major = element_line(color = \"white\"),\n      panel.grid.minor = element_blank(),\n      plot.margin = margin(rep(base_size, 4))\n    )\n}"
   },
   {
-    "objectID": "materials/solutions/04-theming-solution.html#preparation",
-    "href": "materials/solutions/04-theming-solution.html#preparation",
+    "objectID": "materials/solutions/04-theming-solutions.html#apply-theme",
+    "href": "materials/solutions/04-theming-solutions.html#apply-theme",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Preparation",
-    "text": "Preparation\n\nlibrary(readr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )\n\n## plot style\ntheme_set(theme_minimal(base_family = \"Asap SemiCondensed\", base_size = 18))\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.background = element_rect(fill = NA, color = NA)\n)\n\n\n\nCédric Scherer // posit::conf(2023)"
+    "section": "Apply Theme",
+    "text": "Apply Theme\n\ndata <- read_csv(\"https://query.data.world/s/cejs4o4gdt6autofsse7whhqnnmaii?dws=00000\")\n\nggplot(filter(data, Team == \"Chicago\"), aes(x = Pts, y = Reb)) +\n  geom_point(shape = \"🏀\", size = 5) +\n  labs(title = \"Let's Go Bulls! ⛹️️\", x = \"Points scored\", y = \"Rebounds\", \n       caption = \"Data: hoopsstats.com\") +\n  theme_bulls()"
+  },
+  {
+    "objectID": "materials/solutions/04-theming-solutions.html#custom-theme-1",
+    "href": "materials/solutions/04-theming-solutions.html#custom-theme-1",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Custom Theme",
+    "text": "Custom Theme\n\ntheme_nba <- function(base_size = 18, base_family = \"College Block\", \n                      base_line_size = base_size/22, base_rect_size = base_size/22,\n                      team = \"Bulls\") {\n  \n  if(!team %in% c(\"Bulls\", \"Lakers\", \"Nuggets\", \"Celtics\", \"Knicks\", \"Heat\", \"Hornets\", \"Sixers\", \"Timberwolves\", \"Pelicans\", \"Suns\")) stop('team should be one of \"Bulls\", \"Lakers\", \"Nuggets\", \"Celtics\", \"Knicks\", \"Heat\", \"Hornets\", \"Sixers\", \"Timberwolves\", \"Pelicans\", or \"Suns\".')\n  \n  colors <- data.frame(\n    Bulls = c(\"#CE1141\", \"#FFFFFF\", \"#000000\"),\n    Lakers = c(\"#552583\", \"#FDB927\", \"#000000\"),\n    Nuggets = c(\"#8B2131\", \"#FEC524\", \"#0E2240\"),\n    Celtics = c(\"#007A33\", \"#FFFFFF\", \"#BA9653\"),\n    Knicks = c(\"#006BB6\", \"#F58426\", \"#BEC0C2\"),\n    Heat = c(\"#000000\", \"#F9A01B\", \"#98002E\"),\n    Hornets = c(\"#1D1160\", \"#A1A1A4\", \"#00788C\"),\n    Sixers = c(\"#006BB6\", \"#ED174C\", \"#002B5C\"),\n    Timberwolves = c(\"#0C2340\", \"#78BE20\", \"#9EA2A2\"),\n    Pelicans = c(\"#0C2340\", \"#C8102E\", \"#85714D\"),\n    Suns = c(\"#1D1160\", \"#E56020\", \"#63727A\")\n  )\n  colors <- unname(colors[, team])\n  \n  theme_minimal(base_size = base_size, base_family = base_family, \n           base_line_size = base_line_size, base_rect_size = base_rect_size) + \n    theme( \n      plot.title = element_text(size = rel(2), color = colors[2], margin = margin(b = base_size/2)),\n      plot.subtitle = element_text(color = colors[3], margin = margin(t = -base_size/4, b = base_size/2)),\n      plot.caption = element_text(color = colors[3], size = rel(.7), hjust = 0),\n      plot.title.position = \"plot\",\n      plot.caption.position = \"plot\",\n      axis.title = element_text(color = colors[2]),\n      axis.title.x = element_text(hjust = 1, margin = margin(t = base_size/2)),\n      axis.title.y = element_text(hjust = 1, margin = margin(r = base_size/2)),\n      axis.text = element_text(color = colors[3]),\n      axis.ticks = element_line(color = colors[3]),\n      panel.background = element_rect(fill = \"#dfbb85\", color = \"white\", linewidth = base_size/4), \n      panel.border = element_rect(fill = NA, color = colors[3], linewidth = base_size/10), \n      plot.background = element_rect(fill = colors[1], color = colors[3], linewidth = base_size/4), \n      legend.background = element_rect(fill = \"transparent\", color = colors[3]),\n      legend.justification = \"top\",\n      strip.text = element_text(size = rel(1.25), color = colors[2]),\n      panel.grid.major = element_line(color = \"white\"),\n      panel.grid.minor = element_blank(),\n      plot.margin = margin(rep(base_size, 4))\n    )\n}"
   },
   {
     "objectID": "modules/s01-fundamentals.html",
     "href": "modules/s01-fundamentals.html",
     "title": "Fundamentals & Workflows",
     "section": "",
-    "text": "View slides in full screen | Run the code yourself\n\nOutline\n\nWelcome\nThe {ggplot2} Package\nThe {ggplot2} Showcase\nA Walk-Through Example\nSaving Plots\nExercises\n\n\n\nExercises\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per season.\nVisualize bike counts per weather type and period as bar chart.\n\nPolish the charts and export them in a format of your choice.\nDiscuss / investigate with your neighbor:\n\nWhat are the differences between geom_line() and geom_path()?\nWhy can you use geom_smooth() and stat_smooth() interchangeably?\nWhat are the three ways to remove a legend from a ggplot?\nWhich is your favorite theme?\nWhat is your favorite ggplot2 extension package?\n\n\n\n→ Solution"
+    "text": "View slides in full screen | Run the code yourself"
+  },
+  {
+    "objectID": "modules/s01-fundamentals.html#exercise-1",
+    "href": "modules/s01-fundamentals.html#exercise-1",
+    "title": "Fundamentals & Workflows",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\n\nDiscuss / investigate with your neighbor:\n\nWhat are the differences between geom_line() and geom_path()?\nWhy can you use geom_smooth() and stat_smooth() interchangeably?\nWhat are the three ways to remove a legend from a ggplot?\nWhich is your favorite theme?\nWhat is your favorite ggplot2 extension package?"
+  },
+  {
+    "objectID": "modules/s01-fundamentals.html#exercise-2",
+    "href": "modules/s01-fundamentals.html#exercise-2",
+    "title": "Fundamentals & Workflows",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nExplore the TfL bike share data visually:\n\nCreate a time series of counts per day and night.\nDraw box and whisker plots of average temperatures per month.\nVisualize bike counts per weather type and period as bar chart.\n\nCombine the three plots with {patchwork}.\nExport the final graphic in a format of your choice.\n\n\n Exercise Template | Solution"
   },
   {
     "objectID": "modules/s02-break.html",
@@ -1516,7 +2762,14 @@
     "href": "modules/s03-text.html#exercise-1",
     "title": "Working with Text",
     "section": "Exercise 1",
-    "text": "Exercise 1\n\n\n\n\n\n→ Solution"
+    "text": "Exercise 1\n\n\nTake a look at the following visualization.\n\nFor each group of text labels, note how one would add and modify them.\nDiscuss how to automate the placement of the labels in- and outside of the bars."
+  },
+  {
+    "objectID": "modules/s03-text.html#exercise-2",
+    "href": "modules/s03-text.html#exercise-2",
+    "title": "Working with Text",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nCreate a function that plots the famous Gapminder chart, highlighting one of the continents.\n\nExtend the code in 02-text-exercises.qmd to annotate a continent your choice of with {ggforce}.\nTurn the code into a function with the utility to annotate any continent.\nOptional: Create a second function to highlight a country.\n\n\n\n Exercise Template | Solution"
   },
   {
     "objectID": "modules/s04-lunch.html",
@@ -1533,11 +2786,18 @@
     "text": "View slides in full screen | Run the code yourself"
   },
   {
-    "objectID": "modules/s05-colors.html#exercise",
-    "href": "modules/s05-colors.html#exercise",
+    "objectID": "modules/s05-colors.html#exercise-1",
+    "href": "modules/s05-colors.html#exercise-1",
     "title": "Working with Colors",
-    "section": "Exercise",
-    "text": "Exercise\n\n\n\n\n\n→ Solution"
+    "section": "Exercise 1",
+    "text": "Exercise 1\n::: question\n\n\nAdd colors to our bar chart from the last exercise:"
+  },
+  {
+    "objectID": "modules/s05-colors.html#exercise-2",
+    "href": "modules/s05-colors.html#exercise-2",
+    "title": "Working with Colors",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\n\nCreate a plot of your choice with a sequential (non-default) color palette.\n\nInspect the HCL spectrum. Adjust the palette if needed.\nTest the palette with regard to colorblindness. Adjust the palette if needed.\nSave and share the graphic.\n\n\n\n Exercise Template | Solution"
   },
   {
     "objectID": "modules/s06-break.html",
@@ -1551,7 +2811,7 @@
     "href": "modules/s07-theming.html",
     "title": "Data Communication",
     "section": "",
-    "text": "View slides in full screen | Run the code yourself\n\nOutline\n\n\n\n\n\nRecap\n\n\n\n\n\n\n\nExercises\n\n\n\n\n\n→ Solution"
+    "text": "View slides in full screen | Run the code yourself\n\nOutline\n\nComplete Themes\nModify Theme Elements\nNon-Default Typefaces\nSet Themes Globally\nCustom Themes\nExercise\n\n\n\nRecap\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_manual() or scale_*_brewer()\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_viridis_c\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales\nevaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)\n\n\n\n\nExercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave the plots to disk and share them with the group.\nDid you add some additional arguments? Feel free to share your thoughts on “why” and “how”.\n\n\n\n Exercise Template | Solution"
   },
   {
     "objectID": "prework.html",
@@ -1565,14 +2825,14 @@
     "href": "prework.html#technical-requirements",
     "title": "Prework",
     "section": "Technical Requirements",
-    "text": "Technical Requirements\n\nInstall R and Rstudio\nDownload the most recent version of R (cloud.r-project.org, at least version 4.2) and Rstudio (rstudio.com/products/rstudio/download, at least version 2023.06.1) and follow the installation steps.\n\n\nInstall R Libraries\nYou can install all required R packages at once by running the following code in the R command line:\npkgs <- c(\"ggplot2\", \"dplyr\", \"tibble\", \"tidyr\", \"readr\", \"forcats\", \n          \"stringr\", \"lubridate\", \"here\", \"scales\", \"ragg\", \n          \"systemfonts\", \"rcartocolor\", \"scico\", \"prismatic\", \n          \"patchwork\", \"ggtext\", \"ggforce\", \"ggrepel\")\ninstall.packages(setdiff(pkgs, rownames(installed.packages())))\nTo run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.\nA few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:\npkgs_opt <- c(\"viridis\", \"RColorBrewer\", \"MetBrewer\", \"ggthemes\", \n              \"ggsci\", \"camcorder\", \"colorspace\", \"remotes\")\ninstall.packages(setdiff(pkgs_opt, rownames(installed.packages())))\n\nremotes::install_github(\"clauswilke/colorblindr\")\nIf, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.\n\n\nInstall Typefaces\nWe will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:\n\nAsap: fonts.google.com/specimen/Asap\nSpline Sans: fonts.google.com/specimen/Spline+Sans\nSpline Sans Mono: fonts.google.com/specimen/Spline+Sans+Mono\nHepta Slab: fonts.google.com/specimen/Hepta+Slab\n\nYou can download all typefaces as a single zip file here.\n\n\nFor Mac OS Users\nIf you want to save your visualization to PDF, please make sure that XQuartz is installed which is needed to use the cairo pdf device."
+    "text": "Technical Requirements\n\nInstall R and Rstudio\nDownload the most recent version of R (at least version 4.2) and Rstudio (at least version 2023.06.1) and follow the installation steps.\n\n\nInstall R Libraries\nYou can install all required R packages at once by running the following code in the R command line:\npkgs <- c(\"ggplot2\", \"dplyr\", \"tibble\", \"tidyr\", \"readr\", \"forcats\", \n          \"stringr\", \"lubridate\", \"purrr\", \"here\", \"scales\", \"ragg\", \n          \"systemfonts\", \"rcartocolor\", \"scico\", \"prismatic\", \"patchwork\", \n          \"ggtext\", \"ggforce\", \"ggrepel\", \"colorspace\", \"gapminder\", \"remotes\")\ninstall.packages(setdiff(pkgs, rownames(installed.packages())))\n\nremotes::install_github(\"clauswilke/colorblindr\")\nTo run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.\nA few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:\npkgs_opt <- c(\"camcorder\", \"viridis\", \"RColorBrewer\", \"MetBrewer\", \n              \"ggthemes\", \"ggsci\", \"hrbrthemes\", \"tvthemes\", \"ggannotate\")\ninstall.packages(setdiff(pkgs_opt, rownames(installed.packages())))\nIf, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.\n\n\nInstall Typefaces\nWe will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:\n\nAsap: fonts.google.com/specimen/Asap\nSpline Sans: fonts.google.com/specimen/Spline+Sans\nSpline Sans Mono: fonts.google.com/specimen/Spline+Sans+Mono\nHepta Slab: fonts.google.com/specimen/Hepta+Slab\n\nYou can download all typefaces as a single zip file here.\n\n\nFor Mac OS Users\nIf you want to save your visualization to PDF, please make sure that XQuartz is installed which is needed to use the cairo pdf device."
   },
   {
     "objectID": "prework.html#course-communication",
     "href": "prework.html#course-communication",
     "title": "Prework",
     "section": "Course Communication",
-    "text": "Course Communication\nWe will be using Discord as our main communication method during the workshop. To make the process go smoothly: * Please sign up for an account at discord.com if you don’t already have one. * Make sure your display name is the one you used to register for the conference. In your “About Me”, put the name of your workshop(s).\nCloser to the start of the conference, you will be invited to join the posit::conf Discord server. Once you’ve accepted the invite, we will add you to the channel for the workshop."
+    "text": "Course Communication\nWe will be using Discord as our main communication method during the workshop. To make the process go smoothly:\n\nPlease sign up for an account at discord.com if you don’t already have one.\nMake sure your display name is the one you used to register for the conference.\nIn your “About Me”, put the name of your workshop(s).\n\nCloser to the start of the conference, you will be invited to join the posit::conf Discord server. Once you’ve accepted the invite, we will add you to the channel for the workshop."
   },
   {
     "objectID": "schedule.html",

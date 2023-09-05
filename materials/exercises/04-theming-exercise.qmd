@@ -1,0 +1,54 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "Working with Themes: Exercises"
+author: "Your Name"
+date: last-modified
+format: 
+  html:
+    toc: true
+execute:
+  message: false
+  warning: false
+  fig-width: 10
+  fig-height: 6.2
+editor: source
+---
+
+```{r}
+#| label: preparation
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+## data
+bikes <-
+  read_csv(
+    here::here("data", "london-bikes.csv"),
+    col_types = "Dcfffilllddddc"
+  )
+```
+
+
+# Exercise
+
+-   **Create a corporate or funny custom theme.**
+    -   Make use of an existing complete theme to get started.
+    -   Pick a non-default font (or multiple) for your theme.
+    -   Optional: Try working with font variants.
+    -   Optional: Add other helpful arguments to your `theme_*` function.
+
+
+## Custom Theme
+
+```{r}
+#| label: my-custom-theme
+
+```
+
+
+## Example Graphics
+
+```{r}
+#| label: test-theme
+
+```

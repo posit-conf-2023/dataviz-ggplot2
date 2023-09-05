@@ -390,7 +390,7 @@
 <meta property="og:description" content="Working with Colors">
 <meta name="twitter:title" content="Engaging and Beautiful Data Visualizations with ggplot2">
 <meta name="twitter:description" content="Working with Colors">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -429,9 +429,8 @@
 <span id="cb1-11"><a href="#cb1-11"></a><span class="fu">theme_update</span>(</span>
 <span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="co">#legend.position = "top",</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="default-color-palettes-categorical" class="slide level2">
@@ -472,15 +471,15 @@
 <section id="the-viridis-color-palettes" class="slide level2">
 <h2>The Viridis Color Palettes</h2>
 
-<img data-src="img/colors/viridis-performance.png" alt="Figure 1 in Nuñez, Anderton &amp; Renslow (2018) PLoS One: Example of a misleading colormap. Comparison between different colormaps overlaid onto the test image by Kovesi and a nanoscale secondary ion mass spectrometry image. Colormaps are as follows: (a) perceptually uniform grayscale, (b) jet, (c) jet as it appears to someone with red-green colorblindness, and (d) viridis [1], the current gold standard colormap. Below each NanoSIMS image is a corresponding “colormap-data perceptual sensitivity” (CDPS) plot, which compares perceptual differences of the colormap to actual, underlying data differences. m is the slope of the fitted line and r2 is the coefficient of determination calculated using a simple linear regression. An example of how the data may be misinterpreted are evident in the bright yellow spots in (b) and (c), which appear to represent significantly higher values than the surrounding regions. However, in fact, the dark red (in b) and dark yellow (in c) actually represent the highest values. For someone who is red-green colorblind, this is made even more difficult to interpret due to the broad, bright band in the center of the colormap with values that are difficult to distinguish." class="r-stretch quarto-figure-center"><p class="caption">Nuñez, Anderton &amp; Renslow (2018), <em>PloS One</em> 13:e0199239. <a href="https://doi.org/10.1371/journal.pone.0199239">DOI: 10.1371/journal.pone.0199239</a></p></section>
+<img data-src="img/viridis-performance.png" alt="Figure 1 in Nuñez, Anderton &amp; Renslow (2018) PLoS One: Example of a misleading colormap. Comparison between different colormaps overlaid onto the test image by Kovesi and a nanoscale secondary ion mass spectrometry image. Colormaps are as follows: (a) perceptually uniform grayscale, (b) jet, (c) jet as it appears to someone with red-green colorblindness, and (d) viridis [1], the current gold standard colormap. Below each NanoSIMS image is a corresponding “colormap-data perceptual sensitivity” (CDPS) plot, which compares perceptual differences of the colormap to actual, underlying data differences. m is the slope of the fitted line and r2 is the coefficient of determination calculated using a simple linear regression. An example of how the data may be misinterpreted are evident in the bright yellow spots in (b) and (c), which appear to represent significantly higher values than the surrounding regions. However, in fact, the dark red (in b) and dark yellow (in c) actually represent the highest values. For someone who is red-green colorblind, this is made even more difficult to interpret due to the broad, bright band in the center of the colormap with values that are difficult to distinguish." class="r-stretch quarto-figure-center"><p class="caption">Nuñez, Anderton &amp; Renslow (2018), <em>PloS One</em> 13:e0199239. <a href="https://doi.org/10.1371/journal.pone.0199239">DOI: 10.1371/journal.pone.0199239</a></p></section>
 <section id="the-viridis-color-palettes-1" class="slide level2">
 <h2>The Viridis Color Palettes</h2>
 
-<img data-src="img/colors/viridis-palette-comparison.png" alt="A comparison of viridis palettes against other commonly used color palettes in R including the ggplot2 default, jet and ColorBrewer palettes." class="r-stretch quarto-figure-center"><p class="caption">Palette comparison of commonly used sequential color palettes in R from the <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">{viridis} vignette</a></p></section>
+<img data-src="img/viridis-palette-comparison.png" alt="A comparison of viridis palettes against other commonly used color palettes in R including the ggplot2 default, jet and ColorBrewer palettes." class="r-stretch quarto-figure-center"><p class="caption">Palette comparison of commonly used sequential color palettes in R from the <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">{viridis} vignette</a></p></section>
 <section id="the-viridis-color-palettes-2" class="slide level2">
 <h2>The Viridis Color Palettes</h2>
 
-<img data-src="img/colors/viridis-palette-comparison-deuteranopia.png" alt="The same comparison of commonly used color palettes in R, simulated as seen by a colorblind person with Deuteranopia." class="r-stretch quarto-figure-center"><p class="caption">Palette comparison, as seen by a person with Deuteranopia, from the <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">{viridis} vignette</a></p></section>
+<img data-src="img/viridis-palette-comparison-deuteranopia.png" alt="The same comparison of commonly used color palettes in R, simulated as seen by a colorblind person with Deuteranopia." class="r-stretch quarto-figure-center"><p class="caption">Palette comparison, as seen by a person with Deuteranopia, from the <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">{viridis} vignette</a></p></section>
 <section id="pre-defined-color-palettes-viridis" class="slide level2">
 <h2>Pre-Defined Color Palettes: Viridis</h2>
 <div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis_4e35a6a14c1f8b24c6347e72fe804fe4">
@@ -573,7 +572,7 @@
 <section id="pre-defined-color-palettes-colorbrewer" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
 
-<img data-src="img/colors/colorbrewer.png" alt="A screnshot of the online tool to test ColorBrewer palettes, which are designed to be used for map purposes. Thus, the tool showcases the colors on a map showing an area in the Southeast of the US." class="r-stretch quarto-figure-center"><p class="caption">The ColorBrewer project: <a href="https://colorbrewer2.org/">colorbrewer2.org</a></p></section>
+<img data-src="img/colorbrewer.png" alt="A screnshot of the online tool to test ColorBrewer palettes, which are designed to be used for map purposes. Thus, the tool showcases the colors on a map showing an area in the Southeast of the US." class="r-stretch quarto-figure-center"><p class="caption">The ColorBrewer project: <a href="https://colorbrewer2.org/">colorbrewer2.org</a></p></section>
 <section id="pre-defined-color-palettes-colorbrewer-1" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
 <div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer_60a9bbfde2ad917aaaec4de6b7d8aeee">
@@ -656,6 +655,11 @@
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="palette-packages" class="title-slide slide level1 center">
+<h1>Palette Packages</h1>
+
 </section>
 <section id="rcartocolor" class="slide level2">
 <h2>{rcartocolor}</h2>
@@ -1315,13 +1319,13 @@
 </section>
 <section id="create-any-palette-1" class="slide level2">
 <h2>Create Any Palette</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/colorRampPalette_4cb06a1b7775ab457e4648439aa51d0d">
+<div class="cell" data-hash="03-colors_cache/revealjs/colorRampPalette_d9326dae0fe833978a6d9c3673a58d7b">
 <div class="sourceCode cell-code" id="cb53" data-code-line-numbers="2,3,4|1,2,3,4|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>pal_c <span class="ot">&lt;-</span> </span>
 <span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">colorRampPalette</span>(</span>
 <span id="cb53-3"><a href="#cb53-3"></a>    <span class="fu">c</span>(<span class="st">"#663399"</span>, <span class="st">"grey85"</span>, <span class="st">"#993334"</span>)</span>
 <span id="cb53-4"><a href="#cb53-4"></a>  )(<span class="dv">5</span>)</span>
 <span id="cb53-5"><a href="#cb53-5"></a></span>
-<span id="cb53-6"><a href="#cb53-6"></a><span class="fu">plot</span>(prismatic<span class="sc">::</span><span class="fu">color</span>(pal_c))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-6"><a href="#cb53-6"></a><span class="fu">plot</span>(<span class="fu">color</span>(pal_c))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/colorRampPalette-1.png" width="2800" class="r-stretch"></section>
@@ -1352,8 +1356,8 @@
 <section class="slide level2">
 
 
-<img data-src="img/colors/dubois-viz.png" alt="“Black Lives 1900: W. E. B. Du Bois at the Paris Exposition” reprints some of the striking photographs and graphics that Du Bois and his curators commissioned for the World’s Fair, here the colorful stacked bar chart on income and expenditure of 150 negro families in Atlanta." class="r-stretch quarto-figure-center"><p class="caption">Illustration by W. E. B. Du Bois, Courtesy Library of Congress</p></section>
-<section id="section" class="slide level2" data-background-image="img/colors/dubois-colors.png" data-background-position="center" data-background-size="92%" data-background-alt="Seven colors based on and inspired by the graphic from W. E. B. Du Bois.">
+<img data-src="img/dubois-viz.png" alt="“Black Lives 1900: W. E. B. Du Bois at the Paris Exposition” reprints some of the striking photographs and graphics that Du Bois and his curators commissioned for the World’s Fair, here the colorful stacked bar chart on income and expenditure of 150 negro families in Atlanta." class="r-stretch quarto-figure-center"><p class="caption">Illustration by W. E. B. Du Bois, Courtesy Library of Congress</p></section>
+<section id="section" class="slide level2" data-background-image="img/dubois-colors.png" data-background-position="center" data-background-size="92%" data-background-alt="Seven colors based on and inspired by the graphic from W. E. B. Du Bois.">
 <h2></h2>
 </section>
 <section id="build-custom-color-scales" class="slide level2">
@@ -1440,7 +1444,7 @@
 <img data-src="03-colors_files/figure-revealjs/pal-d-dubois-test-dark-rev-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-categorical-3" class="slide level2">
 <h2>Build Custom Color Scales: Categorical</h2>
-<div class="cell">
+<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-discrete-function-color_398c3912031cbeb4856922f21763b0f8">
 <div class="sourceCode cell-code" id="cb61" data-code-line-numbers="1,12|3,4,5|7,8|10,11|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>scale_color_dubois_d <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">palette =</span> <span class="st">"default"</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>, ...) {</span>
 <span id="cb61-2"><a href="#cb61-2"></a>  </span>
 <span id="cb61-3"><a href="#cb61-3"></a>  <span class="co"># check arguments</span></span>
@@ -1545,7 +1549,7 @@
 <img data-src="03-colors_files/figure-revealjs/pal-c-dubois-test-light-rev-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-sequential-3" class="slide level2">
 <h2>Build Custom Color Scales: Sequential</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-continuous-functions-color_670593efec02e261967c6e465917b1f5">
+<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-continuous-functions-color_72f08f95901e3b735711ee6ec4cc6b78">
 <div class="sourceCode cell-code" id="cb67" data-code-line-numbers="1,10|3,4,5|7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>scale_color_dubois_c <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">palette =</span> <span class="st">"dark"</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>, ...) {</span>
 <span id="cb67-2"><a href="#cb67-2"></a>  </span>
 <span id="cb67-3"><a href="#cb67-3"></a>  <span class="co"># check function arguments</span></span>
@@ -1644,8 +1648,8 @@
 </div>
 </section></section>
 <section>
-<section id="test-your-palettes" class="title-slide slide level1 center">
-<h1>Test Your Palettes</h1>
+<section id="design-colorblind-friendly-graphics" class="title-slide slide level1 center">
+<h1>Design Colorblind-Friendly Graphics</h1>
 
 </section>
 <section id="emulate-cvd" class="slide level2">
@@ -1773,48 +1777,49 @@
 <ul>
 <li class="fragment">use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
 <ul>
-<li class="fragment">e.g.&nbsp;<code>scale_*_discrete()</code> and <code>scale_*_manual()</code> for custom options</li>
-<li class="fragment">e.g.&nbsp;<code>scale_*_viridis_d</code> and <code>scale_*_brewer()</code> for pre-defined options</li>
+<li class="fragment">e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
 </ul></li>
 <li class="fragment">use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
 <ul>
-<li class="fragment">e.g.&nbsp;<code>scale_*_gradient()</code> or <code>scale_*_gradient2()</code> for custom options</li>
-<li class="fragment">e.g.&nbsp;<code>scale_*_viridis_c</code> and <code>scale_*_distiller()</code> for pre-defined options</li>
+<li class="fragment">e.g.&nbsp;<code>scale_*_gradient|gradient2()</code> or <code>scale_*_viridis_c</code></li>
 </ul></li>
 <li class="fragment">various packages provide palettes incl.&nbsp;<code>scale_*</code> components
 <ul>
-<li class="fragment">e.g.&nbsp;<code>{rcartocolors}</code>, <code>{scico}</code>, <code>{ggsci}</code>, <code>{ggthemes}</code>, <code>{nord}</code></li>
+<li class="fragment">e.g.&nbsp;{rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}</li>
 </ul></li>
 <li class="fragment">those and even more packages return palettes as vectors
 <ul>
 <li class="fragment">modify and supply them to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
 </ul></li>
 <li class="fragment">use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
+<li class="fragment">evaluate palette quality with <strong>{colorspace}</strong> (HCL) and <strong>{colorblindr}</strong> (CVD)</li>
 </ul>
 </div>
 </div>
 </section></section>
 <section>
-<section id="exercise" class="title-slide slide level1 center">
-<h1>Exercise</h1>
+<section id="exercises" class="title-slide slide level1 center">
+<h1>Exercises</h1>
 
 </section>
 <section id="exercise-1" class="slide level2">
-<h2>Exercise</h2>
+<h2>Exercise 1</h2>
 <div class="question">
 <ul>
-<li><strong>Create a similar visualization as close as possible:</strong></li>
+<li><strong>Add colors to our bar chart from the last exercise:</strong></li>
 </ul>
 </div>
 
-<img data-src="03-colors_files/figure-revealjs/exercise-jittered-errorbars-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
-<section id="update-your-turn" class="slide level2">
-<h2>UPDATE Your Turn</h2>
+<img data-src="03-colors_files/figure-revealjs/exercise-plot-1.png" width="1500" class="r-stretch quarto-figure-center"></section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise 2</h2>
 <div class="question">
 <ul>
-<li><strong>Lorem ipsum.</strong>
+<li><strong>Create a plot of your choice with a sequential (non-default) color palette.</strong>
 <ul>
-<li>Dolor est.</li>
+<li>Inspect the HCL spectrum. Adjust the palette if needed.</li>
+<li>Test the palette with regard to colorblindness. Adjust the palette if needed.</li>
+<li>Save and share the graphic.</li>
 </ul></li>
 </ul>
 </div>

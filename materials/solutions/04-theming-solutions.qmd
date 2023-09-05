@@ -1,0 +1,399 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "<span style='font-size:2em;'>Working with Themes</span><br><span style='font-weight:400;font-size:1.3em;'>— Exercise Solutions —</span>"
+author: "<a href='https://www.cedricscherer.com' style='color:#28a87d;font-weight:600;'>Cédric Scherer</a>&ensp;//&ensp;posit::conf&ensp;//&ensp;September 2023</span></span>"
+format:
+  revealjs:
+    theme: slides.scss
+    footer: '[Cédric Scherer](https://cedricscherer.com) // posit::conf(2023)'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 10
+  fig-height: 6.2
+  fig-align: center
+---
+
+# Exercise
+
+## Exercise
+
+::: question
+-   **Create a corporate or funny custom theme.**
+    -   Make use of an existing complete theme to get started.
+    -   Pick a non-default font (or multiple) for your theme.
+    -   Optional: Try working with font variants.
+    -   Optional: Add other helpful arguments to your `theme_*` function.
+:::
+
+
+## Preparation
+
+```{r}
+#| label: preparation
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+## data
+bikes <-
+  read_csv(
+    here::here("data", "london-bikes.csv"),
+    col_types = "Dcfffilllddddc"
+  )
+```
+
+
+## Custom Theme
+
+```{r}
+#| label: code-theme-bulls
+#| cache: false
+theme_bulls <- function(base_size = 18, base_family = "College Block", 
+                        base_line_size = base_size/22, base_rect_size = base_size/22) {
+  
+  theme_bw(base_size = base_size, base_family = base_family, 
+           base_line_size = base_line_size, base_rect_size = base_rect_size) + 
+    theme( 
+      plot.title = element_text(size = rel(2), color = "white", margin = margin(b = base_size/2)),
+      plot.subtitle = element_text(margin = margin(t = -base_size/4, b = base_size/2)),
+      plot.caption = element_text(color = "black", size = rel(.7), hjust = 0),
+      plot.title.position = "plot",
+      plot.caption.position = "plot",
+      axis.title = element_text(color = "white"),
+      axis.title.x = element_text(hjust = 1, margin = margin(t = base_size/2)),
+      axis.title.y = element_text(hjust = 1, margin = margin(r = base_size/2)),
+      axis.text = element_text(color = "black"),
+      axis.ticks = element_line(color = "black"),
+      panel.background = element_rect(fill = "#dfbb85", color = "white", linewidth = base_size/4), 
+      panel.border = element_rect(fill = NA, color = "black", linewidth = base_size/10), 
+      plot.background = element_rect(fill = "#CE1141", color = "black", linewidth = base_size/4), 
+      legend.background = element_rect(fill = "transparent", color = "black"),
+      legend.justification = "top",
+      strip.text = element_text(size = rel(1.25), color = "white"),
+      panel.grid.major = element_line(color = "white"),
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(rep(base_size, 4))
+    )
+}
+```
+
+
+## Apply Theme
+
+```{r}
+#| label: plot-theme-bulls
+#| eval: false
+data <- read_csv("https://query.data.world/s/cejs4o4gdt6autofsse7whhqnnmaii?dws=00000")
+
+ggplot(filter(data, Team == "Chicago"), aes(x = Pts, y = Reb)) +
+  geom_point(shape = "🏀", size = 5) +
+  labs(title = "Let's Go Bulls! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com") +
+  theme_bulls()
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-bulls
+#| echo: false
+#| fig-align: center
+```
+
+
+
+## Custom Theme
+
+```{r}
+#| label: code-theme-nba
+#| cache: false
+#| code-line-numbers: "3|5|7,8,9,10,11,12,13,14,15,16,17,18,19|20|25,26,27,30,33,34,36,37,40"
+theme_nba <- function(base_size = 18, base_family = "College Block", 
+                      base_line_size = base_size/22, base_rect_size = base_size/22,
+                      team = "Bulls") {
+  
+  if(!team %in% c("Bulls", "Lakers", "Nuggets", "Celtics", "Knicks", "Heat", "Hornets", "Sixers", "Timberwolves", "Pelicans", "Suns")) stop('team should be one of "Bulls", "Lakers", "Nuggets", "Celtics", "Knicks", "Heat", "Hornets", "Sixers", "Timberwolves", "Pelicans", or "Suns".')
+  
+  colors <- data.frame(
+    Bulls = c("#CE1141", "#FFFFFF", "#000000"),
+    Lakers = c("#552583", "#FDB927", "#000000"),
+    Nuggets = c("#8B2131", "#FEC524", "#0E2240"),
+    Celtics = c("#007A33", "#FFFFFF", "#BA9653"),
+    Knicks = c("#006BB6", "#F58426", "#BEC0C2"),
+    Heat = c("#000000", "#F9A01B", "#98002E"),
+    Hornets = c("#1D1160", "#A1A1A4", "#00788C"),
+    Sixers = c("#006BB6", "#ED174C", "#002B5C"),
+    Timberwolves = c("#0C2340", "#78BE20", "#9EA2A2"),
+    Pelicans = c("#0C2340", "#C8102E", "#85714D"),
+    Suns = c("#1D1160", "#E56020", "#63727A")
+  )
+  colors <- unname(colors[, team])
+  
+  theme_minimal(base_size = base_size, base_family = base_family, 
+           base_line_size = base_line_size, base_rect_size = base_rect_size) + 
+    theme( 
+      plot.title = element_text(size = rel(2), color = colors[2], margin = margin(b = base_size/2)),
+      plot.subtitle = element_text(color = colors[3], margin = margin(t = -base_size/4, b = base_size/2)),
+      plot.caption = element_text(color = colors[3], size = rel(.7), hjust = 0),
+      plot.title.position = "plot",
+      plot.caption.position = "plot",
+      axis.title = element_text(color = colors[2]),
+      axis.title.x = element_text(hjust = 1, margin = margin(t = base_size/2)),
+      axis.title.y = element_text(hjust = 1, margin = margin(r = base_size/2)),
+      axis.text = element_text(color = colors[3]),
+      axis.ticks = element_line(color = colors[3]),
+      panel.background = element_rect(fill = "#dfbb85", color = "white", linewidth = base_size/4), 
+      panel.border = element_rect(fill = NA, color = colors[3], linewidth = base_size/10), 
+      plot.background = element_rect(fill = colors[1], color = colors[3], linewidth = base_size/4), 
+      legend.background = element_rect(fill = "transparent", color = colors[3]),
+      legend.justification = "top",
+      strip.text = element_text(size = rel(1.25), color = colors[2]),
+      panel.grid.major = element_line(color = "white"),
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(rep(base_size, 4))
+    )
+}
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-bulls
+#| echo: false
+#| fig-align: center
+team <- "Chicago"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Bulls! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Bulls")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-lakers
+#| echo: false
+#| fig-align: center
+team <- "L.A.Lakers"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Lakers! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Lakers")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-nuggets
+#| echo: false
+#| fig-align: center
+team <- "Denver"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Nuggets! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Nuggets")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-celtics
+#| echo: false
+#| fig-align: center
+team <- "Boston"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Celtics! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Celtics")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-knicks
+#| echo: false
+#| fig-align: center
+team <- "New York"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Knicks! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Knicks")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-miami
+#| echo: false
+#| fig-align: center
+team <- "Miami"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Heat! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Heat")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-pelicans
+#| echo: false
+#| fig-align: center
+team <- "New Orleans"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Pelicans! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Pelicans")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-hornets
+#| echo: false
+#| fig-align: center
+team <- "Charlotte"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Hornets! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Hornets")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-sixers
+#| echo: false
+#| fig-align: center
+team <- "Philadelphia"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go 76ers! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Sixers")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-timberwolves
+#| echo: false
+#| fig-align: center
+team <- "Milwaukee"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Timberwolves! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Timberwolves")
+```
+
+
+--------------------------------------------------------------------------------
+
+```{r}
+#| label: plot-theme-nba-suns
+#| echo: false
+#| fig-align: center
+team <- "Phoenix"
+ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
+       aes(x = Pts, y = Reb)) +
+  geom_point(aes(shape = Team == team, size = Team == team)) +
+  facet_wrap(~ Year) +
+  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
+  scale_size_manual(values = c(2, 7), guide = "none") +
+  labs(title = "Let's Go Suns! ⛹️️", x = "Points scored", y = "Rebounds", 
+       caption = "Data: hoopsstats.com",
+       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
+  theme_nba(team = "Suns")
+```
+

@@ -1,0 +1,62 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "Working with Text: Exercises"
+author: "Your Name"
+date: last-modified
+format: 
+  html:
+    toc: true
+execute:
+  message: false
+  warning: false
+  fig-width: 10
+  fig-height: 6.2
+editor: source
+---
+
+# Exercise 1
+
+-   **Take a look at the following visualization.**
+   -   For each group of text labels, note how one would add and modify them.
+   -   Discuss how to automate the placement of the labels in- and outside of the bars.
+
+
+*Add your answers here.*
+
+
+
+# Exercise 2
+
+-   **Create a function that plots the famous Gapminder chart, highlighting one of the continents.**
+   -   Extend the code in `02-text-exercises.qmd` to annotate a continent your choice of with {ggforce}.
+   -   Turn the code into a function with the utility to annotate any continent.
+   -   Optional: Create a second function to highlight a country.
+:::
+
+```{r}
+#| label: gapminder-plot
+install.packages(setdiff("gapminder", rownames(installed.packages())))
+
+library(ggplot2)
+library(dplyr)
+library(gapminder)
+
+(gm2007 <- filter(gapminder, year == 2007))
+
+ggplot(gm2007, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point( 
+    aes(size = pop), alpha = .5
+  ) +
+  scale_x_log10(
+    breaks = c(500, 2000, 8000, 32000),
+    labels = scales::label_dollar(accuracy = 1)
+  ) +
+  scale_size(
+    range = c(1, 12), name = "Population:", 
+    breaks = c(10, 100, 1000)*1000000, 
+    labels = scales::label_comma(scale = 1 / 10^6, suffix = "M")
+  ) +
+  labs(x = "GDP per capita", y = "Life expectancy") +
+  theme_minimal(base_family = "Asap SemiCondensed") +
+  theme(panel.grid.minor = element_blank())
+```

@@ -390,7 +390,7 @@
 <meta property="og:description" content="Working with Themes">
 <meta name="twitter:title" content="Engaging and Beautiful Data Visualizations with ggplot2">
 <meta name="twitter:description" content="Working with Themes">
-<meta name="twitter:image" content="https://posit-conf-2023.github.io/ggplot2-dataviz//images/twitter-card.png">
+<meta name="twitter:image" content="https://posit-conf-2023.github.io/dataviz-ggplot2//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
@@ -435,7 +435,7 @@
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>bikes <span class="ot">&lt;-</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">read_csv</span>(</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"london-bikes.csv"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"london-bikes-custom.csv"</span>),</span>
 <span id="cb1-7"><a href="#cb1-7"></a>    <span class="at">col_types =</span> <span class="st">"Dcfffilllddddc"</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -514,7 +514,12 @@
 
 
 <img data-src="04-theming_files/figure-revealjs/plot-polished-1.png" width="1100" class="r-stretch quarto-figure-center"></section>
-<section id="complete-themes" class="slide level2">
+<section>
+<section id="complete-themes" class="title-slide slide level1 center">
+<h1>Complete Themes</h1>
+
+</section>
+<section id="complete-themes-1" class="slide level2">
 <h2>Complete Themes</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -535,7 +540,7 @@
 </div>
 </div>
 </section>
-<section id="complete-themes-1" class="slide level2">
+<section id="complete-themes-2" class="slide level2">
 <h2>Complete Themes</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -556,7 +561,7 @@
 </div>
 </div>
 </section>
-<section id="complete-themes-2" class="slide level2">
+<section id="complete-themes-3" class="slide level2">
 <h2>Complete Themes</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -577,17 +582,82 @@
 </div>
 </div>
 </section>
+<section id="complete-themes-via-extension-packages" class="slide level2">
+<h2>Complete Themes via Extension Packages</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-ggthemes-stata_e6c1ceb4ca04ee058c9be5f2efe2e7c2" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>g <span class="sc">+</span> ggthemes<span class="sc">::</span><span class="fu">theme_stata</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="04-theming_files/figure-revealjs/complete-themes-ggthemes-stata-1.png" width="1100"></p>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-ggthemes-gdocs_cae0f90c914732dd3472a738ca1e21bf">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>g <span class="sc">+</span> ggthemes<span class="sc">::</span><span class="fu">theme_gdocs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="04-theming_files/figure-revealjs/complete-themes-ggthemes-gdocs-1.png" width="1100"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="complete-themes-via-extension-packages-1" class="slide level2">
+<h2>Complete Themes via Extension Packages</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-hrbrthemes-ipsum-roboto_da7df06ebedc34dc68c7ce3a436f466b" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>g <span class="sc">+</span> hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="04-theming_files/figure-revealjs/complete-themes-hrbrthemes-ipsum-roboto-1.png" width="1100"></p>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-tvthemes-simpsons_0a13a737eedc562a5ea51e23117ae909">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>g <span class="sc">+</span> tvthemes<span class="sc">::</span><span class="fu">theme_simpsons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="04-theming_files/figure-revealjs/complete-themes-tvthemes-simpsons-1.png" width="1100"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="modify-theme-elements" class="slide level2">
+<h2>Modify Theme Elements</h2>
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/modify-elements_487803b8d688eaaf07b1afe5903fb08e">
+<div class="column">
+<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2|3,7|4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>g <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">theme</span>(</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span><span class="st">"#28A87D"</span>),</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="04-theming_files/figure-revealjs/modify-elements-1.png" width="1000"></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="non-default-typefaces" class="title-slide slide level1 center">
+<h1>Non-Default Typefaces</h1>
+
+</section>
 <section id="the-systemfonts-package" class="slide level2">
 <h2>The {systemfonts} Package</h2>
 <p><span class="simple-highlight-grn" style="font-size:2.1rem;">locates installed fonts and provides font-related utilities to graphic devices</span> <br></p>
 <div class="fragment">
 <div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-load_77a054ac5085dac8fdf0a47c4770c9d0">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">library</span>(systemfonts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">library</span>(systemfonts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-match-font-a_139232f68291930160a20153d23437ee">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">match_font</span>(<span class="st">"Asap"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">match_font</span>(<span class="st">"Asap"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$path
 [1] "/Users/cedric/Library/Fonts/Asap-Bold.ttf"
@@ -604,33 +674,33 @@ NULL</code></pre>
 <section id="use-non-default-typefaces" class="slide level2">
 <h2>Use Non-Default Typefaces</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">system_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">system_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a># A tibble: 10,735 × 9</span>
-<span id="cb16-2"><a href="#cb16-2"></a>   path                                                        index name                                       family       style weight width italic monospace</span>
-<span id="cb16-3"><a href="#cb16-3"></a>   &lt;chr&gt;                                                       &lt;int&gt; &lt;chr&gt;                                      &lt;chr&gt;        &lt;chr&gt; &lt;ord&gt;  &lt;ord&gt; &lt;lgl&gt;  &lt;lgl&gt;    </span>
-<span id="cb16-4"><a href="#cb16-4"></a> 1 /Users/cedric/Library/Fonts/MeshedDisplay-ExtBdSlant.otf        0 MeshedDisplay-ExtBdSlant                   Meshed Disp… Extr… ultra… norm… TRUE   FALSE    </span>
-<span id="cb16-5"><a href="#cb16-5"></a> 2 /Users/cedric/Library/Fonts/LeagueSpartan-VF.ttf                5 LeagueSpartan-Extralight_Bold              League Spar… Bold  bold   norm… FALSE  FALSE    </span>
-<span id="cb16-6"><a href="#cb16-6"></a> 3 /System/Library/Fonts/Supplemental/Sinhala Sangam MN.ttc        1 SinhalaSangamMN-Bold                       Sinhala San… Bold  bold   norm… FALSE  FALSE    </span>
-<span id="cb16-7"><a href="#cb16-7"></a> 4 /Users/cedric/Library/Fonts/Gambarino-Regular.otf               0 Gambarino-Regular                          Gambarino    Regu… normal norm… FALSE  FALSE    </span>
-<span id="cb16-8"><a href="#cb16-8"></a> 5 /Users/cedric/Library/Fonts/KolageGX.ttf                        8 Kolage_Black                               Kolage       Black heavy  norm… FALSE  FALSE    </span>
-<span id="cb16-9"><a href="#cb16-9"></a> 6 /Users/cedric/Library/Fonts/Styro-Variable.ttf                  3 Styro-Variable-Black_Medium                Styro Varia… Medi… normal norm… FALSE  FALSE    </span>
-<span id="cb16-10"><a href="#cb16-10"></a> 7 /Users/cedric/Library/Fonts/iosevka-curly-medium.ttc           14 Iosevka-Term-Curly-Medium-Extended-Oblique Iosevka Ter… Medi… medium norm… TRUE   TRUE     </span>
-<span id="cb16-11"><a href="#cb16-11"></a> 8 /Users/cedric/Library/Fonts/Aleo-Bold.ttf                       0 Aleo-Bold                                  Aleo         Bold  bold   norm… FALSE  FALSE    </span>
-<span id="cb16-12"><a href="#cb16-12"></a> 9 /Users/cedric/Library/Fonts/Henju-ExtraLight.otf                0 Henju-ExtraLight                           Henju        Extr… light  norm… FALSE  FALSE    </span>
-<span id="cb16-13"><a href="#cb16-13"></a>10 /Users/cedric/Library/Fonts/MononokiNerdFont-BoldItalic.ttf     0 MononokiNF-BoldItalic                      Mononoki Ne… Bold… bold   norm… TRUE   TRUE     </span>
-<span id="cb16-14"><a href="#cb16-14"></a># ℹ 10,725 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a href="#cb21-1"></a># A tibble: 21,738 × 9</span>
+<span id="cb21-2"><a href="#cb21-2"></a>   path                                                                                                   index name  family style weight width italic monospace</span>
+<span id="cb21-3"><a href="#cb21-3"></a>   &lt;chr&gt;                                                                                                  &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;ord&gt;  &lt;ord&gt; &lt;lgl&gt;  &lt;lgl&gt;    </span>
+<span id="cb21-4"><a href="#cb21-4"></a> 1 /Users/cedric/Library/Fonts/FontBase/Fira Code-Regular.ttf                                                 0 Fira… Fira … Regu… normal norm… FALSE  TRUE     </span>
+<span id="cb21-5"><a href="#cb21-5"></a> 2 /Users/cedric/Library/Fonts/FontBase/Tourney-200italic.ttf                                                 0 Tour… Tourn… Extr… normal norm… TRUE   FALSE    </span>
+<span id="cb21-6"><a href="#cb21-6"></a> 3 /Users/cedric/Library/Fonts/FontBase/Iosevka-Term-Curly-Slab-Light.ttf                                     0 Iose… Iosev… Light normal norm… FALSE  TRUE     </span>
+<span id="cb21-7"><a href="#cb21-7"></a> 4 /Users/cedric/Library/Fonts/Fraunces_144pt_Soft-BlackItalic.ttf                                            0 Frau… Fraun… Blac… heavy  norm… TRUE   FALSE    </span>
+<span id="cb21-8"><a href="#cb21-8"></a> 5 /System/Library/AssetsV2/com_apple_MobileAsset_Font7/28f00a24ba19995bab7249993e6e35d11011074a.asset/A…     0 SIL-… Kai    Regu… normal norm… FALSE  FALSE    </span>
+<span id="cb21-9"><a href="#cb21-9"></a> 6 /Users/cedric/Library/Fonts/Neutraface Text Bold Italic Alt.ttf                                            0 Neut… Neutr… Regu… bold   norm… TRUE   FALSE    </span>
+<span id="cb21-10"><a href="#cb21-10"></a> 7 /Users/cedric/Library/Fonts/THE_SOCIAL.ttf                                                                 0 THES… THE S… Regu… normal norm… FALSE  FALSE    </span>
+<span id="cb21-11"><a href="#cb21-11"></a> 8 /Users/cedric/Library/Fonts/FontBase/M PLUS 1-900.ttf                                                      0 MPLU… M PLU… Black heavy  norm… FALSE  FALSE    </span>
+<span id="cb21-12"><a href="#cb21-12"></a> 9 /Users/cedric/Library/Fonts/FontBase/Parix-Hybrid111R.otf                                                  0 Pari… Parix  Hybr… normal norm… FALSE  FALSE    </span>
+<span id="cb21-13"><a href="#cb21-13"></a>10 /Users/cedric/Library/Fonts/FontBase/InputMonoCondensed-Bold.ttf                                           0 Inpu… Input… Bold  bold   semi… FALSE  TRUE     </span>
+<span id="cb21-14"><a href="#cb21-14"></a># ℹ 21,728 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="use-non-default-typefaces-1" class="slide level2">
 <h2>Use Non-Default Typefaces</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="1,2,3,4,5|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">system_fonts</span>() <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(family, <span class="st">"Asap"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(family) <span class="sc">|&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-5"><a href="#cb17-5"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(family)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="1,2,3,4,5|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">system_fonts</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(family, <span class="st">"Asap"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(family) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb22-5"><a href="#cb22-5"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(family)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 1
   family            
@@ -647,11 +717,11 @@ NULL</code></pre>
 <h2>Use Non-Default Typefaces</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/systemfonts-custom-font_857a5deebe037e50879c0e606360d817">
 <div class="column">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="2,3,4,5|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>g <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">theme_minimal</span>(</span>
-<span id="cb19-3"><a href="#cb19-3"></a>    <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>,</span>
-<span id="cb19-4"><a href="#cb19-4"></a>    <span class="at">base_size =</span> <span class="dv">13</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="2,3,4,5|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>g <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">theme_minimal</span>(</span>
+<span id="cb24-3"><a href="#cb24-3"></a>    <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>,</span>
+<span id="cb24-4"><a href="#cb24-4"></a>    <span class="at">base_size =</span> <span class="dv">13</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-custom-font-1.png" width="1000"></p>
@@ -662,55 +732,55 @@ NULL</code></pre>
 <section id="use-font-features" class="slide level2">
 <h2>Use Font Features</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-filter-b_bf18d5a37447fdf8e0dd1e355d90fd98">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">system_fonts</span>() <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(family <span class="sc">==</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(name) <span class="sc">|&gt;</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">system_fonts</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(family <span class="sc">==</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(name) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a href="#cb21-1"></a># A tibble: 18 × 1</span>
-<span id="cb21-2"><a href="#cb21-2"></a>   name                              </span>
-<span id="cb21-3"><a href="#cb21-3"></a>   &lt;chr&gt;                             </span>
-<span id="cb21-4"><a href="#cb21-4"></a> 1 AsapSemiCondensed-Black           </span>
-<span id="cb21-5"><a href="#cb21-5"></a> 2 AsapSemiCondensed-BlackItalic     </span>
-<span id="cb21-6"><a href="#cb21-6"></a> 3 AsapSemiCondensed-Bold            </span>
-<span id="cb21-7"><a href="#cb21-7"></a> 4 AsapSemiCondensed-BoldItalic      </span>
-<span id="cb21-8"><a href="#cb21-8"></a> 5 AsapSemiCondensed-ExtraBold       </span>
-<span id="cb21-9"><a href="#cb21-9"></a> 6 AsapSemiCondensed-ExtraBoldItalic </span>
-<span id="cb21-10"><a href="#cb21-10"></a> 7 AsapSemiCondensed-ExtraLight      </span>
-<span id="cb21-11"><a href="#cb21-11"></a> 8 AsapSemiCondensed-ExtraLightItalic</span>
-<span id="cb21-12"><a href="#cb21-12"></a> 9 AsapSemiCondensed-Italic          </span>
-<span id="cb21-13"><a href="#cb21-13"></a>10 AsapSemiCondensed-Light           </span>
-<span id="cb21-14"><a href="#cb21-14"></a>11 AsapSemiCondensed-LightItalic     </span>
-<span id="cb21-15"><a href="#cb21-15"></a>12 AsapSemiCondensed-Medium          </span>
-<span id="cb21-16"><a href="#cb21-16"></a>13 AsapSemiCondensed-MediumItalic    </span>
-<span id="cb21-17"><a href="#cb21-17"></a>14 AsapSemiCondensed-Regular         </span>
-<span id="cb21-18"><a href="#cb21-18"></a>15 AsapSemiCondensed-SemiBold        </span>
-<span id="cb21-19"><a href="#cb21-19"></a>16 AsapSemiCondensed-SemiBoldItalic  </span>
-<span id="cb21-20"><a href="#cb21-20"></a>17 AsapSemiCondensed-Thin            </span>
-<span id="cb21-21"><a href="#cb21-21"></a>18 AsapSemiCondensed-ThinItalic      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href="#cb26-1"></a># A tibble: 18 × 1</span>
+<span id="cb26-2"><a href="#cb26-2"></a>   name                              </span>
+<span id="cb26-3"><a href="#cb26-3"></a>   &lt;chr&gt;                             </span>
+<span id="cb26-4"><a href="#cb26-4"></a> 1 AsapSemiCondensed-Black           </span>
+<span id="cb26-5"><a href="#cb26-5"></a> 2 AsapSemiCondensed-BlackItalic     </span>
+<span id="cb26-6"><a href="#cb26-6"></a> 3 AsapSemiCondensed-Bold            </span>
+<span id="cb26-7"><a href="#cb26-7"></a> 4 AsapSemiCondensed-BoldItalic      </span>
+<span id="cb26-8"><a href="#cb26-8"></a> 5 AsapSemiCondensed-ExtraBold       </span>
+<span id="cb26-9"><a href="#cb26-9"></a> 6 AsapSemiCondensed-ExtraBoldItalic </span>
+<span id="cb26-10"><a href="#cb26-10"></a> 7 AsapSemiCondensed-ExtraLight      </span>
+<span id="cb26-11"><a href="#cb26-11"></a> 8 AsapSemiCondensed-ExtraLightItalic</span>
+<span id="cb26-12"><a href="#cb26-12"></a> 9 AsapSemiCondensed-Italic          </span>
+<span id="cb26-13"><a href="#cb26-13"></a>10 AsapSemiCondensed-Light           </span>
+<span id="cb26-14"><a href="#cb26-14"></a>11 AsapSemiCondensed-LightItalic     </span>
+<span id="cb26-15"><a href="#cb26-15"></a>12 AsapSemiCondensed-Medium          </span>
+<span id="cb26-16"><a href="#cb26-16"></a>13 AsapSemiCondensed-MediumItalic    </span>
+<span id="cb26-17"><a href="#cb26-17"></a>14 AsapSemiCondensed-Regular         </span>
+<span id="cb26-18"><a href="#cb26-18"></a>15 AsapSemiCondensed-SemiBold        </span>
+<span id="cb26-19"><a href="#cb26-19"></a>16 AsapSemiCondensed-SemiBoldItalic  </span>
+<span id="cb26-20"><a href="#cb26-20"></a>17 AsapSemiCondensed-Thin            </span>
+<span id="cb26-21"><a href="#cb26-21"></a>18 AsapSemiCondensed-ThinItalic      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="use-font-features-1" class="slide level2">
 <h2>Use Font Features</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="1,2,3,4,5,6|1,6|2,3|2,4|2,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">register_variant</span>(</span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="at">name =</span> <span class="st">"Asap SemiCondensed Semibold S1"</span>,</span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="at">family =</span> <span class="st">"Asap SemiCondensed"</span>,</span>
-<span id="cb22-4"><a href="#cb22-4"></a>  <span class="at">weight =</span> <span class="st">"semibold"</span>,</span>
-<span id="cb22-5"><a href="#cb22-5"></a>  <span class="at">features =</span> <span class="fu">font_feature</span>(<span class="at">letters =</span> <span class="st">"stylistic"</span>)</span>
-<span id="cb22-6"><a href="#cb22-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="1,2,3,4,5,6|1,6|2,3|2,4|2,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">register_variant</span>(</span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="at">name =</span> <span class="st">"Asap SemiCondensed Semibold S1"</span>,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="at">family =</span> <span class="st">"Asap SemiCondensed"</span>,</span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="at">weight =</span> <span class="st">"semibold"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="at">features =</span> <span class="fu">font_feature</span>(<span class="at">letters =</span> <span class="st">"stylistic"</span>)</span>
+<span id="cb27-6"><a href="#cb27-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="use-font-features-2" class="slide level2">
 <h2>Use Font Features</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/systemfonts-register-plot_6c34d6fd451d0113d764d90a26cb70c7">
 <div class="column">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>g <span class="sc">+</span> </span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">theme_minimal</span>(</span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed Semibold S1"</span>,</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="at">base_size =</span> <span class="dv">13</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>g <span class="sc">+</span> </span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">theme_minimal</span>(</span>
+<span id="cb28-3"><a href="#cb28-3"></a>    <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed Semibold S1"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4"></a>    <span class="at">base_size =</span> <span class="dv">13</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-register-plot-1.png" width="1000"></p>
@@ -722,12 +792,12 @@ NULL</code></pre>
 <h2>Use Font Features</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-1_87daca5e88e65136596b38e7da7f360a" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-1_1c91b53628c58769c62597c3df900301" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-font-variants-compare-1-1.png" width="1100"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-2_4e72e3b0d1a9c16a34a10d701dbe1128" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-2_8d971a65f079152b7160e88bfdcef847" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-font-variants-compare-2-1.png" width="1100"></p>
 </div>
@@ -738,12 +808,12 @@ NULL</code></pre>
 <section id="use-font-features-4" class="slide level2">
 <h2>Use Font Features</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="1,2,3,4,5,6|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">register_variant</span>(</span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="at">name =</span> <span class="st">"Spline Sans Tabular"</span>,</span>
-<span id="cb24-3"><a href="#cb24-3"></a>  <span class="at">family =</span> <span class="st">"Spline Sans"</span>,</span>
-<span id="cb24-4"><a href="#cb24-4"></a>  <span class="at">weight =</span> <span class="st">"normal"</span>,</span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="at">features =</span> <span class="fu">font_feature</span>(<span class="at">numbers =</span> <span class="st">"tabular"</span>)</span>
-<span id="cb24-6"><a href="#cb24-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="1,2,3,4,5,6|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">register_variant</span>(</span>
+<span id="cb29-2"><a href="#cb29-2"></a>  <span class="at">name =</span> <span class="st">"Spline Sans Tabular"</span>,</span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="at">family =</span> <span class="st">"Spline Sans"</span>,</span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="at">weight =</span> <span class="st">"normal"</span>,</span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="at">features =</span> <span class="fu">font_feature</span>(<span class="at">numbers =</span> <span class="st">"tabular"</span>)</span>
+<span id="cb29-6"><a href="#cb29-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="use-font-features-5" class="slide level2">
@@ -765,36 +835,41 @@ NULL</code></pre>
 </div>
 </div>
 </section>
-<section id="like-a-pro-set-theme-globally" class="slide level2">
-<h2>Like a Pro: Set Theme Globally</h2>
+<section id="like-a-pro-set-themes-globally" class="slide level2">
+<h2>Like a Pro: Set Themes Globally</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/theme-light-set-global_7e30dfc0bb4f3112c4b4b7f69e014ea6">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1|3,4,5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">base_size =</span> <span class="dv">13</span>))</span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">theme_update</span>(</span>
-<span id="cb25-4"><a href="#cb25-4"></a>  <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>)),</span>
-<span id="cb25-6"><a href="#cb25-6"></a>  <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>)),</span>
-<span id="cb25-7"><a href="#cb25-7"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb25-8"><a href="#cb25-8"></a>  <span class="at">plot.caption.position =</span> <span class="st">"plot"</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="1|3,4,5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">base_size =</span> <span class="dv">13</span>))</span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">theme_update</span>(</span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>)),</span>
+<span id="cb30-6"><a href="#cb30-6"></a>  <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>)),</span>
+<span id="cb30-7"><a href="#cb30-7"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8"></a>  <span class="at">plot.caption.position =</span> <span class="st">"plot"</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="like-a-pro-set-theme-globally-1" class="slide level2">
-<h2>Like a Pro: Set Theme Globally</h2>
+<section id="like-a-pro-set-themes-globally-1" class="slide level2">
+<h2>Like a Pro: Set Themes Globally</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/base-plot-gm-bubbles-after-themeset_1d28b1c3dc806dea7541d37b7ffb21c8">
 <div class="column">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/base-plot-gm-bubbles-after-themeset-1.png" width="1000"></p>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="custom-themes" class="title-slide slide level1 center">
+<h1>Custom Themes</h1>
+
 </section>
 <section id="complete-themes-whats-inside" class="slide level2">
 <h2>Complete Themes: What’s Inside?</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/code-theme-grey_ae0cd04c76b4e2c7917528c4b8e09fd7">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>theme_grey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>theme_grey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (base_size = 11, base_family = "", base_line_size = base_size/22, 
     base_rect_size = base_size/22) 
@@ -862,7 +937,7 @@ NULL</code></pre>
 <section id="complete-themes-whats-inside-1" class="slide level2">
 <h2>Complete Themes: What’s Inside?</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/code-theme-minimal_39106ecbcaf2ec61013ff26e88b7787e">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>theme_minimal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>theme_minimal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (base_size = 11, base_family = "", base_line_size = base_size/22, 
     base_rect_size = base_size/22) 
@@ -882,62 +957,62 @@ NULL</code></pre>
 <section id="create-a-custom-theme" class="slide level2">
 <h2>Create a Custom Theme</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap_6cee7ce0f122897d4f03e2d0d16d8f5e">
-<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="1,2,6|4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
-<span id="cb31-2"><a href="#cb31-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb31-3"><a href="#cb31-3"></a>  </span>
-<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb31-5"><a href="#cb31-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) </span>
-<span id="cb31-6"><a href="#cb31-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="1,2,6|4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
+<span id="cb36-2"><a href="#cb36-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb36-3"><a href="#cb36-3"></a>  </span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb36-5"><a href="#cb36-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) </span>
+<span id="cb36-6"><a href="#cb36-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-a-custom-theme-1" class="slide level2">
 <h2>Create a Custom Theme</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-replace-blank_76b6c11692e9bc1419b543989b7a4e9c">
-<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="5|6,8|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
-<span id="cb32-2"><a href="#cb32-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb32-3"><a href="#cb32-3"></a>  </span>
-<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb32-5"><a href="#cb32-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size)  <span class="sc">%+replace%</span></span>
-<span id="cb32-6"><a href="#cb32-6"></a>    <span class="fu">theme</span>(</span>
-<span id="cb32-7"><a href="#cb32-7"></a>      <span class="co"># add your theme changes here</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a>    )</span>
-<span id="cb32-9"><a href="#cb32-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="5|6,8|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
+<span id="cb37-2"><a href="#cb37-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb37-3"><a href="#cb37-3"></a>  </span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb37-5"><a href="#cb37-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size)  <span class="sc">%+replace%</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a>    <span class="fu">theme</span>(</span>
+<span id="cb37-7"><a href="#cb37-7"></a>      <span class="co"># add your theme changes here</span></span>
+<span id="cb37-8"><a href="#cb37-8"></a>    )</span>
+<span id="cb37-9"><a href="#cb37-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-a-custom-theme-2" class="slide level2">
 <h2>Create a Custom Theme</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
-<span id="cb33-2"><a href="#cb33-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb33-3"><a href="#cb33-3"></a>  </span>
-<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb33-5"><a href="#cb33-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">%+replace%</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a>    <span class="fu">theme</span>(</span>
-<span id="cb33-7"><a href="#cb33-7"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> base_size<span class="sc">/</span><span class="dv">2</span>),</span>
-<span id="cb33-8"><a href="#cb33-8"></a>                                <span class="at">family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
-<span id="cb33-9"><a href="#cb33-9"></a>      <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb33-10"><a href="#cb33-10"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size),</span>
-<span id="cb33-11"><a href="#cb33-11"></a>                                  <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">1</span>),</span>
-<span id="cb33-12"><a href="#cb33-12"></a>      <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb33-13"><a href="#cb33-13"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
-<span id="cb33-14"><a href="#cb33-14"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">angle =</span> <span class="dv">90</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
-<span id="cb33-15"><a href="#cb33-15"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
-<span id="cb33-16"><a href="#cb33-16"></a>      <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
-<span id="cb33-17"><a href="#cb33-17"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey85"</span>, <span class="at">color =</span> <span class="cn">NA</span>), </span>
-<span id="cb33-18"><a href="#cb33-18"></a>      <span class="at">legend.justification =</span> <span class="st">"top"</span>,</span>
-<span id="cb33-19"><a href="#cb33-19"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.05</span>), <span class="at">margin =</span> <span class="fu">margin</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>)),</span>
-<span id="cb33-20"><a href="#cb33-20"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb33-21"><a href="#cb33-21"></a>      <span class="at">complete =</span> <span class="cn">TRUE</span></span>
-<span id="cb33-22"><a href="#cb33-22"></a>    )</span>
-<span id="cb33-23"><a href="#cb33-23"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
+<span id="cb38-2"><a href="#cb38-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb38-3"><a href="#cb38-3"></a>  </span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb38-5"><a href="#cb38-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">%+replace%</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>    <span class="fu">theme</span>(</span>
+<span id="cb38-7"><a href="#cb38-7"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> base_size<span class="sc">/</span><span class="dv">2</span>),</span>
+<span id="cb38-8"><a href="#cb38-8"></a>                                <span class="at">family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb38-9"><a href="#cb38-9"></a>      <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb38-10"><a href="#cb38-10"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size),</span>
+<span id="cb38-11"><a href="#cb38-11"></a>                                  <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.8</span>), <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">1</span>),</span>
+<span id="cb38-12"><a href="#cb38-12"></a>      <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb38-13"><a href="#cb38-13"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
+<span id="cb38-14"><a href="#cb38-14"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">angle =</span> <span class="dv">90</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
+<span id="cb38-15"><a href="#cb38-15"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
+<span id="cb38-16"><a href="#cb38-16"></a>      <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
+<span id="cb38-17"><a href="#cb38-17"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey85"</span>, <span class="at">color =</span> <span class="cn">NA</span>), </span>
+<span id="cb38-18"><a href="#cb38-18"></a>      <span class="at">legend.justification =</span> <span class="st">"top"</span>,</span>
+<span id="cb38-19"><a href="#cb38-19"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.05</span>), <span class="at">margin =</span> <span class="fu">margin</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>)),</span>
+<span id="cb38-20"><a href="#cb38-20"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb38-21"><a href="#cb38-21"></a>      <span class="at">complete =</span> <span class="cn">TRUE</span></span>
+<span id="cb38-22"><a href="#cb38-22"></a>    )</span>
+<span id="cb38-23"><a href="#cb38-23"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apply-the-custom-theme" class="slide level2">
 <h2>Apply the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-default_9a3d13058bc0824c27f5c19133f21cfc">
 <div class="column">
-<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>g <span class="sc">+</span> </span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">theme_asap</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>g <span class="sc">+</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">theme_asap</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-default-1.png" width="1000"></p>
@@ -961,27 +1036,27 @@ NULL</code></pre>
 <section id="create-a-custom-theme-3" class="slide level2">
 <h2>Create a Custom Theme</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="5|7,8,10,12,13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>theme_asap_plus <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
-<span id="cb35-2"><a href="#cb35-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb35-3"><a href="#cb35-3"></a>  </span>
-<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb35-5"><a href="#cb35-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
-<span id="cb35-6"><a href="#cb35-6"></a>    <span class="fu">theme</span>( </span>
-<span id="cb35-7"><a href="#cb35-7"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb35-8"><a href="#cb35-8"></a>                                <span class="at">family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>),</span>
-<span id="cb35-9"><a href="#cb35-9"></a>      <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb35-10"><a href="#cb35-10"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size)),</span>
-<span id="cb35-11"><a href="#cb35-11"></a>      <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb35-12"><a href="#cb35-12"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
-<span id="cb35-13"><a href="#cb35-13"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
-<span id="cb35-14"><a href="#cb35-14"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
-<span id="cb35-15"><a href="#cb35-15"></a>      <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
-<span id="cb35-16"><a href="#cb35-16"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey85"</span>, <span class="at">color =</span> <span class="cn">NA</span>), </span>
-<span id="cb35-17"><a href="#cb35-17"></a>      <span class="at">legend.justification =</span> <span class="st">"top"</span>,</span>
-<span id="cb35-18"><a href="#cb35-18"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.05</span>), <span class="at">margin =</span> <span class="fu">margin</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>)),</span>
-<span id="cb35-19"><a href="#cb35-19"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb35-20"><a href="#cb35-20"></a>    )</span>
-<span id="cb35-21"><a href="#cb35-21"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="5|7,8,10,12,13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>theme_asap_plus <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
+<span id="cb40-2"><a href="#cb40-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb40-3"><a href="#cb40-3"></a>  </span>
+<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb40-5"><a href="#cb40-5"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
+<span id="cb40-6"><a href="#cb40-6"></a>    <span class="fu">theme</span>( </span>
+<span id="cb40-7"><a href="#cb40-7"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb40-8"><a href="#cb40-8"></a>                                <span class="at">family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>),</span>
+<span id="cb40-9"><a href="#cb40-9"></a>      <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb40-10"><a href="#cb40-10"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size)),</span>
+<span id="cb40-11"><a href="#cb40-11"></a>      <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb40-12"><a href="#cb40-12"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
+<span id="cb40-13"><a href="#cb40-13"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> base_size<span class="sc">/</span><span class="dv">3</span>)),</span>
+<span id="cb40-14"><a href="#cb40-14"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
+<span id="cb40-15"><a href="#cb40-15"></a>      <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
+<span id="cb40-16"><a href="#cb40-16"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey85"</span>, <span class="at">color =</span> <span class="cn">NA</span>), </span>
+<span id="cb40-17"><a href="#cb40-17"></a>      <span class="at">legend.justification =</span> <span class="st">"top"</span>,</span>
+<span id="cb40-18"><a href="#cb40-18"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.05</span>), <span class="at">margin =</span> <span class="fu">margin</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, base_size<span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>)),</span>
+<span id="cb40-19"><a href="#cb40-19"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb40-20"><a href="#cb40-20"></a>    )</span>
+<span id="cb40-21"><a href="#cb40-21"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="versus-replace" class="slide level2">
@@ -989,14 +1064,14 @@ NULL</code></pre>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-asap-plus_1c4891a6872ce4a57f08b8346101ba5c" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_plus</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_plus</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-plus-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell" data-hash="04-theming_cache/revealjs/apply-theme-asap-replace_a8a48a5565bf21f66c35a129d47be824">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_replace</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_replace</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-replace-1.png" width="1100"></p>
 </div>
@@ -1009,14 +1084,14 @@ NULL</code></pre>
 <h2>Modify the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-theme-elements_71d766959e8942a6fd4ea0528c821805">
 <div class="column">
-<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="3,4,5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>g <span class="sc">+</span> </span>
-<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">theme_asap</span>() <span class="sc">+</span></span>
-<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">theme</span>(</span>
-<span id="cb38-4"><a href="#cb38-4"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb38-5"><a href="#cb38-5"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(</span>
-<span id="cb38-6"><a href="#cb38-6"></a>      <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="cn">NA</span></span>
-<span id="cb38-7"><a href="#cb38-7"></a>    )</span>
-<span id="cb38-8"><a href="#cb38-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="3,4,5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>g <span class="sc">+</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">theme_asap</span>() <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">theme</span>(</span>
+<span id="cb43-4"><a href="#cb43-4"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb43-5"><a href="#cb43-5"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(</span>
+<span id="cb43-6"><a href="#cb43-6"></a>      <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="cn">NA</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>    )</span>
+<span id="cb43-8"><a href="#cb43-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-modify-theme-elements-1.png" width="1000"></p>
@@ -1028,11 +1103,11 @@ NULL</code></pre>
 <h2>Modify the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-base-settings_6dc7a0cde15d88b562f0feb555f012a6">
 <div class="column">
-<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>g <span class="sc">+</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">theme_asap</span>(</span>
-<span id="cb39-3"><a href="#cb39-3"></a>    <span class="at">base_size =</span> <span class="dv">9</span>,</span>
-<span id="cb39-4"><a href="#cb39-4"></a>    <span class="at">base_family =</span> <span class="st">"Hepta Slab"</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44" data-code-line-numbers="3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>g <span class="sc">+</span> </span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">theme_asap</span>(</span>
+<span id="cb44-3"><a href="#cb44-3"></a>    <span class="at">base_size =</span> <span class="dv">9</span>,</span>
+<span id="cb44-4"><a href="#cb44-4"></a>    <span class="at">base_family =</span> <span class="st">"Hepta Slab"</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-modify-base-settings-1.png" width="1000"></p>
@@ -1044,16 +1119,16 @@ NULL</code></pre>
 <h2>Modify the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-title-face_b3bffc9c93566ac6510c1d2ef15d5a87">
 <div class="column">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="6,7,8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>g <span class="sc">+</span> </span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">theme_asap</span>(</span>
-<span id="cb40-3"><a href="#cb40-3"></a>    <span class="at">base_size =</span> <span class="dv">9</span>,</span>
-<span id="cb40-4"><a href="#cb40-4"></a>    <span class="at">base_family =</span> <span class="st">"Hepta Slab"</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a>  ) <span class="sc">+</span></span>
-<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">theme</span>(</span>
-<span id="cb40-7"><a href="#cb40-7"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(</span>
-<span id="cb40-8"><a href="#cb40-8"></a>      <span class="at">family =</span> <span class="st">"Hepta Slab"</span></span>
-<span id="cb40-9"><a href="#cb40-9"></a>    )</span>
-<span id="cb40-10"><a href="#cb40-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45" data-code-line-numbers="6,7,8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>g <span class="sc">+</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">theme_asap</span>(</span>
+<span id="cb45-3"><a href="#cb45-3"></a>    <span class="at">base_size =</span> <span class="dv">9</span>,</span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="at">base_family =</span> <span class="st">"Hepta Slab"</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>  ) <span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>  <span class="fu">theme</span>(</span>
+<span id="cb45-7"><a href="#cb45-7"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(</span>
+<span id="cb45-8"><a href="#cb45-8"></a>      <span class="at">family =</span> <span class="st">"Hepta Slab"</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a>    )</span>
+<span id="cb45-10"><a href="#cb45-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-modify-title-face-1.png" width="1000"></p>
@@ -1064,35 +1139,35 @@ NULL</code></pre>
 <section id="create-a-custom-theme-4" class="slide level2">
 <h2>Create a Custom Theme</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-title-family_607acdc3eee13ab9d783ae75f2fdade8">
-<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="1,2|5,6,7,8,9|14,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>theme_asap_title <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
-<span id="cb41-2"><a href="#cb41-2"></a>                             <span class="at">title_family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>,</span>
-<span id="cb41-3"><a href="#cb41-3"></a>                             <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb41-4"><a href="#cb41-4"></a>  </span>
-<span id="cb41-5"><a href="#cb41-5"></a>  <span class="cf">if</span> (title_family <span class="sc">==</span> <span class="st">"Asap SemiCondensed Extrabold"</span>) {</span>
-<span id="cb41-6"><a href="#cb41-6"></a>    <span class="fu">register_variant</span>(<span class="at">name =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>,</span>
-<span id="cb41-7"><a href="#cb41-7"></a>                     <span class="at">family =</span> <span class="st">"Asap SemiCondensed"</span>,</span>
-<span id="cb41-8"><a href="#cb41-8"></a>                     <span class="at">weight =</span> <span class="st">"ultrabold"</span>)</span>
-<span id="cb41-9"><a href="#cb41-9"></a>  }</span>
-<span id="cb41-10"><a href="#cb41-10"></a>  </span>
-<span id="cb41-11"><a href="#cb41-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb41-12"><a href="#cb41-12"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
-<span id="cb41-13"><a href="#cb41-13"></a>    <span class="fu">theme</span>(</span>
-<span id="cb41-14"><a href="#cb41-14"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">family =</span> title_family),</span>
-<span id="cb41-15"><a href="#cb41-15"></a>      <span class="co"># fill in other theme adjustments here</span></span>
-<span id="cb41-16"><a href="#cb41-16"></a>    )</span>
-<span id="cb41-17"><a href="#cb41-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1,2|5,6,7,8,9|14,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>theme_asap_title <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
+<span id="cb46-2"><a href="#cb46-2"></a>                             <span class="at">title_family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>,</span>
+<span id="cb46-3"><a href="#cb46-3"></a>                             <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb46-4"><a href="#cb46-4"></a>  </span>
+<span id="cb46-5"><a href="#cb46-5"></a>  <span class="cf">if</span> (title_family <span class="sc">==</span> <span class="st">"Asap SemiCondensed Extrabold"</span>) {</span>
+<span id="cb46-6"><a href="#cb46-6"></a>    <span class="fu">register_variant</span>(<span class="at">name =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>,</span>
+<span id="cb46-7"><a href="#cb46-7"></a>                     <span class="at">family =</span> <span class="st">"Asap SemiCondensed"</span>,</span>
+<span id="cb46-8"><a href="#cb46-8"></a>                     <span class="at">weight =</span> <span class="st">"ultrabold"</span>)</span>
+<span id="cb46-9"><a href="#cb46-9"></a>  }</span>
+<span id="cb46-10"><a href="#cb46-10"></a>  </span>
+<span id="cb46-11"><a href="#cb46-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb46-12"><a href="#cb46-12"></a>                <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
+<span id="cb46-13"><a href="#cb46-13"></a>    <span class="fu">theme</span>(</span>
+<span id="cb46-14"><a href="#cb46-14"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">family =</span> title_family),</span>
+<span id="cb46-15"><a href="#cb46-15"></a>      <span class="co"># fill in other theme adjustments here</span></span>
+<span id="cb46-16"><a href="#cb46-16"></a>    )</span>
+<span id="cb46-17"><a href="#cb46-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apply-the-custom-theme-1" class="slide level2">
 <h2>Apply the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-title-family_48e437a05bfed0389c6459ddb6e9351f">
 <div class="column">
-<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>g <span class="sc">+</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">theme_asap_title</span>(</span>
-<span id="cb42-3"><a href="#cb42-3"></a>    <span class="at">base_size =</span> <span class="dv">9</span>,</span>
-<span id="cb42-4"><a href="#cb42-4"></a>    <span class="at">base_family =</span> <span class="st">"Hepta Slab"</span>,</span>
-<span id="cb42-5"><a href="#cb42-5"></a>    <span class="at">title_family =</span> <span class="st">"Hepta Slab"</span></span>
-<span id="cb42-6"><a href="#cb42-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>g <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">theme_asap_title</span>(</span>
+<span id="cb47-3"><a href="#cb47-3"></a>    <span class="at">base_size =</span> <span class="dv">9</span>,</span>
+<span id="cb47-4"><a href="#cb47-4"></a>    <span class="at">base_family =</span> <span class="st">"Hepta Slab"</span>,</span>
+<span id="cb47-5"><a href="#cb47-5"></a>    <span class="at">title_family =</span> <span class="st">"Hepta Slab"</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-title-family-1.png" width="1000"></p>
@@ -1103,56 +1178,56 @@ NULL</code></pre>
 <section id="advanced-font-handling-for-themes" class="slide level2">
 <h2>Advanced Font Handling (for Themes)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="1,2|4|6,7,8,9,10,11,12|13,14,15,16|18,19,20,21,22|25,26,27,28,29,30,31,32,33,34,35,36,37|26,27,28,29|30,31,32,33,34,35,36|39,42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>theme_fonts <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">12</span>, <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, </span>
-<span id="cb43-2"><a href="#cb43-2"></a>                        <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb43-3"><a href="#cb43-3"></a>  </span>
-<span id="cb43-4"><a href="#cb43-4"></a>  unavailable <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"character"</span>)</span>
-<span id="cb43-5"><a href="#cb43-5"></a>  </span>
-<span id="cb43-6"><a href="#cb43-6"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(<span class="fu">grepl</span>(<span class="st">"Hepta Slab"</span>, systemfonts<span class="sc">::</span><span class="fu">system_fonts</span>()<span class="sc">$</span>family)) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb43-7"><a href="#cb43-7"></a>    systemfonts<span class="sc">::</span><span class="fu">register_variant</span>(</span>
-<span id="cb43-8"><a href="#cb43-8"></a>      <span class="at">name =</span> <span class="st">"Hepta Slab Extrabold"</span>,</span>
-<span id="cb43-9"><a href="#cb43-9"></a>      <span class="at">family =</span> <span class="st">"Hepta Slab"</span>,</span>
-<span id="cb43-10"><a href="#cb43-10"></a>      <span class="at">weight =</span> <span class="st">"ultrabold"</span></span>
-<span id="cb43-11"><a href="#cb43-11"></a>    )</span>
-<span id="cb43-12"><a href="#cb43-12"></a>    title_family <span class="ot">&lt;-</span> <span class="st">"Hepta Slab Extrabold"</span></span>
-<span id="cb43-13"><a href="#cb43-13"></a>  } <span class="cf">else</span> {</span>
-<span id="cb43-14"><a href="#cb43-14"></a>    title_family <span class="ot">&lt;-</span> <span class="st">""</span></span>
-<span id="cb43-15"><a href="#cb43-15"></a>    unavailable <span class="ot">&lt;-</span> <span class="fu">c</span>(unavailable, <span class="st">"Hepta Slab"</span>)</span>
-<span id="cb43-16"><a href="#cb43-16"></a>  }</span>
-<span id="cb43-17"><a href="#cb43-17"></a>  </span>
-<span id="cb43-18"><a href="#cb43-18"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(<span class="fu">grepl</span>(<span class="st">"Spline Sans"</span>, systemfonts<span class="sc">::</span><span class="fu">system_fonts</span>()<span class="sc">$</span>family)) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb43-19"><a href="#cb43-19"></a>    base_family <span class="ot">&lt;-</span> <span class="st">"Spline Sans"</span></span>
-<span id="cb43-20"><a href="#cb43-20"></a>  } <span class="cf">else</span> {</span>
-<span id="cb43-21"><a href="#cb43-21"></a>    base_family <span class="ot">&lt;-</span> <span class="st">""</span></span>
-<span id="cb43-22"><a href="#cb43-22"></a>    unavailable <span class="ot">&lt;-</span> <span class="fu">c</span>(unavailable, <span class="st">"Spline Sans"</span>)</span>
-<span id="cb43-23"><a href="#cb43-23"></a>  }</span>
-<span id="cb43-24"><a href="#cb43-24"></a>  </span>
-<span id="cb43-25"><a href="#cb43-25"></a>  <span class="cf">if</span> (<span class="fu">length</span>(unavailable) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb43-26"><a href="#cb43-26"></a>    unavailable <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb43-27"><a href="#cb43-27"></a>      <span class="at">name =</span> unavailable, </span>
-<span id="cb43-28"><a href="#cb43-28"></a>      <span class="at">url =</span> <span class="fu">paste0</span>(<span class="st">"https://fonts.google.com/specimen/"</span>, <span class="fu">sub</span>(<span class="st">" "</span>, <span class="st">"+"</span>, unavailable))</span>
-<span id="cb43-29"><a href="#cb43-29"></a>    )</span>
-<span id="cb43-30"><a href="#cb43-30"></a>    <span class="fu">message</span>(<span class="fu">paste</span>(</span>
-<span id="cb43-31"><a href="#cb43-31"></a>      <span class="st">"Using system default typefaces."</span>, </span>
-<span id="cb43-32"><a href="#cb43-32"></a>      <span class="st">"For proper use, please install the following typeface(s):"</span>,</span>
-<span id="cb43-33"><a href="#cb43-33"></a>      <span class="fu">paste0</span>(<span class="st">"  - "</span>, unavailable<span class="sc">$</span>name, <span class="st">": "</span>, unavailable<span class="sc">$</span>url, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
-<span id="cb43-34"><a href="#cb43-34"></a>      <span class="st">"Then restart your R session."</span>,</span>
-<span id="cb43-35"><a href="#cb43-35"></a>      <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
-<span id="cb43-36"><a href="#cb43-36"></a>    ))</span>
-<span id="cb43-37"><a href="#cb43-37"></a>  }</span>
-<span id="cb43-38"><a href="#cb43-38"></a>  </span>
-<span id="cb43-39"><a href="#cb43-39"></a>  <span class="fu">theme_asap</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb43-40"><a href="#cb43-40"></a>             <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
-<span id="cb43-41"><a href="#cb43-41"></a>    <span class="fu">theme</span>(</span>
-<span id="cb43-42"><a href="#cb43-42"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">family =</span> title_family)</span>
-<span id="cb43-43"><a href="#cb43-43"></a>    )</span>
-<span id="cb43-44"><a href="#cb43-44"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48" data-code-line-numbers="1,2|4|6,7,8,9,10,11,12|13,14,15,16|18,19,20,21,22|25,26,27,28,29,30,31,32,33,34,35,36,37|26,27,28,29|30,31,32,33,34,35,36|39,42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>theme_fonts <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">12</span>, <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, </span>
+<span id="cb48-2"><a href="#cb48-2"></a>                        <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb48-3"><a href="#cb48-3"></a>  </span>
+<span id="cb48-4"><a href="#cb48-4"></a>  unavailable <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"character"</span>)</span>
+<span id="cb48-5"><a href="#cb48-5"></a>  </span>
+<span id="cb48-6"><a href="#cb48-6"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(<span class="fu">grepl</span>(<span class="st">"Hepta Slab"</span>, systemfonts<span class="sc">::</span><span class="fu">system_fonts</span>()<span class="sc">$</span>family)) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb48-7"><a href="#cb48-7"></a>    systemfonts<span class="sc">::</span><span class="fu">register_variant</span>(</span>
+<span id="cb48-8"><a href="#cb48-8"></a>      <span class="at">name =</span> <span class="st">"Hepta Slab Extrabold"</span>,</span>
+<span id="cb48-9"><a href="#cb48-9"></a>      <span class="at">family =</span> <span class="st">"Hepta Slab"</span>,</span>
+<span id="cb48-10"><a href="#cb48-10"></a>      <span class="at">weight =</span> <span class="st">"ultrabold"</span></span>
+<span id="cb48-11"><a href="#cb48-11"></a>    )</span>
+<span id="cb48-12"><a href="#cb48-12"></a>    title_family <span class="ot">&lt;-</span> <span class="st">"Hepta Slab Extrabold"</span></span>
+<span id="cb48-13"><a href="#cb48-13"></a>  } <span class="cf">else</span> {</span>
+<span id="cb48-14"><a href="#cb48-14"></a>    title_family <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb48-15"><a href="#cb48-15"></a>    unavailable <span class="ot">&lt;-</span> <span class="fu">c</span>(unavailable, <span class="st">"Hepta Slab"</span>)</span>
+<span id="cb48-16"><a href="#cb48-16"></a>  }</span>
+<span id="cb48-17"><a href="#cb48-17"></a>  </span>
+<span id="cb48-18"><a href="#cb48-18"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(<span class="fu">grepl</span>(<span class="st">"Spline Sans"</span>, systemfonts<span class="sc">::</span><span class="fu">system_fonts</span>()<span class="sc">$</span>family)) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb48-19"><a href="#cb48-19"></a>    base_family <span class="ot">&lt;-</span> <span class="st">"Spline Sans"</span></span>
+<span id="cb48-20"><a href="#cb48-20"></a>  } <span class="cf">else</span> {</span>
+<span id="cb48-21"><a href="#cb48-21"></a>    base_family <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb48-22"><a href="#cb48-22"></a>    unavailable <span class="ot">&lt;-</span> <span class="fu">c</span>(unavailable, <span class="st">"Spline Sans"</span>)</span>
+<span id="cb48-23"><a href="#cb48-23"></a>  }</span>
+<span id="cb48-24"><a href="#cb48-24"></a>  </span>
+<span id="cb48-25"><a href="#cb48-25"></a>  <span class="cf">if</span> (<span class="fu">length</span>(unavailable) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb48-26"><a href="#cb48-26"></a>    unavailable <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb48-27"><a href="#cb48-27"></a>      <span class="at">name =</span> unavailable, </span>
+<span id="cb48-28"><a href="#cb48-28"></a>      <span class="at">url =</span> <span class="fu">paste0</span>(<span class="st">"https://fonts.google.com/specimen/"</span>, <span class="fu">sub</span>(<span class="st">" "</span>, <span class="st">"+"</span>, unavailable))</span>
+<span id="cb48-29"><a href="#cb48-29"></a>    )</span>
+<span id="cb48-30"><a href="#cb48-30"></a>    <span class="fu">message</span>(<span class="fu">paste</span>(</span>
+<span id="cb48-31"><a href="#cb48-31"></a>      <span class="st">"Using system default typefaces."</span>, </span>
+<span id="cb48-32"><a href="#cb48-32"></a>      <span class="st">"For proper use, please install the following typeface(s):"</span>,</span>
+<span id="cb48-33"><a href="#cb48-33"></a>      <span class="fu">paste0</span>(<span class="st">"  - "</span>, unavailable<span class="sc">$</span>name, <span class="st">": "</span>, unavailable<span class="sc">$</span>url, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
+<span id="cb48-34"><a href="#cb48-34"></a>      <span class="st">"Then restart your R session."</span>,</span>
+<span id="cb48-35"><a href="#cb48-35"></a>      <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb48-36"><a href="#cb48-36"></a>    ))</span>
+<span id="cb48-37"><a href="#cb48-37"></a>  }</span>
+<span id="cb48-38"><a href="#cb48-38"></a>  </span>
+<span id="cb48-39"><a href="#cb48-39"></a>  <span class="fu">theme_asap</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb48-40"><a href="#cb48-40"></a>             <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
+<span id="cb48-41"><a href="#cb48-41"></a>    <span class="fu">theme</span>(</span>
+<span id="cb48-42"><a href="#cb48-42"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">family =</span> title_family)</span>
+<span id="cb48-43"><a href="#cb48-43"></a>    )</span>
+<span id="cb48-44"><a href="#cb48-44"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apply-the-custom-theme-2" class="slide level2">
 <h2>Apply the Custom Theme</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/theme-fonts-message_950a9e1f89d22c64ecbecd8efce9c5a7">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>g <span class="sc">+</span> <span class="fu">theme_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>g <span class="sc">+</span> <span class="fu">theme_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code style="color:#663399;font-size:16pt;">Using system default typefaces.<br>For proper use, please install the following typeface(s):<br> - Hepta Slab: https://fonts.google.com/specimen/Hepta+Slab<br> - Spline: https://fonts.google.com/specimen/Spline+Sans<br>Then restart your R session.</code></p>
 </section>
@@ -1160,7 +1235,7 @@ NULL</code></pre>
 <h2>Apply the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/theme-fonts-show_06076d2e1955fe767a5dd0dadf726bff">
 <div class="column">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>g <span class="sc">+</span> <span class="fu">theme_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>g <span class="sc">+</span> <span class="fu">theme_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/theme-fonts-show-1.png" width="1000"></p>
@@ -1205,41 +1280,41 @@ NULL</code></pre>
 <section id="add-more-arguments-2" class="slide level2">
 <h2>Add More Arguments</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid_b89a60b138e4481bffbdb82580f7dd00">
-<div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1|3|7,8,9,10|13,14,15,16,17|18,19,20,21,22|24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>theme_asap_grid <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">grid =</span> <span class="st">"xy"</span>, </span>
-<span id="cb46-2"><a href="#cb46-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb46-3"><a href="#cb46-3"></a>  out <span class="ot">&lt;-</span> </span>
-<span id="cb46-4"><a href="#cb46-4"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb46-5"><a href="#cb46-5"></a>                  <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
-<span id="cb46-6"><a href="#cb46-6"></a>    <span class="fu">theme</span>(</span>
-<span id="cb46-7"><a href="#cb46-7"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb46-8"><a href="#cb46-8"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey20"</span>),</span>
-<span id="cb46-9"><a href="#cb46-9"></a>      <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="st">"pt"</span>),</span>
-<span id="cb46-10"><a href="#cb46-10"></a>      <span class="co"># fill in other theme adjustments here</span></span>
-<span id="cb46-11"><a href="#cb46-11"></a>    )</span>
-<span id="cb46-12"><a href="#cb46-12"></a>  </span>
-<span id="cb46-13"><a href="#cb46-13"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"x|X"</span>)) {</span>
-<span id="cb46-14"><a href="#cb46-14"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
-<span id="cb46-15"><a href="#cb46-15"></a>                       <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb46-16"><a href="#cb46-16"></a>                       <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">6</span>, <span class="st">"pt"</span>))</span>
-<span id="cb46-17"><a href="#cb46-17"></a>  }</span>
-<span id="cb46-18"><a href="#cb46-18"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"y|Y"</span>)) {</span>
-<span id="cb46-19"><a href="#cb46-19"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
-<span id="cb46-20"><a href="#cb46-20"></a>                       <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb46-21"><a href="#cb46-21"></a>                       <span class="at">axis.ticks.length.y =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">4</span>, <span class="st">"pt"</span>))</span>
-<span id="cb46-22"><a href="#cb46-22"></a>  }</span>
-<span id="cb46-23"><a href="#cb46-23"></a>  </span>
-<span id="cb46-24"><a href="#cb46-24"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb46-25"><a href="#cb46-25"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51" data-code-line-numbers="1|3|7,8,9,10|13,14,15,16,17|18,19,20,21,22|24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>theme_asap_grid <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">grid =</span> <span class="st">"xy"</span>, </span>
+<span id="cb51-2"><a href="#cb51-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb51-3"><a href="#cb51-3"></a>  out <span class="ot">&lt;-</span> </span>
+<span id="cb51-4"><a href="#cb51-4"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb51-5"><a href="#cb51-5"></a>                  <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
+<span id="cb51-6"><a href="#cb51-6"></a>    <span class="fu">theme</span>(</span>
+<span id="cb51-7"><a href="#cb51-7"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb51-8"><a href="#cb51-8"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey20"</span>),</span>
+<span id="cb51-9"><a href="#cb51-9"></a>      <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="st">"pt"</span>),</span>
+<span id="cb51-10"><a href="#cb51-10"></a>      <span class="co"># fill in other theme adjustments here</span></span>
+<span id="cb51-11"><a href="#cb51-11"></a>    )</span>
+<span id="cb51-12"><a href="#cb51-12"></a>  </span>
+<span id="cb51-13"><a href="#cb51-13"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"x|X"</span>)) {</span>
+<span id="cb51-14"><a href="#cb51-14"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
+<span id="cb51-15"><a href="#cb51-15"></a>                       <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb51-16"><a href="#cb51-16"></a>                       <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">6</span>, <span class="st">"pt"</span>))</span>
+<span id="cb51-17"><a href="#cb51-17"></a>  }</span>
+<span id="cb51-18"><a href="#cb51-18"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"y|Y"</span>)) {</span>
+<span id="cb51-19"><a href="#cb51-19"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
+<span id="cb51-20"><a href="#cb51-20"></a>                       <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb51-21"><a href="#cb51-21"></a>                       <span class="at">axis.ticks.length.y =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">4</span>, <span class="st">"pt"</span>))</span>
+<span id="cb51-22"><a href="#cb51-22"></a>  }</span>
+<span id="cb51-23"><a href="#cb51-23"></a>  </span>
+<span id="cb51-24"><a href="#cb51-24"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb51-25"><a href="#cb51-25"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apply-the-custom-theme-4" class="slide level2">
 <h2>Apply the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-y_d6b909e3ee74f42913f0cbb9bfddbee2">
 <div class="column">
-<div class="sourceCode cell-code" id="cb47" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>g <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
-<span id="cb47-3"><a href="#cb47-3"></a>    <span class="at">grid =</span> <span class="st">"y"</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
+<span id="cb52-3"><a href="#cb52-3"></a>    <span class="at">grid =</span> <span class="st">"y"</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-grid-y-1.png" width="1000"></p>
@@ -1252,13 +1327,13 @@ NULL</code></pre>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-xy_6f36dcd7f56eaf93683871b3e3009b91" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-grid-xy-1.png" width="1100"></p>
 </div>
 </div>
 <div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-none_b2674b6a32a32e69be43900d1ede68e4" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_grid</span>(<span class="at">grid =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_grid</span>(<span class="at">grid =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-grid-none-1.png" width="1100"></p>
 </div>
@@ -1270,10 +1345,10 @@ NULL</code></pre>
 <h2>Apply the Custom Theme</h2>
 <div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-all_b024ea9c2c7049360b132023fc035bd4">
 <div class="column">
-<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>g <span class="sc">+</span> </span>
-<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
-<span id="cb50-3"><a href="#cb50-3"></a>    <span class="at">grid =</span> <span class="st">"all"</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>g <span class="sc">+</span> </span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
+<span id="cb55-3"><a href="#cb55-3"></a>    <span class="at">grid =</span> <span class="st">"all"</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-grid-all-1.png" width="1000"></p>
@@ -1283,49 +1358,64 @@ NULL</code></pre>
 </section>
 <section id="add-checks-to-the-custom-theme" class="slide level2">
 <h2>Add Checks to the Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid-check_e79679dc994062e94ec7b4a71c5df0c8">
-<div class="sourceCode cell-code" id="cb51" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>theme_asap_grid <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">grid =</span> <span class="st">"xy"</span>, </span>
-<span id="cb51-2"><a href="#cb51-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
-<span id="cb51-3"><a href="#cb51-3"></a>  </span>
-<span id="cb51-4"><a href="#cb51-4"></a>  <span class="cf">if</span>(<span class="sc">!</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"none|x|X|y|Y"</span>)) <span class="fu">stop</span>(<span class="st">'grid must be a character: "none" or any combination of "X", "Y", "x" and "y".'</span>)</span>
-<span id="cb51-5"><a href="#cb51-5"></a>  </span>
-<span id="cb51-6"><a href="#cb51-6"></a>  out <span class="ot">&lt;-</span> </span>
-<span id="cb51-7"><a href="#cb51-7"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
-<span id="cb51-8"><a href="#cb51-8"></a>                  <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
-<span id="cb51-9"><a href="#cb51-9"></a>    <span class="fu">theme</span>(</span>
-<span id="cb51-10"><a href="#cb51-10"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb51-11"><a href="#cb51-11"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey20"</span>),</span>
-<span id="cb51-12"><a href="#cb51-12"></a>      <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="st">"pt"</span>),</span>
-<span id="cb51-13"><a href="#cb51-13"></a>      <span class="do">## fill in other theme adjustments here</span></span>
-<span id="cb51-14"><a href="#cb51-14"></a>    )</span>
-<span id="cb51-15"><a href="#cb51-15"></a>  </span>
-<span id="cb51-16"><a href="#cb51-16"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"x|X"</span>)) {</span>
-<span id="cb51-17"><a href="#cb51-17"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
-<span id="cb51-18"><a href="#cb51-18"></a>                       <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb51-19"><a href="#cb51-19"></a>                       <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">6</span>, <span class="st">"pt"</span>))</span>
-<span id="cb51-20"><a href="#cb51-20"></a>  }</span>
-<span id="cb51-21"><a href="#cb51-21"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"y|Y"</span>)) {</span>
-<span id="cb51-22"><a href="#cb51-22"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
-<span id="cb51-23"><a href="#cb51-23"></a>                       <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb51-24"><a href="#cb51-24"></a>                       <span class="at">axis.ticks.length.y =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">4</span>, <span class="st">"pt"</span>))</span>
-<span id="cb51-25"><a href="#cb51-25"></a>  }</span>
-<span id="cb51-26"><a href="#cb51-26"></a>  </span>
-<span id="cb51-27"><a href="#cb51-27"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb51-28"><a href="#cb51-28"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid-check_c79439b3c0f09e61bc8ff7aba2627bd0">
+<div class="sourceCode cell-code" id="cb56" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>theme_asap_grid <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">grid =</span> <span class="st">"xy"</span>, </span>
+<span id="cb56-2"><a href="#cb56-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
+<span id="cb56-3"><a href="#cb56-3"></a>  </span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="cf">if</span>(<span class="sc">!</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"none|x|X|y|Y"</span>)) <span class="fu">stop</span>(<span class="st">'grid must be a character: "none" or any combination of "X", "Y", "x" and "y".'</span>)</span>
+<span id="cb56-5"><a href="#cb56-5"></a>  </span>
+<span id="cb56-6"><a href="#cb56-6"></a>  out <span class="ot">&lt;-</span> </span>
+<span id="cb56-7"><a href="#cb56-7"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family, </span>
+<span id="cb56-8"><a href="#cb56-8"></a>                  <span class="at">base_line_size =</span> base_line_size, <span class="at">base_rect_size =</span> base_rect_size) <span class="sc">+</span> </span>
+<span id="cb56-9"><a href="#cb56-9"></a>    <span class="fu">theme</span>(</span>
+<span id="cb56-10"><a href="#cb56-10"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb56-11"><a href="#cb56-11"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey20"</span>),</span>
+<span id="cb56-12"><a href="#cb56-12"></a>      <span class="at">axis.ticks.length =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">2</span>, <span class="st">"pt"</span>),</span>
+<span id="cb56-13"><a href="#cb56-13"></a>      <span class="co"># fill in other theme adjustments here</span></span>
+<span id="cb56-14"><a href="#cb56-14"></a>    )</span>
+<span id="cb56-15"><a href="#cb56-15"></a>  </span>
+<span id="cb56-16"><a href="#cb56-16"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"x|X"</span>)) {</span>
+<span id="cb56-17"><a href="#cb56-17"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
+<span id="cb56-18"><a href="#cb56-18"></a>                       <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb56-19"><a href="#cb56-19"></a>                       <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">6</span>, <span class="st">"pt"</span>))</span>
+<span id="cb56-20"><a href="#cb56-20"></a>  }</span>
+<span id="cb56-21"><a href="#cb56-21"></a>  <span class="cf">if</span> (stringr<span class="sc">::</span><span class="fu">str_detect</span>(grid, <span class="st">"y|Y"</span>)) {</span>
+<span id="cb56-22"><a href="#cb56-22"></a>    out <span class="ot">&lt;-</span> out <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey87"</span>),</span>
+<span id="cb56-23"><a href="#cb56-23"></a>                       <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb56-24"><a href="#cb56-24"></a>                       <span class="at">axis.ticks.length.y =</span> <span class="fu">unit</span>(base_size<span class="sc">/</span><span class="dv">4</span>, <span class="st">"pt"</span>))</span>
+<span id="cb56-25"><a href="#cb56-25"></a>  }</span>
+<span id="cb56-26"><a href="#cb56-26"></a>  </span>
+<span id="cb56-27"><a href="#cb56-27"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb56-28"><a href="#cb56-28"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apply-the-custom-theme-7" class="slide level2">
 <h2>Apply the Custom Theme</h2>
 <div class="cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-all-check_159df3c1b9a5bb55da31a6f83ef7da07">
-<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g <span class="sc">+</span> </span>
-<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
-<span id="cb52-3"><a href="#cb52-3"></a>    <span class="at">grid =</span> <span class="st">"all"</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>g <span class="sc">+</span> </span>
+<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
+<span id="cb57-3"><a href="#cb57-3"></a>    <span class="at">grid =</span> <span class="st">"all"</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code style="color:red;font-size:16pt;">Error in theme_asap_grid(grid = “all”) :<br>grid must be a character: “none” or any combination of “X”, “Y”, “x” and “y”.</code></p>
 </section>
-<section id="your-turn" class="slide level2">
-<h2>Your Turn</h2>
+<section id="recap" class="slide level2">
+<h2><b style="color:#663399;">Recap</b></h2>
+<div class="recap">
+<div>
+<ul>
+<li class="fragment"></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="exercise" class="title-slide slide level1 center">
+<h1>Exercise</h1>
+
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
 <div class="question">
 <ul>
 <li><strong>Create a corporate or funny custom theme.</strong>
@@ -1338,8 +1428,8 @@ NULL</code></pre>
 </ul>
 </div>
 </section>
-<section id="your-turn-1" class="slide level2">
-<h2>Your Turn</h2>
+<section id="exercise-1-1" class="slide level2">
+<h2>Exercise 1</h2>
 <div class="question">
 <ul>
 <li><strong>Create a corporate or funny custom theme.</strong>
@@ -1351,8 +1441,8 @@ NULL</code></pre>
 </ul></li>
 <li><strong>Showcase your theme using some example graphics.</strong>
 <ul>
-<li>Save them to disk and share them with the group.</li>
-<li>If you have added some additional arguments, feel free to share them as well.</li>
+<li>Save the plots to disk and share them with the group.</li>
+<li>Did you add some additional arguments?<br>Feel free to share your thoughts on “why” and “how”.</li>
 </ul></li>
 </ul>
 </div>
@@ -1364,7 +1454,7 @@ NULL</code></pre>
 <img src="img/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://cedricscherer.com">Cédric Scherer</a> // posit::conf(2023)</p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

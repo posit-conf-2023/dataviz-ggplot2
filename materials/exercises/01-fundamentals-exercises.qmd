@@ -1,0 +1,93 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "Fundamentals & Workflows: Exercises"
+author: "Your Name"
+date: last-modified
+format: 
+  html:
+    toc: true
+execute:
+  message: false
+  warning: false
+  fig-width: 10
+  fig-height: 6.2
+editor: source
+---
+
+# Exercise 1
+
+-   **Discuss / investigate with your neighbor:**
+    -  What are the differences between `geom_line()` and `geom_path()`?
+    -  Why can you use `geom_smooth()` and `stat_smooth()` interchangeably?
+    -  What are the three ways to *remove a legend* from a ggplot?
+    -  Which is your favorite theme? 
+    -  What is your favorite ggplot2 extension package?
+
+
+*Add your answers here.*
+
+
+# Exercise 2
+
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per month.
+    -  Visualize bike counts per weather type and period as *bar chart*. 
+-   **Combine the three plots with patchwork.**
+-   **Export the final graphic in a format of your choice.**
+
+
+## Data import
+
+```{r}
+#| label: preparation
+library(readr)
+library(ggplot2)
+
+bikes <-
+  read_csv(
+    here::here("data", "london-bikes.csv"),
+    col_types = "Dcfffilllddddc"
+  )
+```
+
+
+## Visualizations
+
+### Time series of counts per day and night
+
+```{r}
+#| label: timeseries
+
+```
+
+### Box and whisker plots of average temperatures per season
+
+```{r}
+#| label: boxplot
+
+```
+
+### Bar chart of counts per weather type and period of the day
+
+```{r}
+#| label: barchart
+
+```
+
+
+## Combine Plots
+
+```{r}
+#| label: combined-graphic
+library(patchwork)
+
+```
+
+
+## Save Multipanel-Plot
+
+```{r}
+#| label: export-graphic
+
+```

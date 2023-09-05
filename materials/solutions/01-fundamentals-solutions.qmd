@@ -1,0 +1,733 @@
+---
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
+subtitle: "<span style='font-size:2em;'>Fundamentals & Workflows</span><br><span style='font-weight:400;font-size:1.3em;'>— Exercise Solutions —</span>"
+author: "<a href='https://www.cedricscherer.com' style='color:#28a87d;font-weight:600;'>Cédric Scherer</a>&ensp;//&ensp;posit::conf&ensp;//&ensp;September 2023</span></span>"
+format:
+  revealjs:
+    theme: slides.scss
+    footer: '[Cédric Scherer](https://cedricscherer.com) // posit::conf(2023)'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 10
+  fig-height: 6.2
+  fig-align: center
+---
+
+## Preparation
+
+```{r}
+#| label: preparation
+#| cache: false
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+## data
+bikes <-
+  read_csv(
+    here::here("data", "london-bikes.csv"),
+    col_types = "Dcfffilllddddc"
+  )
+
+## plot style
+theme_set(theme_minimal(base_family = "Asap SemiCondensed", base_size = 18))
+theme_update(
+  panel.grid.minor = element_blank()
+)
+```
+
+
+# Exercise 1
+
+
+## Exercise 1
+
+::: question
+-   **Discuss / investigate with your neighbor:**
+    -  What are the differences between `geom_line()` and `geom_path()`?
+    -  Why can you use `geom_smooth()` and `stat_smooth()` interchangeably?
+    -  What are the three ways to *remove a legend* from a ggplot?
+:::
+
+
+## geom_line() versus geom_path()
+
+```{r}
+#| label: exercise-1-1-help-geom-line
+#| eval: false
+?geom_line
+```
+
+<br>
+
+#### Description
+
+> `geom_path()` connects the observations in the **order in which they appear in the data**. `geom_line()` connects them in **order of the variable on the x axis**.  
+
+
+## geom_line() versus geom_path()
+
+```{r}
+#| label: exercise-1-1-data-filtered
+bikes_filtered <- 
+  bikes |> 
+  filter(year == 2015, month == 2, day_night == "day")
+```
+
+
+## geom_line() versus geom_path()
+
+::: {layout-ncol="2"}
+
+```{r}
+#| label: exercise-1-1-geom-line
+#| fig-width: 7.5
+#| fig-height: 6
+#| code-line-numbers: "3"
+ggplot(bikes_filtered,
+       aes(x = humidity, y = temp)) +
+  geom_line() +
+  geom_point(aes(color = date), size = 4)
+```
+
+```{r}
+#| label: exercise-1-1-geom-path
+#| fig-width: 7.5
+#| fig-height: 6
+#| code-line-numbers: "3"
+ggplot(bikes_filtered,
+       aes(x = humidity, y = temp)) +
+  geom_path() +
+  geom_point(aes(color = date), size = 4)
+```
+
+:::
+
+
+## geom_smooth() and stat_smooth()
+
+```{r}
+#| label: exercise-1-1-help-geom-smooth
+#| eval: false
+?geom_smooth
+```
+
+<br>
+
+#### Description
+
+> `geom_smooth()` and `stat_smooth()` are effectively **aliases: they both use the same arguments**. Use `stat_smooth()` if you want to display the results with a non-standard geom.  
+
+
+--------------------------------------------------------------------------------
+
+<br><br><br><br>
+
+<code style='font-size:1.38em;font-weight:800;'>layer(data, mapping, geom, stat, position)</code>
+
+
+## layer()
+
+```{r}
+#| label: exercise-1-1-layer
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+ggplot() +
+  layer(
+    data = bikes, 
+    mapping = aes(x = temp, y = count),
+    geom = "point", 
+    stat = "identity", 
+    position = "identity"
+  )
+```
+
+
+## layer()
+
+```{r}
+#| label: exercise-1-1-layer-ggplot
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+ggplot(
+    data = bikes, 
+    mapping = aes(x = temp, y = count),
+  ) +
+  layer(
+    geom = "point", 
+    stat = "identity", 
+    position = "identity"
+  )
+```
+
+
+## geom_smooth() and stat_smooth()
+
+::: {layout-ncol="2"}
+
+```{r}
+#| label: exercise-1-1-geom-smooth-stat
+#| eval: false
+#| code-line-numbers: "2"
+geom_smooth(
+  stat = "smooth",
+  position = "identity"
+)
+```
+
+```{r}
+#| label: exercise-1-1-stat-smooth-geom
+#| eval: false
+#| code-line-numbers: "2"
+stat_smooth(
+  geom = "smooth",
+  position = "identity"
+)
+```
+
+:::
+
+
+## geom_smooth() and stat_smooth()
+
+::: {layout-ncol="2"}
+
+```{r}
+#| label: exercise-1-1-geom-smooth
+#| fig-width: 7.5
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(bikes,
+       aes(x = temp, y = count)) +
+  geom_point(alpha = .1) +
+  geom_smooth()
+```
+
+```{r}
+#| label: exercise-1-1-stat-smooth
+#| fig-width: 7.5
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(bikes,
+       aes(x = temp, y = count)) +
+  geom_point(alpha = .1) +
+  stat_smooth()
+```
+:::
+
+
+## "Non-Standard Geom"
+
+```{r}
+#| label: exercise-1-1-stat-custom-geom-errorbar
+#| fig-width: 12
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(bikes, aes(x = temp, y = count)) +
+  geom_point(alpha = .1) +
+  stat_smooth(geom = "pointrange")
+```
+
+
+## "Non-Standard Geom"
+
+```{r}
+#| label: exercise-1-1-stat-custom-geom-col
+#| fig-width: 12
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(bikes, aes(x = temp, y = count)) +
+  geom_point(alpha = .1) +
+  stat_smooth(geom = "col")
+```
+
+
+## "Non-Standard Geom"
+
+```{r}
+#| label: exercise-1-1-stat-custom-geom-text
+#| fig-width: 12
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(bikes, aes(x = temp, y = count)) +
+  geom_point(alpha = .1) +
+  stat_smooth(geom = "text", aes(label = "🤓"), size = 4)
+```
+
+
+## geom_* versus stat_*
+
+```{r}
+#| label: exercise-1-1-geom-bar
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "2"
+ggplot(bikes, aes(x = weather_type, fill = year)) + 
+  geom_bar() # with `stat = "count", position = "stack"`
+```
+
+
+## geom_* versus stat_*
+
+```{r}
+#| label: exercise-1-1-stat-count
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "2"
+ggplot(bikes, aes(x = weather_type, fill = year)) + 
+  stat_count() # with `geom = "bar", position = "stack"`
+```
+
+
+## Remove Legends
+
+```{r}
+#| label: exercise-1-1-legends-default
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "1|2|3"
+ggplot(filter(bikes, year == "2016"), aes(x = date, y = count)) +
+  geom_line(aes(color = day_night, linetype = day_night)) +
+  geom_point(aes(fill = day_night), shape = 21)
+```
+
+
+## Remove Legends: Layer
+
+```{r}
+#| label: exercise-1-1-legends-rm-geom
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "2"
+ggplot(filter(bikes, year == "2016"), aes(x = date, y = count)) +
+  geom_line(aes(color = day_night, linetype = day_night), show.legend = FALSE) +
+  geom_point(aes(fill = day_night), shape = 21)
+```
+
+
+## Remove Legends: Aesthetic
+
+```{r}
+#| label: exercise-1-1-legends-rm-scale
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(filter(bikes, year == "2016"), aes(x = date, y = count)) +
+  geom_line(aes(color = day_night, linetype = day_night)) +
+  geom_point(aes(fill = day_night), shape = 21) +
+  scale_color_discrete(guide = "none")
+```
+
+
+## Remove Legends: Aesthetic
+
+```{r}
+#| label: exercise-1-1-legends-rm-guide
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(filter(bikes, year == "2016"), aes(x = date, y = count)) +
+  geom_line(aes(color = day_night, linetype = day_night)) +
+  geom_point(aes(fill = day_night), shape = 21) +
+  guides(color = "none", linetype = guide_none())
+```
+
+
+## Remove Legends: All
+
+```{r}
+#| label: exercise-1-1-legends-rm-theme
+#| fig-width: 10
+#| fig-height: 6
+#| code-line-numbers: "4"
+ggplot(filter(bikes, year == "2016"), aes(x = date, y = count)) +
+  geom_line(aes(color = day_night, linetype = day_night)) +
+  geom_point(aes(fill = day_night), shape = 21) +
+  theme(legend.position = "none")
+```
+
+
+# Exercise 2
+
+## Exercise 2
+
+::: question
+-   **Explore the TfL bike share data visually:**
+    -  Create a *time series* of counts per day and night.
+    -  Draw *box and whisker plots* of average temperatures per month.
+    -  Visualize bike counts per weather type and period as *bar chart*. 
+-   **Combine the three plots with patchwork.**
+-   **Export the final graphic in a format of your choice.**
+:::
+
+
+## Time Series
+
+```{r}
+#| label: exercise-1-2-timeseries-1-basic
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = date, y = count)) +
+  geom_line(aes(color = day_night))
+```
+
+
+## Time Series
+
+```{r}
+#| label: exercise-1-2-timeseries-1-basic
+#| echo: false
+```
+
+
+## Time Series
+
+```{r}
+#| label: exercise-1-2-timeseries-2-polished
+#| eval: false
+#| purl: false
+g1 <- 
+  ggplot(bikes, aes(x = date, y = count)) +
+  geom_line(aes(color = day_night)) +
+  scale_x_date(date_breaks = "4 months", date_labels = "%m/'%y") +
+  scale_y_continuous(labels = scales::label_comma()) +
+  scale_color_manual(values = c(day = "#FFA200", night = "#757BC7")) +
+  labs(x = NULL, y = "Rented bikes", color = NULL)
+
+g1
+```
+
+## Time Series
+
+```{r}
+#| label: exercise-1-2-timeseries-2-polished
+#| echo: false
+#| cache: false
+```
+
+
+## Box and Whisker Plots
+
+```{r}
+#| label: exercise-1-2-boxplot-1-basic
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = month, y = temp)) +
+  geom_boxplot()
+```
+
+
+## Box and Whisker Plots
+
+```{r}
+#| label: exercise-1-2-boxplot-1-basic
+#| echo: false
+```
+
+
+## Box and Whisker Plots
+
+```{r}
+#| label: exercise-1-2-boxplot-2-reordered
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = forcats::fct_reorder(month, -temp), y = temp)) +
+  geom_boxplot()
+```
+
+
+## Box and Whisker Plots
+
+```{r}
+#| label: exercise-1-2-boxplot-2-reordered
+#| echo: false
+```
+
+
+## Box and Whisker Plots
+
+```{r}
+#| label: exercise-1-2-boxplot-3-polished
+#| eval: false
+#| purl: false
+g2 <- 
+  ggplot(bikes, aes(x = lubridate::month(date, label = TRUE), y = temp)) +
+  geom_boxplot() +
+  scale_y_continuous(labels = scales::label_number(suffix = "°C")) +
+  labs(x = NULL, y = "Temperature")
+
+g2
+```
+
+
+## Box and Whisker Plots
+
+```{r}
+#| label: exercise-1-2-boxplot-3-polished
+#| echo: false
+#| cache: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-1-geom
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  geom_col()
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-1-geom
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-2-stat
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  stat_summary(geom = "col")
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-2-stat
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-3-stat-fixed
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  stat_summary(geom = "col", fun = "sum", position = "stack")
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-3-stat-fixed
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-data-pre-proc
+#| eval: false
+#| purl: false
+bikes |>
+  group_by(weather_type, day_night) |>
+  summarize(count = sum(count)) |>
+  ggplot(aes(x = weather_type, y = count, fill = day_night)) + 
+  geom_col()
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-data-pre-proc
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-4-dodged
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  stat_summary(geom = "col", fun = "sum", position = "dodge")
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-4-dodged
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-5-position-1
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  stat_summary(
+    geom = "col", fun = "sum", 
+    width = .7,
+    position = position_dodge(
+      width = .8, preserve = "single"
+    )
+  )
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-5-position-1
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-6-position-2
+#| eval: false
+#| purl: false
+ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  stat_summary(
+    geom = "col", fun = "sum", 
+    width = .7,
+    position = position_dodge2(
+      padding = .2, preserve = "single"
+    )
+  )
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-6-position-2
+#| echo: false
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-7-polished
+#| eval: false
+#| purl: false
+g3 <- ggplot(bikes, aes(x = weather_type, y = count, fill = day_night)) + 
+  stat_summary(
+    geom = "col", fun = "sum", 
+    width = .7,
+    position = position_dodge2(
+      padding = .2, preserve = "single"
+    )
+  ) +
+  scale_y_continuous(labels = scales::label_comma(scale = 1/10^6, suffix = "M")) +
+  scale_fill_manual(
+    values = c(day = "#FFA200", night = "#757bc7")
+  ) +
+  labs(x = NULL, y = "Rented bikes", fill = NULL) +
+  theme(
+    panel.grid.major.x = element_blank()
+  )
+
+g3
+```
+
+
+## Bar Chart
+
+```{r}
+#| label: exercise-1-2-barchart-7-polished
+#| echo: false
+#| cache: false
+```
+
+
+## Combine Plots
+
+```{r}
+#| label: exercise-1-2-combined-graphic-a
+#| cache: false
+#| fig-width: 15
+#| fig-height: 8
+library(patchwork)
+g2 + (g1 / g3) + plot_layout(guides = "collect", widths = c(.7, 1))
+```
+
+
+## Combine Plots
+
+```{r}
+#| label: exercise-1-2-combined-graphic-b
+#| cache: false
+#| fig-width: 15
+#| fig-height: 8
+library(patchwork)
+(g2 + g1) / g3 + plot_layout(guides = "collect")
+```
+
+
+## Combine Plots
+
+```{r}
+#| label: exercise-1-2-combined-graphic-c
+#| cache: false
+#| fig-width: 15
+#| fig-height: 8
+library(patchwork)
+(g2 + g1 + plot_layout(widths = c(.7, 1))) / g3 + plot_layout(guides = "collect")
+```
+
+
+## Save Multipanel Plot
+
+```{r}
+#| label: exercise-1-2-export-graphic-subdir
+#| echo: false
+ggsave(here::here("materials", "solutions", "bikes-panel.png"), 
+       width = 14, height = 9, dpi = 600, bg = "white")
+```
+
+```{r}
+#| label: exercise-1-2-export-graphic
+#| eval: false
+ggsave("bikes-panel.png", width = 14, height = 9, dpi = 600, bg = "white")
+```
+
+
+--------------------------------------------------------------------------------
+
+![The final PNG graphic.](bikes-panel.png)
