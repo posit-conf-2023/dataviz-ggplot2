@@ -39,9 +39,9 @@ This course is for you if you:
 | 10:30 - 11:00 | *Coffee break*           |
 | 11:00 - 12:30 | Working with Text        |
 | 12:30 - 13:30 | *Lunch break*            |
-| 13:30 - 15:00 | Working with Themes      |
+| 13:30 - 15:00 | Working with Colors      |
 | 15:00 - 15:30 | *Coffee break*           |
-| 15:30 - 17:00 | Working with Colors      |
+| 15:30 - 17:00 | Working with Themes      |
 
 
 ## Prework
