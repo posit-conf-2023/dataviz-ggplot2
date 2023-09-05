@@ -85,7 +85,7 @@ We will make use of custom fonts during the course. If you want to follow all co
 * Spline Sans Mono: [fonts.google.com/specimen/Spline+Sans+Mono](https://fonts.google.com/specimen/Spline+Sans+Mono)
 * Hepta Slab: [fonts.google.com/specimen/Hepta+Slab](https://fonts.google.com/specimen/Hepta+Slab)
 
-You can download all typefaces as a single zip file [here]().
+You can download all typefaces as a single zip file [here](https://cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip).
 
 ### For Mac OS Users
 
