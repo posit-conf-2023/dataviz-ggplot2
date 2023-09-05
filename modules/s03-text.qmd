@@ -108,4 +108,4 @@ bikes |>
 :::
 
 <br>
-<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/02-text-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/02-text-solution.html' target="_blank">Solution</a>
+<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/02-text-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/02-text-solutions.html' target="_blank">Solution</a>

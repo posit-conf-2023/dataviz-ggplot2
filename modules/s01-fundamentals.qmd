@@ -63,4 +63,4 @@ tbl-colwidths: [5,20,75]
 :::
 
 <br>
-<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamental-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/01-fundamentals-solution.html' target="_blank">Solution</a>
+<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamentals-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/01-fundamentals-solutions.html' target="_blank">Solution</a>

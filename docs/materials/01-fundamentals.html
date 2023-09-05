@@ -1953,12 +1953,27 @@ Explanation
 <h2>Themes</h2>
 <ul>
 <li><a href="https://github.com/nsgrantham/ggdark"><strong><code>{ggdark}</code></strong></a></li>
-<li><a href="https://github.com/jrnold/ggthemes"><strong><code>{ggsci}</code></strong></a></li>
-<li><a href="https://github.com/ricardo-bion/ggtech"><strong><code>{ggtech}</code></strong></a></li>
-<li><a href="https://github.com/jrnold/ggthemes"><strong><code>{ggthemes}</code></strong></a></li>
+<li><a href="https://github.com/jrnold/ggthemes"><strong><code>{ggsci}</code></strong></a> (also color scales)</li>
+<li><a href="https://github.com/ricardo-bion/ggtech"><strong><code>{ggtech}</code></strong></a> (also color scales)</li>
+<li><a href="https://github.com/jrnold/ggthemes"><strong><code>{ggthemes}</code></strong></a> (also color scales)</li>
 <li><a href="https://github.com/Mikata-Project/ggthemr"><strong><code>{ggthemr}</code></strong></a></li>
-<li><a href="https://github.com/hrbrmstr/hrbrthemes"><strong><code>{hrbrthemes}</code></strong></a></li>
-<li><a href="https://ryo-n7.github.io/tvthemes/"><strong><code>{tvthemes}</code></strong></a></li>
+<li><a href="https://github.com/hrbrmstr/hrbrthemes"><strong><code>{hrbrthemes}</code></strong></a> (also color scales)</li>
+<li><a href="https://ryo-n7.github.io/tvthemes/"><strong><code>{tvthemes}</code></strong></a> (also color scales)</li>
+</ul>
+</section>
+<section id="color-palettes" class="slide level2">
+<h2>Color Palettes</h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html"><strong><code>{colorspace}</code></strong></a></li>
+<li><a href="https://jaredhuling.org/jcolors/"><strong><code>{jcolors}</code></strong></a></li>
+<li><a href="https://github.com/BlakeRMills/MetBrewer"><strong><code>{MetBrewer}</code></strong></a></li>
+<li><a href="https://cran.r-project.org/web/packages/nord/readme/README.html"><strong><code>{nord}</code></strong></a></li>
+<li><a href="https://jakubnowosad.com/rcartocolor/"><strong><code>{rcartocolor}</code></strong></a></li>
+<li><a href="https://cran.r-project.org/web/packages/RColorBrewer/index.html"><strong><code>{RColorBrewer}</code></strong></a></li>
+<li><a href="https://github.com/thomasp85/scico"><strong><code>{scico}</code></strong></a></li>
+<li><a href="https://github.com/hneth/unikn"><strong><code>{unikn}</code></strong></a></li>
+<li><a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html"><strong><code>{viridis}</code></strong></a></li>
+<li><a href="https://github.com/karthik/wesanderson"><strong><code>{wesanderson}</code></strong></a></li>
 </ul>
 </section>
 <section id="interactive-charts" class="slide level2">
@@ -1976,6 +1991,19 @@ Explanation
 <li><a href="https://grapher.network/"><strong><code>{grapher}</code></strong></a>*</li>
 </ul>
 <p><span style="font-size:.9em;">* not using <code>ggplot2</code></span></p>
+</section>
+<section id="recap" class="slide level2">
+<h2><b style="color:#663399;">Recap</b></h2>
+<div class="recap">
+<ul>
+<li>a <strong>basic ggplot</strong> is build by specifying three components:<br><code>data</code>, <code>aesthetics</code> and <code>layer</code>, either a <code>geom_*</code> or <code>stat_*</code></li>
+<li>the <strong>default appearance of data and non-data elements can be modified</strong> via <code>scale_*</code>, <code>coord_*</code>, <code>facet_*</code> and <code>theme_*</code> / <code>theme</code></li>
+<li>use the <strong>devices cairo</strong> (pdf) <strong>and agg</strong> (png, jpg, tiff) when saving plots</li>
+<li>find a <strong>suitable plot size</strong> by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package</li>
+<li>define <strong>conditional components, custom layers and functions</strong> to generate plots more efficiently and to iterate over multiple inputs</li>
+<li>combine multiple plot outputs with <strong>{patchwork}</strong></li>
+</ul>
+</div>
 </section></section>
 <section>
 <section id="exercises" class="title-slide slide level1 center">

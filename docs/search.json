@@ -648,7 +648,14 @@
     "href": "materials/01-fundamentals.html#themes",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Themes",
-    "text": "Themes\n\n{ggdark}\n{ggsci}\n{ggtech}\n{ggthemes}\n{ggthemr}\n{hrbrthemes}\n{tvthemes}"
+    "text": "Themes\n\n{ggdark}\n{ggsci} (also color scales)\n{ggtech} (also color scales)\n{ggthemes} (also color scales)\n{ggthemr}\n{hrbrthemes} (also color scales)\n{tvthemes} (also color scales)"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#color-palettes",
+    "href": "materials/01-fundamentals.html#color-palettes",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Color Palettes",
+    "text": "Color Palettes\n\n{colorspace}\n{jcolors}\n{MetBrewer}\n{nord}\n{rcartocolor}\n{RColorBrewer}\n{scico}\n{unikn}\n{viridis}\n{wesanderson}"
   },
   {
     "objectID": "materials/01-fundamentals.html#interactive-charts",
@@ -656,6 +663,13 @@
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Interactive Charts",
     "text": "Interactive Charts\n\n{ggiraph}\n{plotly}\n{echarts4r}*\n{highcharter}*\n{charter}*\n{streamgraph}*\n{tmap}*\n{leaflet}*\n{globe4r}*\n{grapher}*\n\n* not using ggplot2"
+  },
+  {
+    "objectID": "materials/01-fundamentals.html#recap",
+    "href": "materials/01-fundamentals.html#recap",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Recap",
+    "text": "Recap\n\n\na basic ggplot is build by specifying three components:data, aesthetics and layer, either a geom_* or stat_*\nthe default appearance of data and non-data elements can be modified via scale_*, coord_*, facet_* and theme_* / theme\nuse the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots\nfind a suitable plot size by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package\ndefine conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs\ncombine multiple plot outputs with {patchwork}"
   },
   {
     "objectID": "materials/01-fundamentals.html#exercise-1",
@@ -2790,7 +2804,7 @@
     "href": "modules/s05-colors.html#exercise-1",
     "title": "Working with Colors",
     "section": "Exercise 1",
-    "text": "Exercise 1\n::: question\n\n\nAdd colors to our bar chart from the last exercise:"
+    "text": "Exercise 1\n\n\nAdd colors to our bar chart from the last exercise:"
   },
   {
     "objectID": "modules/s05-colors.html#exercise-2",

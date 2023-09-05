@@ -251,24 +251,12 @@ ul.task-list li input[type="checkbox"] {
 <h1>Recap</h1>
 <div class="recap">
 <ul>
-<li>use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
-<ul>
-<li>e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
-</ul></li>
-<li>use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
-<ul>
-<li>e.g.&nbsp;<code>scale_*_gradient()</code>, <code>scale_*_gradient2()</code> or <code>scale_*_viridis_c</code></li>
-</ul></li>
-<li>various packages provide palettes incl.&nbsp;<code>scale_*</code> components
-<ul>
-<li>e.g.&nbsp;<code>{rcartocolors}</code>, <code>{scico}</code>, <code>{ggsci}</code>, <code>{ggthemes}</code>, <code>{nord}</code></li>
-</ul></li>
-<li>those and even more packages return palettes as vectors
-<ul>
-<li>modify and supply them to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
-</ul></li>
-<li>use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
-<li>evaluate palette quality with <strong><code>{colorspace}</code></strong> and simulaze CVD with <strong><code>{colorblindr}</code></strong></li>
+<li>a <strong>basic ggplot</strong> is build by specifying three components:<br><code>data</code>, <code>aesthetics</code> and <code>layer</code>, either a <code>geom_*</code> or <code>stat_*</code></li>
+<li>the <strong>default appearance of data and non-data elements can be modified</strong> via <code>scale_*</code>, <code>coord_*</code>, <code>facet_*</code> and <code>theme_*</code> / <code>theme</code></li>
+<li>use the <strong>devices cairo</strong> (pdf) <strong>and agg</strong> (png, jpg, tiff) when saving plots</li>
+<li>find a <strong>suitable plot size</strong> by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package</li>
+<li>define <strong>conditional components, custom layers and functions</strong> to generate plots more efficiently and to iterate over multiple inputs</li>
+<li>combine multiple plot outputs with <strong>{patchwork}</strong></li>
 </ul>
 </div>
 </section>
@@ -303,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Export the final graphic in a format of your choice.</strong></li>
 </ul>
 </div>
-<p><br> <a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamental-exercises.qmd" target="_blank">Exercise Template</a> | <a href="../materials/solutions/01-fundamentals-solution.html" target="_blank">Solution</a></p>
+<p><br> <a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamentals-exercises.qmd" target="_blank">Exercise Template</a> | <a href="../materials/solutions/01-fundamentals-solutions.html" target="_blank">Solution</a></p>
 
 
 </section>

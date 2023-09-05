@@ -46,8 +46,6 @@ tbl-colwidths: [5,20,75]
 ## Exercise 1
 
 ::: question
-
-::: question
 -   **Add colors to our bar chart from the last exercise:**
 
 ```{r}
@@ -114,4 +112,4 @@ bikes |>
 :::
 
 <br>
-<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/03-colors-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/03-colors-solution.html' target="_blank">Solution</a>
+<a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/03-colors-exercises.qmd' target="_blank">Exercise Template</a>&ensp;|&ensp;<a href='../materials/solutions/03-colors-solutions.html' target="_blank">Solution</a>
