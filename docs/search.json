@@ -669,7 +669,7 @@
     "href": "materials/01-fundamentals.html#recap",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Recap",
-    "text": "Recap\n\n\na basic ggplot is build by specifying three components:data, aesthetics and layer, either a geom_* or stat_*\nthe default appearance of data and non-data elements can be modified via scale_*, coord_*, facet_* and theme_* / theme\nuse the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots\nfind a suitable plot size by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package\ndefine conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs\ncombine multiple plot outputs with {patchwork}"
+    "text": "Recap\n\n\na basic ggplot is build by specifying three components:data, aesthetics and layer, either a geom_* or stat_*\nthe default appearance of all other components can be modified via scale_*, coord_*, facet_* and theme_* / theme\nuse the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots\nfind a suitable plot size by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package\ndefine conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs\ncombine multiple plot outputs with {patchwork}"
   },
   {
     "objectID": "materials/01-fundamentals.html#exercise-1",

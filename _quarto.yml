@@ -37,7 +37,7 @@ website:
         text: Downloads
         menu: 
           - text: All Course Materials
-            href: positconf-2023-ggplot2-materials.zip
+            href: materials/positconf-2023-ggplot2-materials.zip
           - text: Data Sets
             href: positconf-2023-ggplot2-data.zip
           - text: Font Files
