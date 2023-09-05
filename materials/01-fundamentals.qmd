@@ -1754,12 +1754,26 @@ p3 <- ggplot(bikes, aes(x = humidity, y = count)) + geom_scatterfit(pointalpha =
 ## Themes
 
 + [**`{ggdark}`**](https://github.com/nsgrantham/ggdark)
-+ [**`{ggsci}`**](https://github.com/jrnold/ggthemes)
-+ [**`{ggtech}`**](https://github.com/ricardo-bion/ggtech)
-+ [**`{ggthemes}`**](https://github.com/jrnold/ggthemes)
++ [**`{ggsci}`**](https://github.com/jrnold/ggthemes) (also color scales)
++ [**`{ggtech}`**](https://github.com/ricardo-bion/ggtech) (also color scales)
++ [**`{ggthemes}`**](https://github.com/jrnold/ggthemes) (also color scales)
 + [**`{ggthemr}`**](https://github.com/Mikata-Project/ggthemr)
-+ [**`{hrbrthemes}`**](https://github.com/hrbrmstr/hrbrthemes)
-+ [**`{tvthemes}`**](https://ryo-n7.github.io/tvthemes/)
++ [**`{hrbrthemes}`**](https://github.com/hrbrmstr/hrbrthemes) (also color scales)
++ [**`{tvthemes}`**](https://ryo-n7.github.io/tvthemes/) (also color scales)
+
+
+## Color Palettes
+
++ [**`{colorspace}`**](https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html)
++ [**`{jcolors}`**](https://jaredhuling.org/jcolors/)
++ [**`{MetBrewer}`**](https://github.com/BlakeRMills/MetBrewer)
++ [**`{nord}`**](https://cran.r-project.org/web/packages/nord/readme/README.html)
++ [**`{rcartocolor}`**](https://jakubnowosad.com/rcartocolor/)
++ [**`{RColorBrewer}`**](https://cran.r-project.org/web/packages/RColorBrewer/index.html)
++ [**`{scico}`**](https://github.com/thomasp85/scico)
++ [**`{unikn}`**](https://github.com/hneth/unikn)
++ [**`{viridis}`**](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
++ [**`{wesanderson}`**](https://github.com/karthik/wesanderson)
 
 
 ## Interactive Charts
@@ -1776,6 +1790,19 @@ p3 <- ggplot(bikes, aes(x = humidity, y = count)) + geom_scatterfit(pointalpha =
 + [**`{grapher}`**](https://grapher.network/)*
 
 <span style='font-size:.9em;'>* not using <code>ggplot2</code>
+
+
+## <b style='color:#663399;'>Recap</b>
+
+::: recap
+-   a **basic ggplot** is build by specifying three components:<br>`data`, `aesthetics` and `layer`, either a `geom_*` or `stat_*`
+-   the **default appearance of data and non-data elements can be modified** via `scale_*`, `coord_*`, `facet_*` and `theme_*` / `theme`
+-   use the **devices cairo** (pdf) **and agg** (png, jpg, tiff) when saving plots
+-   find a **suitable plot size** by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package
+-   define **conditional components, custom layers and functions** to generate plots more efficiently and to iterate over multiple inputs
+-   combine multiple plot outputs with **{patchwork}**
+:::
+
 
 # Exercises
 
