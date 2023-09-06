@@ -1996,12 +1996,13 @@ Explanation
 <h2><b style="color:#663399;">Recap</b></h2>
 <div class="recap">
 <ul>
-<li>a <strong>basic ggplot</strong> is build by specifying three components:<br><code>data</code>, <code>aesthetics</code> and <code>layer</code>, either a <code>geom_*</code> or <code>stat_*</code></li>
-<li>the <strong>default appearance of all other components can be modified</strong> via <code>scale_*</code>, <code>coord_*</code>, <code>facet_*</code> and <code>theme_*</code> / <code>theme</code></li>
-<li>use the <strong>devices cairo</strong> (pdf) <strong>and agg</strong> (png, jpg, tiff) when saving plots</li>
-<li>find a <strong>suitable plot size</strong> by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package</li>
-<li>define <strong>conditional components, custom layers and functions</strong> to generate plots more efficiently and to iterate over multiple inputs</li>
-<li>combine multiple plot outputs with <strong>{patchwork}</strong></li>
+<li>a basic ggplot is build by specifying three components:<br><code>data</code>, <code>aes</code>thetics and a <code>layer</code> (usually a <code>geom_*</code> or <code>stat_*</code>)</li>
+<li><em>aesthetic mappings</em> define how variables map to visual properties</li>
+<li>the default appearance of all other components can be modified via <code>scale_*</code>, <code>coord_*</code>, <code>facet_*</code> and <code>theme_*</code> / <code>theme</code></li>
+<li>use the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots</li>
+<li>find a suitable plot size by setting figure chunk options in qmd/rmd files or with the help of the <code>{camcorder}</code> package</li>
+<li>define conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs</li>
+<li>combine multiple plot outputs with <code>{patchwork}</code></li>
 </ul>
 </div>
 </section></section>

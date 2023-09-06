@@ -147,19 +147,19 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">All Course Materials</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-data.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-data.zip" rel="" target="">
  <span class="dropdown-text">Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-fonts.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-fonts.zip" rel="" target="">
  <span class="dropdown-text">Font Files</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-scripts.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-scripts.zip" rel="" target="">
  <span class="dropdown-text">Scripts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-exercises.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-exercises.zip" rel="" target="">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -237,26 +237,27 @@ ul.task-list li input[type="checkbox"] {
 <h1>Outline</h1>
 <ul>
 <li><a href="../materials/00-welcome.html" target="_blank">Welcome</a></li>
-<li>The {ggplot2} Package</li>
-<li>The {ggplot2} Showcase</li>
+<li>The <code>{ggplot2}</code> Package</li>
+<li>The <code>{ggplot2}</code> Showcase</li>
 <li>A Walk-Through Example</li>
 <li>Saving Plots</li>
-<li>Programming with {ggplot2}</li>
+<li>Programming with <code>{ggplot2}</code></li>
 <li>Combine Plots</li>
 <li>Exciting Extension Packages</li>
-<li>Exercises</li>
+<li><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamentals-exercises.qmd" target="_blank">Exercises</a></li>
 </ul>
 </section>
 <section id="recap" class="level1">
 <h1>Recap</h1>
 <div class="recap">
 <ul>
-<li>a <strong>basic ggplot</strong> is build by specifying three components:<br><code>data</code>, <code>aesthetics</code> and <code>layer</code>, either a <code>geom_*</code> or <code>stat_*</code></li>
-<li>the <strong>default appearance of all other components can be modified</strong> via <code>scale_*</code>, <code>coord_*</code>, <code>facet_*</code> and <code>theme_*</code> / <code>theme</code></li>
-<li>use the <strong>devices cairo</strong> (pdf) <strong>and agg</strong> (png, jpg, tiff) when saving plots</li>
-<li>find a <strong>suitable plot size</strong> by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package</li>
-<li>define <strong>conditional components, custom layers and functions</strong> to generate plots more efficiently and to iterate over multiple inputs</li>
-<li>combine multiple plot outputs with <strong>{patchwork}</strong></li>
+<li>a basic ggplot is build by specifying three components:<br><code>data</code>, <code>aes</code>thetics and a <code>layer</code> (usually a <code>geom_*</code> or <code>stat_*</code>)</li>
+<li><em>aesthetic mappings</em> define how variables map to visual properties</li>
+<li>the default appearance of all other components can be modified via <code>scale_*</code>, <code>coord_*</code>, <code>facet_*</code> and <code>theme_*</code> / <code>theme</code></li>
+<li>use the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots</li>
+<li>find a suitable plot size by setting figure chunk options in qmd/rmd files or with the help of the <code>{camcorder}</code> package</li>
+<li>define conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs</li>
+<li>combine multiple plot outputs with <code>{patchwork}</code></li>
 </ul>
 </div>
 </section>

@@ -147,19 +147,19 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">All Course Materials</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-data.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-data.zip" rel="" target="">
  <span class="dropdown-text">Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-fonts.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-fonts.zip" rel="" target="">
  <span class="dropdown-text">Font Files</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-scripts.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-scripts.zip" rel="" target="">
  <span class="dropdown-text">Scripts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-exercises.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-exercises.zip" rel="" target="">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -237,32 +237,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Non-Default Typefaces</li>
 <li>Set Themes Globally</li>
 <li>Custom Themes</li>
-<li>Exercise</li>
+<li><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/04-theming-exercises.qmd" target="_blank">Exercise</a></li>
 </ul>
 </section>
 <section id="recap" class="level1">
 <h1>Recap</h1>
 <div class="recap">
-<ul>
-<li>use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
-<ul>
-<li>e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
-</ul></li>
-<li>use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
-<ul>
-<li>e.g.&nbsp;<code>scale_*_gradient()</code> or <code>scale_*_viridis_c</code></li>
-</ul></li>
-<li>various packages provide palettes incl.&nbsp;<code>scale_*</code> components
-<ul>
-<li>e.g.&nbsp;{rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}</li>
-</ul></li>
-<li>those and even more packages return palettes as vectors
-<ul>
-<li>modify and supply them to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
-</ul></li>
-<li>use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
-<li>evaluate palette quality with <strong>{colorspace}</strong> (HCL) and <strong>{colorblindr}</strong> (CVD)</li>
-</ul>
+
 </div>
 </section>
 <section id="exercise" class="level1">

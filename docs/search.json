@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "",
-    "text": "A posit::conf(2023) Workshop by Cédric Scherer\n📆  September 18, 2023\n⏰  09:00–17:00\n🏨  TBA\n✍️  posit.co/conf"
+    "text": "A posit::conf(2023) Workshop by Cédric Scherer\n📆  September 18, 2023\n⏰  09:00–17:00 CDT< /span>\n🏨  TBA"
   },
   {
     "objectID": "index.html#is-this-course-for-me",
@@ -32,11 +32,18 @@
     "href": "materials/00-welcome.html#update-announcements",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "UPDATE Announcements",
-    "text": "UPDATE Announcements\n\nWiFi\n\nUsername:\nPassword: \n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nRstudio Cloud: posit.cloud/spaces/397253"
+    "text": "UPDATE Announcements\n\nWiFi\n\nUsername: TBA\nPassword: TBA\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nRstudio Cloud: posit.cloud/spaces/397253"
   },
   {
     "objectID": "materials/00-welcome.html#section-16",
     "href": "materials/00-welcome.html#section-16",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "posit.cloud/spaces/397253"
+  },
+  {
+    "objectID": "materials/00-welcome.html#section-17",
+    "href": "materials/00-welcome.html#section-17",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "",
     "text": "posit-conf-2023.github.io/dataviz-ggplot2"
@@ -46,14 +53,14 @@
     "href": "materials/00-welcome.html#update-announcements-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "UPDATE Announcements",
-    "text": "UPDATE Announcements\n\n\ngender neutral bathrooms by the National Harbor rooms\nmeditation room is located at National Harbor 9, open 8am-5pm, Monday-Thursday\nthere is also has a dedicated room behind the reception\nlactation room is located at Potomac Dressing Room, open 8am-5pm, Monday-Thursday.\nparticipants with red lanyards wish to be not photographed, please note everyone’s lanyard colors before taking a photo\nthe Code of Conduct and COVID policies can be found at rstudio.com/conference/2022/2022-conf-code-of-conduct,please review them carefully"
+    "text": "UPDATE Announcements"
   },
   {
     "objectID": "materials/00-welcome.html#communication-strategy",
     "href": "materials/00-welcome.html#communication-strategy",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Communication Strategy",
-    "text": "Communication Strategy\n\n\n\nGreen sticky note — I am done with the exercise\nPink sticky note — I need help or support\nYou can ask questions / comment at any time during the course.\nPlease avoid questions during the breaks to give us a chance to recover and reflect.\nTeam up with your neighbors for exercises — and lunch!\nWe will collect feedback twice during the day (more later)."
+    "text": "Communication Strategy\n\n\n\nGreen sticky note — I am done with the exercise\nPink sticky note — I need help or support\nYou can ask questions / comment at any time during the course.\nPlease avoid questions during the breaks to give us a chance to recover.\nWe will be using Discord as our main digital communication method.\nTeam up with your neighbors for exercises — and lunch!\nWe will collect feedback twice during the day (more later)."
   },
   {
     "objectID": "materials/00-welcome.html#required-packages",
@@ -669,7 +676,7 @@
     "href": "materials/01-fundamentals.html#recap",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Recap",
-    "text": "Recap\n\n\na basic ggplot is build by specifying three components:data, aesthetics and layer, either a geom_* or stat_*\nthe default appearance of all other components can be modified via scale_*, coord_*, facet_* and theme_* / theme\nuse the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots\nfind a suitable plot size by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package\ndefine conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs\ncombine multiple plot outputs with {patchwork}"
+    "text": "Recap\n\n\na basic ggplot is build by specifying three components:data, aesthetics and a layer (usually a geom_* or stat_*)\naesthetic mappings define how variables map to visual properties\nthe default appearance of all other components can be modified via scale_*, coord_*, facet_* and theme_* / theme\nuse the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots\nfind a suitable plot size by setting figure chunk options in qmd/rmd files or with the help of the {camcorder} package\ndefine conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs\ncombine multiple plot outputs with {patchwork}"
   },
   {
     "objectID": "materials/01-fundamentals.html#exercise-1",
@@ -767,39 +774,46 @@
     "href": "materials/02-text.html#format-labels-via-scale_-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Format Labels via scale_*",
-    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format()\n  )"
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = scales::breaks_pretty(n = 10)\n  )"
   },
   {
     "objectID": "materials/02-text.html#format-labels-via-scale_-2",
     "href": "materials/02-text.html#format-labels-via-scale_-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Format Labels via scale_*",
-    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format(\n      suffix = \" bikes\"\n    ),\n    name = NULL\n  )"
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format()\n  )"
   },
   {
     "objectID": "materials/02-text.html#format-labels-via-scale_-3",
     "href": "materials/02-text.html#format-labels-via-scale_-3",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Format Labels via scale_*",
-    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format(\n      scale = .001\n    ),\n    name = \"Reported bike shares in thousands\"\n  )"
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format(\n      suffix = \" bikes\"\n    ),\n    name = NULL\n  )"
   },
   {
     "objectID": "materials/02-text.html#format-labels-via-scale_-4",
     "href": "materials/02-text.html#format-labels-via-scale_-4",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Format Labels via scale_*",
-    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = function(y) y / 1000,\n    name = \"Reported bike shares in thousands\"\n  )"
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = scales::comma_format(\n      scale = .001\n    ),\n    name = \"Reported bike shares in thousands\"\n  )"
   },
   {
     "objectID": "materials/02-text.html#format-labels-via-scale_-5",
     "href": "materials/02-text.html#format-labels-via-scale_-5",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Format Labels via scale_*",
-    "text": "Format Labels via scale_*\n\n\ng +\n  scale_x_continuous(\n    labels = function(y) paste0(y, \"°C\"),\n    name = \"Temperature\"\n  )"
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_y_continuous(\n    breaks = 0:4*15000,\n    labels = function(y) y / 1000,\n    name = \"Reported bike shares in thousands\"\n  )"
   },
   {
     "objectID": "materials/02-text.html#format-labels-via-scale_-6",
     "href": "materials/02-text.html#format-labels-via-scale_-6",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "Format Labels via scale_*",
+    "text": "Format Labels via scale_*\n\n\ng +\n  scale_x_continuous(\n    labels = function(y) paste0(y, \"°C\"),\n    name = \"Temperature\"\n  )"
+  },
+  {
+    "objectID": "materials/02-text.html#format-labels-via-scale_-7",
+    "href": "materials/02-text.html#format-labels-via-scale_-7",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Format Labels via scale_*",
     "text": "Format Labels via scale_*\n\n\ng +\n  scale_color_discrete(\n    name = NULL,\n    labels = str_to_title\n  )"
@@ -1768,7 +1782,7 @@
     "href": "materials/03-colors.html#recap",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Recap",
-    "text": "Recap\n\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_manual() or scale_*_brewer()\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient|gradient2() or scale_*_viridis_c\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales\nevaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)"
+    "text": "Recap\n\n\n\nuse categorical palettes for qualitative datae.g. scale_*_manual() or scale_*_brewer()\nuse sequential or diverging palettes for quantitative datae.g. scale_*_gradient|gradient2() or scale_*_viridis_c\nvarious packages provide palettes incl. scale_* componentse.g. {rcartocolors}, {scico}, {ggsci} and {MetBrewer}\ncolor packages return palettes as vectors that can be modified and supplied to scale_*_manual() and scale_*_gradientn()\nuse after_scale to modify and recycle color scales\nevaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)"
   },
   {
     "objectID": "materials/03-colors.html#exercise-1",
@@ -1796,7 +1810,7 @@
     "href": "materials/04-theming.html#theming",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Theming",
-    "text": "Theming\n\n= stylistic changes of non-data elements\n\n\ncomplete themes plus custom theme adjustments\n\neither add complete themes via theme_*()\nafterwards, theme settings can be overwritten via theme()"
+    "text": "Theming\n\n= stylistic changes of non-data elements\n\n\ncomplete themes plus custom theme adjustments\n\nadd complete themes via theme_*()\ntheme defaults can be overwritten via theme()"
   },
   {
     "objectID": "materials/04-theming.html#preparation-data",
@@ -2132,7 +2146,7 @@
     "href": "materials/04-theming.html#recap",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Recap",
-    "text": "Recap"
+    "text": "Recap\n\n\n\napply complete themes via theme_*() and modify theme defaults via theme()\nchange the appearance for all plots with theme_set() and theme_update()\n{systemfonts} allows to use non-default typefaces and register font variants\nuse the source code of complete themes to create a custom theme\nadd additional arguments to allow for different styles and settings"
   },
   {
     "objectID": "materials/04-theming.html#exercise-1",
@@ -2825,7 +2839,7 @@
     "href": "modules/s07-theming.html",
     "title": "Data Communication",
     "section": "",
-    "text": "View slides in full screen | Run the code yourself\n\nOutline\n\nComplete Themes\nModify Theme Elements\nNon-Default Typefaces\nSet Themes Globally\nCustom Themes\nExercise\n\n\n\nRecap\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_manual() or scale_*_brewer()\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_viridis_c\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales\nevaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)\n\n\n\n\nExercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave the plots to disk and share them with the group.\nDid you add some additional arguments? Feel free to share your thoughts on “why” and “how”.\n\n\n\n Exercise Template | Solution"
+    "text": "View slides in full screen | Run the code yourself\n\nOutline\n\nComplete Themes\nModify Theme Elements\nNon-Default Typefaces\nSet Themes Globally\nCustom Themes\nExercise\n\n\n\nRecap\n\n\n\n\n\nExercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave the plots to disk and share them with the group.\nDid you add some additional arguments? Feel free to share your thoughts on “why” and “how”.\n\n\n\n Exercise Template | Solution"
   },
   {
     "objectID": "prework.html",

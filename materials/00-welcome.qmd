@@ -137,30 +137,32 @@ execute:
 <br>
 
 #### WiFi
--   Username: 
--   Password: <br><br>
+-   Username: TBA
+-   Password: TBA<br><br>
 
 #### Course Materials
--   Webpage: [posit-conf-2023.github.io/dataviz-ggplot2](https://www.posit-conf-2023.github.io/dataviz-ggplot2)
+-   Webpage: [posit-conf-2023.github.io/dataviz-ggplot2](https://posit-conf-2023.github.io/dataviz-ggplot2/)
 -   Rstudio Cloud: [posit.cloud/spaces/397253](https://posit.cloud/spaces/397253/content/all?sort=name_asc)
 
 
 ## {.center}
 
 <div style='text-align:center;'>
-<a href="" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit-conf-2023.github.io/<br>dataviz-ggplot2</a>
+<a href="https://posit.cloud/spaces/397253/content/all?sort=name_asc" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit.cloud/spaces/397253</a>
+</div>
+
+
+## {.center}
+
+<div style='text-align:center;'>
+<a href="https://posit-conf-2023.github.io/dataviz-ggplot2/" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit-conf-2023.github.io/<br>dataviz-ggplot2</a>
 </div>
 
 
 ## UPDATE Announcements
 
 ::: incremental
--   gender neutral bathrooms by the National Harbor rooms
--   meditation room is located at National Harbor 9, open 8am-5pm, Monday-Thursday 
-  -   there is also has a dedicated room behind the reception
--   lactation room is located at Potomac Dressing Room, open 8am-5pm, Monday-Thursday.
--   participants with red lanyards wish to be not photographed, please note everyone's lanyard colors before taking a photo
--   the Code of Conduct and COVID policies can be found at [rstudio.com/conference/2022/2022-conf-code-of-conduct](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct),<br>please review them carefully
+-   
 :::
 
 
@@ -172,7 +174,8 @@ execute:
 -   <b style='color:#28a87d;'>Green sticky note </b>--- I am done with the exercise<br><br>
 -   <b style='color:#b82ca1;'>Pink sticky note </b>--- I need help or support<br><br>
 -   You can ask questions / comment at any time during the course.
--   Please avoid questions during the breaks to give us a chance to recover and reflect.
+-   Please avoid questions during the breaks to give us a chance to recover.
+-   We will be using Discord as our main digital communication method.
 -   Team up with your neighbors for exercises --- and lunch!
 -   We will collect feedback twice during the day (more later).
 :::

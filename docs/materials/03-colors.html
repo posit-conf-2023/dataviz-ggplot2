@@ -1775,24 +1775,12 @@
 <div class="recap">
 <div>
 <ul>
-<li class="fragment">use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
-<ul>
-<li class="fragment">e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
-</ul></li>
-<li class="fragment">use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
-<ul>
-<li class="fragment">e.g.&nbsp;<code>scale_*_gradient|gradient2()</code> or <code>scale_*_viridis_c</code></li>
-</ul></li>
-<li class="fragment">various packages provide palettes incl.&nbsp;<code>scale_*</code> components
-<ul>
-<li class="fragment">e.g.&nbsp;{rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}</li>
-</ul></li>
-<li class="fragment">those and even more packages return palettes as vectors
-<ul>
-<li class="fragment">modify and supply them to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
-</ul></li>
-<li class="fragment">use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
-<li class="fragment">evaluate palette quality with <strong>{colorspace}</strong> (HCL) and <strong>{colorblindr}</strong> (CVD)</li>
+<li class="fragment">use categorical palettes for qualitative data<br>e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
+<li class="fragment">use sequential or diverging palettes for quantitative data<br>e.g.&nbsp;<code>scale_*_gradient|gradient2()</code> or <code>scale_*_viridis_c</code></li>
+<li class="fragment">various packages provide palettes incl.&nbsp;<code>scale_*</code> components<br>e.g.&nbsp;<code>{rcartocolors}</code>, <code>{scico}</code>, <code>{ggsci}</code> and <code>{MetBrewer}</code></li>
+<li class="fragment">color packages return palettes as vectors that can be modified and supplied to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
+<li class="fragment">use <code>after_scale</code> to modify and recycle color scales</li>
+<li class="fragment">evaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)</li>
 </ul>
 </div>
 </div>

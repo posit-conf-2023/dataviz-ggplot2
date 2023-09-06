@@ -147,19 +147,19 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">All Course Materials</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-data.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-data.zip" rel="" target="">
  <span class="dropdown-text">Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-fonts.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-fonts.zip" rel="" target="">
  <span class="dropdown-text">Font Files</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-scripts.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-scripts.zip" rel="" target="">
  <span class="dropdown-text">Scripts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../positconf-2023-ggplot2-exercises.zip" rel="" target="">
+    <a class="dropdown-item" href="../materials/positconf-2023-ggplot2-exercises.zip" rel="" target="">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -243,31 +243,19 @@ ul.task-list li input[type="checkbox"] {
 <li>Create New Palettes</li>
 <li>Build Your Own Color Scales</li>
 <li>Design Colorblind-Friendly Graphics</li>
-<li>Exercises</li>
+<li><a href="https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/03-colors-exercises.qmd" target="_blank">Exercises</a></li>
 </ul>
 </section>
 <section id="recap" class="level1">
 <h1>Recap</h1>
 <div class="recap">
 <ul>
-<li>use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
-<ul>
-<li>e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
-</ul></li>
-<li>use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
-<ul>
-<li>e.g.&nbsp;<code>scale_*_gradient()</code> or <code>scale_*_viridis_c</code></li>
-</ul></li>
-<li>various packages provide palettes incl.&nbsp;<code>scale_*</code> components
-<ul>
-<li>e.g.&nbsp;{rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}</li>
-</ul></li>
-<li>those and even more packages return palettes as vectors
-<ul>
-<li>modify and supply them to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
-</ul></li>
-<li>use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
-<li>evaluate palette quality with <strong>{colorspace}</strong> (HCL) and <strong>{colorblindr}</strong> (CVD)</li>
+<li>use categorical palettes for qualitative data<br>e.g.&nbsp;<code>scale_*_manual()</code> or <code>scale_*_brewer()</code></li>
+<li>use sequential or diverging palettes for quantitative data<br>e.g.&nbsp;<code>scale_*_gradient|gradient2()</code> or <code>scale_*_viridis_c</code></li>
+<li>various packages provide palettes incl.&nbsp;<code>scale_*</code> components<br>e.g.&nbsp;<code>{rcartocolors}</code>, <code>{scico}</code>, <code>{ggsci}</code>, <code>{MetBrewer}</code>, <code>{nord}</code></li>
+<li>color packages return palettes as vectors that can be modified and supplied to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
+<li>use <code>after_scale</code> to modify and recycle color scales</li>
+<li>evaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)</li>
 </ul>
 </div>
 </section>

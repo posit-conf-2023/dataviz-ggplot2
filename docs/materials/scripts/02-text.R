@@ -197,6 +197,13 @@ g +
 
 g +
   scale_y_continuous(
+    breaks = scales::breaks_pretty(n = 10)
+  )
+
+
+
+g +
+  scale_y_continuous(
     breaks = 0:4*15000,
     labels = scales::comma_format()
   )
