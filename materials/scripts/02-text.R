@@ -17,6 +17,10 @@ pkgs <- c("ggplot2", "readr", "dplyr", "stringr", "lubridate", "here",
           "scales", "ggtext", "ggrepel", "ggforce", "ggannotate")
 install.packages(setdiff(pkgs, rownames(installed.packages())))
 
+if (!"geomtextpath" %in% rownames(installed.packages())) {
+  remotes::install_github("AllanCameron/geomtextpath")
+}
+
 
 
 library(ggplot2)
@@ -965,6 +969,117 @@ g +
     label.buffer = unit(15, "pt"),
     con.type = "straight",
     label.fill = "transparent"
+  )
+
+
+
+bikes |>
+  filter(year == "2016") |>
+  group_by(month, day_night) |> 
+  summarize(count = sum(count)) |> 
+  ggplot(aes(x = month, y = count, 
+             color = day_night,
+             group = day_night)) +
+  geom_line(linewidth = 1) +
+  coord_cartesian(expand = FALSE) +
+  scale_y_continuous(
+    labels = scales::label_comma(
+      scale = 1/10^3, suffix = "K"
+    ),
+    limits = c(0, 850000)
+  ) +
+  scale_color_manual(
+    values = c("#FFA200", "#757BC7"),
+    name = NULL
+  )
+
+
+
+bikes |>
+  filter(year == "2016") |>
+  group_by(month, day_night) |> 
+  summarize(count = sum(count)) |> 
+  ggplot(aes(x = month, y = count, 
+             color = day_night,
+             group = day_night)) +
+  geomtextpath::geom_textline(
+    aes(label = day_night),
+    linewidth = 1,
+    vjust = -.5, 
+    family = "Asap SemiCondensed",
+    fontface = "bold"
+  ) +
+  coord_cartesian(expand = FALSE) +
+  scale_y_continuous(
+    labels = scales::label_comma(
+      scale = 1/10^3, suffix = "K"
+    ),
+    limits = c(0, 850000)
+  ) +
+  scale_color_manual(
+    values = c("#FFA200", "#757BC7"),
+    guide = "none"
+  )
+
+
+
+bikes |>
+  filter(year == "2016") |>
+  group_by(month, day_night) |> 
+  summarize(count = sum(count)) |> 
+  mutate(day_night = if_else(
+    day_night == "day", 
+    "Day period (6am-6pm)", 
+    "Night period (6pm-6am)"
+  )) |> 
+  ggplot(aes(x = month, y = count, 
+             color = day_night,
+             group = day_night)) +
+  geomtextpath::geom_textline(
+    aes(label = day_night),
+    linewidth = 1,
+    vjust = -.5, 
+    hjust = .01,
+    family = "Asap SemiCondensed",
+    fontface = "bold"
+  ) +
+  coord_cartesian(expand = FALSE) +
+  scale_y_continuous(
+    labels = scales::label_comma(
+      scale = 1/10^3, suffix = "K"
+    ),
+    limits = c(0, 850000)
+  ) +
+  scale_color_manual(
+    values = c("#FFA200", "#757BC7"),
+    guide = "none"
+  )
+
+
+
+bikes |>
+  filter(year == "2016") |>
+  ggplot(aes(x = month, y = count, 
+             color = day_night,
+             group = day_night)) +
+  stat_summary(
+    geom = "line", fun = sum,
+    linewidth = 1
+  ) +
+  geomtextpath::geom_textline(
+    aes(label = day_night), 
+    stat = "summary" # fails
+  ) +
+  coord_cartesian(expand = FALSE) +
+  scale_y_continuous(
+    labels = scales::label_comma(
+      scale = 1/10^3, suffix = "K"
+    ),
+    limits = c(0, 850000)
+  ) +
+  scale_color_manual(
+    values = c("#FFA200", "#757BC7"),
+    name = NULL
   )
 
 

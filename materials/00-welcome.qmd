@@ -233,6 +233,7 @@ install.packages("ggsci")
 install.packages("hrbrthemes")
 install.packages("tvthemes")
 install.packages("ggannotate")
+remotes::install_github("AllanCameron/geomtextpath")
 ```
 
 

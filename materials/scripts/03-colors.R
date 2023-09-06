@@ -18,7 +18,7 @@ pkgs <- c("ggplot2", "readr", "dplyr", "here", "RColorBrewer", "viridis",
           "colorspace", "remotes")
 install.packages(setdiff(pkgs, rownames(installed.packages())))
 
-if (!"colorblind" %in% rownames(installed.packages())) {
+if (!"colorblindr" %in% rownames(installed.packages())) {
   remotes::install_github("clauswilke/colorblindr")
 }
 

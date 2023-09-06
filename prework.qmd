@@ -36,6 +36,8 @@ A few packages are not strictly needed but are used in some of the course materi
 pkgs_opt <- c("camcorder", "viridis", "RColorBrewer", "MetBrewer", 
               "ggthemes", "ggsci", "hrbrthemes", "tvthemes", "ggannotate")
 install.packages(setdiff(pkgs_opt, rownames(installed.packages())))
+
+remotes::install_github("AllanCameron/geomtextpath")
 ```
 
 If, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.
