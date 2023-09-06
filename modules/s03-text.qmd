@@ -15,27 +15,27 @@ tbl-colwidths: [5,20,75]
 
 # Outline
 
--   Labels + theme()
--   Labels + scale_*()
--   Styling Labels with {ggtext}
+-   Labels + `theme()`
+-   Labels + `scale_*()`
+-   Styling Labels with `{ggtext}`
 -   Facet Labellers
 -   Handling Long Labels
 -   Annotations
--   Exercises
+-   <a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/02-text-exercises.qmd' target="_blank">Exercises</a>
 
 
 # Recap
 
 ::: recap
--   style labels such as title, axis and legend texts with **`theme()`**
--   format data-related labels with the **`labels`** argument of `scale_*()`
--   adjust strip text with the **`facet_*(labeller)`** functionality
--   add data-related annotations with **`geom_text|label()`**
--   ... and data-unrelated annotations with **`annotate()`**
--   **`{ggtext}`** allows to render labels with markdown and basic html
--   `{ggtext}` also allows to add **dynamic linebreaks** and images
--   **`{ggrepel}`** ensures clever placement of annotations
--   **`ggforce::geom_mark_*()`** provide a set of advanced annotations
+-   style labels such as title, axis and legend texts with `theme()`
+-   format data-related labels with the `labels` argument of `scale_*()`
+-   adjust strip text with the `facet_*(labeller)` functionality
+-   add data-related annotations with `geom_text|label()`
+-   ... and data-unrelated annotations with `annotate()`
+-   `{ggtext}` allows to render labels with markdown and basic html
+-   `{ggtext}` also allows to add dynamic linebreaks and images
+-   `{ggrepel}` ensures clever placement of annotations
+-   `ggforce::geom_mark_*()` provide a set of advanced annotations
 :::
 
 

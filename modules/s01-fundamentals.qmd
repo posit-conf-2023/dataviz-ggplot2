@@ -16,25 +16,26 @@ tbl-colwidths: [5,20,75]
 # Outline
 
 -   <a href='../materials/00-welcome.html' target="_blank">Welcome</a>
--   The {ggplot2} Package
--   The {ggplot2} Showcase
+-   The `{ggplot2}` Package
+-   The `{ggplot2}` Showcase
 -   A Walk-Through Example
 -   Saving Plots
--   Programming with {ggplot2}
+-   Programming with `{ggplot2}`
 -   Combine Plots
 -   Exciting Extension Packages
--   Exercises
+-   <a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/01-fundamentals-exercises.qmd' target="_blank">Exercises</a>
 
 
 # Recap
 
 ::: recap
--   a **basic ggplot** is build by specifying three components:<br>`data`, `aesthetics` and `layer`, either a `geom_*` or `stat_*`
--   the **default appearance of all other components can be modified** via `scale_*`, `coord_*`, `facet_*` and `theme_*` / `theme` 
--   use the **devices cairo** (pdf) **and agg** (png, jpg, tiff) when saving plots
--   find a **suitable plot size** by setting figure width and height options in Rmarkdown and Quarto files or with the help of the {camcorder} package
--   define **conditional components, custom layers and functions** to generate plots more efficiently and to iterate over multiple inputs
--   combine multiple plot outputs with **{patchwork}**
+-   a basic ggplot is build by specifying three components:<br>`data`, `aes`thetics and a `layer` (usually a `geom_*` or `stat_*`)
+-   *aesthetic mappings* define how variables map to visual properties
+-   the default appearance of all other components can be modified via `scale_*`, `coord_*`, `facet_*` and `theme_*` / `theme` 
+-   use the devices cairo (pdf) and agg (png, jpg, tiff) when saving plots
+-   find a suitable plot size by setting figure chunk options in qmd/rmd files or with the help of the `{camcorder}` package
+-   define conditional components, custom layers and functions to generate plots more efficiently and to iterate over multiple inputs
+-   combine multiple plot outputs with `{patchwork}`
 :::
 
 

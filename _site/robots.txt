@@ -1,0 +1,1 @@
+Sitemap: https://posit-conf-2023.github.io/dataviz-ggplot2/sitemap.xml

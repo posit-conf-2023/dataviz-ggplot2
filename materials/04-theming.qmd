@@ -41,8 +41,8 @@ execute:
 
 ::: incremental
 -   complete themes plus custom theme adjustments
-    -   either add complete themes via `theme_*()`
-    -   afterwards, theme settings can be overwritten via `theme()`
+    -   add complete themes via `theme_*()`
+    -   theme defaults can be overwritten via `theme()`
 :::
 
 
@@ -1155,7 +1155,12 @@ g +
 
 ::: recap
 ::: incremental
--   
+-   apply complete themes via `theme_*()` and modify theme defaults via `theme()`
+-   change the appearance for all plots with `theme_set()` and `theme_update()`
+-   `{systemfonts}` allows to use non-default typefaces and register font variants
+-   use the source code of complete themes to create a custom theme
+-   add additional arguments to allow for different styles and settings
+-  
 :::
 :::
 

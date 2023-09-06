@@ -22,22 +22,18 @@ tbl-colwidths: [5,20,75]
 -   Create New Palettes
 -   Build Your Own Color Scales
 -   Design Colorblind-Friendly Graphics
--   Exercises
+-   <a href='https://github.com/posit-conf-2023/dataviz-ggplot2/blob/main/materials/exercises/03-colors-exercises.qmd' target="_blank">Exercises</a>
 
 
 # Recap
 
 ::: recap
--   use **categorical** palettes for **qualitative** data
-    -  e.g. `scale_*_manual()` or `scale_*_brewer()`
--   use **sequential or diverging** palettes for **quantitative** data
-    -  e.g. `scale_*_gradient()` or `scale_*_viridis_c`
--   various packages provide palettes incl. `scale_*` components
-    - e.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}
--   those and even more packages return palettes as vectors
-    - modify and supply them to `scale_*_manual()` and `scale_*_gradientn()`
--   use **`after_scale`** to modify and recycle color scales 
--   evaluate palette quality with **{colorspace}** (HCL) and **{colorblindr}** (CVD)
+-   use categorical palettes for qualitative data<br>e.g. `scale_*_manual()` or `scale_*_brewer()`
+-   use sequential or diverging palettes for quantitative data<br>e.g. `scale_*_gradient|gradient2()` or `scale_*_viridis_c`
+-   various packages provide palettes incl. `scale_*` components<br>e.g. `{rcartocolors}`, `{scico}`, `{ggsci}`, `{MetBrewer}`, `{nord}`
+-   color packages return palettes as vectors that can be modified and supplied to `scale_*_manual()` and `scale_*_gradientn()`
+-   use `after_scale` to modify and recycle color scales 
+-   evaluate palette quality with {colorspace} (HCL) and {colorblindr} (CVD)
 :::
 
 

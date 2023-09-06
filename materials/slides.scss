@@ -68,9 +68,13 @@ h1, h2, h3, h4, body {
   margin-bottom: 2.8px;
 }
 
-h2>code {
+h2 > code {
   font-size: .95em; 
   margin-bottom: 2.8px;
+}
+
+.reveal li > code {
+  font-size: .9em;
 }
 
 .reveal h3 {

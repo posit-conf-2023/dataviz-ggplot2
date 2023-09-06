@@ -39,13 +39,13 @@ website:
           - text: All Course Materials
             href: materials/positconf-2023-ggplot2-materials.zip
           - text: Data Sets
-            href: positconf-2023-ggplot2-data.zip
+            href: materials/positconf-2023-ggplot2-data.zip
           - text: Font Files
-            href: positconf-2023-ggplot2-fonts.zip
+            href: materials/positconf-2023-ggplot2-fonts.zip
           - text: Scripts
-            href: positconf-2023-ggplot2-scripts.zip
+            href: materials/positconf-2023-ggplot2-scripts.zip
           - text: Exercises
-            href: positconf-2023-ggplot2-exercises.zip
+            href: materials/positconf-2023-ggplot2-exercises.zip
       - icon: file-certificate
         href: license.qmd
       - icon: github
