@@ -8,8 +8,7 @@ by Cédric Scherer[<img src="https://raw.githubusercontent.com/posit-conf-2023/d
 
 :spiral_calendar: &ensp;September 18, 2023  
 :alarm_clock:     &ensp;09:00 - 17:00  
-:hotel:           &ensp;ROOM TBD  
-:writing_hand:    &ensp;[pos.it/conf](http://pos.it/conf)   
+:hotel:           &ensp;ROOM TBD    
 :link:            &ensp;[posit-conf-2023.github.io/dataviz-ggplot2](https://posit-conf-2023.github.io/dataviz-ggplot2/)
 
 -----
