@@ -10,7 +10,7 @@ A posit::conf(2023) Workshop by Cédric Scherer
 
 <span class='code'>📆 &ensp;September 18, 2023</span>\
 <span class='code'>⏰ &ensp;09:00–17:00 CDT</span>\
-<span class='code'>🏨 &ensp;TBA</span>\
+<span class='code'>🏨 &ensp;Grand Hall K</span>\
 
 ------------------------------------------------------------------------
 
