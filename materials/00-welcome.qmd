@@ -33,92 +33,91 @@ execute:
   fig-height: 6
 ---
 
-# Welcome 👋
+
+# Welcome<br><br><br><br><br><br> {background-image="img/logo-welcome.png" background-position="center" background-size="40%"}
 
 
-##  {background-image="img/intro/hello-blank.png" background-position="center" background-size="62%"}
+##  {#hello-blank data-menu-title="Hello" background-image="img/intro/hello-blank.png" background-position="center" background-size="62%"}
 
 
-##  {background-image="img/intro/hello-team.png" background-position="center" background-size="62%"}
+##  {#hello-team data-menu-title="Hello Team" background-image="img/intro/hello-team.png" background-position="center" background-size="62%"}
 
 
-##  {background-image="img/intro/team-hex-grid.png" background-position="center" background-size="105%"}
+##  {#teaching-team data-menu-title="Teaching Team" background-image="img/intro/team-hex-grid.png" background-position="center" background-size="105%"}
 
 
-##  {background-image="img/intro/hello-cedric.png" background-position="center" background-size="62%"}
+##  {#hello-cedric data-menu-title="Hello Cédric" background-image="img/intro/hello-cedric.png" background-position="center" background-size="62%"}
 
 
-##  {background-image="img/intro/avatars-logo.png" background-position="center" background-size="80%"}
+##  {#cedric-avatars data-menu-title="Cédric Avatars" background-image="img/intro/avatars-logo.png" background-position="center" background-size="80%"}
 
 
-##  {background-image="img/intro/projects-science.png" background-position="center" background-size="82%" background-color="#ABABAB"}
-
-::: footer
-:::
-
-
-##  {background-image="img/intro/projects-clients.png" background-position="center" background-size="77%" background-color="#ABABAB"}
+##  {#cedric-dataviz-science data-menu-title="Cédric Projects Science" background-image="img/intro/projects-science.png" background-position="center" background-size="82%" background-color="#ABABAB"}
 
 ::: footer
 :::
 
 
-##  {background-image="img/intro/projects-personal.png" background-position="center" background-size="85%" background-color="#ABABAB"}
+##  {#cedric-dataviz-clients data-menu-title="Cédric Projects Clients" background-image="img/intro/projects-clients.png" background-position="center" background-size="77%" background-color="#ABABAB"}
 
 ::: footer
 :::
 
 
-##  {background-image="img/intro/blog.png" background-position="center" background-size="56%"}
+##  {#cedric-dataviz-personal data-menu-title="Cédric Projects Personal"background-image="img/intro/projects-personal.png" background-position="center" background-size="85%" background-color="#ABABAB"}
 
 ::: footer
 :::
 
 
-##  {background-image="img/intro/blog-tutorial.png" background-position="center" background-size="56%"}
+##  {#cedric-blog data-menu-title="Cédric Blog"background-image="img/intro/blog.png" background-position="center" background-size="56%"}
 
 ::: footer
 :::
 
 
---------------------------------------------------------------------------------
+##  {#cedric-ggplot-tutorial data-menu-title="Cédric Blog Tutorial" background-image="img/intro/blog-tutorial.png" background-position="center" background-size="56%"}
+
+::: footer
+:::
+
+
+## {#cedric-ggplot-tutorial-overview data-menu-title="Cédric Blog Tutorial Overview"}
 
 ![[cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)](img/intro/ggplot-tutorial-overview.png){fig-align="center" fig-alt="Overview of some exemplary plots included in my ggplot2 tutorial."}
 
 
-##  {background-image="img/intro/blog-evol.png" background-position="center" background-size="56%"}
+##  {#cedric-ggplot-evol data-menu-title="Cédric Blog ggplot Evolution" background-image="img/intro/blog-evol.png" background-position="center" background-size="56%"}
 
 ::: footer
 :::
 
 
---------------------------------------------------------------------------------
+## {#cedric-ggplot-evol-gif data-menu-title="Cédric Blog ggplot Evolution GIF"}
 
 ![[cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot](https://www.cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot)](img/intro/evol-ggplot-1.gif){fig-align="center" fig-alt="Animated evolution of a jitter-pop plot showing student-teacher ratios per continent. The animation shows iteration through different geometries, theme adjustments, combinations of layers, and additional annotations such as text labels with arrows and an inset tile grid map with colors by region mathing those of the main graphic."}
 
 
-##  {background-image="img/intro/blog-rstudioconf.png" background-position="center" background-size="56%"}
+##  {#cedric-rstudio-conf data-menu-title="Cédric Blog rstudio::conf" background-image="img/intro/blog-rstudioconf.png" background-position="center" background-size="56%"}
 
 ::: footer
 :::
 
 
-##  {background-image="img/intro/hello-thomas.png" background-position="center" background-size="62%"}
+##  {#hello-thomas data-menu-title="Hello Thomas" background-image="img/intro/hello-thomas.png" background-position="center" background-size="62%"}
 
 
-##  {background-image="img/intro/thomas_artwork.png" background-position="center" background-size="70%"}
+##  {#thomas-artwork data-menu-title="Thomas Artwork" background-image="img/intro/thomas_artwork.png" background-position="center" background-size="70%"}
 
 ::: footer
 :::
 
 
-##  {background-image="img/intro/hello-jasmin.png" background-position="center" background-size="62%"}
+##  {#hello-jasmin data-menu-title="Hello Jasmin" background-image="img/intro/hello-jasmin.png" background-position="center" background-size="62%"}
 
 
-##  {background-image="img/intro/hello-course.png" background-position="center" background-size="62%"}
+##  {#hello-course data-menu-title="Hello Course" background-image="img/intro/hello-course.png" background-position="center" background-size="62%"}
 
-
---------------------------------------------------------------------------------
 
 ## Conversation Starters
 
@@ -142,20 +141,20 @@ execute:
 
 #### Course Materials
 -   Webpage: [posit-conf-2023.github.io/dataviz-ggplot2](https://posit-conf-2023.github.io/dataviz-ggplot2/)
--   Rstudio Cloud: [posit.cloud/spaces/397253](https://posit.cloud/spaces/397253/content/all?sort=name_asc)
+-   Posit Cloud: [posit.cloud/spaces/397253](https://posit.cloud/spaces/397253/content/all?sort=name_asc)
 
 
-## {.center}
-
-<div style='text-align:center;'>
-<a href="https://posit.cloud/spaces/397253/content/all?sort=name_asc" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit.cloud/spaces/397253</a>
-</div>
-
-
-## {.center}
+## {#course-webpage data-menu-title="Course Webpage" .center}
 
 <div style='text-align:center;'>
 <a href="https://posit-conf-2023.github.io/dataviz-ggplot2/" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit-conf-2023.github.io/<br>dataviz-ggplot2</a>
+</div>
+
+
+## {#posit-cloud data-menu-title="Posit Cloud" .center}
+
+<div style='text-align:center;'>
+<a href="https://posit.cloud/spaces/397253/content/all?sort=name_asc" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit.cloud/spaces/397253</a>
 </div>
 
 

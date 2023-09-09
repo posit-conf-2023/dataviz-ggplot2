@@ -21,6 +21,20 @@
     "text": "This work is licensed under a Creative Commons Attribution 4.0 International License."
   },
   {
+    "objectID": "materials/00-welcome.html#cedric-ggplot-tutorial-overview",
+    "href": "materials/00-welcome.html#cedric-ggplot-tutorial-overview",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r"
+  },
+  {
+    "objectID": "materials/00-welcome.html#cedric-ggplot-evol-gif",
+    "href": "materials/00-welcome.html#cedric-ggplot-evol-gif",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot"
+  },
+  {
     "objectID": "materials/00-welcome.html#conversation-starters",
     "href": "materials/00-welcome.html#conversation-starters",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
@@ -32,21 +46,21 @@
     "href": "materials/00-welcome.html#update-announcements",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "UPDATE Announcements",
-    "text": "UPDATE Announcements\n\nWiFi\n\nUsername: TBA\nPassword: TBA\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nRstudio Cloud: posit.cloud/spaces/397253"
+    "text": "UPDATE Announcements\n\nWiFi\n\nUsername: TBA\nPassword: TBA\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nPosit Cloud: posit.cloud/spaces/397253"
   },
   {
-    "objectID": "materials/00-welcome.html#section-16",
-    "href": "materials/00-welcome.html#section-16",
-    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "",
-    "text": "posit.cloud/spaces/397253"
-  },
-  {
-    "objectID": "materials/00-welcome.html#section-17",
-    "href": "materials/00-welcome.html#section-17",
+    "objectID": "materials/00-welcome.html#course-webpage",
+    "href": "materials/00-welcome.html#course-webpage",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "",
     "text": "posit-conf-2023.github.io/dataviz-ggplot2"
+  },
+  {
+    "objectID": "materials/00-welcome.html#posit-cloud",
+    "href": "materials/00-welcome.html#posit-cloud",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "posit.cloud/spaces/397253"
   },
   {
     "objectID": "materials/00-welcome.html#update-announcements-1",
