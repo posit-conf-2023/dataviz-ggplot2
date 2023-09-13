@@ -1,6 +1,6 @@
 ---
 title: "Engaging and Beautiful Data Visualizations with ggplot2"
-subtitle: "<span style='font-size:2em;'>Fundamentals & Workflows</span>"
+subtitle: "<span style='font-size:1.8em;'>Fundamentals & Workflows</span>"
 author: "<a href='https://www.cedricscherer.com' style='color:#28a87d;font-weight:600;'>Cédric Scherer</a>&ensp;//&ensp;posit::conf&ensp;//&ensp;September 2023"
 format:
   revealjs:

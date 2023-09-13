@@ -1,6 +1,6 @@
 ---
 title: "Engaging and Beautiful Data Visualizations with ggplot2"
-subtitle: "<span style='font-size:2em;'>Welcome!</span>"
+subtitle: "<span style='font-size:1.8em;'>Welcome!</span>"
 author: "<a href='https://www.cedricscherer.com' style='color:#28a87d;font-weight:600;'>Cédric Scherer</a>&ensp;//&ensp;posit::conf&ensp;//&ensp;September 2023"
 format:
   revealjs:
@@ -107,13 +107,20 @@ execute:
 ##  {#hello-thomas data-menu-title="Hello Thomas" background-image="img/intro/hello-thomas.png" background-position="center" background-size="62%"}
 
 
-##  {#thomas-artwork data-menu-title="Thomas Artwork" background-image="img/intro/thomas_artwork.png" background-position="center" background-size="70%"}
+##  {#thomas-artwork data-menu-title="Thomas Artwork"}
 
-::: footer
-:::
+![Artwork by Thomas Linn Pedersen](img/intro/thomas_artwork.png)
 
 
 ##  {#hello-jasmin data-menu-title="Hello Jasmin" background-image="img/intro/hello-jasmin.png" background-position="center" background-size="62%"}
+
+
+##  {#hello-jonathan data-menu-title="Hello Jonathan" background-image="img/intro/hello-jonathan.png" background-position="center" background-size="62%"}
+
+
+##  {#jonathan-photography-japan data-menu-title="Jonathan Photography"}
+
+![Photo by Jonathan Keane](img/intro/jonathan-japan.jpg)
 
 
 ##  {#hello-course data-menu-title="Hello Course" background-image="img/intro/hello-course.png" background-position="center" background-size="62%"}
@@ -136,8 +143,8 @@ execute:
 <br>
 
 #### WiFi
--   Username: TBA
--   Password: TBA<br><br>
+-   Username: Posit Conf 2023
+-   Password: conf2023<br><br>
 
 #### Course Materials
 -   Webpage: [posit-conf-2023.github.io/dataviz-ggplot2](https://posit-conf-2023.github.io/dataviz-ggplot2/)
@@ -158,10 +165,14 @@ execute:
 </div>
 
 
-## UPDATE Announcements
+## Announcements
 
 ::: incremental
--   
+-  **Gender-neutral bathrooms** are located among the Grand Suite Bathrooms.
+-  The two **meditation/prayer rooms** (Grand Suite 2A and Grand Suite 2B) are open Sunday-Tuesday 7:30 am-7:00 pm and Wednesday 8:00 am-6:00 pm
+-  The **lactation room** is located in Grand Suite 1 and open Sunday-Tuesday 7:30 am-7:00 pm and Wednesday 8:00 am-6:00 pm.
+-  Participants who do not wish to be photographed have **red lanyards**; please note everyone's lanyard colors before taking a photo and respect their choices.
+-   The **Code of Conduct** and **COVID** policies can be found at [posit.co/code-of-conduct](https://posit.co/code-of-conduct). Please review them carefully. You can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information.
 :::
 
 

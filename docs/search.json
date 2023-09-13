@@ -35,6 +35,20 @@
     "text": "cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot"
   },
   {
+    "objectID": "materials/00-welcome.html#thomas-artwork",
+    "href": "materials/00-welcome.html#thomas-artwork",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "Artwork by Thomas Linn Pedersen"
+  },
+  {
+    "objectID": "materials/00-welcome.html#jonathan-photography-japan",
+    "href": "materials/00-welcome.html#jonathan-photography-japan",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "Photo by Jonathan Keane"
+  },
+  {
     "objectID": "materials/00-welcome.html#conversation-starters",
     "href": "materials/00-welcome.html#conversation-starters",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
@@ -46,7 +60,7 @@
     "href": "materials/00-welcome.html#update-announcements",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "UPDATE Announcements",
-    "text": "UPDATE Announcements\n\nWiFi\n\nUsername: TBA\nPassword: TBA\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nPosit Cloud: posit.cloud/spaces/397253"
+    "text": "UPDATE Announcements\n\nWiFi\n\nUsername: Posit Conf 2023\nPassword: conf2023\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nPosit Cloud: posit.cloud/spaces/397253"
   },
   {
     "objectID": "materials/00-welcome.html#course-webpage",
@@ -63,11 +77,11 @@
     "text": "posit.cloud/spaces/397253"
   },
   {
-    "objectID": "materials/00-welcome.html#update-announcements-1",
-    "href": "materials/00-welcome.html#update-announcements-1",
+    "objectID": "materials/00-welcome.html#announcements",
+    "href": "materials/00-welcome.html#announcements",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "UPDATE Announcements",
-    "text": "UPDATE Announcements"
+    "section": "Announcements",
+    "text": "Announcements\n\n\nGender-neutral bathrooms are located among the Grand Suite Bathrooms.\nThe two meditation/prayer rooms (Grand Suite 2A and Grand Suite 2B) are open Sunday-Tuesday 7:30 am-7:00 pm and Wednesday 8:00 am-6:00 pm\nThe lactation room is located in Grand Suite 1 and open Sunday-Tuesday 7:30 am-7:00 pm and Wednesday 8:00 am-6:00 pm.\nParticipants who do not wish to be photographed have red lanyards; please note everyone’s lanyard colors before taking a photo and respect their choices.\nThe Code of Conduct and COVID policies can be found at posit.co/code-of-conduct. Please review them carefully. You can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information."
   },
   {
     "objectID": "materials/00-welcome.html#communication-strategy",
