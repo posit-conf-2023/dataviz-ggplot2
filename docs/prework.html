@@ -242,7 +242,8 @@ remotes::install_github("clauswilke/colorblindr")</code></pre>
 <p>To run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.</p>
 <p>A few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:</p>
 <pre><code>pkgs_opt &lt;- c("camcorder", "viridis", "RColorBrewer", "MetBrewer", 
-              "ggthemes", "ggsci", "hrbrthemes", "tvthemes", "ggannotate")
+              "ggthemes", "ggsci", "hrbrthemes", "tvthemes", 
+              "ggannotate", "concavemen")
 install.packages(setdiff(pkgs_opt, rownames(installed.packages())))
 
 remotes::install_github("AllanCameron/geomtextpath")</code></pre>

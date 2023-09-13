@@ -42,6 +42,13 @@
     "text": "Artwork by Thomas Linn Pedersen"
   },
   {
+    "objectID": "materials/00-welcome.html#jasmin-dataviz",
+    "href": "materials/00-welcome.html#jasmin-dataviz",
+    "title": "Engaging and Beautiful Data Visualizations with ggplot2",
+    "section": "",
+    "text": "Graphic by Jasmin Sarah König"
+  },
+  {
     "objectID": "materials/00-welcome.html#jonathan-photography-japan",
     "href": "materials/00-welcome.html#jonathan-photography-japan",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
@@ -1208,7 +1215,7 @@
     "href": "materials/02-text.html#annotations-with-ggforce-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Annotations with {ggforce}",
-    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_rect(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    color = \"black\",\n    family = \"Asap SemiCondensed\"\n  )"
+    "text": "Annotations with {ggforce}\n\n\ng +\n  ggforce::geom_mark_rect(\n    aes(label = \"Outliers?\",\n        filter = count > 40000),\n    color = \"black\",\n    label.family = \"Asap SemiCondensed\"\n  )"
   },
   {
     "objectID": "materials/02-text.html#annotations-with-ggforce-2",
@@ -2916,7 +2923,7 @@
     "href": "prework.html#technical-requirements",
     "title": "Prework",
     "section": "Technical Requirements",
-    "text": "Technical Requirements\n\nInstall R and Rstudio\nDownload the most recent version of R (at least version 4.2) and Rstudio (at least version 2023.06.1) and follow the installation steps.\n\n\nInstall R Libraries\nYou can install all required R packages at once by running the following code in the R command line:\npkgs <- c(\"ggplot2\", \"dplyr\", \"tibble\", \"tidyr\", \"readr\", \"forcats\", \n          \"stringr\", \"lubridate\", \"purrr\", \"here\", \"scales\", \"ragg\", \n          \"systemfonts\", \"rcartocolor\", \"scico\", \"prismatic\", \"patchwork\", \n          \"ggtext\", \"ggforce\", \"ggrepel\", \"colorspace\", \"gapminder\", \"remotes\")\ninstall.packages(setdiff(pkgs, rownames(installed.packages())))\n\nremotes::install_github(\"clauswilke/colorblindr\")\nTo run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.\nA few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:\npkgs_opt <- c(\"camcorder\", \"viridis\", \"RColorBrewer\", \"MetBrewer\", \n              \"ggthemes\", \"ggsci\", \"hrbrthemes\", \"tvthemes\", \"ggannotate\")\ninstall.packages(setdiff(pkgs_opt, rownames(installed.packages())))\n\nremotes::install_github(\"AllanCameron/geomtextpath\")\nIf, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.\n\n\nInstall Typefaces\nWe will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:\n\nAsap: fonts.google.com/specimen/Asap\nSpline Sans: fonts.google.com/specimen/Spline+Sans\nSpline Sans Mono: fonts.google.com/specimen/Spline+Sans+Mono\nHepta Slab: fonts.google.com/specimen/Hepta+Slab\n\nYou can download all typefaces as a single zip file here.\n\n\nFor Mac OS Users\nIf you want to save your visualization to PDF, please make sure that XQuartz is installed which is needed to use the cairo pdf device."
+    "text": "Technical Requirements\n\nInstall R and Rstudio\nDownload the most recent version of R (at least version 4.2) and Rstudio (at least version 2023.06.1) and follow the installation steps.\n\n\nInstall R Libraries\nYou can install all required R packages at once by running the following code in the R command line:\npkgs <- c(\"ggplot2\", \"dplyr\", \"tibble\", \"tidyr\", \"readr\", \"forcats\", \n          \"stringr\", \"lubridate\", \"purrr\", \"here\", \"scales\", \"ragg\", \n          \"systemfonts\", \"rcartocolor\", \"scico\", \"prismatic\", \"patchwork\", \n          \"ggtext\", \"ggforce\", \"ggrepel\", \"colorspace\", \"gapminder\", \"remotes\")\ninstall.packages(setdiff(pkgs, rownames(installed.packages())))\n\nremotes::install_github(\"clauswilke/colorblindr\")\nTo run the code, open up Rstudio. Copy–paste the code in the console pane (by default in the lower left) and hit enter. Several messages should pop up. Scan these messages that are returned for errors and troubleshoot them if necessary. Warnings and other informational messages can be ignored.\nA few packages are not strictly needed but are used in some of the course material. If you wish to install all packages, run the following code as well:\npkgs_opt <- c(\"camcorder\", \"viridis\", \"RColorBrewer\", \"MetBrewer\", \n              \"ggthemes\", \"ggsci\", \"hrbrthemes\", \"tvthemes\", \n              \"ggannotate\", \"concavemen\")\ninstall.packages(setdiff(pkgs_opt, rownames(installed.packages())))\n\nremotes::install_github(\"AllanCameron/geomtextpath\")\nIf, for some reason, you cannot install these packages or the latest versions of R and RStudio, we will have a Posit Cloud workspace set up that can be used instead. But you will still need to bring your laptop.\n\n\nInstall Typefaces\nWe will make use of custom fonts during the course. If you want to follow all contents locally, make sure the following typefaces are installed:\n\nAsap: fonts.google.com/specimen/Asap\nSpline Sans: fonts.google.com/specimen/Spline+Sans\nSpline Sans Mono: fonts.google.com/specimen/Spline+Sans+Mono\nHepta Slab: fonts.google.com/specimen/Hepta+Slab\n\nYou can download all typefaces as a single zip file here.\n\n\nFor Mac OS Users\nIf you want to save your visualization to PDF, please make sure that XQuartz is installed which is needed to use the cairo pdf device."
   },
   {
     "objectID": "prework.html#course-communication",

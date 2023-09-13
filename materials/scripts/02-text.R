@@ -908,7 +908,7 @@ g +
     aes(label = "Outliers?",
         filter = count > 40000),
     color = "black",
-    family = "Asap SemiCondensed"
+    label.family = "Asap SemiCondensed"
   )
 
 

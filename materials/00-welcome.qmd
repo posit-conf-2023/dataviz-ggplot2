@@ -115,6 +115,11 @@ execute:
 ##  {#hello-jasmin data-menu-title="Hello Jasmin" background-image="img/intro/hello-jasmin.png" background-position="center" background-size="62%"}
 
 
+##  {#jasmin-dataviz data-menu-title="Jasmin Data Visualization"}
+
+![Graphic by Jasmin Sarah König](img/intro/jasmin-overview.png)
+
+
 ##  {#hello-jonathan data-menu-title="Hello Jonathan" background-image="img/intro/hello-jonathan.png" background-position="center" background-size="62%"}
 
 

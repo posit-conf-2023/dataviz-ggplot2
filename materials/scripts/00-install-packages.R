@@ -26,7 +26,8 @@ remotes::install_github("clauswilke/colorblindr")
 ## OPTIONAL PACKAGES -----------------------------------------------------------
 
 pkgs_opt <- c("camcorder", "viridis", "RColorBrewer", "MetBrewer", 
-              "ggthemes", "ggsci", "hrbrthemes", "tvthemes", "ggannotate")
+              "ggthemes", "ggsci", "hrbrthemes", "tvthemes", 
+              "ggannotate", "concavemen")
 install.packages(setdiff(pkgs_opt, rownames(installed.packages())))
 
 remotes::install_github("AllanCameron/geomtextpath")
