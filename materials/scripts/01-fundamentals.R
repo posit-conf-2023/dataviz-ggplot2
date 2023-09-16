@@ -435,7 +435,7 @@ trends_monthly("July")
 
 
 
-plots <- purrr::map(month.name[1:12], trends_monthly) also: ~ trends_monthly(.x)
+plots <- purrr::map(month.name[1:12], trends_monthly) # also: ~ trends_monthly(.x)
 
 plots[[9]]
 
