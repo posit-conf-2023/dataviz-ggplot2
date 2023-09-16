@@ -37,19 +37,25 @@ execute:
 # Welcome<br><br><br><br><br><br> {background-image="img/logo-welcome.png" background-position="center" background-size="40%"}
 
 
+
 ##  {#hello-blank data-menu-title="Hello" background-image="img/intro/hello-blank.png" background-position="center" background-size="62%"}
+
 
 
 ##  {#hello-team data-menu-title="Hello Team" background-image="img/intro/hello-team.png" background-position="center" background-size="62%"}
 
 
+
 ##  {#teaching-team data-menu-title="Teaching Team" background-image="img/intro/team-hex-grid.png" background-position="center" background-size="105%"}
+
 
 
 ##  {#hello-cedric data-menu-title="Hello Cédric" background-image="img/intro/hello-cedric.png" background-position="center" background-size="62%"}
 
 
+
 ##  {#cedric-avatars data-menu-title="Cédric Avatars" background-image="img/intro/avatars-logo.png" background-position="center" background-size="80%"}
+
 
 
 ##  {#cedric-dataviz-science data-menu-title="Cédric Projects Science" background-image="img/intro/projects-science.png" background-position="center" background-size="82%" background-color="#ABABAB"}
@@ -58,10 +64,12 @@ execute:
 :::
 
 
+
 ##  {#cedric-dataviz-clients data-menu-title="Cédric Projects Clients" background-image="img/intro/projects-clients.png" background-position="center" background-size="77%" background-color="#ABABAB"}
 
 ::: footer
 :::
+
 
 
 ##  {#cedric-dataviz-personal data-menu-title="Cédric Projects Personal"background-image="img/intro/projects-personal.png" background-position="center" background-size="85%" background-color="#ABABAB"}
@@ -70,10 +78,12 @@ execute:
 :::
 
 
+
 ##  {#cedric-blog data-menu-title="Cédric Blog"background-image="img/intro/blog.png" background-position="center" background-size="56%"}
 
 ::: footer
 :::
+
 
 
 ##  {#cedric-ggplot-tutorial data-menu-title="Cédric Blog Tutorial" background-image="img/intro/blog-tutorial.png" background-position="center" background-size="56%"}
@@ -82,9 +92,11 @@ execute:
 :::
 
 
+
 ## {#cedric-ggplot-tutorial-overview data-menu-title="Cédric Blog Tutorial Overview"}
 
 ![[cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)](img/intro/ggplot-tutorial-overview.png){fig-align="center" fig-alt="Overview of some exemplary plots included in my ggplot2 tutorial."}
+
 
 
 ##  {#cedric-ggplot-evol data-menu-title="Cédric Blog ggplot Evolution" background-image="img/intro/blog-evol.png" background-position="center" background-size="56%"}
@@ -93,9 +105,11 @@ execute:
 :::
 
 
+
 ## {#cedric-ggplot-evol-gif data-menu-title="Cédric Blog ggplot Evolution GIF"}
 
 ![[cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot](https://www.cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot)](img/intro/evol-ggplot-1.gif){fig-align="center" fig-alt="Animated evolution of a jitter-pop plot showing student-teacher ratios per continent. The animation shows iteration through different geometries, theme adjustments, combinations of layers, and additional annotations such as text labels with arrows and an inset tile grid map with colors by region mathing those of the main graphic."}
+
 
 
 ##  {#cedric-rstudio-conf data-menu-title="Cédric Blog rstudio::conf" background-image="img/intro/blog-rstudioconf.png" background-position="center" background-size="56%"}
@@ -104,23 +118,36 @@ execute:
 :::
 
 
+
 ##  {#hello-thomas data-menu-title="Hello Thomas" background-image="img/intro/hello-thomas.png" background-position="center" background-size="62%"}
 
 
-##  {#thomas-artwork data-menu-title="Thomas Artwork"}
+
+## {#thomas-artwork data-menu-title="Thomas Artwork"}
 
 ![Artwork by Thomas Linn Pedersen](img/intro/thomas_artwork.png)
+
 
 
 ##  {#hello-jasmin data-menu-title="Hello Jasmin" background-image="img/intro/hello-jasmin.png" background-position="center" background-size="62%"}
 
 
-##  {#jasmin-dataviz data-menu-title="Jasmin Data Visualization"}
+
+## {#jasmin-dataviz data-menu-title="Jasmin Data Visualization"}
 
 ![Graphic by Jasmin Sarah König](img/intro/jasmin-overview.png)
 
 
+
+##  {#jasmin-dataviz-observable data-menu-title="Jasmin Data Visualization"}
+
+<iframe width="100%" height="1106.421875" frameborder="0"
+ src="https://observablehq.com/embed/@jasminsworkspace/constitutional-regression@2225?cells=viewof+continent%2Cviewof+source%2Cviewof+Dataset%2Cviewof+Vars%2Cviewof+Democracy%2Clegend%2Cplotfinal%2Ctextbox"></iframe>
+
+
+
 ##  {#hello-jonathan data-menu-title="Hello Jonathan" background-image="img/intro/hello-jonathan.png" background-position="center" background-size="62%"}
+
 
 
 ##  {#jonathan-photography-japan data-menu-title="Jonathan Photography"}
@@ -128,7 +155,9 @@ execute:
 ![Photo by Jonathan Keane](img/intro/jonathan-japan.jpg)
 
 
+
 ##  {#hello-course data-menu-title="Hello Course" background-image="img/intro/hello-course.png" background-position="center" background-size="62%"}
+
 
 
 ## Conversation Starters
@@ -143,7 +172,8 @@ execute:
 -   What are things you want to learn about ggplot2?
 
 
-## UPDATE Announcements
+
+## Announcements
 
 <br>
 
@@ -156,6 +186,7 @@ execute:
 -   Posit Cloud: [posit.cloud/spaces/397253](https://posit.cloud/spaces/397253/content/all?sort=name_asc)
 
 
+
 ## {#course-webpage data-menu-title="Course Webpage" .center}
 
 <div style='text-align:center;'>
@@ -163,11 +194,13 @@ execute:
 </div>
 
 
+
 ## {#posit-cloud data-menu-title="Posit Cloud" .center}
 
 <div style='text-align:center;'>
 <a href="https://posit.cloud/spaces/397253/content/all?sort=name_asc" style='font-family:spline sans mono;font-size:50pt;font-weight:700;'>posit.cloud/spaces/397253</a>
 </div>
+
 
 
 ## Announcements
@@ -179,6 +212,7 @@ execute:
 -  Participants who do not wish to be photographed have **red lanyards**; please note everyone's lanyard colors before taking a photo and respect their choices.
 -   The **Code of Conduct** and **COVID** policies can be found at [posit.co/code-of-conduct](https://posit.co/code-of-conduct). Please review them carefully. You can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information.
 :::
+
 
 
 ## Communication Strategy
@@ -196,7 +230,10 @@ execute:
 :::
 
 
+
 # Preparation
+
+
 
 ## Required Packages
 
@@ -234,6 +271,7 @@ remotes::install_github("clauswilke/colorblindr")
 :::
 
 
+
 ## Optional Packages
 
 ```{r}
@@ -252,6 +290,7 @@ remotes::install_github("AllanCameron/geomtextpath")
 ```
 
 
+
 ## Required Typefaces
 
 Download and install the following typefaces:
@@ -263,7 +302,6 @@ Download and install the following typefaces:
 
 . . . 
 
-
 All files are also available via<br>[cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip](https://cedricscherer.com/files/positconf-dataviz-ggplot2-fonts.zip)
 
 . . . 
@@ -273,6 +311,7 @@ All files are also available via<br>[cedricscherer.com/files/positconf-dataviz-g
 . . . 
  
 &rarr; Restart Rstudio.
+
 
 
 # Let's get started!

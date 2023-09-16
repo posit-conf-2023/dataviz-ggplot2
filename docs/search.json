@@ -63,11 +63,11 @@
     "text": "Conversation Starters\n\nWhat’s your name?\nWhere do you feel home?\nWhen did you use R for the first time?\nWhat’s your favorite animal / plant / color / typeface?\nWhere did you spend your summer?\nWhom would you like to meet during the posit::conf?\nWhich R package are you looking forward to try?\nWhat are things you want to learn about ggplot2?"
   },
   {
-    "objectID": "materials/00-welcome.html#update-announcements",
-    "href": "materials/00-welcome.html#update-announcements",
+    "objectID": "materials/00-welcome.html#announcements",
+    "href": "materials/00-welcome.html#announcements",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "UPDATE Announcements",
-    "text": "UPDATE Announcements\n\nWiFi\n\nUsername: Posit Conf 2023\nPassword: conf2023\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nPosit Cloud: posit.cloud/spaces/397253"
+    "section": "Announcements",
+    "text": "Announcements\n\nWiFi\n\nUsername: Posit Conf 2023\nPassword: conf2023\n\nCourse Materials\n\nWebpage: posit-conf-2023.github.io/dataviz-ggplot2\nPosit Cloud: posit.cloud/spaces/397253"
   },
   {
     "objectID": "materials/00-welcome.html#course-webpage",
@@ -84,8 +84,8 @@
     "text": "posit.cloud/spaces/397253"
   },
   {
-    "objectID": "materials/00-welcome.html#announcements",
-    "href": "materials/00-welcome.html#announcements",
+    "objectID": "materials/00-welcome.html#announcements-1",
+    "href": "materials/00-welcome.html#announcements-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Announcements",
     "text": "Announcements\n\n\nGender-neutral bathrooms are located among the Grand Suite Bathrooms.\nThe two meditation/prayer rooms (Grand Suite 2A and Grand Suite 2B) are open Sunday-Tuesday 7:30 am-7:00 pm and Wednesday 8:00 am-6:00 pm\nThe lactation room is located in Grand Suite 1 and open Sunday-Tuesday 7:30 am-7:00 pm and Wednesday 8:00 am-6:00 pm.\nParticipants who do not wish to be photographed have red lanyards; please note everyone’s lanyard colors before taking a photo and respect their choices.\nThe Code of Conduct and COVID policies can be found at posit.co/code-of-conduct. Please review them carefully. You can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information."
@@ -1964,7 +1964,7 @@
     "href": "materials/04-theming.html#use-non-default-typefaces",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Use Non-Default Typefaces",
-    "text": "Use Non-Default Typefaces\n\nsystem_fonts()\n\n# A tibble: 21,738 × 9\n   path                                                                                                   index name  family style weight width italic monospace\n   <chr>                                                                                                  <int> <chr> <chr>  <chr> <ord>  <ord> <lgl>  <lgl>    \n 1 /Users/cedric/Library/Fonts/FontBase/Fira Code-Regular.ttf                                                 0 Fira… Fira … Regu… normal norm… FALSE  TRUE     \n 2 /Users/cedric/Library/Fonts/FontBase/Tourney-200italic.ttf                                                 0 Tour… Tourn… Extr… normal norm… TRUE   FALSE    \n 3 /Users/cedric/Library/Fonts/FontBase/Iosevka-Term-Curly-Slab-Light.ttf                                     0 Iose… Iosev… Light normal norm… FALSE  TRUE     \n 4 /Users/cedric/Library/Fonts/Fraunces_144pt_Soft-BlackItalic.ttf                                            0 Frau… Fraun… Blac… heavy  norm… TRUE   FALSE    \n 5 /System/Library/AssetsV2/com_apple_MobileAsset_Font7/28f00a24ba19995bab7249993e6e35d11011074a.asset/A…     0 SIL-… Kai    Regu… normal norm… FALSE  FALSE    \n 6 /Users/cedric/Library/Fonts/Neutraface Text Bold Italic Alt.ttf                                            0 Neut… Neutr… Regu… bold   norm… TRUE   FALSE    \n 7 /Users/cedric/Library/Fonts/THE_SOCIAL.ttf                                                                 0 THES… THE S… Regu… normal norm… FALSE  FALSE    \n 8 /Users/cedric/Library/Fonts/FontBase/M PLUS 1-900.ttf                                                      0 MPLU… M PLU… Black heavy  norm… FALSE  FALSE    \n 9 /Users/cedric/Library/Fonts/FontBase/Parix-Hybrid111R.otf                                                  0 Pari… Parix  Hybr… normal norm… FALSE  FALSE    \n10 /Users/cedric/Library/Fonts/FontBase/InputMonoCondensed-Bold.ttf                                           0 Inpu… Input… Bold  bold   semi… FALSE  TRUE     \n# ℹ 21,728 more rows"
+    "text": "Use Non-Default Typefaces\n\nsystem_fonts()\n\n# A tibble: 19,243 × 9\n   path                                                                     index name                                family style weight width italic monospace\n   <chr>                                                                    <int> <chr>                               <chr>  <chr> <ord>  <ord> <lgl>  <lgl>    \n 1 /Users/cedric/Library/Fonts/FontBase/IntroHeadR-Base.otf                     0 IntroHeadR-Base                     Intro… Base  normal norm… FALSE  FALSE    \n 2 /Users/cedric/Library/Fonts/Moniqa-ThinItalicHeading.otf                     0 Moniqa-ThinItalicHeading            Moniqa Thin… ultra… norm… TRUE   FALSE    \n 3 /Users/cedric/Library/Fonts/FontBase/Bitter-200.ttf                          0 Bitter-ExtraLight                   Bitter Extr… normal norm… FALSE  FALSE    \n 4 /Users/cedric/Library/Fonts/iosevka-ss02.ttc                                72 Iosevka-SS02-Medium                 Iosev… Medi… medium norm… FALSE  TRUE     \n 5 /System/Library/Fonts/Supplemental/Bangla MN.ttc                             0 BanglaMN                            Bangl… Regu… normal norm… FALSE  FALSE    \n 6 /Users/cedric/Library/Fonts/iosevka-ss01-extrabold.ttc                      17 Iosevka-Fixed-SS01-Extrabold-Exten… Iosev… Extr… ultra… norm… TRUE   TRUE     \n 7 /Users/cedric/Library/Fonts/Anybody-ExtraExpandedExtraLight.otf              0 Anybody-ExtraExpandedExtraLight     Anybo… Extr… light  semi… FALSE  FALSE    \n 8 /Users/cedric/Library/Fonts/Neutraface Text Demi Alt.ttf                     0 NeutrafaceText-DemiAlt              Neutr… Regu… semib… norm… FALSE  FALSE    \n 9 /Users/cedric/Library/Fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf     1 PlusJakartaSansItalic-Light         Plus … Ligh… normal norm… TRUE   FALSE    \n10 /Users/cedric/Library/Fonts/aleo-italic-webfont.ttf                          0 Aleo-Italic                         Aleo   Ital… normal norm… TRUE   FALSE    \n# ℹ 19,233 more rows"
   },
   {
     "objectID": "materials/04-theming.html#use-non-default-typefaces-1",
