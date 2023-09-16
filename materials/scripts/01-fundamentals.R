@@ -361,7 +361,7 @@ ggplot(bikes,
        aes(x = humidity, y = count)) +
   geom_scatterfit(
     color = "#28A87D", 
-    size = 3
+    linewidth = 3
   )
 
 ggplot(diamonds, 

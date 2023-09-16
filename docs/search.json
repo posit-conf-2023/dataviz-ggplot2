@@ -522,7 +522,7 @@
     "href": "materials/01-fundamentals.html#components-as-functions-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Components as Functions",
-    "text": "Components as Functions\n\n\nggplot(bikes,\n       aes(x = humidity, y = count)) +\n  geom_scatterfit(\n    color = \"#28A87D\", \n    size = 3\n  )"
+    "text": "Components as Functions\n\n\nggplot(bikes,\n       aes(x = humidity, y = count)) +\n  geom_scatterfit(\n    color = \"#28A87D\", \n    linewidth = 3\n  )"
   },
   {
     "objectID": "materials/01-fundamentals.html#components-as-functions-3",

@@ -361,7 +361,7 @@ ggplot(bikes,
        aes(x = humidity, y = count)) +
   geom_scatterfit(
     color = "#28A87D", 
-    size = 3
+    linewidth = 3
   )
 
 ggplot(diamonds, 
@@ -435,7 +435,7 @@ trends_monthly("July")
 
 
 
-plots <- purrr::map(month.name[1:12], trends_monthly) also: ~ trends_monthly(.x)
+plots <- purrr::map(month.name[1:12], trends_monthly) # also: ~ trends_monthly(.x)
 
 plots[[9]]
 
