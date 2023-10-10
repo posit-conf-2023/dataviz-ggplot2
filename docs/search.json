@@ -137,14 +137,14 @@
     "href": "materials/01-fundamentals.html#the-components-of-a-ggplot",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "The Components of a ggplot",
-    "text": "The Components of a ggplot\n\n\n\n\n\nComponent\n\n\nFunction\n\n\nExplanation\n\n\n\n\nData\n\n\nggplot(data)         \n\n\nThe raw data that you want to visualize.\n\n\n\n\nAesthetics          \n\n\naes()\n\n\nThe mapping between variables and visual properties\n\n\n\nGeometries\n\n\ngeom_*()\n\n\nThe geometric shapes representing the data."
+    "text": "The Components of a ggplot\n\n\n\n\n\nComponent\n\n\nFunction\n\n\nExplanation\n\n\n\n\nData\n\n\nggplot(data)         \n\n\nThe raw data that you want to visualize (initialising a plot).\n\n\n\n\nAesthetics          \n\n\naes()\n\n\nThe mapping between variables and visual properties.\n\n\n\nGeometries\n\n\ngeom_*()\n\n\nThe geometric shape of a layer representing the data."
   },
   {
     "objectID": "materials/01-fundamentals.html#the-components-of-a-ggplot-1",
     "href": "materials/01-fundamentals.html#the-components-of-a-ggplot-1",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "The Components of a ggplot",
-    "text": "The Components of a ggplot\n\n\n\n\n\nComponent\n\n\nFunction\n\n\nExplanation\n\n\n\n\nData\n\n\nggplot(data)         \n\n\nThe raw data that you want to visualize.\n\n\n\n\nAesthetics          \n\n\naes()\n\n\nThe mapping between variables and visual properties.\n\n\n\nGeometries\n\n\ngeom_*()\n\n\nThe geometric shapes representing the data.\n\n\n\n\nStatistics\n\n\nstat_*()\n\n\nThe statistical transformations applied to the data.\n\n\n\n\nScales\n\n\nscale_*()\n\n\nThe representation of mapped aesthetic attributes.\n\n\n\n\nCoordinate System\n\n\ncoord_*()\n\n\nThe transformation to map data coordinates into the plot plane.\n\n\n\n\nFacets\n\n\nfacet_*()\n\n\nThe arrangement of the data into a grid of small multiples.\n\n\n\n\nVisual Themes\n\n\ntheme() | theme_*()\n\n\nThe overall visual defaults of non-data elements of the graphic."
+    "text": "The Components of a ggplot\n\n\n\n\n\nComponent\n\n\nFunction\n\n\nExplanation\n\n\n\n\nData\n\n\nggplot(data)         \n\n\nThe raw data that you want to visualize (initializing a plot).\n\n\n\n\nAesthetics          \n\n\naes()\n\n\nThe mapping between variables and visual properties.\n\n\n\nGeometries\n\n\ngeom_*()\n\n\nThe geometric shape of a layer representing the data.\n\n\n\n\nStatistics\n\n\nstat_*()\n\n\nThe statistical transformation of a layer applied to the data.\n\n\n\n\nScales\n\n\nscale_*()\n\n\nThe representation of mapped aesthetic attributes.\n\n\n\n\nCoordinate System\n\n\ncoord_*()\n\n\nThe transformation to map data coordinates into the plot plane.\n\n\n\n\nFacets\n\n\nfacet_*()\n\n\nThe arrangement of the data into a set of small multiples.\n\n\n\n\nVisual Themes\n\n\ntheme() | theme_*()\n\n\nThe overall visual defaults of non-data elements of the graphic."
   },
   {
     "objectID": "materials/01-fundamentals.html#the-data-set",
@@ -1964,7 +1964,7 @@
     "href": "materials/04-theming.html#use-non-default-typefaces",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Use Non-Default Typefaces",
-    "text": "Use Non-Default Typefaces\n\nsystem_fonts()\n\n# A tibble: 19,243 × 9\n   path                                                                     index name                                family style weight width italic monospace\n   <chr>                                                                    <int> <chr>                               <chr>  <chr> <ord>  <ord> <lgl>  <lgl>    \n 1 /Users/cedric/Library/Fonts/FontBase/IntroHeadR-Base.otf                     0 IntroHeadR-Base                     Intro… Base  normal norm… FALSE  FALSE    \n 2 /Users/cedric/Library/Fonts/Moniqa-ThinItalicHeading.otf                     0 Moniqa-ThinItalicHeading            Moniqa Thin… ultra… norm… TRUE   FALSE    \n 3 /Users/cedric/Library/Fonts/FontBase/Bitter-200.ttf                          0 Bitter-ExtraLight                   Bitter Extr… normal norm… FALSE  FALSE    \n 4 /Users/cedric/Library/Fonts/iosevka-ss02.ttc                                72 Iosevka-SS02-Medium                 Iosev… Medi… medium norm… FALSE  TRUE     \n 5 /System/Library/Fonts/Supplemental/Bangla MN.ttc                             0 BanglaMN                            Bangl… Regu… normal norm… FALSE  FALSE    \n 6 /Users/cedric/Library/Fonts/iosevka-ss01-extrabold.ttc                      17 Iosevka-Fixed-SS01-Extrabold-Exten… Iosev… Extr… ultra… norm… TRUE   TRUE     \n 7 /Users/cedric/Library/Fonts/Anybody-ExtraExpandedExtraLight.otf              0 Anybody-ExtraExpandedExtraLight     Anybo… Extr… light  semi… FALSE  FALSE    \n 8 /Users/cedric/Library/Fonts/Neutraface Text Demi Alt.ttf                     0 NeutrafaceText-DemiAlt              Neutr… Regu… semib… norm… FALSE  FALSE    \n 9 /Users/cedric/Library/Fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf     1 PlusJakartaSansItalic-Light         Plus … Ligh… normal norm… TRUE   FALSE    \n10 /Users/cedric/Library/Fonts/aleo-italic-webfont.ttf                          0 Aleo-Italic                         Aleo   Ital… normal norm… TRUE   FALSE    \n# ℹ 19,233 more rows"
+    "text": "Use Non-Default Typefaces\n\nsystem_fonts()\n\n# A tibble: 16,691 × 9\n   path                                                                     index name                                family style weight width italic monospace\n   <chr>                                                                    <int> <chr>                               <chr>  <chr> <ord>  <ord> <lgl>  <lgl>    \n 1 /Users/cedric/Library/Fonts/FontBase/IntroHeadR-Base.otf                     0 IntroHeadR-Base                     Intro… Base  normal norm… FALSE  FALSE    \n 2 /Users/cedric/Library/Fonts/Moniqa-ThinItalicHeading.otf                     0 Moniqa-ThinItalicHeading            Moniqa Thin… ultra… norm… TRUE   FALSE    \n 3 /Users/cedric/Library/Fonts/ArimoNerdFontPropo-Italic.ttf                    0 ArimoNFP-Italic                     Arimo… Ital… normal norm… TRUE   FALSE    \n 4 /Users/cedric/Library/Fonts/iosevka-ss02.ttc                                72 Iosevka-SS02-Medium                 Iosev… Medi… medium norm… FALSE  TRUE     \n 5 /System/Library/Fonts/Supplemental/Bangla MN.ttc                             0 BanglaMN                            Bangl… Regu… normal norm… FALSE  FALSE    \n 6 /Users/cedric/Library/Fonts/iosevka-ss01-extrabold.ttc                      17 Iosevka-Fixed-SS01-Extrabold-Exten… Iosev… Extr… ultra… norm… TRUE   TRUE     \n 7 /Users/cedric/Library/Fonts/Anybody-ExtraExpandedExtraLight.otf              0 Anybody-ExtraExpandedExtraLight     Anybo… Extr… light  semi… FALSE  FALSE    \n 8 /Users/cedric/Library/Fonts/Neutraface Text Demi Alt.ttf                     0 NeutrafaceText-DemiAlt              Neutr… Regu… semib… norm… FALSE  FALSE    \n 9 /Users/cedric/Library/Fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf     1 PlusJakartaSansItalic-Light         Plus … Ligh… normal norm… TRUE   FALSE    \n10 /Users/cedric/Library/Fonts/aleo-italic-webfont.ttf                          0 Aleo-Italic                         Aleo   Ital… normal norm… TRUE   FALSE    \n# ℹ 16,681 more rows"
   },
   {
     "objectID": "materials/04-theming.html#use-non-default-typefaces-1",
@@ -2226,11 +2226,11 @@
     "text": "Exercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple) for your theme.\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function."
   },
   {
-    "objectID": "materials/04-theming.html#exercise-1-1",
-    "href": "materials/04-theming.html#exercise-1-1",
+    "objectID": "materials/04-theming.html#exercise-2",
+    "href": "materials/04-theming.html#exercise-2",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
-    "section": "Exercise 1",
-    "text": "Exercise 1\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple).\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave the plots to disk and share them with the group.\nDid you add some additional arguments?Feel free to share your thoughts on “why” and “how”."
+    "section": "Exercise",
+    "text": "Exercise\n\n\nCreate a corporate or funny custom theme.\n\nMake use of an existing complete theme to get started.\nPick a non-default font (or multiple).\nOptional: Try working with font variants.\nOptional: Add other helpful arguments to your theme_* function.\n\nShowcase your theme using some example graphics.\n\nSave the plots to disk and share them with the group.\nDid you add some additional arguments?Feel free to share your thoughts on “why” and “how”."
   },
   {
     "objectID": "materials/04-theming.html#section",
@@ -2797,7 +2797,7 @@
     "href": "materials/solutions/04-theming-solutions.html#preparation",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Preparation",
-    "text": "Preparation\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n## data\nbikes <-\n  read_csv(\n    here::here(\"data\", \"london-bikes.csv\"),\n    col_types = \"Dcfffilllddddc\"\n  )"
+    "text": "Preparation\n\nlibrary(ggplot2)\nlibrary(readr)"
   },
   {
     "objectID": "materials/solutions/04-theming-solutions.html#custom-theme",

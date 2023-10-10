@@ -63,3 +63,13 @@ code, .code {
 .navbar-logo {
   max-height: 60px;
 }
+
+h1.title {
+  font-size: 2.5em;
+}
+
+@media screen and (max-width:768px) {
+  h1.title {
+    font-size: 1.7gith5em;
+  }
+}

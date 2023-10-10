@@ -86,16 +86,16 @@ theme_set(theme_grey(base_size = 15))
   <tr>
     <td><b style='color:#67676;'>Data</b></td>
     <td><code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td>*The raw data that you want to visualize.*</td>
+    <td>*The raw data that you want to visualize (initialising a plot).*</td>
   </tr>
   <tr>
     <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
     <td><code>aes()</code></td>
-    <td>*The mapping between variables and visual properties*</td>
+    <td>*The mapping between variables and visual properties.*</td>
   <tr>
     <td><b style='color:#67676;'>Geometries</b></td>
     <td><code>geom_*()</code></td>
-    <td>*The geometric shapes representing the data.*</td>
+    <td>*The geometric shape of a layer representing the data.*</td>
   </tr>
 </table>
 
@@ -117,7 +117,7 @@ theme_set(theme_grey(base_size = 15))
   <tr>
     <td><b style='color:#67676;'>Data</b></td>
     <td><code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td>*The raw data that you want to visualize.*</td>
+    <td>*The raw data that you want to visualize (initializing a plot).*</td>
   </tr>
   <tr>
     <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
@@ -126,12 +126,12 @@ theme_set(theme_grey(base_size = 15))
   <tr>
     <td><b style='color:#67676;'>Geometries</b></td>
     <td><code>geom_*()</code></td>
-    <td>*The geometric shapes representing the data.*</td>
+    <td>*The geometric shape of a layer representing the data.*</td>
   </tr>
   <tr>
     <td><b style='color:#67676;'>Statistics</b></td>
     <td><code>stat_*()</code></td>
-    <td>*The statistical transformations applied to the data.*</td>
+    <td>*The statistical transformation of a layer applied to the data.*</td>
   </tr>
   <tr>
     <td><b style='color:#67676;'>Scales</b></td>
@@ -146,7 +146,7 @@ theme_set(theme_grey(base_size = 15))
   <tr>
     <td><b style='color:#67676;'>Facets</b></td>
     <td><code>facet_*()</code></td>
-    <td>*The arrangement of the data into a grid of small multiples.*</td>
+    <td>*The arrangement of the data into a set of small multiples.*</td>
   </tr>
   <tr>
     <td><b style='color:#67676;'>Visual Themes</b></td>

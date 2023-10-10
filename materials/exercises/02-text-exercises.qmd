@@ -28,7 +28,7 @@ editor: source
 # Exercise 2
 
 -   **Create a function that plots the famous Gapminder chart, highlighting one of the continents.**
-   -   Extend the code in `02-text-exercises.qmd` to annotate a continent your choice of with {ggforce}.
+   -   Extend the code below to annotate a continent your choice of with {ggforce}.
    -   Turn the code into a function with the utility to annotate any continent.
    -   Optional: Create a second function to highlight a country.
 :::

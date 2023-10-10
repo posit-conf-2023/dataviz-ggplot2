@@ -79,7 +79,7 @@ execute:
 
 
 
-##  {#cedric-blog data-menu-title="Cédric Blog"background-image="img/intro/blog.png" background-position="center" background-size="56%"}
+##  {#cedric-blog data-menu-title="Cédric Blog "background-image="img/intro/blog.png" background-position="center" background-size="56%"}
 
 ::: footer
 :::

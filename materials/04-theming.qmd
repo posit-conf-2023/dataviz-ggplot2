@@ -1179,7 +1179,7 @@ g +
 :::
 
 
-## Exercise 1
+## Exercise
 
 ::: question
 -   **Create a corporate or funny custom theme.**

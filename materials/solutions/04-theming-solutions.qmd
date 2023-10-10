@@ -51,16 +51,8 @@ execute:
 
 ```{r}
 #| label: preparation
-library(readr)
-library(dplyr)
 library(ggplot2)
-
-## data
-bikes <-
-  read_csv(
-    here::here("data", "london-bikes.csv"),
-    col_types = "Dcfffilllddddc"
-  )
+library(readr)
 ```
 
 
