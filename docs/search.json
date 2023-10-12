@@ -2797,7 +2797,7 @@
     "href": "materials/solutions/04-theming-solutions.html#preparation",
     "title": "Engaging and Beautiful Data Visualizations with ggplot2",
     "section": "Preparation",
-    "text": "Preparation\n\nlibrary(ggplot2)\nlibrary(readr)"
+    "text": "Preparation\n\nlibrary(ggplot2)\nlibrary(readr)\nlibrary(dplyr)"
   },
   {
     "objectID": "materials/solutions/04-theming-solutions.html#custom-theme",

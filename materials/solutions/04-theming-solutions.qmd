@@ -53,6 +53,7 @@ execute:
 #| label: preparation
 library(ggplot2)
 library(readr)
+library(dplyr)
 ```
 
 
@@ -96,6 +97,7 @@ theme_bulls <- function(base_size = 18, base_family = "College Block",
 ```{r}
 #| label: plot-theme-bulls
 #| eval: false
+#| purl: false
 data <- read_csv("https://query.data.world/s/cejs4o4gdt6autofsse7whhqnnmaii?dws=00000")
 
 ggplot(filter(data, Team == "Chicago"), aes(x = Pts, y = Reb)) +
@@ -175,18 +177,35 @@ theme_nba <- function(base_size = 18, base_family = "College Block",
 ```{r}
 #| label: plot-theme-nba-bulls
 #| echo: false
+#| cache: false
+#| purl: false
+#| fig-width: 10
+#| fig-height: 6.2
 #| fig-align: center
-team <- "Chicago"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
+plot_team <- function(id = NULL, style = id, label = style) {
+  ggplot(
+    dplyr::filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),     
+    aes(x = Pts, y = Reb)
+  ) +
+  geom_point(
+    aes(shape = Team == id, size = Team == id)
+  ) +
   facet_wrap(~ Year) +
+  scale_x_continuous(expand = c(.1, .1)) +
+  scale_y_continuous(expand = c(.08, .08), breaks = seq(40, 56, by = 2)) +
   scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
   scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Bulls! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Bulls")
+  labs(
+    title = paste("Let's Go ", label, "! ⛹️️"),
+    x = "Points scored", 
+    y = "Rebounds", 
+    caption = "Data: hoopsstats.com",
+    subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams."
+  ) +
+  theme_nba(team = style)
+}
+
+plot_team("Chicago", style = "Bulls")
 ```
 
 
@@ -196,17 +215,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-lakers
 #| echo: false
 #| fig-align: center
-team <- "L.A.Lakers"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Lakers! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Lakers")
+plot_team("L.A.Lakers", style = "Lakers")
 ```
 
 
@@ -216,17 +225,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-nuggets
 #| echo: false
 #| fig-align: center
-team <- "Denver"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Nuggets! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Nuggets")
+plot_team("Denver", style = "Nuggets")
 ```
 
 
@@ -236,17 +235,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-celtics
 #| echo: false
 #| fig-align: center
-team <- "Boston"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Celtics! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Celtics")
+plot_team("Boston", style = "Celtics")
 ```
 
 
@@ -256,17 +245,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-knicks
 #| echo: false
 #| fig-align: center
-team <- "New York"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Knicks! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Knicks")
+plot_team("New York", style = "Knicks")
 ```
 
 
@@ -276,17 +255,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-miami
 #| echo: false
 #| fig-align: center
-team <- "Miami"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Heat! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Heat")
+plot_team("Miami", style = "Heat")
 ```
 
 
@@ -296,17 +265,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-pelicans
 #| echo: false
 #| fig-align: center
-team <- "New Orleans"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Pelicans! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Pelicans")
+plot_team("New Orleans", style = "Pelicans")
 ```
 
 
@@ -316,17 +275,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-hornets
 #| echo: false
 #| fig-align: center
-team <- "Charlotte"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Hornets! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Hornets")
+plot_team("Charlotte", style = "Hornets")
 ```
 
 
@@ -336,17 +285,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-sixers
 #| echo: false
 #| fig-align: center
-team <- "Philadelphia"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go 76ers! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Sixers")
+plot_team("Philadelphia", style = "Sixers", label = "76ers")
 ```
 
 
@@ -356,17 +295,7 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-timberwolves
 #| echo: false
 #| fig-align: center
-team <- "Milwaukee"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Timberwolves! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Timberwolves")
+plot_team("Milwaukee", style = "Timberwolves")
 ```
 
 
@@ -376,16 +305,6 @@ ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")),
 #| label: plot-theme-nba-suns
 #| echo: false
 #| fig-align: center
-team <- "Phoenix"
-ggplot(filter(data, Year %in% c("2019-2020", "2020-2021", "2021-2022")), 
-       aes(x = Pts, y = Reb)) +
-  geom_point(aes(shape = Team == team, size = Team == team)) +
-  facet_wrap(~ Year) +
-  scale_shape_manual(values = c("⚫", "🏀"), guide = "none") +
-  scale_size_manual(values = c(2, 7), guide = "none") +
-  labs(title = "Let's Go Suns! ⛹️️", x = "Points scored", y = "Rebounds", 
-       caption = "Data: hoopsstats.com",
-       subtitle = "Team statistics for the last 3 NBA seasons in comparison with all other teams.") +
-  theme_nba(team = "Suns")
+plot_team("Phoenix", style = "Suns")
 ```
 

@@ -434,9 +434,10 @@
 </section>
 <section id="preparation" class="slide level2">
 <h2>Preparation</h2>
-<div class="cell" data-hash="04-theming-solutions_cache/revealjs/preparation_3f2648175fb5a1a910743afbb4692ad3">
+<div class="cell" data-hash="04-theming-solutions_cache/revealjs/preparation_b396916c2fb5ce3167fa5c0489046d78">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(readr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="custom-theme" class="slide level2">
@@ -473,7 +474,7 @@
 </section>
 <section id="apply-theme" class="slide level2">
 <h2>Apply Theme</h2>
-<div class="cell" data-hash="04-theming-solutions_cache/revealjs/plot-theme-bulls_7d9754bbf90ed9a458f31fcf575ca614">
+<div class="cell" data-hash="04-theming-solutions_cache/revealjs/plot-theme-bulls_071c11ccad64e45138222a32c5a3f720">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://query.data.world/s/cejs4o4gdt6autofsse7whhqnnmaii?dws=00000"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(data, Team <span class="sc">==</span> <span class="st">"Chicago"</span>), <span class="fu">aes</span>(<span class="at">x =</span> Pts, <span class="at">y =</span> Reb)) <span class="sc">+</span></span>
