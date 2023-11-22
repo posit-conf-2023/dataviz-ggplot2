@@ -161,7 +161,7 @@ theme_set(theme_grey(base_size = 15))
 
 --------------------------------------------------------------------------------
 
-![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/ah-ggplot2-masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/ah-ggplot2-masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building data masterpiece with ggplot2 featuring a little Picasso monster :)"}
 
 
 # The {ggplot2} Showcase
