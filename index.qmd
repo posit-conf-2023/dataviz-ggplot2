@@ -1,5 +1,5 @@
 ---
-title: "<i style='font-family:Literata;font-size:2.75rem;font-weight:800;line-height:.9;'>Engaging and Beautiful Data Visualizations with ggplot2</i>"
+title: "Engaging and Beautiful Data Visualizations with ggplot2"
 ---
 
 ![](images/logo.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Course Hex Logo" width="185"}

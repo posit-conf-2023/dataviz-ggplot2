@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.191">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Cédric Scherer // posit::conf // September 2023">
   <title>Engaging and Beautiful Data Visualizations with ggplot2</title>
@@ -27,9 +27,10 @@
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -95,7 +96,7 @@
     code span.vs { color: #bf0303; } /* VerbatimString */
     code span.wa { color: #bf0303; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -140,44 +141,44 @@
     font-weight: 400;
   }
 
-  .callout.callout-captioned.callout-style-simple .callout-body {
+  .callout.callout-titled.callout-style-simple .callout-body {
     margin-top: 0.2em;
   }
 
-  .callout:not(.callout-captioned) .callout-body {
+  .callout:not(.callout-titled) .callout-body {
       display: flex;
   }
 
-  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
     padding-left: 1.6em;
   }
 
-  .callout.callout-captioned .callout-header {
+  .callout.callout-titled .callout-header {
     padding-top: 0.2em;
     margin-bottom: -0.2em;
   }
 
-  .callout.callout-captioned .callout-caption  p {
+  .callout.callout-titled .callout-title  p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
     
-  .callout.callout-captioned.callout-style-simple .callout-content  p {
+  .callout.callout-titled.callout-style-simple .callout-content  p {
     margin-top: 0;
   }
 
-  .callout.callout-captioned.callout-style-default .callout-content  p {
+  .callout.callout-titled.callout-style-default .callout-content  p {
     margin-top: 0.7em;
   }
 
-  .callout.callout-style-simple div.callout-caption {
+  .callout.callout-style-simple div.callout-title {
     border-bottom: none;
     font-size: .9rem;
     font-weight: 600;
     opacity: 75%;
   }
 
-  .callout.callout-style-default  div.callout-caption {
+  .callout.callout-style-default  div.callout-title {
     border-bottom: none;
     font-weight: 600;
     opacity: 85%;
@@ -209,7 +210,7 @@
     background-size: 0.9rem 0.9rem;
   }
 
-  .callout-caption {
+  .callout-title {
     display: flex
   }
     
@@ -222,16 +223,16 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
     margin-bottom: 0.5rem;
   }
 
-  .callout.callout-captioned .callout-icon::before {
+  .callout.callout-titled .callout-icon::before {
     margin-top: .5rem;
     padding-right: .5rem;
   }
 
-  .callout:not(.callout-captioned) .callout-icon::before {
+  .callout:not(.callout-titled) .callout-icon::before {
     margin-top: 1rem;
     padding-right: .5rem;
   }
@@ -246,7 +247,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
   }
 
-  div.callout-note.callout-style-default .callout-caption {
+  div.callout-note.callout-style-default .callout-title {
     background-color: #dae6fb
   }
 
@@ -258,7 +259,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
   }
 
-  div.callout-important.callout-style-default .callout-caption {
+  div.callout-important.callout-style-default .callout-title {
     background-color: #f7dddc
   }
 
@@ -270,7 +271,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-warning.callout-style-default .callout-caption {
+  div.callout-warning.callout-style-default .callout-title {
     background-color: #fcefdc
   }
 
@@ -282,7 +283,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-tip.callout-style-default .callout-caption {
+  div.callout-tip.callout-style-default .callout-title {
     background-color: #ccf1e3
   }
 
@@ -294,7 +295,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
   }
 
-  div.callout-caution.callout-style-default .callout-caption {
+  div.callout-caution.callout-style-default .callout-title {
     background-color: #ffe5d0
   }
 
@@ -442,7 +443,7 @@
 </section>
 <section id="preparation-plot" class="slide level2">
 <h2>Preparation: Plot</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/plot-data-prep_ca4f21b710978182bdc04b8a061fd7e9">
+<div class="cell" data-hash="04-theming_cache/revealjs/plot-data-prep_fb2c9dccf67ca9fc32d994b3eaaec788">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2,3,4,5|3|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>bikes <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="at">month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>), </span>
@@ -470,7 +471,7 @@
 </section>
 <section id="preparation-plot-1" class="slide level2">
 <h2>Preparation: Plot</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/plot-basic_77cbe33e8b7929d604e0ee450899769a">
+<div class="cell" data-hash="04-theming_cache/revealjs/plot-basic_a3a9bb48470c51602f8d717149b88559">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="7|8,9|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>bikes <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="at">month =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>), </span>
@@ -523,14 +524,14 @@
 <h2>Complete Themes</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-light_43fdf458c39e5a9906d026717e688cdd" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-light_1ab43fb3298c28dbb3a6bbf4a82eda8c" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>g <span class="sc">+</span> <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-light-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-bw_b5a277c735ea2d3e2b551483e241e0a5">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-bw_a5420fee948d1ea828630451f1e16471">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>g <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-bw-1.png" width="1100"></p>
@@ -544,14 +545,14 @@
 <h2>Complete Themes</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-minimal_969a34f9a0423ef295c18142a560169b" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-minimal_690cecebad9155903cb7d9b507cc9663" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>g <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-minimal-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-classic_0eb3152ac6b78094edad1109083c8d2d">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-classic_9afb2b02da0b43d33ddbc144027497d0">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>g <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-classic-1.png" width="1100"></p>
@@ -565,14 +566,14 @@
 <h2>Complete Themes</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-dark_65d66801059f5c43c37ad76b9beba8dc" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-dark_92905ae1e41f314a652f519ffb42ef97" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>g <span class="sc">+</span> <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-dark-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-void_21d2e67d5525872a0123d4f4f6414c53">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-void_d12c6b10a0c8dc36adfc49bf61275056">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>g <span class="sc">+</span> <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-void-1.png" width="1100"></p>
@@ -586,14 +587,14 @@
 <h2>Complete Themes via Extension Packages</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-ggthemes-stata_e6c1ceb4ca04ee058c9be5f2efe2e7c2" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-ggthemes-stata_81643ba631e029051d27106641b6e1a6" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>g <span class="sc">+</span> ggthemes<span class="sc">::</span><span class="fu">theme_stata</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-ggthemes-stata-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-ggthemes-gdocs_cae0f90c914732dd3472a738ca1e21bf">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-ggthemes-gdocs_53e6b7b8bc391b6b45a05f3c600a9eac">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>g <span class="sc">+</span> ggthemes<span class="sc">::</span><span class="fu">theme_gdocs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-ggthemes-gdocs-1.png" width="1100"></p>
@@ -607,14 +608,14 @@
 <h2>Complete Themes via Extension Packages</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-hrbrthemes-ipsum-roboto_da7df06ebedc34dc68c7ce3a436f466b" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/complete-themes-hrbrthemes-ipsum-roboto_b3657d6d1d98d8c5b1a2af12e8b636fd" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>g <span class="sc">+</span> hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-hrbrthemes-ipsum-roboto-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-tvthemes-simpsons_0a13a737eedc562a5ea51e23117ae909">
+<div class="cell" data-hash="04-theming_cache/revealjs/complete-themes-tvthemes-simpsons_fc6eab2486999a069e7d6b8a584116a6">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>g <span class="sc">+</span> tvthemes<span class="sc">::</span><span class="fu">theme_simpsons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/complete-themes-tvthemes-simpsons-1.png" width="1100"></p>
@@ -626,7 +627,7 @@
 </section>
 <section id="modify-theme-elements" class="slide level2">
 <h2>Modify Theme Elements</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/modify-elements_487803b8d688eaaf07b1afe5903fb08e">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/modify-elements_092eb58252721045c4d06e7f6a6ca023">
 <div class="column">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2|3,7|4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>g <span class="sc">+</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>  hrbrthemes<span class="sc">::</span><span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
@@ -651,12 +652,12 @@
 <h2>The {systemfonts} Package</h2>
 <p><span class="simple-highlight-grn" style="font-size:2.1rem;">locates installed fonts and provides font-related utilities to graphic devices</span> <br></p>
 <div class="fragment">
-<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-load_77a054ac5085dac8fdf0a47c4770c9d0">
+<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-load_b46ccf0492d1a24a8e9c48c9387c8184">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">library</span>(systemfonts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-match-font-a_139232f68291930160a20153d23437ee">
+<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-match-font-a_3194f3d935e56e6c8ab9b0e503928e5d">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">match_font</span>(<span class="st">"Asap"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$path
@@ -676,20 +677,20 @@ NULL</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">system_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a href="#cb21-1"></a># A tibble: 22,254 × 9</span>
-<span id="cb21-2"><a href="#cb21-2"></a>   path                                                                                                   index name  family style weight width italic monospace</span>
-<span id="cb21-3"><a href="#cb21-3"></a>   &lt;chr&gt;                                                                                                  &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;ord&gt;  &lt;ord&gt; &lt;lgl&gt;  &lt;lgl&gt;    </span>
-<span id="cb21-4"><a href="#cb21-4"></a> 1 /Users/cedric/Library/Fonts/FontBase/Fira Code-Regular.ttf                                                 0 Fira… Fira … Regu… normal norm… FALSE  TRUE     </span>
-<span id="cb21-5"><a href="#cb21-5"></a> 2 /Users/cedric/Library/Fonts/FontBase/Tourney-200italic.ttf                                                 0 Tour… Tourn… Extr… normal norm… TRUE   FALSE    </span>
-<span id="cb21-6"><a href="#cb21-6"></a> 3 /Users/cedric/Library/Fonts/FontBase/Iosevka-Term-Curly-Slab-Light.ttf                                     0 Iose… Iosev… Light normal norm… FALSE  TRUE     </span>
-<span id="cb21-7"><a href="#cb21-7"></a> 4 /Users/cedric/Library/Fonts/Fraunces_144pt_Soft-BlackItalic.ttf                                            0 Frau… Fraun… Blac… heavy  norm… TRUE   FALSE    </span>
-<span id="cb21-8"><a href="#cb21-8"></a> 5 /System/Library/AssetsV2/com_apple_MobileAsset_Font7/28f00a24ba19995bab7249993e6e35d11011074a.asset/A…     0 SIL-… Kai    Regu… normal norm… FALSE  FALSE    </span>
-<span id="cb21-9"><a href="#cb21-9"></a> 6 /Users/cedric/Library/Fonts/Neutraface Text Bold Italic Alt.ttf                                            0 Neut… Neutr… Regu… bold   norm… TRUE   FALSE    </span>
-<span id="cb21-10"><a href="#cb21-10"></a> 7 /Users/cedric/Library/Fonts/THE_SOCIAL.ttf                                                                 0 THES… THE S… Regu… normal norm… FALSE  FALSE    </span>
-<span id="cb21-11"><a href="#cb21-11"></a> 8 /Users/cedric/Library/Fonts/FontBase/M PLUS 1-900.ttf                                                      0 MPLU… M PLU… Black heavy  norm… FALSE  FALSE    </span>
-<span id="cb21-12"><a href="#cb21-12"></a> 9 /Users/cedric/Library/Fonts/FontBase/Parix-Hybrid111R.otf                                                  0 Pari… Parix  Hybr… normal norm… FALSE  FALSE    </span>
-<span id="cb21-13"><a href="#cb21-13"></a>10 /Users/cedric/Library/Fonts/FontBase/InputMonoCondensed-Bold.ttf                                           0 Inpu… Input… Bold  bold   semi… FALSE  TRUE     </span>
-<span id="cb21-14"><a href="#cb21-14"></a># ℹ 22,244 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb21-1"><a href="#cb21-1"></a># A tibble: 1,808 × 9</span>
+<span id="cb21-2"><a href="#cb21-2"></a>   path                   index name  family style weight width italic monospace</span>
+<span id="cb21-3"><a href="#cb21-3"></a>   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;ord&gt;  &lt;ord&gt; &lt;lgl&gt;  &lt;lgl&gt;    </span>
+<span id="cb21-4"><a href="#cb21-4"></a> 1 /System/Library/Fonts…     0 Note… Notew… Light normal norm… FALSE  FALSE    </span>
+<span id="cb21-5"><a href="#cb21-5"></a> 2 /System/Library/Fonts…     0 Msht… Mshta… Regu… normal norm… FALSE  FALSE    </span>
+<span id="cb21-6"><a href="#cb21-6"></a> 3 /Users/cedric/Library…     0 Inpu… Input… Ligh… normal cond… TRUE   FALSE    </span>
+<span id="cb21-7"><a href="#cb21-7"></a> 4 /Users/cedric/Library…    13 Iose… Iosev… Exte… normal norm… TRUE   TRUE     </span>
+<span id="cb21-8"><a href="#cb21-8"></a> 5 /System/Library/Fonts…     3 Kohi… Kohin… Bold  bold   norm… FALSE  FALSE    </span>
+<span id="cb21-9"><a href="#cb21-9"></a> 6 /Users/cedric/Library…     0 Fami… Famil… Medi… medium norm… TRUE   FALSE    </span>
+<span id="cb21-10"><a href="#cb21-10"></a> 7 /Users/cedric/Library…     0 Lite… Liter… Bold… bold   norm… TRUE   FALSE    </span>
+<span id="cb21-11"><a href="#cb21-11"></a> 8 /System/Library/Fonts…     4 ITFD… ITF D… Medi… medium norm… FALSE  FALSE    </span>
+<span id="cb21-12"><a href="#cb21-12"></a> 9 /Users/cedric/Library…     0 Open… Open … Bold… bold   semi… TRUE   FALSE    </span>
+<span id="cb21-13"><a href="#cb21-13"></a>10 /Users/cedric/Library…     0 Kola… Kolage Extr… normal norm… FALSE  FALSE    </span>
+<span id="cb21-14"><a href="#cb21-14"></a># ℹ 1,798 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -715,7 +716,7 @@ NULL</code></pre>
 </section>
 <section id="use-non-default-typefaces-2" class="slide level2">
 <h2>Use Non-Default Typefaces</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/systemfonts-custom-font_857a5deebe037e50879c0e606360d817">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/systemfonts-custom-font_05bdc017cf99587638582b9664b63f05">
 <div class="column">
 <div class="sourceCode cell-code" id="cb24" data-code-line-numbers="2,3,4,5|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>g <span class="sc">+</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">theme_minimal</span>(</span>
@@ -731,7 +732,7 @@ NULL</code></pre>
 </section>
 <section id="use-font-features" class="slide level2">
 <h2>Use Font Features</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-filter-b_bf18d5a37447fdf8e0dd1e355d90fd98">
+<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-filter-b_a7bbf07a858f9ad24f63669d42e46c99">
 <div class="sourceCode cell-code" id="cb25" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">system_fonts</span>() <span class="sc">|&gt;</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(family <span class="sc">==</span> <span class="st">"Asap SemiCondensed"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(name) <span class="sc">|&gt;</span></span>
@@ -774,7 +775,7 @@ NULL</code></pre>
 </section>
 <section id="use-font-features-2" class="slide level2">
 <h2>Use Font Features</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/systemfonts-register-plot_6c34d6fd451d0113d764d90a26cb70c7">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/systemfonts-register-plot_a4a11971c8e3230b1be151d0eb349a9a">
 <div class="column">
 <div class="sourceCode cell-code" id="cb28" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>g <span class="sc">+</span> </span>
 <span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">theme_minimal</span>(</span>
@@ -792,12 +793,12 @@ NULL</code></pre>
 <h2>Use Font Features</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-1_1c91b53628c58769c62597c3df900301" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-1_8df05d97260447a8b8a50740e9614519" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-font-variants-compare-1-1.png" width="1100"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-2_8d971a65f079152b7160e88bfdcef847" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-2_7cdca420cf60599a71324a4fa1e063dd" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-font-variants-compare-2-1.png" width="1100"></p>
 </div>
@@ -826,7 +827,7 @@ NULL</code></pre>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-tabular_9b7b406aa482eb778f5df8e4bcf849af">
+<div class="cell" data-hash="04-theming_cache/revealjs/systemfonts-font-variants-compare-tabular_0ecb1de12e27f1a5ebe89280152c5f8c">
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/systemfonts-font-variants-compare-tabular-1.png" width="1100"></p>
 </div>
@@ -837,7 +838,7 @@ NULL</code></pre>
 </section>
 <section id="like-a-pro-set-themes-globally" class="slide level2">
 <h2>Like a Pro: Set Themes Globally</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/theme-light-set-global_7e30dfc0bb4f3112c4b4b7f69e014ea6">
+<div class="cell" data-hash="04-theming_cache/revealjs/theme-light-set-global_c94f653ff5782470817565f70dc33dd2">
 <div class="sourceCode cell-code" id="cb30" data-code-line-numbers="1|3,4,5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">base_size =</span> <span class="dv">13</span>))</span>
 <span id="cb30-2"><a href="#cb30-2"></a></span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="fu">theme_update</span>(</span>
@@ -851,7 +852,7 @@ NULL</code></pre>
 </section>
 <section id="like-a-pro-set-themes-globally-1" class="slide level2">
 <h2>Like a Pro: Set Themes Globally</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/base-plot-gm-bubbles-after-themeset_1d28b1c3dc806dea7541d37b7ffb21c8">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/base-plot-gm-bubbles-after-themeset_6517e87fd9c9316f114ef708aea0ed4e">
 <div class="column">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
@@ -868,7 +869,7 @@ NULL</code></pre>
 </section>
 <section id="complete-themes-whats-inside" class="slide level2">
 <h2>Complete Themes: What’s Inside?</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-grey_ae0cd04c76b4e2c7917528c4b8e09fd7">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-grey_03bcc60f32895e3aec4cbf967564237d">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>theme_grey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (base_size = 11, base_family = "", base_line_size = base_size/22, 
@@ -887,23 +888,25 @@ NULL</code></pre>
             half_line/2), vjust = 1), axis.text.x.top = element_text(margin = margin(b = 0.8 * 
             half_line/2), vjust = 0), axis.text.y = element_text(margin = margin(r = 0.8 * 
             half_line/2), hjust = 1), axis.text.y.right = element_text(margin = margin(l = 0.8 * 
-            half_line/2), hjust = 0), axis.ticks = element_line(colour = "grey20"), 
-        axis.ticks.length = unit(half_line/2, "pt"), axis.ticks.length.x = NULL, 
-        axis.ticks.length.x.top = NULL, axis.ticks.length.x.bottom = NULL, 
-        axis.ticks.length.y = NULL, axis.ticks.length.y.left = NULL, 
-        axis.ticks.length.y.right = NULL, axis.title.x = element_text(margin = margin(t = half_line/2), 
+            half_line/2), hjust = 0), axis.text.r = element_text(margin = margin(l = 0.8 * 
+            half_line/2, r = 0.8 * half_line/2), hjust = 0.5), 
+        axis.ticks = element_line(colour = "grey20"), axis.ticks.length = unit(half_line/2, 
+            "pt"), axis.ticks.length.x = NULL, axis.ticks.length.x.top = NULL, 
+        axis.ticks.length.x.bottom = NULL, axis.ticks.length.y = NULL, 
+        axis.ticks.length.y.left = NULL, axis.ticks.length.y.right = NULL, 
+        axis.minor.ticks.length = rel(0.75), axis.title.x = element_text(margin = margin(t = half_line/2), 
             vjust = 1), axis.title.x.top = element_text(margin = margin(b = half_line/2), 
             vjust = 0), axis.title.y = element_text(angle = 90, 
             margin = margin(r = half_line/2), vjust = 1), axis.title.y.right = element_text(angle = -90, 
-            margin = margin(l = half_line/2), vjust = 0), legend.background = element_rect(colour = NA), 
+            margin = margin(l = half_line/2), vjust = 1), legend.background = element_rect(colour = NA), 
         legend.spacing = unit(2 * half_line, "pt"), legend.spacing.x = NULL, 
         legend.spacing.y = NULL, legend.margin = margin(half_line, 
-            half_line, half_line, half_line), legend.key = element_rect(fill = "grey95", 
-            colour = NA), legend.key.size = unit(1.2, "lines"), 
-        legend.key.height = NULL, legend.key.width = NULL, legend.text = element_text(size = rel(0.8)), 
-        legend.text.align = NULL, legend.title = element_text(hjust = 0), 
-        legend.title.align = NULL, legend.position = "right", 
-        legend.direction = NULL, legend.justification = "center", 
+            half_line, half_line, half_line), legend.key = NULL, 
+        legend.key.size = unit(1.2, "lines"), legend.key.height = NULL, 
+        legend.key.width = NULL, legend.key.spacing = unit(half_line, 
+            "pt"), legend.text = element_text(size = rel(0.8)), 
+        legend.title = element_text(hjust = 0), legend.ticks.length = rel(0.2), 
+        legend.position = "right", legend.direction = NULL, legend.justification = "center", 
         legend.box = NULL, legend.box.margin = margin(0, 0, 0, 
             0, "cm"), legend.box.background = element_blank(), 
         legend.box.spacing = unit(2 * half_line, "pt"), panel.background = element_rect(fill = "grey92", 
@@ -929,14 +932,14 @@ NULL</code></pre>
             half_line, half_line, half_line), complete = TRUE)
     ggplot_global$theme_all_null %+replace% t
 }
-&lt;bytecode: 0x12e7cd6b0&gt;
+&lt;bytecode: 0x129e7c850&gt;
 &lt;environment: namespace:ggplot2&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="complete-themes-whats-inside-1" class="slide level2">
 <h2>Complete Themes: What’s Inside?</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-minimal_39106ecbcaf2ec61013ff26e88b7787e">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-minimal_d47262fb1d0443449f3b95e475c3dc23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>theme_minimal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (base_size = 11, base_family = "", base_line_size = base_size/22, 
@@ -949,14 +952,14 @@ NULL</code></pre>
             panel.border = element_blank(), strip.background = element_blank(), 
             plot.background = element_blank(), complete = TRUE)
 }
-&lt;bytecode: 0x11df48828&gt;
+&lt;bytecode: 0x10c1ffe40&gt;
 &lt;environment: namespace:ggplot2&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="create-a-custom-theme" class="slide level2">
 <h2>Create a Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap_6cee7ce0f122897d4f03e2d0d16d8f5e">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap_7fbf6bb724d8c10a5b3397bd17b9fd2f">
 <div class="sourceCode cell-code" id="cb36" data-code-line-numbers="1,2,6|4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
 <span id="cb36-2"><a href="#cb36-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
 <span id="cb36-3"><a href="#cb36-3"></a>  </span>
@@ -967,7 +970,7 @@ NULL</code></pre>
 </section>
 <section id="create-a-custom-theme-1" class="slide level2">
 <h2>Create a Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-replace-blank_76b6c11692e9bc1419b543989b7a4e9c">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-replace-blank_f9cd4a41ec6bce96b85478bd54e74764">
 <div class="sourceCode cell-code" id="cb37" data-code-line-numbers="5|6,8|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>theme_asap <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
 <span id="cb37-2"><a href="#cb37-2"></a>                       <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
 <span id="cb37-3"><a href="#cb37-3"></a>  </span>
@@ -1009,7 +1012,7 @@ NULL</code></pre>
 </section>
 <section id="apply-the-custom-theme" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-default_9a3d13058bc0824c27f5c19133f21cfc">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-default_411ba3e825effe56c07e37cc92616062">
 <div class="column">
 <div class="sourceCode cell-code" id="cb39" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>g <span class="sc">+</span> </span>
 <span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">theme_asap</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1063,14 +1066,14 @@ NULL</code></pre>
 <h2>+ versus %+replace%</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-asap-plus_1c4891a6872ce4a57f08b8346101ba5c" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-asap-plus_18dfe3d9c4dda505900ff2f7b28f0538" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_plus</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-plus-1.png" width="1100"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="04-theming_cache/revealjs/apply-theme-asap-replace_a8a48a5565bf21f66c35a129d47be824">
+<div class="cell" data-hash="04-theming_cache/revealjs/apply-theme-asap-replace_0e7ac10ba0b7c2aee7a00834416fd892">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_replace</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-asap-replace-1.png" width="1100"></p>
@@ -1082,7 +1085,7 @@ NULL</code></pre>
 </section>
 <section id="modify-the-custom-theme" class="slide level2">
 <h2>Modify the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-theme-elements_71d766959e8942a6fd4ea0528c821805">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-theme-elements_47c51a040c1ecf5ff51ad5d3810f1892">
 <div class="column">
 <div class="sourceCode cell-code" id="cb43" data-code-line-numbers="3,4,5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>g <span class="sc">+</span> </span>
 <span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">theme_asap</span>() <span class="sc">+</span></span>
@@ -1101,7 +1104,7 @@ NULL</code></pre>
 </section>
 <section id="modify-the-custom-theme-1" class="slide level2">
 <h2>Modify the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-base-settings_6dc7a0cde15d88b562f0feb555f012a6">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-base-settings_f4a8d4eaa80f989278f26cf654c2292f">
 <div class="column">
 <div class="sourceCode cell-code" id="cb44" data-code-line-numbers="3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>g <span class="sc">+</span> </span>
 <span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">theme_asap</span>(</span>
@@ -1117,7 +1120,7 @@ NULL</code></pre>
 </section>
 <section id="modify-the-custom-theme-2" class="slide level2">
 <h2>Modify the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-title-face_b3bffc9c93566ac6510c1d2ef15d5a87">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-asap-modify-title-face_f1be65ff87e65eaaff65dc88ef86da51">
 <div class="column">
 <div class="sourceCode cell-code" id="cb45" data-code-line-numbers="6,7,8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>g <span class="sc">+</span> </span>
 <span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">theme_asap</span>(</span>
@@ -1138,7 +1141,7 @@ NULL</code></pre>
 </section>
 <section id="create-a-custom-theme-4" class="slide level2">
 <h2>Create a Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-title-family_607acdc3eee13ab9d783ae75f2fdade8">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-title-family_43e040ec6e7c430e85bf3f6c6f023bee">
 <div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1,2|5,6,7,8,9|14,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>theme_asap_title <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, </span>
 <span id="cb46-2"><a href="#cb46-2"></a>                             <span class="at">title_family =</span> <span class="st">"Asap SemiCondensed Extrabold"</span>,</span>
 <span id="cb46-3"><a href="#cb46-3"></a>                             <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
@@ -1160,7 +1163,7 @@ NULL</code></pre>
 </section>
 <section id="apply-the-custom-theme-1" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-title-family_48e437a05bfed0389c6459ddb6e9351f">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-title-family_1e3015c53c19988e1088ef2ec3821c40">
 <div class="column">
 <div class="sourceCode cell-code" id="cb47" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>g <span class="sc">+</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">theme_asap_title</span>(</span>
@@ -1226,14 +1229,14 @@ NULL</code></pre>
 </section>
 <section id="apply-the-custom-theme-2" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/theme-fonts-message_950a9e1f89d22c64ecbecd8efce9c5a7">
+<div class="cell" data-hash="04-theming_cache/revealjs/theme-fonts-message_7ec66e8670d50c78caab622cd206952d">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>g <span class="sc">+</span> <span class="fu">theme_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code style="color:#663399;font-size:16pt;">Using system default typefaces.<br>For proper use, please install the following typeface(s):<br> - Hepta Slab: https://fonts.google.com/specimen/Hepta+Slab<br> - Spline: https://fonts.google.com/specimen/Spline+Sans<br>Then restart your R session.</code></p>
 </section>
 <section id="apply-the-custom-theme-3" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/theme-fonts-show_06076d2e1955fe767a5dd0dadf726bff">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/theme-fonts-show_26a47926a08a6eb3f6ddb95d05b66e89">
 <div class="column">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>g <span class="sc">+</span> <span class="fu">theme_fonts</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
@@ -1279,7 +1282,7 @@ NULL</code></pre>
 </section>
 <section id="add-more-arguments-2" class="slide level2">
 <h2>Add More Arguments</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid_b89a60b138e4481bffbdb82580f7dd00">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid_e10946801823bf82c6fb18d332c2115d">
 <div class="sourceCode cell-code" id="cb51" data-code-line-numbers="1|3|7,8,9,10|13,14,15,16,17|18,19,20,21,22|24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>theme_asap_grid <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">grid =</span> <span class="st">"xy"</span>, </span>
 <span id="cb51-2"><a href="#cb51-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
 <span id="cb51-3"><a href="#cb51-3"></a>  out <span class="ot">&lt;-</span> </span>
@@ -1309,7 +1312,7 @@ NULL</code></pre>
 </section>
 <section id="apply-the-custom-theme-4" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-y_d6b909e3ee74f42913f0cbb9bfddbee2">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-y_6b18ba1b657da89cfefc8b3f5f96d776">
 <div class="column">
 <div class="sourceCode cell-code" id="cb52" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
@@ -1326,13 +1329,13 @@ NULL</code></pre>
 <h2>Apply the Custom Theme</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-xy_6f36dcd7f56eaf93683871b3e3009b91" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-xy_c7e45bf8c456d7ba1aed815abd5b3ed3" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-grid-xy-1.png" width="1100"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-none_b2674b6a32a32e69be43900d1ede68e4" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-none_3cb4d62c6731279ffd88fcd91af5ead2" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>g <span class="sc">+</span> <span class="fu">theme_asap_grid</span>(<span class="at">grid =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="04-theming_files/figure-revealjs/apply-theme-custom-grid-none-1.png" width="1100"></p>
@@ -1343,7 +1346,7 @@ NULL</code></pre>
 </section>
 <section id="apply-the-custom-theme-6" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-all_b024ea9c2c7049360b132023fc035bd4">
+<div class="cell columns column-output-location" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-all_74b6545309ee6f8c7664f3f90cac4ccd">
 <div class="column">
 <div class="sourceCode cell-code" id="cb55" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>g <span class="sc">+</span> </span>
 <span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
@@ -1358,7 +1361,7 @@ NULL</code></pre>
 </section>
 <section id="add-checks-to-the-custom-theme" class="slide level2">
 <h2>Add Checks to the Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid-check_c79439b3c0f09e61bc8ff7aba2627bd0">
+<div class="cell" data-hash="04-theming_cache/revealjs/code-theme-asap-grid-check_da518fa10488ffa883abce2c07f3f9cb">
 <div class="sourceCode cell-code" id="cb56" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>theme_asap_grid <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">13</span>, <span class="at">base_family =</span> <span class="st">"Asap SemiCondensed"</span>, <span class="at">grid =</span> <span class="st">"xy"</span>, </span>
 <span id="cb56-2"><a href="#cb56-2"></a>                            <span class="at">base_line_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>, <span class="at">base_rect_size =</span> base_size<span class="sc">/</span><span class="dv">22</span>) {</span>
 <span id="cb56-3"><a href="#cb56-3"></a>  </span>
@@ -1391,7 +1394,7 @@ NULL</code></pre>
 </section>
 <section id="apply-the-custom-theme-7" class="slide level2">
 <h2>Apply the Custom Theme</h2>
-<div class="cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-all-check_159df3c1b9a5bb55da31a6f83ef7da07">
+<div class="cell" data-hash="04-theming_cache/revealjs/apply-theme-custom-grid-all-check_a7af418859de5d0b39b868ecf46e394b">
 <div class="sourceCode cell-code" id="cb57" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>g <span class="sc">+</span> </span>
 <span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">theme_asap_grid</span>(</span>
 <span id="cb57-3"><a href="#cb57-3"></a>    <span class="at">grid =</span> <span class="st">"all"</span></span>
@@ -1492,7 +1495,7 @@ NULL</code></pre>
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true,"theme":"whiteboard","boardmarkerWidth":4},
 'smaller': false,
  
@@ -1735,9 +1738,23 @@ NULL</code></pre>
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
       });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
       const clipboard = new window.ClipboardJS('.code-copy-button', {
-        target: function(trigger) {
-          return trigger.previousElementSibling;
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
       });
       clipboard.on('success', function(e) {

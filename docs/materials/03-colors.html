@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.191">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Cédric Scherer // posit::conf // September 2023">
   <title>Engaging and Beautiful Data Visualizations with ggplot2</title>
@@ -27,9 +27,10 @@
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -95,7 +96,7 @@
     code span.vs { color: #bf0303; } /* VerbatimString */
     code span.wa { color: #bf0303; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -140,44 +141,44 @@
     font-weight: 400;
   }
 
-  .callout.callout-captioned.callout-style-simple .callout-body {
+  .callout.callout-titled.callout-style-simple .callout-body {
     margin-top: 0.2em;
   }
 
-  .callout:not(.callout-captioned) .callout-body {
+  .callout:not(.callout-titled) .callout-body {
       display: flex;
   }
 
-  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
     padding-left: 1.6em;
   }
 
-  .callout.callout-captioned .callout-header {
+  .callout.callout-titled .callout-header {
     padding-top: 0.2em;
     margin-bottom: -0.2em;
   }
 
-  .callout.callout-captioned .callout-caption  p {
+  .callout.callout-titled .callout-title  p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
     
-  .callout.callout-captioned.callout-style-simple .callout-content  p {
+  .callout.callout-titled.callout-style-simple .callout-content  p {
     margin-top: 0;
   }
 
-  .callout.callout-captioned.callout-style-default .callout-content  p {
+  .callout.callout-titled.callout-style-default .callout-content  p {
     margin-top: 0.7em;
   }
 
-  .callout.callout-style-simple div.callout-caption {
+  .callout.callout-style-simple div.callout-title {
     border-bottom: none;
     font-size: .9rem;
     font-weight: 600;
     opacity: 75%;
   }
 
-  .callout.callout-style-default  div.callout-caption {
+  .callout.callout-style-default  div.callout-title {
     border-bottom: none;
     font-weight: 600;
     opacity: 85%;
@@ -209,7 +210,7 @@
     background-size: 0.9rem 0.9rem;
   }
 
-  .callout-caption {
+  .callout-title {
     display: flex
   }
     
@@ -222,16 +223,16 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
     margin-bottom: 0.5rem;
   }
 
-  .callout.callout-captioned .callout-icon::before {
+  .callout.callout-titled .callout-icon::before {
     margin-top: .5rem;
     padding-right: .5rem;
   }
 
-  .callout:not(.callout-captioned) .callout-icon::before {
+  .callout:not(.callout-titled) .callout-icon::before {
     margin-top: 1rem;
     padding-right: .5rem;
   }
@@ -246,7 +247,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
   }
 
-  div.callout-note.callout-style-default .callout-caption {
+  div.callout-note.callout-style-default .callout-title {
     background-color: #dae6fb
   }
 
@@ -258,7 +259,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
   }
 
-  div.callout-important.callout-style-default .callout-caption {
+  div.callout-important.callout-style-default .callout-title {
     background-color: #f7dddc
   }
 
@@ -270,7 +271,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-warning.callout-style-default .callout-caption {
+  div.callout-warning.callout-style-default .callout-title {
     background-color: #fcefdc
   }
 
@@ -282,7 +283,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-tip.callout-style-default .callout-caption {
+  div.callout-tip.callout-style-default .callout-title {
     background-color: #ccf1e3
   }
 
@@ -294,7 +295,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
   }
 
-  div.callout-caution.callout-style-default .callout-caption {
+  div.callout-caution.callout-style-default .callout-title {
     background-color: #ffe5d0
   }
 
@@ -482,7 +483,7 @@
 <img data-src="img/viridis-palette-comparison-deuteranopia.png" alt="The same comparison of commonly used color palettes in R, simulated as seen by a colorblind person with Deuteranopia." class="r-stretch quarto-figure-center"><p class="caption">Palette comparison, as seen by a person with Deuteranopia, from the <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">{viridis} vignette</a></p></section>
 <section id="pre-defined-color-palettes-viridis" class="slide level2">
 <h2>Pre-Defined Color Palettes: Viridis</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis_4e35a6a14c1f8b24c6347e72fe804fe4">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis_97ce9b4563fa8ad4d79a9b63252ce285">
 <div class="column">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="5|3,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb4-2"><a href="#cb4-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -498,7 +499,7 @@
 </section>
 <section id="pre-defined-color-palettes-viridis-1" class="slide level2">
 <h2>Pre-Defined Color Palettes: Viridis</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis-range_eecc71672d4be1cc7a06686acbb38069">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis-range_b50dc296256b94ae455d29e90f8929ca">
 <div class="column">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb5-2"><a href="#cb5-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -517,7 +518,7 @@
 </section>
 <section id="pre-defined-color-palettes-viridis-2" class="slide level2">
 <h2>Pre-Defined Color Palettes: Viridis</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis-seq_1c2e5d37a0d0167a663bd9502649077e">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-viridis-seq_f8d29773a6325c7fb1722a5b9282ccd0">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="5|3,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb6-2"><a href="#cb6-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -533,7 +534,7 @@
 </section>
 <section id="pre-defined-color-palettes-viridis-3" class="slide level2">
 <h2>Pre-Defined Color Palettes: Viridis</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-cividis-seq_218ccef2f7e804b88f7be08845bf4dfb">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-cividis-seq_b505d871ce3d1230e8241d49b4170a05">
 <div class="column">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb7-2"><a href="#cb7-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -551,7 +552,7 @@
 </section>
 <section id="pre-defined-color-palettes-viridis-4" class="slide level2">
 <h2>Pre-Defined Color Palettes: Viridis</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-cividis-seq-rev_1a585b7acf8105c2d663039be200e00d">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-cividis-seq-rev_15c0a3d7499a78380023b80b8e66ac09">
 <div class="column">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb8-2"><a href="#cb8-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -575,7 +576,7 @@
 <img data-src="img/colorbrewer.png" alt="A screnshot of the online tool to test ColorBrewer palettes, which are designed to be used for map purposes. Thus, the tool showcases the colors on a map showing an area in the Southeast of the US." class="r-stretch quarto-figure-center"><p class="caption">The ColorBrewer project: <a href="https://colorbrewer2.org/">colorbrewer2.org</a></p></section>
 <section id="pre-defined-color-palettes-colorbrewer-1" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer_60a9bbfde2ad917aaaec4de6b7d8aeee">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer_1a4467e1cee5113f635bb77fc4da1bc5">
 <div class="column">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb9-2"><a href="#cb9-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -591,7 +592,7 @@
 </section>
 <section id="pre-defined-color-palettes-colorbrewer-2" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer-seq_55243619b7df8d25637ce4dd471622c5">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer-seq_e9ed68b274131b51cc3b34c68a1af681">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb10-2"><a href="#cb10-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -607,21 +608,21 @@
 </section>
 <section id="pre-defined-color-palettes-colorbrewer-3" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-brewer-show-all_5cf252932f16d0b52ae43ba837c68dfb">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-brewer-show-all_4f470cb692fc19dc4159c8d1be87ed3b">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-brewer-show-all-1.png" width="2600" class="r-stretch"></section>
 <section id="pre-defined-color-palettes-colorbrewer-4" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-brewer-show-cvd_4190d89f05f6bb699281d5de3da51f71">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-brewer-show-cvd_32eea79b0da3b5bd42053201caa1b675">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>(<span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-brewer-show-cvd-1.png" width="2600" class="r-stretch"></section>
 <section id="pre-defined-color-palettes-colorbrewer-5" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer-set1_a46fd3a5207d4bd83884c94351b89a30">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer-set1_679dda82178c51e55d74fdd43d6aafd1">
 <div class="column">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb13-2"><a href="#cb13-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -639,7 +640,7 @@
 </section>
 <section id="pre-defined-color-palettes-colorbrewer-6" class="slide level2">
 <h2>Pre-Defined Color Palettes: ColorBrewer</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer-seq-ylorrd-rev_44728ecce13b8d8b90afaf7e85caf8a1">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-brewer-seq-ylorrd-rev_e3bbfce26305a1fa74e09ad9613a6914">
 <div class="column">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb14-2"><a href="#cb14-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -663,7 +664,7 @@
 </section>
 <section id="rcartocolor" class="slide level2">
 <h2>{rcartocolor}</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto_907f3beba01427fc0d3d531489b992f6">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto_04217321ab05bcec73dc5fe067235558">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -679,21 +680,21 @@
 </section>
 <section id="rcartocolor-1" class="slide level2">
 <h2>{rcartocolor}</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-carto-show-all_39c203f582b2cc3e3e6cfdca82206d66">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-carto-show-all_19fe24404925b11fd2cdbbbee06b09a4">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>rcartocolor<span class="sc">::</span><span class="fu">display_carto_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-carto-show-all-1.png" width="2600" class="r-stretch"></section>
 <section id="rcartocolor-2" class="slide level2">
 <h2>{rcartocolor}</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-carto-show-cvd_383a4dede3bf56d3e4233791d52fec4f">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-carto-show-cvd_95ca79ebf5fc143ce9418bf8c793c7f6">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>rcartocolor<span class="sc">::</span><span class="fu">display_carto_all</span>(<span class="at">colorblind_friendly =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-carto-show-cvd-1.png" width="2600" class="r-stretch"></section>
 <section id="rcartocolor-3" class="slide level2">
 <h2>{rcartocolor}</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-safe_804c3f8e148060b1d28c488a4df1c0f0">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-safe_b72c1e5f4652e515b0346967c31214cc">
 <div class="column">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -711,7 +712,7 @@
 </section>
 <section id="scico" class="slide level2">
 <h2>{scico}</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-scico_cbb60ed39d5645ffa126ba53b2bc8ad1">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-scico_49456a91552b49754c9eae327e554d45">
 <div class="column">
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb19-2"><a href="#cb19-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -727,14 +728,14 @@
 </section>
 <section id="scico-1" class="slide level2">
 <h2>{scico}</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-scico-show-all_e10c86745c9bfd05e827cbc71d19b4e5">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-scico-show-all_a63881d91f7b9b354f32b8be05618a83">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>scico<span class="sc">::</span><span class="fu">scico_palette_show</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-scico-show-all-1.png" width="2600" class="r-stretch"></section>
 <section id="scico-2" class="slide level2">
 <h2>{scico}</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-scico-davos_de636cd9c8ece3e53f66f2b1b56263a7">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-scico-davos_c415837f228f22eac6329d3797a3ef0a">
 <div class="column">
 <div class="sourceCode cell-code" id="cb21" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb21-2"><a href="#cb21-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -755,7 +756,7 @@
 <h2>{ggsci} and {ggthemes}</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-ggsci_f455ee0ac69328ce2c41879f6be9b104" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-ggsci_37421643fb46a9902a47c30a58e11c94" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb22" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb22-2"><a href="#cb22-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
 <span id="cb22-3"><a href="#cb22-3"></a>           <span class="at">fill =</span> season)) <span class="sc">+</span></span>
@@ -765,7 +766,7 @@
 <p><img data-src="03-colors_files/figure-revealjs/color-palettes-ggsci-1.png" width="1000"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-ggthemes_6fe5304277a22fb24e3d5046a6c18241" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-ggthemes_1f421c51c41b758d8613e5a9a0af5c78" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb23-2"><a href="#cb23-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
 <span id="cb23-3"><a href="#cb23-3"></a>           <span class="at">fill =</span> season)) <span class="sc">+</span></span>
@@ -780,7 +781,7 @@
 </section>
 <section id="metbrewer" class="slide level2">
 <h2>{MetBrewer}</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer_c6c961c1b0a27099d59e26babaade3bf">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer_89ac8ab9558bc0218a8139b12052a9ae">
 <div class="column">
 <div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb24-2"><a href="#cb24-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -798,21 +799,21 @@
 </section>
 <section id="metbrewer-1" class="slide level2">
 <h2>{MetBrewer}</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-show-all_ef67eca018ada81fe291e5d49d9a13b7">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-show-all_adaa194ddbc85f7642f46840706f353d">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>MetBrewer<span class="sc">::</span><span class="fu">display_all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-metbrewer-show-all-1.png" width="2400" class="r-stretch"></section>
 <section id="metbrewer-2" class="slide level2">
 <h2>{MetBrewer}</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-show-cvd_180d8fd5d1943e2bdb0326824fbe7788">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-show-cvd_0b07ee1ba9e139cb3e2d5b33b676852d">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>MetBrewer<span class="sc">::</span><span class="fu">display_all</span>(<span class="at">colorblind_only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/color-palettes-metbrewer-show-cvd-1.png" width="2400" class="r-stretch"></section>
 <section id="metbrewer-3" class="slide level2">
 <h2>{MetBrewer}</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-cont_c2639e94e62d3b802e96864c75a41273">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-cont_263cef07dbabe81fff57b128d7313970">
 <div class="column">
 <div class="sourceCode cell-code" id="cb27" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb27-2"><a href="#cb27-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> count, </span>
@@ -838,7 +839,7 @@
 <p>More on how to evaluate color palettes: <a href="https://hclwizard.org/color-scheme/">HCLwizard</a> and <a href="https://colorspace.r-forge.r-project.org/articles/palette_visualization.html">colorspace</a>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-colorspace-spec-explain_27bb4ed13d832ef10e0583ff647e980a" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-colorspace-spec-explain_de1a347247fe94318e9aad2a3cb78ac6" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb28-2"><a href="#cb28-2"></a>  colorspace<span class="sc">::</span><span class="fu">diverging_hcl</span>(</span>
 <span id="cb28-3"><a href="#cb28-3"></a>    <span class="at">n =</span> <span class="dv">100</span>, <span class="at">palette =</span> <span class="st">"Blue-Red"</span></span>
@@ -849,7 +850,7 @@
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-hiroshige-spec_8dee7a97451b8688f2079f8467f2dd25">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-hiroshige-spec_2d49149398e60e828f378b4c2a78ecbd">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb29-2"><a href="#cb29-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
 <span id="cb29-3"><a href="#cb29-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Hiroshige"</span></span>
@@ -868,7 +869,7 @@
 <p>More on how to evaluate color palettes: <a href="https://hclwizard.org/color-scheme/">HCLwizard</a> and <a href="https://colorspace.r-forge.r-project.org/articles/palette_visualization.html">colorspace</a>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-cassatt2-spec_22ca003d2d17db9c3046e154bb8d39cc" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-cassatt2-spec_560fbb9387bded5be92ecdcd2742028e" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb30-2"><a href="#cb30-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
 <span id="cb30-3"><a href="#cb30-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Cassatt2"</span></span>
@@ -879,7 +880,7 @@
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-veronese-spec_2d87e789b596261f46a2ca446f968a48">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-veronese-spec_4b2cc5f4a72fad2089eb3bab1a5b47a9">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb31-2"><a href="#cb31-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
 <span id="cb31-3"><a href="#cb31-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Veronese"</span></span>
@@ -898,7 +899,7 @@
 <p>More on how to evaluate color palettes: <a href="https://hclwizard.org/color-scheme/">HCLwizard</a> and <a href="https://colorspace.r-forge.r-project.org/articles/palette_visualization.html">colorspace</a>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-viridis-spec_06f400d7be7a48b3fa43eb7c3709be47" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-viridis-spec_7b752b88279019ab25e2af2c15817520" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb32-2"><a href="#cb32-2"></a>  viridis<span class="sc">::</span><span class="fu">viridis</span>(</span>
 <span id="cb32-3"><a href="#cb32-3"></a>    <span class="at">n =</span> <span class="dv">100</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
@@ -909,7 +910,7 @@
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-hokusai-spec_acfae00d1f2cba942a7eb742e124471e">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-metbrewer-hokusai-spec_4897287cbdf94a5bd9c44d329f03f7d9">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb33-2"><a href="#cb33-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
 <span id="cb33-3"><a href="#cb33-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Hokusai3"</span></span>
@@ -928,7 +929,7 @@
 <p>More on how to evaluate color palettes: <a href="https://hclwizard.org/color-scheme/">HCLwizard</a> and <a href="https://colorspace.r-forge.r-project.org/articles/palette_visualization.html">colorspace</a>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-rainbow-spec_29a1937aad6784f64c076b460a4bda19" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-rainbow-spec_a76f2d98ab0289e579b9a636ec3e2850" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">rainbow</span>(</span>
 <span id="cb34-3"><a href="#cb34-3"></a>    <span class="at">n =</span> <span class="dv">100</span></span>
@@ -939,7 +940,7 @@
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palette-viridis-spec_fc9ad9dfce1339d71ae05e506d81db9a">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palette-viridis-spec_9ec55546d16a0759715e428ae084614c">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb35-2"><a href="#cb35-2"></a>  viridis<span class="sc">::</span><span class="fu">turbo</span>(</span>
 <span id="cb35-3"><a href="#cb35-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
@@ -960,7 +961,7 @@
 </section>
 <section id="customize-existing-palettes" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-default_20da4da1c63da054b20cefbde64c3286">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-default_4d219fc46a7555bb9a15cf8b20edf6dc">
 <div class="column">
 <div class="sourceCode cell-code" id="cb36" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb36-2"><a href="#cb36-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -978,7 +979,7 @@
 </section>
 <section id="customize-existing-palettes-1" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-manual_9767ef65bcadcb7ad92d1d37914a2a09">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-manual_72dabc3be0d4d17fc7da901ad45df7f0">
 <div class="column">
 <div class="sourceCode cell-code" id="cb37" data-code-line-numbers="5,9|6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb37-2"><a href="#cb37-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -998,7 +999,7 @@
 </section>
 <section id="customize-existing-palettes-2" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-custom_d52615c049aa078f88c24dd47d3b26d9">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-custom_46bb4cdc550c322c9ebe3ea3528157a9">
 <div class="column">
 <div class="sourceCode cell-code" id="cb38" data-code-line-numbers="6,7,8|7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb38-2"><a href="#cb38-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -1018,7 +1019,7 @@
 </section>
 <section id="customize-existing-palettes-3" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-custom-2_8bd74e191ec9ef88e09d9b1713c2f432">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-custom-2_5b2fe727cec8252af4b3dbb6a648c83d">
 <div class="column">
 <div class="sourceCode cell-code" id="cb39" data-code-line-numbers="6,7,8|7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb39-2"><a href="#cb39-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
@@ -1038,7 +1039,7 @@
 </section>
 <section id="customize-existing-palettes-4" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-custom-assign_f426e64a83712cc5055c965da5ef07ec">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-custom-assign_9811f985b1013a7d442f71e4541f90ea">
 <div class="column">
 <div class="sourceCode cell-code" id="cb40" data-code-line-numbers="1,2,3,4|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>carto_custom <span class="ot">&lt;-</span> </span>
 <span id="cb40-2"><a href="#cb40-2"></a>  rcartocolor<span class="sc">::</span><span class="fu">carto_pal</span>(</span>
@@ -1061,7 +1062,7 @@
 </section>
 <section id="customize-existing-palettes-5" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-light_0f63ddcecdba2b0dbff9470e68ef088e">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-light_75b3af632e3e764649c65de3467afd54">
 <div class="column">
 <div class="sourceCode cell-code" id="cb41" data-code-line-numbers="1|3,4,5|12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">library</span>(prismatic)</span>
 <span id="cb41-2"><a href="#cb41-2"></a></span>
@@ -1085,7 +1086,7 @@
 </section>
 <section id="customize-existing-palettes-6" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale_e183bb31833e4f87c279d04af33b6dea">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale_f5833f6280c615372aa0bbf5faad5d2c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb42" data-code-line-numbers="2,4|10|4,5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb42-2"><a href="#cb42-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count)) <span class="sc">+</span></span>
@@ -1107,7 +1108,7 @@
 </section>
 <section id="customize-existing-palettes-7" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale-stage_e3028f2e4e285e141ae3e1863ce928c6">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale-stage_dc30befdef470b5e1a28b1d83195752c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb43" data-code-line-numbers="4,5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb43-2"><a href="#cb43-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count)) <span class="sc">+</span></span>
@@ -1129,7 +1130,7 @@
 </section>
 <section id="customize-existing-palettes-8" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale-2_360f875ddc60dc5c31a2c47ce3160234">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale-2_61b0741e6de5351f5d79528a66f34d06">
 <div class="column">
 <div class="sourceCode cell-code" id="cb44" data-code-line-numbers="4|4,5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb44-2"><a href="#cb44-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count)) <span class="sc">+</span></span>
@@ -1151,7 +1152,7 @@
 </section>
 <section id="customize-existing-palettes-9" class="slide level2">
 <h2>Customize Existing Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale-combined_2f785f42ffea3b0910a6e794cae1be0d">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-carto-afterscale-combined_c8e6a15d2c4fd93b7832f3708a766275">
 <div class="column">
 <div class="sourceCode cell-code" id="cb45" data-code-line-numbers="3,10|4,5,6,7|4,5,6,7,11,12,13,14|4,5,6,7,11,12,13,14,21,22,23|3,8|10,15,16,17,18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">ggplot</span>(bikes,</span>
 <span id="cb45-2"><a href="#cb45-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count)) <span class="sc">+</span></span>
@@ -1191,7 +1192,7 @@
 </section>
 <section id="create-sequential-palettes" class="slide level2">
 <h2>Create Sequential Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient_eeed5ef6d1fecc65a66d7c3e9f6f1398">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient_4d6b9d8e341a7a25bacb54e2d48920d2">
 <div class="column">
 <div class="sourceCode cell-code" id="cb46" data-code-line-numbers="5,8|6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb46-2"><a href="#cb46-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1210,7 +1211,7 @@
 </section>
 <section id="create-diverging-palettes" class="slide level2">
 <h2>Create Diverging Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient2_df255adf02f4e6800900b0e65f526017">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient2_ada09a88b90f4cce316dfb1672acbc6e">
 <div class="column">
 <div class="sourceCode cell-code" id="cb47" data-code-line-numbers="5,9|6,7,8|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb47-2"><a href="#cb47-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1230,7 +1231,7 @@
 </section>
 <section id="create-diverging-palettes-1" class="slide level2">
 <h2>Create Diverging Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient2-midpoint_7d7369bce1c317c0d882f2200d453c63">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient2-midpoint_3a698f0331a838dbe421068b772a7715">
 <div class="column">
 <div class="sourceCode cell-code" id="cb48" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb48-2"><a href="#cb48-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1251,7 +1252,7 @@
 </section>
 <section id="create-diverging-palettes-2" class="slide level2">
 <h2>Create Diverging Palettes</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient2-midpoint-limits_b9f21e66378fb82c8b738462fa3158ab">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradient2-midpoint-limits_3a7dc2943749478633c069b649044e78">
 <div class="column">
 <div class="sourceCode cell-code" id="cb49" data-code-line-numbers="4|9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb49-2"><a href="#cb49-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1276,7 +1277,7 @@
 <p>More on how to evaluate color palettes: <a href="https://hclwizard.org/color-scheme/">HCLwizard</a> and <a href="https://colorspace.r-forge.r-project.org/articles/palette_visualization.html">colorspace</a>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-gradient-spec_b982d0458676487838dcaffd436b3895" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-gradient-spec_2a743c14074d9e2d170e542573db0330" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">colorRampPalette</span>(</span>
 <span id="cb50-3"><a href="#cb50-3"></a>    <span class="fu">c</span>(<span class="st">"#1D785A"</span>, <span class="st">"#FFCE52"</span>)</span>
@@ -1286,7 +1287,7 @@
 <p><img data-src="03-colors_files/figure-revealjs/color-palettes-gradient-spec-1.png" width="1000"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palette-gradient2-spec_a33a4bf022ab380dc30b5f30b8369f02" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palette-gradient2-spec_daf68e4b419e8f64c52b35368e15b40d" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">colorRampPalette</span>(</span>
 <span id="cb51-3"><a href="#cb51-3"></a>    <span class="fu">c</span>(<span class="st">"#663399"</span>, <span class="st">"grey85"</span>, <span class="st">"#993334"</span>)</span>
@@ -1301,7 +1302,7 @@
 </section>
 <section id="create-any-palette" class="slide level2">
 <h2>Create Any Palette</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradientn_582219e220eba2a85f9d36b40d6ff136">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradientn_995c9ca18309c040a227028e8ff1e818">
 <div class="column">
 <div class="sourceCode cell-code" id="cb52" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb52-2"><a href="#cb52-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1319,7 +1320,7 @@
 </section>
 <section id="create-any-palette-1" class="slide level2">
 <h2>Create Any Palette</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/colorRampPalette_d9326dae0fe833978a6d9c3673a58d7b">
+<div class="cell" data-hash="03-colors_cache/revealjs/colorRampPalette_3726efb2fc204b72706edc6abced9ff2">
 <div class="sourceCode cell-code" id="cb53" data-code-line-numbers="2,3,4|1,2,3,4|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>pal_c <span class="ot">&lt;-</span> </span>
 <span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">colorRampPalette</span>(</span>
 <span id="cb53-3"><a href="#cb53-3"></a>    <span class="fu">c</span>(<span class="st">"#663399"</span>, <span class="st">"grey85"</span>, <span class="st">"#993334"</span>)</span>
@@ -1331,7 +1332,7 @@
 <img data-src="03-colors_files/figure-revealjs/colorRampPalette-1.png" width="2800" class="r-stretch"></section>
 <section id="create-any-palette-2" class="slide level2">
 <h2>Create Any Palette</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradientn-weight_053264e2664cfcf84435dfc973141c83">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/color-palettes-gradientn-weight_3897bf8b8d0e1824a439f163fb9ceb50">
 <div class="column">
 <div class="sourceCode cell-code" id="cb54" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>), </span>
 <span id="cb54-2"><a href="#cb54-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1387,14 +1388,14 @@
 </section>
 <section id="build-custom-color-scales-1" class="slide level2">
 <h2>Build Custom Color Scales</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/colors-dubois-test-all_c9744233aeb20b8e4842c99449d3d74d">
+<div class="cell" data-hash="03-colors_cache/revealjs/colors-dubois-test-all_39e6ee97def14993455977f9f08ddab6">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">plot</span>(<span class="fu">color</span>(<span class="fu">dubois_colors</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/colors-dubois-test-all-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-2" class="slide level2">
 <h2>Build Custom Color Scales</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/colors-dubois-test-select_6388e77a462d96bb414b6c7c7c295249">
+<div class="cell" data-hash="03-colors_cache/revealjs/colors-dubois-test-select_9f4f5fcf6446797258eb6fea40dd1ffe">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">plot</span>(<span class="fu">color</span>(<span class="fu">dubois_colors</span>(<span class="st">"black"</span>, <span class="st">"violet"</span>, <span class="st">"softred"</span>, <span class="st">"iceblue"</span>, <span class="st">"palegrey"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -1430,21 +1431,21 @@
 </section>
 <section id="build-custom-color-scales-categorical-1" class="slide level2">
 <h2>Build Custom Color Scales: Categorical</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/pal-d-dubois-test-default_8c28375e21b8f828f2f4f23e6a1ed916">
+<div class="cell" data-hash="03-colors_cache/revealjs/pal-d-dubois-test-default_16771e453bda914140fb5e53fe23f602">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">plot</span>(<span class="fu">color</span>(<span class="fu">dubois_pal_d</span>()(<span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/pal-d-dubois-test-default-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-categorical-2" class="slide level2">
 <h2>Build Custom Color Scales: Categorical</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/pal-d-dubois-test-dark-rev_d39de763b6c98380416668c1b65ad80c">
+<div class="cell" data-hash="03-colors_cache/revealjs/pal-d-dubois-test-dark-rev_29e62fc5837043784c2a1f7ad0cdf57c">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">plot</span>(<span class="fu">color</span>(<span class="fu">dubois_pal_d</span>(<span class="at">palette =</span> <span class="st">"dark"</span>, <span class="at">reverse =</span> <span class="cn">TRUE</span>)(<span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/pal-d-dubois-test-dark-rev-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-categorical-3" class="slide level2">
 <h2>Build Custom Color Scales: Categorical</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-discrete-function-color_398c3912031cbeb4856922f21763b0f8">
+<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-discrete-function-color_43244b3883786e51d1f610cf55c346e9">
 <div class="sourceCode cell-code" id="cb61" data-code-line-numbers="1,12|3,4,5|7,8|10,11|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>scale_color_dubois_d <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">palette =</span> <span class="st">"default"</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>, ...) {</span>
 <span id="cb61-2"><a href="#cb61-2"></a>  </span>
 <span id="cb61-3"><a href="#cb61-3"></a>  <span class="co"># check arguments</span></span>
@@ -1488,7 +1489,7 @@
 </section>
 <section id="use-your-custom-color-scales-categorical" class="slide level2">
 <h2>Use Your Custom Color Scales: Categorical</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/dubois-scales-fill-d-use_d44b1c4fc03a1f1b245f92cc8ed68501">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/dubois-scales-fill-d-use_1fffeb1ea7b9805306ba1a38f71b29d4">
 <div class="column">
 <div class="sourceCode cell-code" id="cb63" data-code-line-numbers="2,3|4|5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">ggplot</span>(bikes, </span>
 <span id="cb63-2"><a href="#cb63-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> weather_type, </span>
@@ -1508,7 +1509,7 @@
 </section>
 <section id="build-custom-color-scales-sequential" class="slide level2">
 <h2>Build Custom Color Scales: Sequential</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/dubois-colors-pal-c-function_e28122bcad21fd186ce0ddcfa14a475c">
+<div class="cell" data-hash="03-colors_cache/revealjs/dubois-colors-pal-c-function_ba392dad5e2a82d81df1f572b86d5adb">
 <div class="sourceCode cell-code" id="cb64" data-code-line-numbers="1,22|3,4,5|7,8,9,10,11|13,14,15|17,18|20,21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>dubois_pal_c <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">palette =</span> <span class="st">"dark"</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>, ...) {</span>
 <span id="cb64-2"><a href="#cb64-2"></a>  </span>
 <span id="cb64-3"><a href="#cb64-3"></a>  <span class="co"># check arguments</span></span>
@@ -1535,21 +1536,21 @@
 </section>
 <section id="build-custom-color-scales-sequential-1" class="slide level2">
 <h2>Build Custom Color Scales: Sequential</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/pal-c-dubois-test-default_fc4a65a37ff1aa9935358ddde362ed25">
+<div class="cell" data-hash="03-colors_cache/revealjs/pal-c-dubois-test-default_8794f49e5cca7f4d6d177b1f78061c4d">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">plot</span>(<span class="fu">color</span>(<span class="fu">dubois_pal_c</span>()(<span class="dv">50</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/pal-c-dubois-test-default-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-sequential-2" class="slide level2">
 <h2>Build Custom Color Scales: Sequential</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/pal-c-dubois-test-light-rev_6abff668260fff7a6586c95df0888d05">
+<div class="cell" data-hash="03-colors_cache/revealjs/pal-c-dubois-test-light-rev_4b86fe4c80df637937cf6fef8a1c5de4">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">plot</span>(<span class="fu">color</span>(<span class="fu">dubois_pal_c</span>(<span class="at">palette =</span> <span class="st">"light"</span>, <span class="at">reverse =</span> <span class="cn">TRUE</span>)(<span class="dv">7</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/pal-c-dubois-test-light-rev-1.png" width="2800" class="r-stretch"></section>
 <section id="build-custom-color-scales-sequential-3" class="slide level2">
 <h2>Build Custom Color Scales: Sequential</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-continuous-functions-color_72f08f95901e3b735711ee6ec4cc6b78">
+<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-continuous-functions-color_0d66a53ea0a384b9875540220835d5ea">
 <div class="sourceCode cell-code" id="cb67" data-code-line-numbers="1,10|3,4,5|7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>scale_color_dubois_c <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">palette =</span> <span class="st">"dark"</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>, ...) {</span>
 <span id="cb67-2"><a href="#cb67-2"></a>  </span>
 <span id="cb67-3"><a href="#cb67-3"></a>  <span class="co"># check function arguments</span></span>
@@ -1564,7 +1565,7 @@
 </section>
 <section id="build-custom-color-scales-sequential-4" class="slide level2">
 <h2>Build Custom Color Scales: Sequential</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-continuous-functions_2393647eb5d87a6701ebb4ebaab1d41a">
+<div class="cell" data-hash="03-colors_cache/revealjs/dubois-scale-continuous-functions_53fcd5ec9215adc166b49e0941e43678">
 <div class="sourceCode cell-code" id="cb68" data-code-line-numbers="12,19|12,13,14,15,16,17,18,19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>scale_color_dubois_c <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">palette =</span> <span class="st">"dark"</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>, ...) {</span>
 <span id="cb68-2"><a href="#cb68-2"></a>  </span>
 <span id="cb68-3"><a href="#cb68-3"></a>  <span class="co"># check function arguments</span></span>
@@ -1588,7 +1589,7 @@
 </section>
 <section id="use-your-custom-color-scales-sequential" class="slide level2">
 <h2>Use Your Custom Color Scales: Sequential</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/dubois-scales-color-c-use-1_eb1c34a9bdceb0120dc311c668bebb2d">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/dubois-scales-color-c-use-1_d53475896779378a966e61659c186879">
 <div class="column">
 <div class="sourceCode cell-code" id="cb69" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb69-2"><a href="#cb69-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1604,7 +1605,7 @@
 </section>
 <section id="use-your-custom-color-scales-sequential-1" class="slide level2">
 <h2>Use Your Custom Color Scales: Sequential</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/dubois-scales-color-c-use-2_b2ce890cb89d235a4f3559cfa24233b7">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/dubois-scales-color-c-use-2_97883437444fa925426f90f3a0a3fbb8">
 <div class="column">
 <div class="sourceCode cell-code" id="cb70" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">ggplot</span>(<span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb70-2"><a href="#cb70-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count, </span>
@@ -1626,7 +1627,7 @@
 <p>More on how to evaluate color palettes: <a href="https://hclwizard.org/color-scheme/">HCLwizard</a> and <a href="https://colorspace.r-forge.r-project.org/articles/palette_visualization.html">colorspace</a>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-dubois-spec-a_751cbaed14b8bc7559aef58e8ed67ff4" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="03-colors_cache/revealjs/color-palettes-dubois-spec-a_149610de3f67eacf7281e2ce54f7adb6" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb71-2"><a href="#cb71-2"></a>  <span class="fu">dubois_pal_c</span>()(<span class="dv">100</span>)</span>
 <span id="cb71-3"><a href="#cb71-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1635,7 +1636,7 @@
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-dubois-spec-b_8237e34149c21827fd3f54574bb68dee">
+<div class="cell" data-hash="03-colors_cache/revealjs/color-palettes-dubois-spec-b_082397e0b8ac804db092e9f1946e4256">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
 <span id="cb72-2"><a href="#cb72-2"></a>  <span class="fu">dubois_pal_c</span>(<span class="at">palette =</span> <span class="st">"light"</span>)(<span class="dv">100</span>)</span>
 <span id="cb72-3"><a href="#cb72-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1654,7 +1655,7 @@
 </section>
 <section id="emulate-cvd" class="slide level2">
 <h2>Emulate CVD</h2>
-<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/cvd-emulation-deutan_cf67380e4e4aa2751865fb271149ebd6">
+<div class="cell columns column-output-location" data-hash="03-colors_cache/revealjs/cvd-emulation-deutan_a9e426482120432c943f2a4a00f7b526">
 <div class="column">
 <div class="sourceCode cell-code" id="cb73" data-code-line-numbers="1,2,3,4|10,11,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>deut <span class="ot">&lt;-</span> </span>
 <span id="cb73-2"><a href="#cb73-2"></a>  prismatic<span class="sc">::</span><span class="fu">clr_deutan</span>(</span>
@@ -1696,14 +1697,14 @@
 </section>
 <section id="emulate-cvd-2" class="slide level2">
 <h2>Emulate CVD</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorblindr-1_87fc4e10439119109030c189b7bd0182">
+<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorblindr-1_d9bd6e34f9356f2dc942e9b0549a3b56">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="03-colors_files/figure-revealjs/cvd-emulation-colorblindr-1-1.png" width="2800" class="r-stretch"></section>
 <section id="emulate-cvd-3" class="slide level2">
 <h2>Emulate CVD</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorBlindness-1_98f83b290770fe5bb915920f3664d672">
+<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorBlindness-1_bcbc02bd7badaaa89c5a44e73f7c4a95">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>colorBlindness<span class="sc">::</span><span class="fu">cvdPlot</span>(g1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -1731,7 +1732,7 @@
 </section>
 <section id="emulate-cvd-5" class="slide level2">
 <h2>Emulate CVD</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorblindr-2_f80b4361a143238869e1d838d5926b9b">
+<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorblindr-2_bb5c06a8980d03defe51762cae144e5e">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -1765,7 +1766,7 @@
 </section>
 <section id="emulate-cvd-7" class="slide level2">
 <h2>Emulate CVD</h2>
-<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorblindr-3_f24a05f445b4c49927ece84953205565">
+<div class="cell" data-hash="03-colors_cache/revealjs/cvd-emulation-colorblindr-3_573a580c17c14675722748b13d2e45d9">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -1852,7 +1853,7 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true,"theme":"whiteboard","boardmarkerWidth":4},
 'smaller': false,
  
@@ -2095,9 +2096,23 @@
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
       });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
       const clipboard = new window.ClipboardJS('.code-copy-button', {
-        target: function(trigger) {
-          return trigger.previousElementSibling;
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
       });
       clipboard.on('success', function(e) {

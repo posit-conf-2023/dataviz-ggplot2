@@ -17,7 +17,7 @@ $presentation-block-margin: .0375rem;
 /*-- scss:rules --*/
 
 h1 {
-  font-family: 'Literata', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;;
+  font-family: 'Literata', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;
   font-weight: 800;
   font-style: italic;
 }
@@ -65,7 +65,11 @@ code, .code {
 }
 
 h1.title {
-  font-size: 2.5em;
+  font-family: 'Literata', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.05;
+  font-style: italic;
 }
 
 @media screen and (max-width:768px) {
